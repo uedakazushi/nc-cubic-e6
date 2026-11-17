@@ -37,6 +37,29 @@ Milnorの二次Kummer被覆からCianiの楕円$D_κ$への射は**次数$bc$の
 
 主題別に [基礎](research/research_notes.md)、[DAHA比較](research/fricke_daha_comparison.md)、[Poisson](research/poisson_order_notes.md)、[LG/G2](research/cayley_lg_connections.md)、[全period](research/conic_period_coordinates.md)、[境界力学](research/boundary_pell_dynamics.md) を参照する。
 
+## LuaLaTeXでの主論文の組版
+
+**リポジトリのルートディレクトリ**から次のコマンドを実行する。
+
+```sh
+latexmk -r .latexmkrc -lualatex papers/nc-cubic-e6.tex
+```
+
+出力先は `build/nc-cubic-e6.pdf`、SyncTeXも `build` に生成される。
+VS CodeのLaTeX Workshopでもワークスペースとしてリポジトリルートを開き、
+`papers/nc-cubic-e6.tex` を主ファイルとしてビルドする。
+複数の`sections/*.tex`は主原稿から読み込む節であり、単独の文書classは持たない。
+
+2026-11-18に発見した二点を修正した。
+新Prym偏極節の `\\mathscr` に対し、主ファイルで `mathrsfs` をロードする。
+また `quantum_cubic_quadratic_obstruction.tex` が
+`artin_reconstruction.tex` からと主ファイルからの二重`\\input`となっていたため、
+主ファイルから一度だけ読み込む形に整理した。
+前者の停止エラーを同じプリアンブルと新節を用いて再現・修正し、
+新節全4頁をLuaLaTeX+latexmkで組版した。
+**現行主論文の全入力を揃えた一括組版は未実施**であり、
+全主論文の成功をこの個別検証から主張しない。
+
 ## 再現・確認済み範囲
 
 ```sh
