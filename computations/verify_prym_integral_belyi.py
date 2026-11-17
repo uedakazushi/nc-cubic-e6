@@ -49,6 +49,25 @@ assert s.expand(Dinf-64*t**10*(1-t*t))==0
 assert 2*3==3*2==4+1+1==6
 assert 10-2-8==0
 
+# Monodromy of the degree-six Belyi cover: all transitive branch triples
+# of passport (3,3), (2,2,2), (4,1,1) generate the same order-24 group.
+from itertools import permutations
+from sympy.combinatorics import Permutation, PermutationGroup
+g_inf=Permutation(0,1,2,3,size=6)
+compatible=[]
+for tup in permutations(range(6)):
+    g_zero=Permutation(list(tup))
+    if sorted(len(cyc) for cyc in g_zero.cyclic_form)!=[3,3]:continue
+    g_1728=(g_zero*g_inf)**-1
+    if sorted(len(cyc) for cyc in g_1728.cyclic_form)!=[2,2,2]:continue
+    G=PermutationGroup([g_zero,g_1728])
+    if G.is_transitive():
+        assert G.order()==24
+        assert G.derived_subgroup().order()==12
+        assert G.derived_subgroup().derived_subgroup().order()==4
+        compatible.append([g_zero.cyclic_form,g_1728.cyclic_form])
+assert len(compatible)==4
+
 cert={'date':'2026-11-18','version':'e6-connections-v31','status':'PASS',
  'arithmetic':'exact rational polynomials and integer congruences',
  'records':records[:6],'instances_checked':len(records),
@@ -59,6 +78,8 @@ cert={'date':'2026-11-18','version':'e6-connections-v31','status':'PASS',
  'elliptic_j':'64*(4*kappa^2-3)^3/(kappa^2-1)',
  'kodaira':'I1, I1, I4*','Miranda_Persson':'X411, Mordell-Weil Z/2',
  'belyi_passport':{'0':[3,3],'1728':[2,2,2],'infinity':[4,1,1]},
+ 'belyi_monodromy':'S4, faithful degree-six coset action on S4/C4',
+ 'compatible_transitive_branch_triples_fixed_infinity':len(compatible),
  'ordinary_inputs_not_computationally_certified':[
    'cyclic covering function fields and local ramification indices',
    'totally ramified pullback on Jacobians is injective',
