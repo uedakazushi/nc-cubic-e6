@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Run all exact certificates; geometric and categorical arguments are separate.
 
-validation.json is written only after all checks succeed. Merely changing
-this runner is not a run, and individual certificates state their scope.
+validation.json is written only after all checks succeed. Updating this
+runner is not a run. Individual certificates state their verified scope.
 """
 from pathlib import Path
 import subprocess, sys, json, platform
@@ -23,14 +23,14 @@ checks = [
     'verify_casimir_poisson_leaves.py', 'verify_relative_poisson_cover.py',
     'verify_companion_s5.py', 'verify_cayley_lg_connections.py',
     'verify_lg_picard_g2.py', 'verify_g2_braids_periods.py',
-    'verify_logarithmic_periods.py',
+    'verify_logarithmic_periods.py', 'verify_conic_period_coordinates.py',
 ]
 completed = []
 for name in checks:
     subprocess.run([sys.executable, str(root / name)], check=True, cwd=root)
     completed.append({'script': name, 'status': 'PASS'})
 result = {
-    'date': '2026-11-17', 'version': 'e6-connections-v22', 'status': 'PASS',
+    'date': '2026-11-17', 'version': 'e6-connections-v23', 'status': 'PASS',
     'python': platform.python_version(), 'sympy': sympy.__version__,
     'networkx': networkx.__version__, 'completed': completed,
     'separate_mathematical_inputs': [
@@ -38,7 +38,7 @@ result = {
         'fixed-envelope dual criterion for nodal-center H3',
         'Terwilliger universal AW Casimir and PSL2Z action',
         'Goldman Fricke trace cubic',
-        'Schock--Naruki D4 lattice of a tritangent cubic',
+        'Schock--Naruki D4 lattice and period torus of a tritangent cubic',
         'Sklyanin boundary and CY/PBW theorems',
         'Hochschild local-to-global and categorical obstruction theory',
         'De Deken--Lowen Theorem 4.5 and perfect-object lifting',
@@ -56,7 +56,8 @@ result = {
         'primitive boundary torus and analytic Cauchy residue integral',
         'conic matching sphere construction and analytic period continuation',
         'Friedman Proposition 3.12 and Looijenga algebraic period comparison',
-        'rational mixed Hodge nonsplitting criterion using normalized periods',
+        'compatible conic component contraction to F1',
+        'boundary line-bundle gluing and rational MHS splitting criterion',
     ],
     'not_certified_by_this_run': [
         'global H3 algebraic-stack construction',
@@ -69,8 +70,8 @@ result = {
         'choice-independent global Milnor-Picard splitting',
         'mirror or Fukaya-Seidel equivalence',
         'G2 quantum algebra comparison',
-        'full rank-five Gauss-Manin connection or simultaneous integral D4 period basis',
-        'splitting criterion for the entire family of mixed Hodge structures',
+        'full rank-five algebraic Gauss-Manin connection matrices',
+        'extending the conic chart splitting criterion to all degenerations',
         'non-archimedean SYZ model or good-reduction verification',
         'categorical relation to nearly Kahler geometry',
         'independent peer review', 'novelty', 'GitHub or Library saving',
