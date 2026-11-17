@@ -28,13 +28,14 @@ checks = [
     'verify_localization_entropy.py', 'verify_boundary_torus_links.py',
     'verify_boundary_thresholds.py', 'verify_boundary_analytic_moduli.py',
     'verify_boundary_prym.py',
+    'verify_prym_integral_belyi.py',
 ]
 completed = []
 for name in checks:
     subprocess.run([sys.executable, str(root / name)], check=True, cwd=root)
     completed.append({'script': name, 'status': 'PASS'})
 result = {
-    'date': '2026-11-18', 'version': 'e6-connections-v30', 'status': 'PASS',
+    'date': '2026-11-18', 'version': 'e6-connections-v31', 'status': 'PASS',
     'python': platform.python_version(), 'sympy': sympy.__version__,
     'networkx': networkx.__version__, 'completed': completed,
     'separate_mathematical_inputs': [
@@ -87,6 +88,8 @@ result = {
         'elliptic curves with a marked nonzero two-torsion point',
         'connected Kummer covers and Riemann-Hurwitz',
         'Prym norm and pullback, Ciani Jacobian isogeny decomposition',
+        'cyclic Milnor cover with total ramification and theta polarization',
+        'Miranda--Persson X411 classification, Kodaira and Shioda--Tate',
         'Gauss-Manin compatibility of finite curve maps',
         'Hua--Keller Theorem 5.9 for ordinary Z-graded dg singularity categories',
     ],
@@ -113,7 +116,7 @@ result = {
         'general strictly two-periodic MF reconstruction for higher-weight germs',
         'elliptic isogeny inducing an MF equivalence or categorical summand',
         'the Kummer-Prym construction for the actual non-quasihomogeneous germ',
-        'integral or polarization-preserving Jacobian product decomposition',
+        'integral direct-product splitting of the full Prym polarization',
         'complete comparison between relative periodic and absolute dg Hochschild theory',
         'functors or exact cobordisms between different local Weinstein models',
         'independent peer review', 'novelty', 'GitHub or Library saving',
