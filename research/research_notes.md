@@ -1,6 +1,6 @@
 # 成分研究ノート
 
-2026-11-17 / triangle-component-v14。方針はルートの `00_research_plan.md`、証明は `papers/nc-cubic-e6.tex`（rootからのパス）。
+2026-11-17 / triangle-component-v16。方針はルートの `00_research_plan.md`、証明は `papers/nc-cubic-e6.tex`（rootからのパス）。
 このノートは履歴ではなく、現在の入力・障害・再開のための知識を記す。
 
 ## 1. 記法と既存入力
@@ -232,3 +232,8 @@ Terwilligerのbraid生成元 sigma は (a,b,c)↔(b,a,c)、x↔y、z→(q²-q)xy
 先行研究・課題の具体表は `research/fricke_daha_comparison.md`。四穴球面skein=普遍AW同型（Crampé等）、rank-one DAHA embedding（Terwilliger）、Racah $U_q(sl2)$、Hikami cluster、Bousseau mirror、Painlevé、EOR E6-GDAHAの各適用範囲を分ける。**残課題**：root-of-unityでのskein/DAHA mapのspecialization、Casimir切断のH3性（一般の三角境界切断の滑らかH3条件とは別）、Brown--Gordon Poisson orderがGoldman bracketになるか、量子的VietaのH3心への延長、D4 triangleからE6 ellipticの相対変形。各個別式の文献新規性は未判定。原稿section `sec:daha-character`、二つの小JSON証明書を参照。
 
 Goldman--Toledo (arXiv:1006.3838) は無限遠が一般tritangent planeである任意の三次曲面を四穴球面character varietyとして実現するので、Fricke cubicへの同型自体は新規ではない。Schock, Math. Nachr. 297 (2024), 2639--2666, §2 は三角形付き三次曲面の直交D4根格子をNaruki--Looijengaの既知構造として記載する。六点blow-upで境界D_i=H-E_(2i-1)-E_(2i)、直交root基底H-E1-E3-E5, E1-E2, E3-E4, E5-E6を得、そのGramが負Cartan D4である。K^perp=E6(-1)。独立整数格子計算は `computations/verify_d4_lattice.py`；主論文命題`prop:d4-inside-e6`。これがD4 DAHA・Fricke側とE6 del Pezzo側を同じPicard格子で結ぶ具体的な古典幾何であり、量子/圏的同値の証明ではない。
+
+
+## 現行のCasimir Poisson葉とH3判定への接続
+
+Poisson量子化・十零点・CasimirのH3可否・VietaのS4対称性についての有効な証明・計算は主論文 `papers/sections/quantum_cubic_poisson_orders.tex`, `papers/sections/quantum_cubic_casimir_leaves.tex` に統合した。規約、具体的障害と次の研究は `research/poisson_order_notes.md` §1–5を参照する。総中心の五節点から生じるCasimirのA1切断はH3、滑らかな総中心のCasimir臨界点で生じるA1切断は非H3（既存H3定理への依存あり）。一般a,b,cや八次元intrinsic族への拡張は未完成。個別公式の既出性は未確認。
