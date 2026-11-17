@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-17",
+  "version": "e6-daha-braid-v1",
+  "status": "PASS",
+  "field": "Q[q]/(q^2+q+1)",
+  "PBW_rules": [
+    "yx=q^2 xy-q^2(z+c)",
+    "zx=q xz+y+b",
+    "zy=q^2 yz-q^2(x+a)"
+  ],
+  "quantum_sigma": "a<->b, x<->y, z->(q^2-q)xy-q^2z+q c",
+  "verified": [
+    "all three defining relations preserved",
+    "Omega_abc fixed",
+    "e(sigma(Z)+Z)=XY+c Omega-ell_c"
+  ],
+  "authoritative_input": "Terwilliger sigma from Lemma 2.3/2.5; formulas checked in original PBW algebra",
+  "not_proved": [
+    "all skein/DAHA root-of-unity specialization equivalences",
+    "Braid action extending to full elliptic family",
+    "categorical autoequivalence of H3 hearts"
+  ]
+}
