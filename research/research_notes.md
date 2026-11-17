@@ -8,7 +8,7 @@
 qは原始三乗根。B_aの低次係数はa,b,c、中心三次線の係数はalpha,beta,gamma,delta,epsilon。
 添字RはEtingof--Ginzburg/Rains公式の変数であり、包絡の中心一次元tとは区別する。
 
-依存する既存原稿の固定参照は nc-cubic-e6 commit
+依存する既存H3分類原稿の固定参照は nc-cubic-moduli commit
 `846c1361651790082f54b524350370ead81811d5`。
 この保存済み基点には七次元族と以下の入力がある。別の旧bundleの復元は不要である。
 
