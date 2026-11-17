@@ -1,0 +1,231 @@
+\section{四つの整数$D_4$周期と、円分的な混合Hodge分裂}
+\label{sec:four-D4-periods}
+本節では$\mathbb C$上で$U=\{W_{A,B,C}=h\}$を考え、
+射影閉包を$S$、境界三角形を$D_1+D_2+D_3$とする。
+ここで$D_1=\{u_{\rm hom}=t=0\}$、$D_2,D_3$は残る二辺である。
+前節の一つのmatching周期から進み、\emph{整数格子の全四方向}の
+指数化周期を同時に計算する。ただし以下のconic chartの開条件を課す：
+\begin{equation}\label{eq:four-period-open}
+ N(u)=(u^2+2Au+2h)(u^2-1)+B^2+C^2+2uBC,
+ \qquad \operatorname{Disc}_uN\ne0,\quad B^2-C^2\ne0.
+\end{equation}
+これより$N$の四根は相異なり$\pm1$と異なる。この開集合では$U$と$S$は滑らかである。
+$B^2=C^2$でも$S$が滑らかな場合はあるので、これは全smooth locusの必要条件ではない。
+
+\subsection{conicの成分選択が整数標識を与える}
+\begin{lemma}[境界二重切断と$\mathbb F_1$への縮約]
+\label{lem:conic-F1-marking}
+平面束$u_{\rm hom}=ut$の残余conicは$S\to\mathbb P^1_u$を定め、
+特異fiberは$N$の四根上および無限遠の$D_2+D_3$である。
+有限な標識被覆上で各有限特異fiberの一成分$E_1,\ldots,E_4$と
+無限遠の一成分$E_5=D_2$を選び、これら五本を縮約して$\mathbb F_1$を得られる。
+$\mathbb F_1$の負sectionとfiberの全引戻しを$s,F$とすると
+\begin{gather}\label{eq:F1-boundary-classes}
+ s^2=-1,\quad sF=1,\quad F^2=0,\quad E_i^2=-1,\notag\\
+ D_1=2s+2F-\sum_{i=1}^5 E_i,\qquad
+ D_2=E_5,\qquad D_3=F-E_5.
+\end{gather}
+$E_i$同士は互いに直交し、$s,F$は全$E_i$と直交する。
+\end{lemma}
+\begin{proof}
+残余conicを$(v,w,t)$で書くと、その対称行列は
+\[
+ \begin{pmatrix}-1&u&-B\\u&-1&-C\\-B&-C&-u^2-2Au-2h\end{pmatrix}
+\]
+で行列式が$N(u)$となる。単純根では二直線となり、無限遠では$D_2+D_3$を得る。
+$u\ne\pm1$での局所形$ab=-N(u)/(u^2-1)$から、根が単純なら全空間は滑らか。
+$u=\pm1$に全空間の臨界点があれば$B=\mp C$が必要なので、開条件がそれを排除する。
+無限遠では既に三次閉包の滑らかさを確認している。
+
+三次曲面の直線配置から、$D_1,D_2$と交わらず$D_3$と交わる直線$s$を取れる。
+例えば六点blow-upの表示$D_i=L-E_{2i-1}-E_{2i}$では旧$E_5$がその一つである。
+$s$はこのconic bundleのsectionである。
+各特異fiberの$s$と交わらない成分を縮約すると、
+$s^2=-1$を保った相対極小な$\mathbb P^1$束となり、これは$\mathbb F_1$である。
+$D_1$の像は$s$と交わらない二重切断だから$2s+2F$となる。
+五つの縮約点での重複度は1なので表示した境界類を得る。
+必要な直線の選択は、smooth cubic上の有限エタールな直線スキームと
+四つの根の順序を選ぶ有限被覆上で行える。
+\end{proof}
+
+$D_1$の座標を$z=w/v$とする。向きを合わせるため全ての$z$を逆数に変えてよい。
+$E_i\cap D_1=p_i$の座標を$z_i$、そのconic fiberの値を$u_i$とすると
+\begin{equation}\label{eq:zi-conic-trace}
+ z_i+z_i^{-1}=2u_i,\qquad z_i=u_i\pm\sqrt{u_i^2-1}.
+\end{equation}
+符号は単に四つを任意に取るのではなく、上の縮約に用いた成分で決まる。
+他方の成分の座標は$z_i^{-1}$である。
+
+\begin{theorem}[全四方向の代数的周期]
+\label{thm:four-integer-D4-periods}
+補題の標識の下で、$K=\langle D_1,D_2,D_3\rangle^\perp$は
+\[
+ \left\{bF+\sum_{i=1}^4 c_iE_i:2b+\sum_i c_i=0\right\}
+ \cong\left\{(c_1,\ldots,c_4)\in\mathbb Z^4:\sum_i c_i\equiv0\pmod2\right\}
+\]
+であり、形式は$-\sum_i c_i^2$となる。
+次の四根は\emph{整数}基底をなす：
+\[
+ \alpha_1=E_1-E_2,\quad\alpha_2=E_2-E_3,\quad
+ \alpha_3=E_3-E_4,\quad\alpha_4=E_3+E_4-F.
+\]
+境界の向きと座標を整合させ、線束制限のperiodを$\mathcal P$と書けば
+\begin{equation}\label{eq:four-D4-characters}
+ \boxed{\bigl(\mathcal P(\alpha_1),\ldots,\mathcal P(\alpha_4)\bigr)
+ =\left(\frac{z_1}{z_2},\frac{z_2}{z_3},\frac{z_3}{z_4},z_3z_4\right).}
+\end{equation}
+従って$\alpha_i$を持ち上げる整数二cycle$\gamma_i\subset U$について
+\[
+ \int_{\gamma_i}\omega=2\pi i\log\mathcal P(\alpha_i)
+ \pmod{(2\pi i)^2\mathbb Z}.
+\]
+対数の枝を局所的に選べば、$\delta_\infty,\gamma_1,\ldots,\gamma_4$は
+$H_2(U,\mathbb Z)$の基底を与え、その全周期をこの式で記述できる。
+これは全パラメータ上の標準cycle基底や、代数的de Rham基底での接続行列を
+選択なしに与えるという主張ではない。
+\end{theorem}
+\begin{proof}
+$as+bF+\sum c_iE_i$と$D_2,D_3$との直交性から$c_5=a=0$、
+$D_1$との直交性から$2b+\sum_{i=1}^4c_i=0$を得る。
+四根の係数行列の行列式は2で、偶数和格子の指数も2なので整数基底となる。
+そのGram行列は
+\[
+ \begin{pmatrix}-2&1&0&0\\1&-2&1&1\\0&1&-2&0\\0&1&0&-2\end{pmatrix}.
+\]
+
+$E_i$は$D_1$だけを$p_i$で横断し、一般のconic fiber $F_0$も
+$D_1$だけと二点$q,q'$で交わる。その二点の$z$座標の積は1である。
+したがって$\xi=bF+\sum c_iE_i$の境界制限は、$D_1$上の次数零因子
+$b(q+q')+\sum c_ip_i$と、他の二辺上の自明化で計算できる。
+$D_1$の両端を$0,\infty$とすると、この自明化のgluing値は、
+向きを固定して
+\[
+ (z(q)z(q'))^b\prod_i z_i^{c_i}=\prod_i z_i^{c_i}
+\]
+となる。これを四根へ代入すれば式\eqref{eq:four-D4-characters}を得る。
+
+積分との一致はFriedmanのperiod比較定理\footnote{
+R. Friedman, \emph{On the geometry of anticanonical pairs},
+\href{https://arxiv.org/abs/1502.02560}{arXiv:1502.02560v2},
+Proposition 3.12, pp. 21--23。境界周期1の規約へ$\omega/(2\pi i)^2$で合わせる。}
+と既存の整数完全列
+$0\to\mathbb Z\delta_\infty\to H_2(U,\mathbb Z)\to K\to0$から従う。
+同じ比較の証明のように、曲線の差から境界との交点の小円板を除き、
+境界に沿うtubeでつなぐと持上げ$\gamma_i$を具体的に取れる。
+商の整数基底を任意に持ち上げれば、原始核の生成元と合わせて全体の基底となる。
+\end{proof}
+
+\subsection{root hypertorusと四つの局所座標}
+\begin{corollary}[周期torus、Weyl型判別式、局所座標]
+\label{cor:conic-period-torus}
+$(z_1,z_2,z_3,z_4)\mapsto\mathcal P$は
+\[
+ (\mathbb C^*)^4\longrightarrow\operatorname{Hom}(D_4,\mathbb C^*)
+\]
+という次数2のisogenyで、核は同時符号変更
+$(z_i)\mapsto(-z_i)$である。
+四周期は式\eqref{eq:four-period-open}の有限標識被覆上で局所エタール座標となる。
+さらに$N$がmonicである規約では
+\begin{equation}\label{eq:conic-D4-discriminant}
+ \operatorname{Disc}_uN
+ =\frac{\prod_{i<j}(z_i-z_j)^2(z_iz_j-1)^2}
+ {2^{12}(z_1z_2z_3z_4)^6}.
+\end{equation}
+すなわちこのchartでの退化条件は$D_4$のroot character
+$z_i/z_j,z_iz_j$が1になる条件である。
+\end{corollary}
+\begin{proof}
+指数行列は
+$\left(\begin{smallmatrix}1&-1&0&0\\0&1&-1&0\\0&0&1&-1\\0&0&1&1\end{smallmatrix}\right)$
+でdeterminantは2。四periodが1なら全$z_i$が等しくその平方は1となる。
+係数からquarticの四係数への写像は
+\[
+ (A,B,C,h)\longmapsto(2A,2h-1,2BC-2A,B^2+C^2-2h)
+\]
+で、Jacobian determinantは$16(C^2-B^2)$。
+根の順序付けは単純根上でエタール、$du_i/d\log z_i=(z_i-z_i^{-1})/2$も非零。
+これと指数行列のdeterminantから四periodの独立性を得る。
+最後に
+\[
+ u_i-u_j=\frac{(z_i-z_j)(z_iz_j-1)}{2z_iz_j}
+\]
+をVandermondeの積へ代入すれば判別式の公式となる。
+\end{proof}
+
+標識三次曲面のperiod空間と$D_4$ root hypertorus補集合との関係は
+古典的なNaruki--Looijengaの構造であり、Schockの\S2\footnote{
+N. Schock, \emph{The $W(E_6)$-invariant birational geometry of the moduli space of marked cubic surfaces},
+Math. Nachr. 297 (2024), 2639--2666,
+\href{https://doi.org/10.1002/mana.202300459}{doi:10.1002/mana.202300459}, \S2.}
+にも記述されている。本節はそれを新しい一般Torelli定理として主張せず、
+本稿のconicの四根から四periodを直接再構成する式として与える。
+ここでのWeyl作用はroot格子の標識の変更であり、
+固定fiberのHurwitz自己同型や先の五重被覆の$S_5$と同じ作用ではない。
+
+\subsection{有理Hodge分裂の必要十分条件と有理数体上の例}
+\begin{theorem}[四周期による有理分裂の完全判定]
+\label{thm:four-period-rational-split}
+式\eqref{eq:four-period-open}の範囲で、次は同値である。
+\begin{enumerate}
+ \item $0\to\mathbb Q(-1)^4\to H^2(U,\mathbb Q)\to\mathbb Q(-2)\to0$
+ が有理混合Hodge構造として分裂する。
+ \item 四つの$\mathcal P(\alpha_i)$が全て1の冪根である。
+ \item 四つの$z_i$が全て1の冪根である。
+\end{enumerate}
+この条件は標識・各平方根の選択に依存しない。
+\end{theorem}
+\begin{proof}
+$F^2H^2(U,\mathbb C)$は$[\omega]$が張る一次元空間である。
+拡大が分裂することと、境界周期で正規化した
+$[\omega]/(2\pi i)^2$が有理cohomology classであることは同値である。
+一方向は$\mathbb Q(-2)$の有理な持上げから従う。
+逆にその直線が有理なら、重み4の商へ1を送る有理ベクトルが
+Hodge filtrationも保つsectionを与える。
+整数基底$\delta_\infty,\gamma_1,\ldots,\gamma_4$上で評価すると、
+この有理性は全ての$\log\mathcal P(\alpha_i)/(2\pi i)$の有理性、
+すなわち(2)と同値である。
+(3)から(2)は明らかで、逆は
+$z_3^2=\mathcal P(\alpha_3)\mathcal P(\alpha_4)$から
+$z_3,z_4,z_2,z_1$の順に従う。根の置換と各逆数化は捩れ性を変えない。
+\end{proof}
+
+\begin{proposition}[分裂・非分裂をともに有理係数で実現する]
+\label{prop:rational-cyclotomic-examples}
+次の二つのLG等位面はともに有理数体上で定義された滑らかな曲面である。
+\begin{align*}
+ (A,B,C,h)_{\rm split}&=(1/4,1/2,1/4,1/8),\\
+ (A,B,C,h)_{\rm nonsplit}&=(-65/16,75/16,-65/16,3575/288).
+\end{align*}
+前者の$H^2$は有理混合Hodge構造として分裂し、後者は分裂しない。
+\end{proposition}
+\begin{proof}
+前者では
+\[
+ N(u)=\frac{(2u+1)(8u^3-6u+1)}{16},\qquad
+ 16z^4N\!\left(\frac{z+z^{-1}}2\right)=\frac{z^9-1}{z-1}.
+\]
+四根は$\cos(2\pi k/9)$ ($1\le k\le4$)であり、
+どの成分選択でも全$z_i$は9乗根となる。
+$N$はsquare-freeで、$N(1)=9/16,N(-1)=1/16$だから開条件を満たし、前定理が適用される。
+後者では
+\[
+ N(u)=(u-5/4)(u-5/3)(u-17/8)(u-37/12).
+\]
+これは$z_i$をそれぞれ$2,3,4,6$またはその逆数から選ぶ場合であり、
+全て非捩れである。根は相異なり$\pm1$と異なるので滑らかで、前定理から非分裂となる。
+\end{proof}
+
+分裂例が示すのは\emph{有理}混合Hodge構造の分裂である。
+この例でも全periodが1というわけではなく、整数係数の拡大の自明性とは異なる。
+円分的periodと、元の量子化パラメータ$q^3=1$は別の量であり、
+ここから有限Hurwitz軌道や非可換圏の同値は結論しない。
+
+\begin{remark}[現在到達した範囲]
+四つの内部方向について、単なる独立なmatching積分ではなく、
+整数$D_4$基底・線束制限・指数化積分を同時に記述した。
+有理分裂判定はFriedman--Carlsonの既知のperiod解釈の、この座標での具体化である。
+一般のroot hypertorus理論や混合Hodgeの分類自体の新規性を主張しない。
+本稿での具体式・例の既出性の網羅調査は未了。
+全rank五の代数的Gauss--Manin接続行列、Hurwitzとtrialityの全period座標への作用、
+$q$変形を含む非可換周期、mirror/Fukaya同値は別の課題として残る。
+\end{remark}
