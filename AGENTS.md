@@ -1,15 +1,19 @@
 # Codex研究指示 — nc-cubic-e6
 
-2026-11-17。再開時は`00_research_plan.md`、`research/research_notes.md`、`papers/nc-cubic-e6.tex`の順に読む。
+2026-11-17 / v15。再開時は `00_research_plan.md` を最初に読み、主題に応じて `research/research_notes.md`、`research/fricke_daha_comparison.md`、`research/poisson_order_notes.md`、`papers/nc-cubic-e6.tex` を読む。
 
-このリポジトリは楕円E6量子化成分の独立した正本であり、全H3分類は`uedakazushi/nc-cubic-moduli`を正本とする。分類側のCodexと同じリポジトリを並列編集しない。
+このリポジトリは楕円E6量子化成分の独立した正本であり、全H3分類は `uedakazushi/nc-cubic-moduli` を正本とする。分類側のCodexと同じリポジトリを並列編集しない。
 
-数学的価値、正確性、新規性、可能性を勘案して方針を柔軟に更新する。証明済み・追加仮定付き・未解決・計算的観察を明確に区別し、一次文献を確認する。誤りは依存する本文・方針・ノートに反映し、過去の作業日誌を蓄積しない。論文は原則日本語LuaLaTeX、数学的成果と必要証明を保持する。
+面白さ・数学的価値・正確性・新規性・実現可能性を総合して方針を更新する。関連分野との類似を列挙するだけでなく、明示的な同型、変形、圏的対応または障害を証明する。公表価値ある関連分野研究は同じ主論文に統合する。証明済み・追加仮定付き・未解決・計算的観察を区別し、一次文献を確認する。誤りは本文・方針・ノートに反映し、作業日誌を蓄積しない。日本語LuaLaTeXを原則とし、既存の数学的成果と必要証明を保持する。
 
-再開用bundleは現行方針・ノート・論文と必須の検証コードで自己完結させる。旧ZIP・旧原稿・PDF・キャッシュ・生成物はGitに含めない。研究区切りではGitHub mainを正本にcommit/pushし、**push済みの内容はLibraryへ保存しない**。pushに失敗して未push成果を保全する必要がある場合のみLibraryへの緊急退避を認める。既存Libraryファイルは明示指示なしには削除しない。
+再開用の一式は現行方針・ノート・主論文と必須検証コードで自己完結させる。旧ZIP・旧原稿・PDF・キャッシュ・生成物はGitに含めない。研究区切りではGitHub mainを正本にcommit/pushし、**push済み内容はLibraryへ保存しない**。push失敗で未保存成果を保全する必要がある場合のみLibraryへの緊急退避を認める。既存Libraryファイルを明示指示なしに削除しない。
 
-約15分ごと、または数学的な区切りで原稿・計算・方針を整理し、PR・Actions・force pushを使わずmainへ通常のfast-forwardでpushする。競合したらfetchして共有変更と両立させる。完了した後は研究を継続する。生成・検証・commit・pushを区別し、未実行の検証をPASSと言わない。
+約15分ごと、または数学的な区切りで整理し、PR・Actions・force pushを使わずmainへ通常のfast-forwardでpushする。競合したらfetchして共有変更と両立させる。生成・検証・commit・pushを区別し、未実行の検証をPASSと言わない。
 
-固定包絡では結節中心の五SNC因子と商の二成分を得た。七次元PBW族では連結五重被覆から既約六次元因子への結合を証明した。中心の特異性をH3境界と混同せず、八次元族への延長と別chartの境界を追跡する。
+現在確定した関連分野成果は、AW/Fricke/Vieta、D4⊂E6、およびQ=q exp(h)からの正確なPoisson括弧9倍である。Brown–Gordonから固定Fricke sliceのsmooth locus上の中心fiber代数は同型。全DでM3・有限globaldimになることは別途未確認。
 
-優先課題はDAHA--Fricke--四穴球面skein--Goldman Poissonの厳密な橋渡し、三角境界から楕円E6への変形、8次元成分の相対H3認識・intrinsic圏族の降下、全境界・同型群oid。既知の類似だけではなく明示的な準同型・正確な仮定を要求する。原稿の入力節・検算依存と全証明を欠落させない。
+**既知の障害を繰り返さない。** G=Omega+beta X+gamma Y+delta Z+epsilonは、beta=gamma=delta=0以外では指定した純粋q変形の平坦商に一次で持ち上がらない。Vietaのsigma(z)はPBW次数2、sigma(Z)は次数6なので固定pointed H3心に延長しない。これらは一般H3変形や導来対応の非存在ではない。
+
+最優先は、同時Sklyanin方向による障害の相殺を既存8変数族から抽出し、affine modular作用を境界の双有理変更・導来圏の心の変更で実現すること。次にCasimirごとのAzumaya locusと表現論、skein/DAHA特殊化・cluster/mirror比較、全H3 admissibility・intrinsic降下・全境界へ進む。固定包絡の五SNC結節因子と七次元族の既約六次元因子も保持し、中心特異性をH3境界と混同しない。
+
+今回の実行済み範囲は `computations/connections_validation.json` の五検証器。`verify_all.py` の全20件を今回実行したとはしない。主論文の入力節・検算依存・既存証明を欠落させない。
