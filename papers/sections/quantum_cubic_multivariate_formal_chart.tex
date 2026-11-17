@@ -1,0 +1,135 @@
+\section{三捩れ中心incidenceの八変数同時形式chart}
+\label{sec:multivariate-formal-chart}
+二次jetを更に延ばす代わりに、Rainsの中心式を多変数で正則化する。
+この節で完成するのは指定potential・中央三次\emph{表示incidence}の形式近傍であり、
+全intrinsic H3変形の被覆ではない。
+
+\begin{lemma}[Rains式の印刷係数と独立検証]\label{lem:rains-corrected}
+\cite[Appendix9.1, p.35]{EG}の中心式を、関係
+\[
+ XY-QYX-TZ^2+c_1Z+c_2,\quad
+ YZ-QZY-TX^2+a_1X+a_2,\quad
+ ZX-QXZ-TY^2+b_1Y+b_2
+\]
+で用いる際、$Y$ の一次係数中の
+\[
+ -T\bigl((Q^3b_2+2Q^2+QT^3+2Q+T^3+1)b_2
+               +QT a_1c_1-T^2b_1^2\bigr)
+\]
+は、内側の余分な $b_2$ を除き、$Q^3b_2$ を $Q^3$ に置き換える。
+この修正後の式を $\Psi$ とすると、全係数を変数とした
+$\mathbb Q(Q,T)[a_1,b_1,c_1,a_2,b_2,c_2]$ 上で $\Psi$ は中心である。
+この係数は著者サイトのMAGMA式
+\url{https://math.mit.edu/~etingof/delpezzocenter}
+及び本リポジトリの既存Clifford積分検証器の式と一致する。
+本節ではその正しい式を別の三捩れ正規形で再検証したのであり、新しい中心式の発見とはしていない。
+既存の $b_2=0$ の一変数検証には、この印刷係数の影響はない。
+\end{lemma}
+\begin{proof}
+\texttt{verify\_rains\_central\_formula.py}に修正後の全式を文字通り収録した。
+次数4以下の語に対し、元関係の一つの書換えから得る連立線型方程式を強連結成分ごとに解く。
+既約語を $X^iY^jZ^k$ とし、係数体上で得た正規形が元関係の全102挿入を消すことを再検証する。
+その上で三つの交換子を計算し、全て零となることを確認する。
+全正規形の分母は $Q^2+Q+1=0,T=0$ で非零であることも確認する。
+これは有限標本でなく全係数での恒等式である。
+印刷式と修正式の差は $-TQ^3b_2(b_2-1)Y$ であり、同じ正規形で
+その $X$ との交換子が非零となることも確認する。
+従って印刷式をそのまま一般の $b_2$ で使用していない。
+\end{proof}
+
+\begin{theorem}[八変数の全次数平坦な中心切断形式族]
+\label{thm:eight-formal-central-lift}
+$q_0^2+q_0+1=0$ とし、$\eta_0^3=2,\ \zeta_0^3=3$ を選ぶ。
+\[
+ \Lambda=k[[\lambda,\kappa-2,\eta-\eta_0,\zeta-\zeta_0,a,b,c,D-5]]
+\]
+上でpotentialを
+\[
+ \Phi=(1+\kappa\lambda)xyz-q_0xzy+
+ \lambda(x^3+\eta^3y^3+\zeta^3z^3)
+ -\tfrac12(x^2+y^2+z^2)-ax-by-cz
+\]
+と置く。その斉次二次包絡には中央三次元 $G$ の同時形式持上げがあり、
+$\lambda=0$ で
+\[
+ G=\kappa\Omega(a,b,c)+X+\eta^3Y+\zeta^3Z+D
+\]
+となる。ここで $X=x^3+q_0^2x$（$Y,Z$ も同様）、$\Omega(a,b,c)$ は既知のCasimirである。
+全Artin商上で包絡と三次商は全次数有限自由であり、包絡は相対Koszul型14641である。
+係数は以下の明示的な有理式の正則化で与えられ、任意次数への逐次的な存在仮定を必要としない。
+\end{theorem}
+\begin{proof}
+$p=1+\kappa\lambda$ として補題\ref{lem:rains-corrected}へ
+\[
+ Q=\frac{q_0}{p},\qquad T=-\frac{3\lambda\eta\zeta}{p},
+\]
+\[
+ (a_1,b_1,c_1)=\left(-\frac{\eta\zeta}{p},-\frac{\zeta}{\eta p},-\frac{\eta}{\zeta p}\right),
+ \qquad
+ (a_2,b_2,c_2)=\left(-\frac{\eta\zeta a}{p},-\frac{\zeta b}{p},-\frac{\eta c}{p}\right)
+\]
+を代入し、$X=x,Y=\eta y,Z=\zeta z$ と戻す。
+この変換は表示potentialを非零定数倍するだけなので、同じ三関係を与える。
+$\Psi$ の既約語正規形をこの代入後に $N$ と書く。
+$N$ の定数係数を $N_\varnothing$、$x^3$ 係数を $N_{x^3}$ とする。
+全ての非定数係数は $\lambda^2$ で割れ、さらに
+\[
+ \left.\frac{N_{x^3}}{\lambda^2}\right|_{\lambda=0}
+   =9\eta^2\zeta^2(1+q_0)\ne0.
+\]
+従って
+\[
+ G=\frac{N-N_\varnothing}{N_{x^3}}+D
+\]
+は、共通因子 $\lambda^2$ を消去した後に $\Lambda$ 上正則である。
+
+\texttt{verify\_central\_multivariate\_lift.py}はこの二重消滅と全ての先頭係数を厳密検証する。
+具体的には、一般の正規形の各係数を $(Q-q_0,T)$ の次数2まで展開し、
+次数0,1が\emph{各低次係数単項式ごとに}零であることを確認する。
+従って分子の二重消滅は形式的な観察でなく、局所環のイデアル $(Q-q_0,T)^2$ への所属である。
+分母の単元性は前補題で確認済みである。
+二次の先頭式を代入して $N_{x^3}/\lambda^2$ で規格化すると、
+全係数がちょうど $\kappa\Omega+X+\eta^3Y+\zeta^3Z$ となることも全変数で確認する。
+
+包絡の各次数の形式完備化は定理\ref{thm:artin-potential-envelope}により有限自由である。
+従って $\lambda$ は非零因子であり、$\lambda$ を反転して成立する中心恒等式は
+$\lambda^2$ を消去した後にも成立する。
+特殊fiberの $G$ は非零の中央三次元で、包絡は整域なので正則である。
+同定理の中央三次商の議論を全Artin商へ適用して平坦性を得る。
+\end{proof}
+
+\begin{theorem}[指定表示incidenceの形式的滑らかさ]
+\label{thm:formal-potential-incidence-smooth}
+点 $\Phi_0,G_0=2\Omega+X+2Y+3Z+5$ における
+20個のpotential係数と20個の三次係数の中央incidenceの完備局所環は、22変数形式冪級数環である。
+特殊fiberで恒等となるaffine座標変更とpotential・切断のスカラーを除いた表示変形問題は、
+定理\ref{thm:eight-formal-central-lift}の八変数形式族で表される。
+有限の特殊fiber自己同型による大域群oidや、全intrinsic H3への形式versal性は含めない。
+\end{theorem}
+\begin{proof}
+中央incidenceは次数4以下の有限個の係数方程式で定義される。
+その一次行列は既検証の105行40列行列 $M$、rank18なので接空間次元は22である。
+14個の座標・スカラー方向のrankは14である。
+形式族の $a,b,c,\kappa,\eta,\zeta,D$ の七方向は既知七方向を張る。
+特に $d(\eta^3),d(\zeta^3)$ は $\eta_0,\zeta_0\ne0$ により非零である。
+残る $\lambda$ 方向のpotentialは
+\[
+ x^3+2y^3+3z^3+2xyz
+\]
+であり、既検証の横断方向に一致する。
+中心三次の一次補正の選択差は固定potentialの中心方向なので、既知方向に吸収される。
+従って八変数族と14変数の恒等近傍の座標作用から得る22変数形式写像は接空間上同型である。
+
+この事実だけで形式的滑らかさを厳密に示せる。
+incidenceの完備局所環を $R$ とすると、embedding dimension22より
+$k[[z_1,\ldots,z_{22}]]\twoheadrightarrow R$ がある。
+上の形式写像との合成
+\[
+ k[[z_1,\ldots,z_{22}]]\longrightarrow R\longrightarrow k[[s_1,\ldots,s_{22}]]
+\]
+は一次項が可逆なので形式逆写像定理により同型である。
+従って最初の全射の核は零であり、$R$ は形式冪級数環となる。
+この同型は座標の14方向と八変数sliceを同時に与える。
+Lie安定化子は零なので、特殊fiberで恒等となる形式座標変換の商として八変数sliceを得る。
+この最後の議論を、全intrinsic変形と表示変形の同一視に置き換えてはいない。
+\end{proof}

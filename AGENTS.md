@@ -1,0 +1,13 @@
+# Codex研究指示 — nc-cubic-e6
+
+2026-11-17。再開時は`00_research_plan.md`、`research/research_notes.md`、`papers/quantum_cubic_component.tex`の順に読む。
+
+このリポジトリは楕円E6量子化成分の独立した正本であり、全H3分類は`uedakazushi/nc-cubic-moduli`を正本とする。分類側のCodexと同じリポジトリを並列編集しない。
+
+数学的価値、正確性、新規性、可能性を勘案して方針を柔軟に更新する。証明済み・追加仮定付き・未解決・計算的観察を明確に区別し、一次文献を確認する。誤りは依存する本文・方針・ノートに反映し、過去の作業日誌を蓄積しない。論文は原則日本語LuaLaTeX、数学的成果と必要証明を保持する。
+
+再開用bundleは現行方針・ノート・論文と必須の検証コードで自己完結させる。旧ZIP・旧原稿・PDF・キャッシュ・生成物はGitに含めない。研究区切りの承諾不要Library保存は一般的に許可されるが、本リポジトリではGitHub mainの保存成功時にはLibraryに保存せず、push失敗時のみ緊急避難に用いる。
+
+約15分ごと、または数学的な区切りで原稿・計算・方針を整理し、PR・Actions・force pushを使わずmainへ通常のfast-forwardでpushする。競合したらfetchして共有変更と両立させる。完了した後は研究を継続する。生成・検証・commit・pushを区別し、未実行の検証をPASSと言わない。
+
+優先課題は8次元成分の相対AS4認識、intrinsic圏族の降下、全境界・同型群oid、Fricke/DAHAの正確な対応。原稿の入力節・検算依存と全証明を欠落させない。

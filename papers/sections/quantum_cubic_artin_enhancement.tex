@@ -1,0 +1,231 @@
+\section{平坦なAbel変形のsmooth proper enhancement}
+\label{sec:artin-enhancement}
+前節の全次数平坦な切断環から、相対圏への比較を進める。
+この節では逆Serre作用と次数シフトの同一視まで無条件に結論しない。
+
+\begin{lemma}[nilpotent底上のcompact性の持上げ]\label{lem:dg-compact-lift}
+$A$ を剰余体 $k$ の局所Artin環、$C$ を $A$-線型dg代数、$M\in D(C)$ とする。
+$C_0=C\otimes_A^{\mathbf L}k$、$M_0=M\otimes_A^{\mathbf L}k$ と置く。
+$M_0$ が $D(C_0)$ でcompactなら $M$ は $D(C)$ でcompactである。
+\end{lemma}
+\begin{proof}
+$A$ の極大イデアルによる有限filtrationを、$A$-加群の有限個の三角へ分解する。
+任意の $N\in D(C)$ はそれらとderived tensorすることにより、
+$C_0$-加群をrestrictionした対象
+$N\otimes_A^{\mathbf L}(\mathfrak m^j/\mathfrak m^{j+1})$ の有限拡張として得られる。
+各商は $k$ の有限直和なので、この対象は
+$N\otimes_A^{\mathbf L}k$ の有限直和のrestrictionである。
+任意の $L\in D(C_0)$ に対しderived adjunctionは
+\[
+ \operatorname{RHom}_C(M,\operatorname{Res}L)
+  \simeq\operatorname{RHom}_{C_0}(M_0,L)
+\]
+を与える。右辺は $M_0$ のcompact性により任意直和と可換である。
+上の有限三角を通じてこの性質を $N$ へ移せば、$M$ のcompact性を得る。
+\end{proof}
+
+\begin{corollary}[smooth性のArtin持上げ]\label{cor:dg-smooth-lift}
+$C_0$ が $k$ 上smoothであれば $C$ は $A$ 上smoothである。
+さらに $C\otimes_A^{\mathbf L}k$ が有限次元総cohomologyを持てば、$C$ は $A$ 上properである。
+\end{corollary}
+\begin{proof}
+smooth性は、前補題を $C^{\rm op}\otimes_A^{\mathbf L}C$ と対角加群 $C$ に適用する。
+そのderived特殊fiberは $C_0$ の対角である。
+proper性については、$A$ の有限filtrationから、$C$ のcohomologyは有界かつ有限生成となる。
+局所Artin環上の有界上の有限自由分解から単元微分を除いた最小複体を取る。
+特殊fiberが有界有限次元なので、その最小複体は有限個の有限自由項のみとなる。
+従って $C\in\operatorname{Perf}(A)$ である。
+\end{proof}
+
+\begin{theorem}[平坦な切断環のqgrのenhancement]\label{thm:flat-qgr-enhancement}
+$R_0$ を本稿のH3点の反標準環とし、$\mathcal G_0=\operatorname{QGr}R_0$ とする。
+そのcompact圏がsmooth properなenhancementを持つと仮定する。
+本稿の滑らかな中心・滑らかな楕円分岐を持つ点では、この既存のorder認識を適用する。
+$A$ を局所Artin $k$-代数とし、$R_A$ を $R_0$ の次数別有限自由なconnected graded変形で、
+一次生成・左右noetherianとする。
+このとき $\mathcal G_A=\operatorname{QGr}R_A$ は $\mathcal G_0$ のflat Abel変形である。
+$E_{i,A}=\pi R_A(i)$ は $E_{i,0}$ のflatな持上げであり、$D(\mathcal G_A)$ をcompactに生成する。
+ある有限集合 $I\subset\mathbb Z$ について
+\[
+ E_A=\bigoplus_{i\in I}E_{i,A}
+\]
+はcompact generatorとなり、そのdg自己準同型代数は $A$ 上smooth properである。
+従って $D(\mathcal G_A)^c$ はsmooth properな $A$-線型dg enhancementを持ち、
+その特殊fiberは $\operatorname{Perf}(\mathcal G_0)$ である。
+全ての $E_{i,A}$ 間のderived Homは $A$-perfectで、そのderived特殊fiberは元のderived Homである。
+\end{theorem}
+\begin{proof}
+$R_A$ に付随する有向 $\mathbb Z$-代数は $R_0$ の付随代数のflat線型変形である。
+$E_{i,0}$ の正方向Ext消滅は\eqref{eq:artin-forward-vanishing}で確認済みである。
+\cite[Proposition4.4, Theorem4.5]{DeDekenLowen}により対応するflat Abel変形は
+まさに $\operatorname{Qmod}$ であり、ここでは $\operatorname{QGr}R_A$ と一致する。
+同定理の逆構成で $E_{i,A}$ は一意なflat持上げである。
+Proposition4.6は局所有限性・有限生成性・noetherian性の持上げとも両立する。
+
+特殊fiberの $E_{i,0}$ はcompact生成列である。
+compact性はH3の有限cohomological次元と局所有限AS Cohen--Macaulay切断のcohomology計算、
+生成性はAZ amplenessから従う。
+\cite[Propositions5.8,5.9]{DeDekenLowen}をflat対象 $E_{i,A}$ に適用すれば、
+compact性と生成性が持ち上がる。
+この二命題の仮定は一般のflat Grothendieck圏変形であり、geometric helixの仮定を課していない。
+同原論文pp.499--500の命題と証明を今回確認した。有限完全例外列を使用していない。
+
+特殊fiberのsmooth proper圏には有限compact generatorがある。
+compact生成列 $\{E_{i,0}\}$ の有限部分の厚い閉包にそのgeneratorが入るので、
+ある有限直和 $E_0$ 自体がgeneratorとなる。
+同じ命題5.9をこの有限直和に適用して $E_A$ を得る。
+
+derived Homの底変更は、compactな第一引数に対する
+\cite[Proposition5.5]{DeDekenLowen}とderived adjunctionにより
+\[
+ \operatorname{RHom}_{\mathcal G_A}(E_{i,A},E_{j,A})
+       \otimes_A^{\mathbf L}k
+ \simeq
+ \operatorname{RHom}_{\mathcal G_0}(E_{i,0},E_{j,0})
+\]
+となる。右辺は有界有限次元である。
+前系のperfect性の議論により左側のHom複体は $A$-perfectである。
+標準のdg enhancementで $C_A=\operatorname{RHom}(E_A,E_A)$ を取ると、
+$C_A\otimes_A^{\mathbf L}k\simeq C_0$ で、$C_0$ はsmooth properである。
+系\ref{cor:dg-smooth-lift}から $C_A$ もsmooth properとなる。
+compact generatorによるderived Morita同値で結論を得る。
+\end{proof}
+
+\begin{corollary}\label{cor:formal-family-enhanced}
+定理\ref{thm:eight-formal-central-lift}の八変数族の各Artin商は、
+上記の意味でsmooth proper enhancementを持つflat Abel変形を与える。
+従って既存の全Artin単射性定理に必要なenhancement・perfect Hom・特殊fiber底変更の条件は、
+この表示形式族では追加仮定でなく満たされる。
+相対Serreと次数シフトの同一視は次の補題で確認する。全intrinsic H3変形の被覆と相対代数性は別問題である。
+\end{corollary}
+
+\begin{lemma}[次数シフトと逆Serre作用の剛性]\label{lem:serre-shift-rigidity}
+定理\ref{thm:flat-qgr-enhancement}の設定で、さらに $\HH^1(\mathcal C_0)=0$ とする。
+$T_A=(1)$ を次数シフトとし、$\tau_A=S_A^{-1}[2]$ とすると、
+\[
+ \tau_A\simeq T_A
+\]
+という自然同型がある。従って $\tau_A$ はheartを保つ。
+\end{lemma}
+\begin{proof}
+smooth proper enhancementの相対Serre作用は、compact generatorの自己準同型代数 $C_A$ の
+相対双対bimoduleで与えられ、derived底変更と両立する。
+このbimoduleは左右perfectで、特殊fiberでは可逆である。
+左右のtensor随伴のunit・counitの錐は特殊fiberで零なので、$A$ の有限filtrationによるderived Nakayamaにより零である。
+従って相対Serre作用も自己同値である。
+特殊fiberでは $\tau_0\simeq T_0$ なので、$F_A=\tau_A T_A^{-1}$ は恒等の持上げである。
+Morita模型で $F_A$ は可逆なperfect $C_A$-bimoduleとなり、その特殊fiberは対角 $C_0$ である。
+局所Artin底を小拡大に分ける。
+各小拡大で既存の二つの持上げの差は
+\[
+ \Ext^1_{C_0^{\rm op}\otimes C_0}(C_0,C_0)\otimes\ker(A'\to A)
+ =\HH^1(\mathcal C_0)\otimes\ker(A'\to A)=0
+\]
+に属する。対角bimodule自身が持上げなので、対象の持上げの通常の障害理論
+\cite{LowenObject}により、帰納的に $F_A$ は恒等bimoduleと同型である。
+ここでは新しい持上げの存在を $\HH^2$ の消滅から主張しておらず、既存の二つの持上げの一意性だけを使う。
+$T_A$ はAbel圏上の正確な自己同値なので、結論を得る。
+\end{proof}
+
+\begin{theorem}[八変数族のArtin相対H3認識]\label{thm:formal-family-H3}
+既存の滑らかな中心・楕円分岐order認識と定理\ref{thm:HH8}の適用点
+$G_0=2\Omega+X+2Y+3Z+5$ を取る。
+定理\ref{thm:eight-formal-central-lift}の各Artin商のpointed Abel圏は、
+次のArtin相対的意味で強い内在的H3を与える：
+noetherianなflat Abel変形、smooth proper enhancement、
+heartを保つ逆Serre作用、相対exceptionalな構造対象、AZ ample反標準列、
+三次Hilbert値を持つ有限自由な反標準環と相対14641二次包絡を持つ。
+この反標準環は構成した中央三次商 $R_A$ とgraded同型である。
+rank-one torsion-free条件は幾何学的fiberの条件として満たされる。
+非正則なArtin底上で絶対的大域次元2や整域性を主張する意味ではない。
+\end{theorem}
+\begin{proof}
+包絡・商の全次数flat性と相対AS4性は既証明であり、左右noetherian性も持つ。
+定理\ref{thm:flat-qgr-enhancement}からflat Abel圏とsmooth proper enhancementを得る。
+定理\ref{thm:HH8}の $\HH^1=0$ と前補題から $\tau_A\simeq(1)$ となり、heartを保つ。
+構造対象のderived自己準同型は $A$-perfectで、特殊fiberは $k[0]$ なので
+補題\ref{lem:artin-perfect}から $A[0]$ である。
+
+正方向Homの自然写像
+$(R_A)_n\to\Hom(\pi R_A,\pi R_A(n))$ は同型である。
+実際、De Deken--Lowenの定理4.5の逆構成による正方向Homの線型変形は、
+もとの付随 $\mathbb Z$-代数に戻る。自然写像も特殊fiberで恒等であり、有限自由加群間なので同型である。
+$\tau_A\simeq(1)$ を反復すれば、この同型はorbit積とgraded積に両立する。
+従って反標準環は $R_A$ 自身である。
+AZ amplenessは正の有限生成noetherian付随代数のtails構成による。
+二次包絡は $Q(R_A)=B_A$ である。三次元による商は二次関係を変えないからである。
+Hilbert値とfiberのrank-one torsion-free性は既知のH3特殊fiber及び次数別flat性から従う。
+この認識ではZhang twistによるH3不変性や正常三次のtwist輸送を仮定していない。
+\end{proof}
+
+\begin{lemma}[potentialと中央一次直線の形式的回復]\label{lem:potential-recovery}
+この点のArtin変形で、中央一次部分は厳密に $At$ である。
+またdehomogenizedな三関係空間から、次数3以下の巡回potentialは定数を除き単元倍まで一意に回復される。
+従って、特殊fiberで恒等なpointed Abel同値は、本稿の二つのpotential・中央三次表示について
+affine座標変更とpotential・切断のスカラーによる同値を誘導する。
+\end{lemma}
+\begin{proof}
+\texttt{verify\_potential\_recovery.py}は中央一次条件の40行4列行列のrankが3で、核が $kt$ であることを確認する。
+$t$ 自体は全底で中央なので、単元3小行列式で残りを消去すれば核は $At$ に限られる。
+従ってgraded同型はこの直線を保存し、$t=1$ でaffineな三変数座標変更となる。
+
+同検証器は20個の巡回語を微分し、三関係による次数2以下の商へ写す30行20列行列がrank19で、
+核が $k\Phi_0$ であることを厳密確認する。
+二つのpotentialが同じ関係空間を与える場合、小拡大の核を係数とする差の巡回微分は元関係空間に入る。
+従って差は $\Phi_0$ のスカラー倍であり、potentialの単元倍を調整して消せる。
+小拡大に関する帰納法で一意性を得る。
+
+pointed Abel同値は内在的Serre作用と構造対象を保つので、反標準環のgraded同型を誘導する。
+前定理でこの環は表示した $R_A$ と同型である。
+その二次包絡と三次核直線は内在的に決まり、三次核の基底の変更は単元倍に限られる。
+これと上の回復を合わせると最後の主張を得る。
+\end{proof}
+
+\begin{corollary}[任意のAbel変形に対する適合enhancement]\label{cor:any-abel-enhanced}
+上の特殊fiberに対する任意のflat Abel変形は、
+定理\ref{thm:artin-injective}で要求した適合enhancementを持つ。
+従って同定理の同型類上の単射性は、この点の全flat pointed Abel変形に適用できる。
+\end{corollary}
+\begin{proof}
+De Deken--Lowenの定理4.5は任意のAbel変形に対し $E_{i,0}$ の一意なflat持上げを与える。
+定理\ref{thm:flat-qgr-enhancement}のcompact生成性・perfect Hom・smooth性の証明は、
+この持上げ列とその正方向Homだけを使い、線型変形が一周期graded環から来ることを使わない。
+従って同じ証明をそのまま適用できる。
+この段階では、一周期性や二次包絡の認識を任意のAbel変形へ先取りしていない。
+\end{proof}
+
+\begin{theorem}[選んだH3点の全Artin形式分類]\label{thm:intrinsic-formal-eight}
+滑らかな中心・滑らかな楕円分岐の既存order同定と定理\ref{thm:HH8}の下で、
+点 $G_0=2\Omega+X+2Y+3Z+5$ のflat pointed Abel変形を、
+特殊fiberで恒等となるpointed exact同値で割ったArtin同型類の変形問題は、
+定理\ref{thm:eight-formal-central-lift}の八変数形式族で与えられる。
+全てのArtin底でこの族による実現が存在し、そのパラメータは恒等近傍の座標gaugeを除き一意である。
+特にこの点の全Artin変形は、前述の相対的意味で内在的H3として認識される。
+これは一つの形式近傍の分類であり、相対モジュライstackの代数性、
+非自明な特殊fiber自己同型を含む全群oid、成分の大域閉包・全境界の分類を含まない。
+\end{theorem}
+\begin{proof}
+八変数族は前定理までに適合したsmooth proper enhancementを持つH3のflat Abel変形となった。
+表示incidenceの恒等gauge商からAbel変形への写像は、補題\ref{lem:potential-recovery}により
+全Artin底で同型類上単射である。
+さらに系\ref{cor:any-abel-enhanced}と定理\ref{thm:artin-injective}により、
+Abel変形から圏のMorita変形への写像も同型類上単射である。
+従って八変数形式族から圏変形への接写像は単射である。
+
+定理\ref{thm:HH8}により圏変形は無障害で、miniversal底は八変数形式円板である。
+構造対象はexceptionalなので、その持上げを加えても接空間と障害は変わらない。
+従って上の接写像は次元から同型となる。
+八変数形式族をこのminiversal底へ比較する形式写像は、一次項が可逆なので形式同型である。
+より正確には、miniversal写像の形式smooth性を用いてArtin商ごとに比較を持ち上げ、
+逆極限で得た二つの八変数冪級数環間の写像に形式逆写像定理を適用する。
+従って構成した族は圏変形に対してversalであり、全Artin同型類を実現する。
+既に示した同型類上の単射性から、そのパラメータも一意である。
+$\HH^1=0$ は恒等近傍の自己同値の一意性に、$\HH^0=k$ によるスカラー高次自己同型は
+ここで扱う同型類の変形問題に影響しないことに対応する。
+
+任意のflat pointed Abel変形を取る。
+そのenhancementの圏変形を上の形式族で実現し、特殊fiberで恒等なMorita同値を選ぶ。
+全Artin単射性により、元のAbel変形はその族のAbel変形とpointed exact同値である。
+族の各Artin商のH3認識は定理\ref{thm:formal-family-H3}で証明済みなので、結論を得る。
+大域代数化や形式近傍の外の対象へは、この議論を適用していない。
+\end{proof}

@@ -1,0 +1,575 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage[unicode,hidelinks]{hyperref}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{定義}
+\newtheorem{assumption}[theorem]{入力・仮定}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\newcommand{\HH}{\operatorname{HH}}
+\newcommand{\qgr}{\operatorname{qgr}}
+\newcommand{\coh}{\operatorname{coh}}
+\newcommand{\Perf}{\operatorname{Perf}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Spf}{\operatorname{Spf}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\gldim}{\operatorname{gldim}}
+\newcommand{\OO}{\mathcal O}
+\renewcommand{\AA}{\mathbb A}
+\newcommand{\PP}{\mathbb P}
+\title{楕円 $E_6$ 量子化成分の幾何学に向けて\\\large 七次元正常形・横断積分・八次元形式変形}
+\author{研究原稿：H3開性・全大域境界の分類は未完成}
+\date{2026年11月17日\quad triangle-component-v11}
+\begin{document}\maketitle
+\begin{abstract}
+原始三乗根の量子 $\mathfrak{so}_3$ 包絡の中心三次切断から得られる四次元族は、
+包絡の低次三係数を動かす七次元族に含まれる。
+本稿では、この七次元族を含む既約成分の完全決定を目標とし、現在の到達点を証明付きで整理する。
+固定位数三・中央楕円境界の開部分では、全対称PBW表示を七次元正常形へ還元できる。
+また、中心三次元の低次補正の一意性を用い、境界の平行移動を三捩れから動かす
+全次数の中央三次商変形を構成する。中心値を独立な超越パラメータとした一般点はH3である。
+滑らかな三次曲面を中心とし、滑らかな反標準楕円曲線で指数三分岐する一般点では、
+局所orderのKoszul計算から $\HH^1=0,\dim\HH^2=8,\HH^{\ge3}=0$ を得る。
+したがって圏の通常の形式変形空間は八次元で無障害である。
+これは全H3モジュライの構成・全境界の分類を無条件に完成したという主張ではない。
+任意のArtin底上で反標準環の次数別平坦性と六二次・一三次表示を証明し、
+適合したenhanced Abel変形から圏変形への同型類上の単射性を得る。
+さらに選んだ点の全Artin形式近傍を八変数で分類し、明示族の相対THCR境界と幾何学的一般点のH3性を認識する。
+指定表示の近傍にはsmooth DMな八次元代数的表示stackを構成する。
+全fiberのH3開性、全intrinsic族の降下、成分の大域閉包と全境界はなお未完成である。
+\end{abstract}
+\tableofcontents
+
+\section{問題と主張の状態}
+基礎体 $k$ は標数0の代数閉体とする。
+H3とは、構造対象 $\OO$ を持つExt有限noetherian Abel圏 $\mathcal A$ で、
+反Serre作用 $\tau=S^{-1}[2]$ のheart保存、Gabriel--Krull rank-one torsion-free exceptional条件、
+Artin--Zhang豊富性、三次曲面の反標準Hilbert値を満たし、
+反標準環 $R=\bigoplus_{n\ge0}\Hom(\OO,\tau^n\OO)$ が一次生成、
+その二次包絡 $Q(R)$ がquadratic Koszul AS4型14641となる、現行研究の強いクラスである。
+同型は構造対象を保つexact同値であり、任意の導来同値による商ではない。
+
+本稿の目標は、後述の七次元族を含む既約成分を、その一般点・全境界・同型群oid・族まで決定することである。
+現時点で無条件に得た局所結果と、全モジュライの存在に依存する帰結を次のように区別する。
+\begin{center}\begin{tabular}{p{.28\textwidth}p{.63\textwidth}}\toprule
+対象&状態\\\midrule
+固定位数三の中央PBW部分&指定した開集合の正常形を全係数で証明。第\ref{sec:normal}節。\\
+横断変形&全次数平坦なAS4包絡と中心三次商を形式的に構成。一般中心値でH3。第\ref{sec:integrate}節。\\
+一般点の圏の変形&滑らかな中心・境界と記載した局所order模型の下で $\HH^2=8,\HH^3=0$。第\ref{sec:hh}節。\\
+選んだ点の全Artin形式近傍&八変数の全同時形式族で分類。第\ref{sec:artin-enhancement}節。\\
+代数的表示stack&smooth DM八次元の近傍を構成。第\ref{sec:presentation-stack}節。H3の開性・全大域境界は未完成。\\\bottomrule
+\end{tabular}\end{center}
+
+ポテンシャルPBW変形と中心元の存在はEtingof--Ginzburg \cite{EG} の既知結果を使う。
+局所Hochschild計算はNegron--Schedler \cite{NS} の商の公式と整合し、
+root stackの一般的な計算はFu--Porta--Scherotzke--Sibilla \cite{FPSS} の
+2026年1月20日版、Proposition 6.17とも比較できる。
+Brauer捩れを無条件に消して非捩れroot stackと導来同値だとはしない。
+orderとstacky曲面の比較については \cite{FIOS} を参照する。
+Rains \cite{Rains} の次数三の場合の全パラメータ被覆を既知定理として輸入しない。
+同論文末尾のConjecture 1とその後の議論では、次数一・二の全パラメータ検証と、
+その他の場合の一般性の検証が明確に区別されている。
+
+\section{七次元族と保持する既存結果}\label{sec:seven}
+$q^2+q+1=0$ を固定する。$\mathbf a=(a,b,c)$ に対し
+\begin{equation}\label{eq:B}
+B_{\mathbf a}=\frac{k\langle t,x,y,z\rangle}
+{(yz-qzy-tx-at^2,\ zx-qxz-ty-bt^2,\ xy-qyx-tz-ct^2,\ [t,x],[t,y],[t,z])}
+\end{equation}
+と置く。$d=(q-1)^{-1}=-(q+2)/3$ とし、
+\begin{align}
+X_h&=x^3+q^2t^2x,\quad Y_h=y^3+q^2t^2y,\quad Z_h=z^3+q^2t^2z,\\
+\Omega_{\mathbf a,h}&=xyz+\frac{q-1}{3}t(x^2+z^2)+\frac{q+2}{3}ty^2
+                 +dt^2(ax+qby+cz).\label{eq:Omega}
+\end{align}
+
+\begin{proposition}\label{prop:pbw}
+全係数で $B_{\mathbf a}$ はPBW基底 $t^\ell x^iy^jz^k$ を持ち、
+各fiberはnoetherian quadratic Koszul CY AS4型14641の整域である。
+低次数中心は
+\[
+Z(B_{\mathbf a})_1=kt,\qquad
+Z(B_{\mathbf a})_3=k\Omega_{\mathbf a,h}\oplus kX_h\oplus kY_h\oplus kZ_h\oplus kt^3
+\]
+であり、非被約底を含む底変更と可換する。
+\end{proposition}
+\begin{proof}
+$t=1$ の書換えは
+$yx=q^2xy-q^2z-q^2c$、$zx=qxz+y+b$、$zy=q^2yz-q^2x-q^2a$。
+唯一の重なり $zyx$ の二還元が全係数で一致する。
+Rees斉次化とDiamond lemmaからPBW基底を得る。
+活動次数の先頭環は三変数量子多項式環 $S$ の中央多項式拡大 $S[t]$ であり、
+整域・noetherian性が従う。正則中央拡大のAS正則性 \cite{LBS} と二次Gr\"obner基底からAS4とKoszul性を得る。
+Nakayama自己同型は $t$ を固定し $x_i\mapsto x_i+v_it$ と書ける。
+第一関係の差は
+$(1-q)t(v_yz+v_zy)+((1-q)v_yv_z-v_x)t^2=0$。
+PBW独立性から全 $v_i=0$、よってCYである。
+
+式\eqref{eq:Omega}と三つの $X_h$ の十二交換子は元の関係から零となる。
+$S$ の中心単項式の条件は $i\equiv j\equiv k\pmod3$。
+活動次数一・二には非定数中心がなく、三次には $x^3,y^3,z^3,xyz$ のみがある。
+最高記号を引く帰納法で全低次数中心を得る。
+非中心係数を消す際に使う $1-q,1-q^2$ は単元なので、底変更についても同じ議論が有効である。
+\end{proof}
+
+再開と検証に必要な全中心式を保持する。$t=1$ における元を $X,Y,Z,\Omega$ とし、
+$f=(1-q)/3,e=-(2q+1)/9$ と置くと
+\begin{align*}
+\ell_a&=((2q+1)a^3+2(q-1)a+3qbc)/9,\quad \ell_b,\ell_c\text{ は巡回置換},\\
+K&=((q+1)(a^2+b^2+c^2)+(q+2)abc)/3,\\
+L&=((1-q)(a^2b^2+a^2c^2+b^2c^2)+(q+2)(a^2+b^2+c^2))/9.
+\end{align*}
+全中心は一本の関係
+\begin{equation}\label{eq:center}
+\begin{split}
+0={}&\Omega^3+f\Omega^2-XYZ+e(X^2+Y^2+Z^2)\\
+&-(aX+bY+cZ)\Omega+\ell_aX+\ell_bY+\ell_cZ+K\Omega+L
+\end{split}
+\end{equation}
+で与えられる。元のPBW関係でこの恒等式を検証できる。
+四生成元が先頭中心を生成することと、$\Omega$ に関するmonic三次式の剰余
+$X^iY^jZ^k\Omega^r$ ($0\le r<3$) の相異なる最高記号により、これが全関係である。
+
+$u=[\alpha:\beta:\gamma:\delta:\varepsilon]\in\PP^4$ に対して
+\[
+G_{\mathbf a,u}=\alpha\Omega_{\mathbf a,h}+\beta X_h+\gamma Y_h+\delta Z_h+\varepsilon t^3,
+\qquad R_{\mathbf a,u}=B_{\mathbf a}/(G_{\mathbf a,u})
+\]
+とする。$\Delta=\alpha^3+27\beta\gamma\delta$、
+$T_{\rm ell}=\{\beta\gamma\delta\Delta\ne0\}$ と置く。
+境界は、平面三次
+\[
+E_u:\quad \beta x^3+\gamma y^3+\delta z^3+\alpha q^2xyz=0
+\]
+の $\phi=\operatorname{diag}(1,q,q^2)$ によるtwisted homogeneous coordinate ringである。
+$T_{\rm ell}$ 上では三座標頂点を避ける滑らかな楕円曲線であり、$\phi$ は正確な位数三の平行移動となる。
+
+\begin{assumption}[現行H3原稿から使う入力]\label{ass:recognition}
+次の結果を既存の証明への明示的な依存として使う。
+(1) $\mathbf a=0$ の切断のH3部分は非空開集合 $\mathcal U\subset\PP^4$ である。
+(2) 被約有限型底上、PBW平坦な中央包絡・中央三次商族で、中央境界が滑らかな楕円THCR、
+その平行移動が同一の有限位数を持つ場合、H3条件は開条件である。
+(3) 中央滑らか楕円境界の場合、H3性は $R[t^{-1}]_0$ の有限大域次元と同値である。
+(4) H3のpointed exact同値から反標準環と二次包絡が復元される。
+証明の所在は研究ノートの固定参照表に記す。今回、これらの全依存定理を独立に再証明したとはしない。
+\end{assumption}
+
+入力\ref{ass:recognition}よりH3開集合 $\mathcal V\subset\AA^3\times T_{\rm ell}$ を得る。
+零切片は $\mathcal U_{\rm ell}=\mathcal U\cap T_{\rm ell}$ に一致するため、$\mathcal V$ は非空で七次元既約である。
+全包絡同型は次数スカラーを除いて二符号変更と巡回置換だけであり、
+\begin{equation}\label{eq:N}
+\mathcal N=[\mathcal V/\mathfrak A_4]
+\end{equation}
+は七次元の滑らかな分離DM表示stackである。
+実際、中心一次直線を保って $x_i\mapsto\sum_jM_{ij}x_j+v_it$ と書き、
+境界のpoint graphを比較すると $M$ は対角・巡回型になる。
+関係の $tx_j$ 係数が $v_i=0$ を強制し、残りから
+$M=\lambda\operatorname{diag}(\epsilon_i)$、$\epsilon_i^2=1,\prod\epsilon_i=1$ を得る。
+従って $a=b=c=0$ は余次元三の正則閉部分stackであり、固定包絡四次元族の非成分性が従う。
+
+\section{固定位数三の全中央PBW正常形}\label{sec:normal}
+\begin{theorem}\label{thm:normal}
+$S=k\langle x,y,z\rangle/(yz-qzy,\mathrm{cyclic})$ の中央PBW拡大を
+\[
+r_i=t\sum_jA_{ij}x_j+b_it^2,\qquad [t,x_i]=0
+\]
+と書く。ここで $A$ は対称とする。
+$A_{11}A_{22}A_{33}\ne0$ の開部分は、有限\'{e}taleな係数拡大の後、式\eqref{eq:B}へ正規化される。
+従って七次元族は、この固定位数三・中央境界部分の指定開集合の全正常形である。
+\end{theorem}
+\begin{proof}
+ポテンシャルを
+\[
+\Phi=xyz-qxzy-\tfrac12\sum_{i,j}A_{ij}x_ix_j-\sum_i b_ix_i
+\]
+と書く。二次以下の巡回語は対称式として扱える。
+$x_i=X_i+v_i$ とすると、非対角二次係数を消す唯一の平行移動は
+\[
+v_1=A_{23}/(1-q),\quad v_2=A_{13}/(1-q),\quad v_3=A_{12}/(1-q)
+\]
+である。対角係数 $h_i=A_{ii}$ は変わらず、新しい定数は
+\[
+b'_i=b_i+h_iv_i+(1-q)v_jv_k\qquad(\{i,j,k\}=\{1,2,3\})
+\]
+となる。これはポテンシャルを直接展開した恒等式である。
+次に $X_i=r_iY_i$、$t$ は固定とし、
+\[
+r_i^2=h_jh_k,\qquad r_1r_2r_3=h_1h_2h_3
+\]
+を選ぶ。単元の平方根を有限\'{e}taleに添加すれば可能で、選択肢は四つの偶符号である。
+$h_ir_i=r_jr_k$ により対角一次係数はすべて1、新定数は $b'_i/(r_jr_k)$ となる。
+残余群は前節の全同型計算と一致する。
+\end{proof}
+
+対称性は単なる便宜上の十分条件ではない。
+巡回三次syzygyを一次補正へ作用させると
+$\sum_{ij}A_{ij}[x_i,x_j]=0$ を得る。
+$q\ne1$ の量子平面では三つの交換子が独立なので反対称部分は零である。
+逆に対称 $A$ はKoszul PBW条件を満たす \cite{BG,EG}。
+したがって本節は対称な表示だけを恣意的に選んだ分類ではない。
+ただし中央境界を失う変形、非正規境界、対角係数零の閉部分はこの定理に含めない。
+
+\section{三捩れから外へ出る全次数の変形}\label{sec:integrate}
+\subsection{低次中心がないことによる持上げ}
+\begin{lemma}[中央三次の正則持上げ]\label{lem:central-lift}
+$A=k[[s]]$、$K=k((s))$ とする。
+$V_A$ を濾過各次数で有限自由なPBW族、$\operatorname{gr}V_A=S_A$ とする。
+$S_A$ に中央三次元 $g_A$ があり、$g_0$ の中心持上げ $G_0\in V_0$ が存在すると仮定する。
+さらに $F_2Z(V_0)=k$、$\dim_K Z(S_K)_3=1$、
+$V_K$ に次数三の非定数中心元が存在するとする。
+このとき $g_A$ は $V_A$ の中心元へ持ち上がり、その定数項を固定すれば一意である。
+指定した $G_0$ を特殊値に取れる。
+\end{lemma}
+\begin{proof}
+$g_A$ の任意の持上げ $\widetilde g$ を選び、補正を
+$F_2V_A/A$ の九つの基底で書く。
+三生成元との交換子は有限自由加群間の線型方程式 $M(s)c=b(s)$ となる。
+$F_2Z(V_0)=k$ なので $M(0)$ の階数は9であり、ある $9\times9$ minorは単元である。
+この九行を使った解 $c$ は $A$ に属する。
+一般fiberでは非定数中心元の最高記号が $g_K$ の非零倍であり、
+規格化すれば全方程式の解が存在する。九行で解は一意なので、残る行も $K$ 上で零になる。
+$A$ は整域であるから全行が $A$ 上で零である。
+特殊fiberでも定数を除いた解は一意なので所望の $G_0$ へ戻る。
+\end{proof}
+
+\subsection{楕円曲線を固定し、平行移動を動かす}
+有限な座標拡大の後、境界曲線を
+\[
+E_\lambda:\quad x^3+y^3+z^3-3\lambda xyz=0,\qquad \lambda^3\ne1
+\]
+とする。原点を $(1:-1:0)$、三捩れ点を $p_0=(1:-q:0)$ と取る。
+\[
+p_s=(1:b(s):s),\qquad 1+b(s)^3+s^3-3\lambda b(s)s=0,\qquad b(0)=-q
+\]
+を考える。$b$ に関する偏微分は $3q^2\ne0$ なので、$b(s)$ は一意の形式解を持ち、
+実際に有限型曲線の\'{e}tale局所座標で定義される。
+対応する三変数環は
+\[
+S_s=k\langle x,y,z\rangle/(yz+b(s)zy+sx^2,\ \mathrm{cyclic})
+\]
+である。
+
+\begin{proposition}[全次数の包絡・切断変形]\label{prop:formal-integral}
+七次元族の滑らかな楕円境界部分の任意の幾何学的点は、
+境界の平行移動が三捩れから動く、全次数平坦なCY AS4包絡と正則中央三次商の形式族へ延長できる。
+その一般fiberも滑らかな同じ楕円曲線を境界とする。
+ここでは一般fiberのH3性はまだ結論しない。
+\end{proposition}
+\begin{proof}
+上記のSklyanin表示は $p_s$ による平行移動の二次包絡である。
+multilinear行列の行列式は
+$b(s)s\{3\lambda xyz-(x^3+y^3+z^3)\}$。
+一般fiberは非退化な楕円AS3、特殊fiberは既知の量子多項式環である。
+全次数AS正則性は \cite{IS} と標準の楕円THCR認識を使う。
+各次数のHilbert値は両fiberで等しいので、DVR上の有限加群の構造定理により $S_A$ は次数別に自由である。
+THCR族への全射の三次核は階数一の束をなし、これを $kg_A$ と書く。
+平行移動の場合のNakayama公式から $g_A$ は中心であり、$g_0$ は指定した境界三次式である。
+
+ポテンシャルの二次・一次項を特殊fiberの値に固定してPBW変形を取る。
+Etingof--Ginzburg \cite[Theorem 3.3.2(i)]{EG} と正則中央拡大の定理により、
+Rees包絡は各fiberでCY AS4、全次数で平坦である。
+同定理(ii)から一般fiberに非定数中央三次元が存在する。
+一般平行移動は位数一・二・三ではなく、先頭環の低次数中心は定数と唯一の三次直線に限られる。
+特殊fiberでは命題\ref{prop:pbw}により $F_2Z=k$。
+補題\ref{lem:central-lift}を適用すると、指定した中央三次切断が正則に持ち上がる。
+境界三次元の正則性と次数別乗法の単射により、商も全次数で平坦となる。
+境界THCRが整域なので $t$-進最高記号から商の整域性も従う。
+\end{proof}
+
+\begin{lemma}[超越的中心値のH3性]\label{lem:generic-D}
+前命題の包絡と中央三次持上げを中心値 $D$ から独立に定義し、
+$D$ をそれらの定義体上超越的に取る。このとき一般fiberの切断 $G+D$ はH3である。
+\end{lemma}
+\begin{proof}
+非斉次化 $V$ は有限大域次元を持つCY3環で、$G$ は非定数中心元である。
+$G$ の最高記号が非零の正次数正則元なので $G$ は定義体 $F$ 上超越的である。
+$F(D)$ 上の $V/(G+D)$ は、$D=-G$ と同定した中心局所化
+$V\otimes_{F[G]}F(G)$ に等しい。
+中心局所化は有限大域次元を保つ。
+滑らかな中央楕円境界に対する入力\ref{ass:recognition}(3)を適用してH3を得る。
+これは任意の数値 $D$ に関する開性や許容条件を主張する議論ではない。
+\end{proof}
+
+この構成は七次元族の幾何学的一般点から外へ出るH3一般fiberを与える。
+境界データ $(E,\rho)$ の二次元、対称二次・一次ポテンシャルの九係数、
+平行移動三次元、共通拡大一方向、中心値一方向を数えると
+\[
+2+9-3-1+1=8
+\]
+となる。
+$1+b(s)$ が単元なので非対角二次項は平行移動で一意に消せる。
+一般の境界の射影自己同型群は有限であり、対角二次係数の一つを共通拡大で規格化すれば、
+この計算は単なる冗長パラメータ数でなく、八次元の一般表示族の次元を与える。
+全intrinsic族への射を大域的に定義したこととは区別する。
+
+\section{滑らかな中心でのHochschild変形空間}\label{sec:hh}
+\begin{assumption}[本節の幾何学的適用範囲]\label{ass:order}
+$C$ は滑らかな射影三次曲面、$D\in|-K_C|$ は滑らかな楕円曲線とする。
+$\Lambda$ は $C$ 上の有限orderで、$C\setminus D$ ではAzumaya、
+$D$ 上では\'{e}tale局所的な完備化が
+\[
+k[[s,w]]\rtimes\mu_3,\qquad \zeta(s,w)=(s,\zeta w)
+\]
+とMorita同値であるとする。
+七次元族の滑らかな中心を持つ開部分は、既存の中心・境界order定理によりこの範囲に入る。
+原点切片には第\ref{sec:exact}節の厳密な滑らかさの証明書を持つ点がある。
+\end{assumption}
+
+\begin{lemma}[局所Hochschild層]\label{lem:local-HH}
+仮定\ref{ass:order}の下で、$C$ 上の局所Hochschild cohomology層は
+\[
+\mathcal{HH}^0=\OO_C,\quad
+\mathcal{HH}^1=T_C(-\log D),\quad
+\mathcal{HH}^2=\bigwedge^2T_C(-\log D),\quad
+\mathcal{HH}^{>2}=0
+\]
+である。
+\end{lemma}
+\begin{proof}
+非分岐部分は局所Morita不変性と通常のHKRである。
+分岐点では $A=k[[s,w]]$ の二変数Koszul分解を使い、
+$\Ext_{A^e}(A,A\rtimes\mu_3)^{\mu_3}$ を計算する。
+恒等元の部分は $\bigwedge T_A$ の不変部分であり、その基底は
+\[
+1;\qquad \partial_s,\ w\partial_w;\qquad w\partial_s\wedge\partial_w.
+\]
+$z=w^3$ とすると $w\partial_w=3z\partial_z$ なので、これらは
+$\OO_C,T_C(-\log D),\wedge^2T_C(-\log D)$ に対応する。
+
+非恒等元の固定部分は $w=0$ の直線である。
+Koszul分解の $w$ 方向を計算すると、寄与は法線表現の行列式を伴う。
+この一次元表現への $\mu_3$ 作用は非自明なので、次数一・二の両方で不変部分は零である。
+これは \cite[Theorem 1.1]{NS} の固定部分公式の直接計算でもある。
+この局所計算はBrauer捩れを消す大域的同値を必要としない。
+局所Morita同値の変更は、恒等部分の中心に由来するpolyvector層に恒等に作用する。
+それらの同定は非分岐稠密開上で通常の中心の同定に一致し、局所自由層への延長が一意であるから貼り合う。
+非恒等部分は局所的に零なので、Brauer捩れから新しい層が生じることもない。
+\end{proof}
+
+\begin{theorem}[八次元の無障害な圏変形]\label{thm:HH8}
+$\mathcal C=\Perf(C,\Lambda)$ とする。仮定\ref{ass:order}の下で
+\[
+\HH^0(\mathcal C)=k,\qquad \HH^1(\mathcal C)=0,\qquad
+\dim\HH^2(\mathcal C)=8,\qquad \HH^n(\mathcal C)=0\ (n\ge3).
+\]
+さらに標準的な完全列
+\[
+0\longrightarrow H^1(C,T_C(-\log D))\longrightarrow\HH^2(\mathcal C)
+\longrightarrow H^0(C,\OO_C)\longrightarrow0
+\]
+があり、左右の次元は7と1である。
+従って通常のHochschild複体で制御される圏の形式変形は無障害で、
+次数スカラーの高次自己同型を別にすれば、そのminiversal底は八次元形式円板である。
+\end{theorem}
+\begin{proof}
+滑らかな三次曲面について $H^{>0}(\OO_C)=0$、
+$h^0(T_C)=0,h^1(T_C)=4,h^2(T_C)=0$。
+後二つは $C\subset\PP^3$ の法束列とEuler列、
+$h^0(\OO_C(3))=19$、$h^0(T_{\PP^3}|_C)=15$ から得る。
+$h^0(T_C)=0$ は、連結自己同型が27本の直線を固定し、
+六本を縮約した $\PP^2$ 上で一般位置の六点を固定することからも従う。
+
+対数接束の完全列
+\[
+0\longrightarrow T_C(-\log D)\longrightarrow T_C
+\longrightarrow\OO_D(D)\longrightarrow0
+\]
+を使う。楕円曲線上の $\OO_D(D)$ の次数は3なので $h^0=3,h^1=0$。
+従って対数接束のcohomologyの次元は順に $0,7,0$ である。
+また $D=-K_C$ から $\wedge^2T_C(-\log D)=\OO_C$。
+
+局所から大域へのHochschild spectral sequenceを補題\ref{lem:local-HH}に適用する。
+非零項は $H^0(\OO_C)$、$H^1(T_C(-\log D))$、
+$H^0(\wedge^2T_C(-\log D))$ に限られ、すべての微分は次数の理由で零である。
+一般的な大域HKR形式性を別途仮定せず、主張と完全列を得る。
+通常の変形理論 \cite{LVdB} では接空間が $\HH^2$、小拡大に対する障害が $\HH^3$ に属する。
+後者の消滅から形式的滑らかさ、前者の有限次元性から八次元のminiversal底を得る。
+\end{proof}
+
+\begin{corollary}
+構造対象 $\OO$ がexceptionalである場合、その持上げの障害と選択の曖昧さ \cite{LowenObject} は
+それぞれ $\Ext^2(\OO,\OO)$ と $\Ext^1(\OO,\OO)$ に属し、いずれも零である。
+従って構造対象を持つ圏の形式変形でも、接空間と障害の上記の値は変わらない。
+\end{corollary}
+
+\begin{remark}
+この定理は、全H3変形が自動的に同じ14641二次包絡を持つこと、
+逆Serre作用が任意の変形heartを保つこと、全次数の相対反標準環が再構成できることを証明していない。
+圏の八次元形式変形と、全H3スタックの八次元開部分を同一視するには、これらの比較が必要である。
+\end{remark}
+
+\section{厳密計算と具体的な横断方向}\label{sec:exact}
+非斉次化 $t=1$、$a=b=c=0$ とし、
+\[
+\Phi_0=xyz-qxzy-\tfrac12(x^2+y^2+z^2),\qquad
+G_0=2\Omega+X+2Y+3Z+5
+\]
+を取る。$\Delta=170$、$\beta\gamma\delta=6$。
+式\eqref{eq:center}に $\Omega=-(X+2Y+3Z+5)/2$ を代入した三次式を $F$ とすると、
+$\mathbb Q(q)$ 上で $(F,F_X,F_Y,F_Z)$ のGr\"obner基底は $(1)$ である。
+既存の境界正則性定理と合わせ、この点は滑らかな中心と楕円境界を持つH3点である。
+
+次数一から三の巡回語は20個、次数三以下のPBW語も20個ある。
+それぞれ $\dot\Phi,\dot G$ の係数を未知数とし、
+変形した関係式の下で $[G_0+\epsilon\dot G,x_i]=0\pmod{\epsilon^2}$ を一次化する。
+全105行40列の行列 $M$ を $\mathbb Q(q)$ 上で計算すると
+\[
+\operatorname{rank}M=18,\quad\dim\ker M=22.
+\]
+12個のaffine座標変更、ポテンシャルのスカラー、切断のスカラーの14列を明示すると、
+すべて核に入り階数14である。
+既知の七次元族を加えたspanの階数は21であり、次の方向を加えると22になる：
+\[
+\dot\Phi=x^3+2y^3+3z^3+2xyz,
+\]
+\begin{align*}
+\dot G={}&(22q+6)x+(5q+9)y+(18q+18)z\\
+&-\tfrac43(q+1)(x^2+z^2)-\tfrac43(q+4)y^2+6xy+9q\,xz+18yz.
+\end{align*}
+従って\emph{このポテンシャル・中央三次incidence}の接空間商は正確に八次元である。
+これは全H3変形の被覆を行列の階数だけから推論したものではない。
+
+全次数の明示例として、別の許容候補切断
+$2\Omega+X+8Y+27Z+D$ に対し
+\begin{equation}\label{eq:explicit-integral}
+\Phi_u=(1+2u)xyz-qxzy+u(x^3+8y^3+27z^3)-\tfrac12(x^2+y^2+z^2)
+\end{equation}
+を取る。Etingof--GinzburgのAppendix 9.1の中心式を
+\[
+X_{\rm R}=x,\quad Y_{\rm R}=2y,\quad Z_{\rm R}=3z,
+\quad q_{\rm R}=q/(1+2u),\quad t_{\rm R}=-18u/(1+2u)
+\]
+で変換すると、$u=0$ で正則な有理中心三次元を得る。
+$x^3$ 係数を1、定数を $D$ と規格化した特殊値は正確に
+$2\Omega+X+8Y+27Z+D$ である。
+全有理係数は小さいJSONに保持し、原関係からの三つの交換子を
+$\mathbb Q(q)(u)$ 上で独立に零へ還元した。
+この検算は原典の中心性を前提としない。
+$D=5$ と固定した一般 $u$ のH3性をこの計算だけで主張しない。
+一般中心値 $D$ については補題\ref{lem:generic-D}が適用される。
+
+\section{既約成分について何が確定し、何が残るか}\label{sec:component}
+\begin{theorem}[相対モジュライ比較を明示した成分判定]\label{thm:conditional-component}
+次の条件を仮定する。
+\begin{enumerate}
+\item 問題のH3対象を含む局所有限型のrigidified代数的モジュライstack $\mathfrak M$ があり、
+上記の平坦な反標準環の族を受け入れる。
+\item 一般点でH3の無限小変形から構造対象付き圏の無限小変形への写像が単射である。
+\item 第\ref{sec:integrate}節の八次元一般表示族とその七次元族への特殊化が、
+この相対モジュライ問題の族として実現される。
+\end{enumerate}
+このとき七次元族の一般点を通る既約成分は唯一で、次元は8である。
+その点で $\mathfrak M$ は滑らかで、完成局所底は八次元形式円板となる。
+\end{theorem}
+\begin{proof}
+条件(2)と定理\ref{thm:HH8}から接空間次元は8以下である。
+条件(3)の一般表示族は、境界の平行移動を動かし、同型による冗長性を除いて八次元である。
+その閉包が七次元族の一般点を含むので、局所次元は8以上となる。
+一般慣性は自明であるため\'{e}tale局所環を取れ、接空間次元とKrull次元はともに8。
+従って局所環は正則であり、唯一の既約成分を持つ。
+\end{proof}
+
+第\ref{sec:artin-reconstruction}節で条件(2)を適合したenhanced Abel変形の範囲では証明する。
+他の条件を未検証のまま外して「全成分を完全に決定した」とはしない。
+特に正則な八次元形式近傍を得ても、全既約成分の境界の記述はそれだけでは得られない。
+完全決定には、一般族の像の閉包に含まれるH3対象を漏れなく認識し、
+滑らかな楕円境界が消える点、中心が特異になる点、非PI領域、
+別の表示を持つ点について全矢と慣性を求める必要がある。
+
+有力な候補は、Etingof--Ginzburg型の一般中心三次商を含む八次元成分である。
+Rainsの $E_6$ 型幾何学と比較する際には、
+固定した楕円境界のfiltered deformationの六次元と、境界曲線・平行移動の二次元を区別する。
+期待される重み付き射影表示やWeyl商を、そのまま全H3の同値と断定しない。
+指定potential chartでの全Artin包絡認識と八変数の同時中心切断は後節で解決する。
+次に最優先で行うことは、全intrinsic形式変形との比較とH3族の相対実現であり、
+その後、閉包の境界を有限な認識条件へ落とすことである。
+
+\input{papers/sections/quantum_cubic_artin_reconstruction.tex}
+\input{papers/sections/quantum_cubic_multivariate_formal_chart.tex}
+\input{papers/sections/quantum_cubic_artin_enhancement.tex}
+\input{papers/sections/quantum_cubic_algebraic_boundary.tex}
+\input{papers/sections/quantum_cubic_presentation_stack.tex}
+
+\section{再現と検証範囲}
+全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
+\begin{center}\begin{tabular}{p{.55\textwidth}p{.36\textwidth}}\toprule
+検証器&今回の実行結果\\\midrule
+\path{verify_envelope_family.py}&全係数PBW、十二交換子、全中心式：PASS\\
+\path{verify_normal_form.py}&全係数正常形、局所指標：PASS\\
+\path{verify_smooth_witness.py}&標数0の特異点ideal $(1)$：PASS\\
+\path{verify_tangent_quotient.py}&核22、座標方向14、商8：PASS\\
+\path{verify_integrated_lift.py}&有理係数の全次数中心式：PASS\\
+\path{verify_cubic_obstruction.py}&全80一次重なり：PASS\\
+\path{verify_universal_cubic_syzygies.py}&全四syzygy、三次rank44：PASS\\
+\path{verify_second_order_incidence.py}&八方向同時二次補正：PASS\\
+\path{verify_rains_central_formula.py}&修正中心式の全係数恒等式：PASS\\
+\path{verify_central_multivariate_lift.py}&八変数正則化・全先頭式：PASS\\
+\path{verify_potential_recovery.py}&potential rank19、中心直線rank3：PASS\\
+\path{verify_algebraic_boundary.py}&境界行列式・判別式：PASS\\
+\path{verify_boundary_graph.py}&右graph・generic非三周期性：PASS\\\bottomrule
+\end{tabular}\end{center}
+有限体の標本による外挿はしていない。
+H3開性・相対圏の再構成・局所order認識は、計算証明書と通常の数学的証明を区別して記載した。
+全原稿の独立査読、Lean形式化、新規性の網羅調査は未実施である。
+本稿のLuaLaTeX組版と上記検証器を確認した。既存の全分類成果の独立再監査とは区別する。
+
+\begin{thebibliography}{99}
+\bibitem{DeDekenLowen} O. De Deken, W. Lowen,
+\emph{Abelian and derived deformations in the presence of $\mathbb Z$-generating geometric helices},
+J. Noncommut. Geom. 5 (2011), 477--505,
+\href{https://doi.org/10.4171/JNCG/83}{doi:10.4171/JNCG/83}, Theorem 4.5, Proposition 4.6, pp. 495--496.
+\bibitem{StacksPerfect} The Stacks Project Authors,
+\emph{The Stacks Project},
+\href{https://stacks.math.columbia.edu/tag/0BDK}{Tag 0BDK}, Lemma 36.31.3.
+
+\bibitem{EG} P. Etingof, V. Ginzburg,
+\emph{Noncommutative del Pezzo surfaces and Calabi--Yau algebras},
+J. Eur. Math. Soc. 12 (2010), 1371--1416.
+\href{https://arxiv.org/abs/0709.3593v4}{arXiv:0709.3593v4}.
+Theorem 3.3.2(i),(ii), Proposition 7.3.1, Appendix 9.1。
+\bibitem{LBS} L. Le Bruyn, S. P. Smith, M. Van den Bergh,
+\emph{Central extensions of three dimensional Artin--Schelter regular algebras},
+Math. Z. 222 (1996), 171--212, Theorem 2.6, Corollary 2.7。
+\bibitem{BG} A. Braverman, D. Gaitsgory,
+\emph{Poincar\'e--Birkhoff--Witt theorem for quadratic algebras of Koszul type},
+J. Algebra 181 (1996), 315--328, Theorem 0.5。
+\bibitem{IS} N. Iyudu, S. Shkarin,
+\emph{Three dimensional Sklyanin algebras and Gr\"obner bases},
+\href{https://arxiv.org/abs/1601.00564}{arXiv:1601.00564}, Theorem 1.1, Corollary 6.1。
+\bibitem{NS} C. Negron, T. Schedler,
+\emph{The Hochschild cohomology ring of a global quotient orbifold},
+Adv. Math. 364 (2020), 106978.
+\href{https://arxiv.org/abs/1809.08715}{arXiv:1809.08715}, Theorem 1.1, Appendix A。
+\bibitem{FIOS} E. Faber, C. Ingalls, S. Okawa, M. Satriano,
+\emph{On stacky surfaces and noncommutative surfaces},
+\href{https://arxiv.org/abs/2206.13359v2}{arXiv:2206.13359v2}, 8 February 2024,
+Theorem 1.5, Corollary 1.7。Brauer捩れ付きの比較として使用する。
+\bibitem{FPSS} L. Fu, M. Porta, S. Scherotzke, N. Sibilla,
+\emph{Hochschild--Kostant--Rosenberg isomorphism for derived Deligne--Mumford stacks},
+\href{https://arxiv.org/abs/2509.00501v3}{arXiv:2509.00501v3}, 20 January 2026,
+Proposition 6.17。一般root stackの恒等部分への帰着を比較し、$n=2$ に限る後半の式を $n=3$ へ流用しない。
+\bibitem{Rains} E. M. Rains,
+\emph{Filtered deformations of elliptic algebras},
+\href{https://arxiv.org/abs/2107.13540v2}{arXiv:2107.13540v2}, 17 February 2022,
+Propositions 2.2, 2.3, Example 2.1, Section 6末尾のConjecture 1とRemark。
+\bibitem{LVdB} W. Lowen, M. Van den Bergh,
+\emph{Hochschild cohomology of abelian categories and ringed spaces},
+Adv. Math. 198 (2005), 172--221,
+\href{https://arxiv.org/abs/math/0405227}{arXiv:math/0405227}。
+\bibitem{LowenObject} W. Lowen,
+\emph{Hochschild cohomology, the characteristic morphism and derived deformations},
+Compos. Math. 144 (2008), 1557--1580,
+\href{https://arxiv.org/abs/0707.2602}{arXiv:0707.2602}。
+\bibitem{Repo} \emph{nc-cubic-moduli research repository},
+\href{https://github.com/uedakazushi/nc-cubic-moduli}{GitHub main}。
+本稿の依存する個別ファイル・ラベル・確認済み状態は研究ノートの入力表に固定する。
+\end{thebibliography}
+\end{document}

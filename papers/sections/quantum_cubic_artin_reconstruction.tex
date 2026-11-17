@@ -1,0 +1,164 @@
+\section{Artin底上の反標準切断と変形の単射性}\label{sec:artin-reconstruction}
+この節では、一次元のDVR上の積分とは別に、任意の局所Artin底上での再構成を扱う。
+全圏変形がH3になるとは結論しない。解決するのは、切断環の平坦性・有限表示と、
+適合したenhancementを持つAbel変形から圏変形への\emph{同型類上の単射性}である。
+
+\subsection{反標準列に対する消滅と既知の再構成定理}
+$R_0=B_0/(G_0)$ を本稿のH3点の飽和反標準環とし、
+$\mathcal A_0=\qgr R_0$、$E_i=\pi R_0(i)$、
+$\mathcal G_0=\operatorname{Ind}(\mathcal A_0)=\operatorname{QGr}R_0$ と置く。
+$R_0$ はAS Cohen--Macaulay、AS Gorenstein次元3・parameter1である。
+標準的な局所cohomologyとtails cohomologyの比較および双対性から
+\begin{equation}\label{eq:artin-forward-vanishing}
+ \Hom(E_i,E_j)=(R_0)_{j-i},\qquad
+ \Ext^p(E_i,E_j)=0\quad (p>0,\ j\ge i)
+\end{equation}
+となる。実際、第一cohomologyはCohen--Macaulay性で消え、
+第二cohomologyは $(R_0)_{i-j-1}^{*}=0$ となる。
+特に全 $E_i$ はexceptionalであり、$\{E_i\}_{i\in\mathbb Z}$ はAZ ampleな列である。
+
+正方向だけを残した有向 $\mathbb Z$-代数を
+\[
+ \mathfrak a_0(i,j)=
+ \begin{cases}\Hom(E_i,E_j)&i\le j,\\0&i>j\end{cases}
+\]
+と書く。右加群の規約では添字を $i\mapsto-i$ と変えてもよい。
+\cite[Theorem 4.5]{DeDekenLowen}を適用すると、局所Artin $k$-代数 $A$ に対し
+\begin{equation}\label{eq:DDL-equivalence}
+ \operatorname{Def}_{\rm lin}(\mathfrak a_0)(A)
+ \simeq \operatorname{Def}_{\rm ab}(\mathcal G_0)(A)
+\end{equation}
+を得る。ここでAbel変形のflat性はLowen--Van den Berghの意味である。
+必要なExt消滅は\eqref{eq:artin-forward-vanishing}であり、
+有限次元 $k$-空間 $X$ をtensorした場合も有限直和だから同じである。
+$\mathbb Z$-生成性はAZ再構成から従う。
+変形されたAbel圏における $E_i$ のflatな持上げを $E_{i,A}$ とすると、
+変形 $\mathfrak a_A$ はそれらの正方向Homから構成される。
+noetherian性などの有限性の持上げは同論文Proposition 4.6による。
+これは既知の定理の適用であって、新しい一般的なAbel変形理論ではない。
+また、ここでは $\mathfrak a_A$ の一周期性を仮定も結論もしていない。
+
+\subsection{enhancementを持つAbel変形は圏変形に埋め込まれる}
+\begin{definition}\label{def:compatible-abelian}
+本節でいう\emph{適合したenhanced Abel変形}は、\eqref{eq:DDL-equivalence}のflat Abel変形と、
+そのperfect部分の $A$-線型dg enhancementで、次を満たすものである。
+$E_{i,A}$ はperfect対象として実現され、特殊fiberは指定された $E_i$ である。
+perfect対象間のderived Homは $A$ 上perfectであり、その形成が導来底変更と両立する。
+射には特殊fiberで恒等となるmarkingを課す。
+この適合性を、任意の抽象dg変形にheartが自動的に付くという主張に置き換えない。
+\end{definition}
+
+\begin{theorem}[全Artin底での同型類の単射性]\label{thm:artin-injective}
+二つの適合したenhanced Abel変形のdg圏が、特殊fiberのmarkingを保つ
+$A$-線型Morita同値で結ばれているとする。
+このとき二つのAbel変形は、構造対象を保つmarked exact同値によって同型である。
+従って忘却写像は同型類の集合上単射であり、その接写像も単射である。
+\end{theorem}
+\begin{proof}
+Morita同値を $F$ とする。任意の整数 $i$ に対して
+$F(E_{i,A})$ と $E'_{i,A}$ は、同じ $E_i$ の、同じdg変形内のperfectな持上げである。
+小拡大 $A\twoheadrightarrow\bar A$ の核 $J$ に対する対象持上げの差は
+$\Ext^1(E_i,E_i)\otimes_kJ$ に、存在障害は $\Ext^2(E_i,E_i)\otimes_kJ$ に属する
+\cite{LowenObject}。いずれも零である。
+Artin長による帰納法で、markingを持ち上げる同型
+$F(E_{i,A})\simeq E'_{i,A}$ を各 $i$ について選べる。
+選択が一意な射であるとは主張しない。対象のスカラー自己同型は残る。
+
+これらの同型と $F$ の合成保存性により、正方向の全Homと積を保つ同型
+$\mathfrak a_A\simeq\mathfrak a'_A$ を得る。
+両辺のHomはheartのHomでもあり、perfect enhancement内の次数零Homでもある。
+従って\eqref{eq:DDL-equivalence}を逆に適用すると、Abel変形のexact同値を得る。
+添字0の対象も保たれるのでpointedである。
+$A=k[\epsilon]/(\epsilon^2)$ を取れば接写像の単射性が従う。
+\end{proof}
+
+\begin{remark}
+この定理は与えられた $F$ 自体のt-exact性や、dg自己同値群oidへの充満忠実性を主張しない。
+必要なのは二つのAbel変形の同型類を区別できることである。
+また、無限列を有限な完全例外列に取り替えていない。
+三次曲面の反標準列は通常、有限長の例外列とは異なるので、
+\cite{DeDekenLowen}のgeometric helixに関する第5節はこの証明では使用しない。
+\end{remark}
+
+\begin{corollary}\label{cor:artin-tangent-bound}
+定理\ref{thm:HH8}の一般点において、適合したenhanced Abel変形として定義される
+intrinsic H3変形の接空間は8次元以下である。
+従って定理\ref{thm:conditional-component}の条件(2)は、この相対変形問題では
+追加仮定ではなく定理\ref{thm:artin-injective}の帰結となる。
+条件(1)の局所有限型代数性、条件(3)の相対H3族の実現、全境界被覆は依然として必要である。
+\end{corollary}
+\begin{proof}
+H3の構造対象はexceptionalで、その持上げは同型類として一意である。
+前定理を圏の変形の接空間 $\HH^2$ と比較し、定理\ref{thm:HH8}を用いる。
+\end{proof}
+
+\subsection{相対反標準切断環の有限自由性と六二次・一三次表示}
+\begin{lemma}[perfectな複体の特殊fiberからの認識]\label{lem:artin-perfect}
+$A$ を局所Artin環、剰余体を $k$ とし、$P\in\Perf(A)$ とする。
+$P\otimes_A^{\mathbf L}k\simeq k^r[0]$ なら $P\simeq A^r[0]$ である。
+この同定によりcohomologyの形成は任意の $A$-代数への底変更と両立する。
+\end{lemma}
+\begin{proof}
+有界有限自由複体から、微分の単元成分を持つ可縮な二項直和因子を順に除く。
+残る最小複体の微分は極大イデアルに入るので、$k$ とのtensor後は零になる。
+特殊fiberのcohomologyが次数零の $k^r$ のみであることから、
+この最小複体は次数零の $A^r$ だけとなる。
+これは\cite[Tag 0BDK]{StacksPerfect}のArtin局所版でもある。
+\end{proof}
+
+\begin{theorem}[全Artin底での反標準環の平坦な有限表示]\label{thm:artin-section-ring}
+$\mathcal D_A$ をsmooth properな $A$-線型dg圏とし、
+特殊fiberを $\Perf(\mathcal A_0)$ と同定する。
+相対Serre自己同値 $S_A$ とその逆が特殊fiberへの底変更に両立し、
+$E_A$ が $\OO$ のperfectな持上げであるとする。
+$\tau_A=S_A^{-1}[2]$ と置く。このとき
+\[
+ R_A=\bigoplus_{n\ge0}H^0\operatorname{RHom}_{\mathcal D_A}(E_A,\tau_A^n E_A)
+\]
+は、自己同値による通常のorbit積について、次数別に有限自由なconnected graded $A$-代数である。
+その各次数のrankは $(3n^2+3n+2)/2$、特殊fiberは $R_0$、次数別の形成は任意のArtin底変更と両立する。
+さらに $R_A$ は左右noetherianで、一次生成であり、
+\begin{equation}\label{eq:artin-six-one}
+ R_A\simeq T_A(A^4)/(r_1,\ldots,r_6,g),\qquad \deg r_i=2,\quad\deg g=3
+\end{equation}
+という表示を持つ。六つの二次関係は関係空間の $A$-基底に取れ、$g$ は特殊fiberの唯一の最小三次関係を持ち上げる。
+\end{theorem}
+\begin{proof}
+各derived Homはproper性によりperfectであり、特殊fiberは
+\eqref{eq:artin-forward-vanishing}によって $(R_0)_n[0]$ である。
+補題\ref{lem:artin-perfect}を適用して有限自由性と底変更を得る。
+$n=0$ では単位写像 $A\to R_{A,0}$ が剰余体上同型なので同型である。
+$\tau_A$ の反復を用いた積は結合的である。
+各次数の乗法 $R_{A,1}^{\otimes n}\to R_{A,n}$ の余核は有限生成で、
+特殊fiberで零なのでNakayama補題から零となる。従って一次生成である。
+
+$T=T_A(R_{A,1})$、$I=\ker(T\to R_A)$ とする。
+$0\to I_n\to T_n\to R_{A,n}\to0$ は $A$-加群として分裂するため、
+$I_n$ は有限自由で、その特殊fiberは $(I_0)_n$ と一致する。
+従って $I_2$ のrankは $16-10=6$ である。
+$I_2$ の基底 $r_i$ と、特殊fiberの最小三次関係を持ち上げる $g\in I_3$ を選ぶ。
+これらで生成される両側イデアルを $J$ とする。
+$R_0=B_0/(G_0)$ の全関係は二次関係と一つの三次関係で生成されるので、
+各次数で $J_n$ の $I_n\otimes_Ak$ への像は全体である。
+従って有限生成加群 $I_n/J_n$ の特殊fiberは零であり、再びNakayama補題から $I_n=J_n$。
+これが\eqref{eq:artin-six-one}である。
+
+$\mathfrak m^N=0$ となる $N$ を取り、
+$R_A$ の有限な $\mathfrak m$-進filtrationを取る。
+$A$-flat性から各商は
+$R_0\otimes_k(\mathfrak m^j/\mathfrak m^{j+1})$ であり、
+左右の $R_A$-加群として有限個のnoetherianな $R_0$ の直和になる。
+有限拡張により $R_A$ 自身が左右noetherianである。
+\end{proof}
+
+\begin{remark}[残っている再構成条件]\label{rem:artin-gap}
+定理\ref{thm:artin-section-ring}ではheartを仮定しないので、$\tau_A$ のt-exact性は結論しない。
+また $B_A=T_A(A^4)/(r_1,\ldots,r_6)$ の平坦性・AS4性は、$R_A$ の平坦性だけからは導いていない。
+$B_A\to R_A$ の核が両側イデアル $(g)$ であることと、
+$g$ が正則正規でその核が左右の主イデアルであることは異なる。
+指定potential chart内では次節の定理\ref{thm:artin-potential-envelope}がこの包絡条件を解決する。
+一般の全圏変形がそのchartに入ることはなお別の認識問題である。
+本節の主張は通常の証明であり、以下の有限計算証明書により代替されるものではない。
+\end{remark}
+
+\input{papers/sections/quantum_cubic_quadratic_obstruction.tex}

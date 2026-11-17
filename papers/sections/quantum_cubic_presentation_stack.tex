@@ -1,0 +1,73 @@
+\section{八次元の代数的表示stackとH3幾何学的矢}
+\label{sec:presentation-stack}
+この節では全H3 stackの代数性を仮定せず、構成した表示の有限型stackを先に作る。
+
+\begin{lemma}[有限次数の平坦表示開部分]\label{lem:finite-presentation-open}
+20個の次数1--3巡回potential係数の空間には、$\Phi_0$ を含むaffine座標変更とpotentialスカラーで不変なZariski開部分 $W$ があり、
+その普遍斉次二次包絡の次数2,3,4部分はそれぞれrank10,20,35のvector bundleとなる。
+\end{lemma}
+\begin{proof}
+各次数の自由語に対する関係挿入は、potential係数に多項式的な有限行列である。
+定理\ref{thm:artin-potential-envelope}により、$\Phi_0$ の全Artin商でそのrankは期待値となる。
+従ってrankより一つ大きい小行列式は、$\Phi_0$ の局所環の極大イデアルの全冪に入る。
+Krull intersectionにより局所環で零である。
+係数空間は整域なので、それらの多項式小行列式は恒等的に零となる。
+各次数で期待rankの小行列式が少なくとも一つ非零となる条件は開で、$\Phi_0$ を含む。
+三次数の共通開部分を取ればよい。
+このrank条件は座標変更及びpotentialスカラーで不変である。
+これは次数4以下だけの主張であり、ここで全potentialの全次数flat性を開性から先取りしていない。
+\end{proof}
+
+\begin{theorem}[smooth DMな八次元表示stack]\label{thm:presentation-DM-eight}
+$\Phi_0,G_0=2\Omega+X+2Y+3Z+5$ を含む有限型smooth DM stack $\mathfrak P$ と、
+明示八変数族の開部分からの\'{e}tale全射atlasが存在する。
+$\mathfrak P$ の幾何学的対象は、指定したpotential chartの中央三次表示を
+filtered affine座標変更と二つのスカラーで割ったものである。
+全fiberの包絡はnoetherian Koszul CY AS4、商はnoetherian整域でsmooth楕円THCR境界を持つ。
+$\mathfrak P$ のH3対象の間の全幾何学的pointed exact矢は、この表示の群作用で尽くされる。
+ただし、H3対象が $\mathfrak P$ のZariski開部分をなすことや、全intrinsic H3族がここへ降下することは本定理に含まない。
+\end{theorem}
+\begin{proof}
+前補題の $W$ 上の三次bundleを $V_3$、四次bundleを $V_4$ とする。
+$V_3$ の全空間から零sectionを除き、三つの交換子
+\[
+ [G,x_i]=0\quad\text{in }V_4,\qquad i=1,2,3
+\]
+の零scheme $Z$ を取る。これは有限型schemeで、局所的に40変数105方程式のincidenceである。
+作用群は
+\[
+ \Gamma=(\GL_3\ltimes\mathbb G_a^3)\times\mathbb G_{m,\Phi}\times\mathbb G_{m,G},
+ \qquad\dim\Gamma=14
+\]
+である。affine代入で生じるpotentialの定数項は微分に寄与しないので捨てる。
+この作用は普遍包絡及び交換子を保つ。
+
+定理\ref{thm:formal-potential-incidence-smooth}から、$Z$ の指定点での完備局所環は22変数冪級数環である。
+有限型の $k$-schemeなので、$Z$ はその点でsmoothな22次元である。
+明示八変数有理族は有限開部分 $U$ 上で定義済みなので、作用による代数的写像
+\[
+ f:\Gamma\times U\longrightarrow Z
+\]
+がある。指定点で微分は同型であり、sourceとtargetはsmoothで同次元だから $f$ はそこで\'{e}taleである。
+作用の同変性により、\'{e}tale locusは $\Gamma\times U'$ という形で、$U'$ は指定点を含む開部分である。
+その像 $Z'=f(\Gamma\times U')$ は $\Gamma$-不変開部分となる。
+必要な中心一次rank3及びpotential回復rank19の不変開条件も課す。
+これらは指定点で検証済みなので、その点を失わない。
+
+$\mathfrak P=[Z'/\Gamma]$ と置く。
+$Z'$ は\'{e}tale全射によりsmooth22次元であり、$f$ の微分の単射性から作用のLie安定化子は零である。
+従って商は有限型smooth DM stack、次元は $22-14=8$ である。
+$U'\to\mathfrak P$ は $Z'$ への底変更後に $f$ となるので、\'{e}tale全射atlasである。
+包絡・商・境界のfiberの性質は $U'$ 上で証明済みで、座標作用と幾何学的体拡大で保存されるから $Z'$ 全体へ移る。
+
+最後にH3対象間の矢を確認する。
+既存の中央楕円枝の認識により、pointed exact同値は反標準環とその二次包絡を復元する。
+CY包絡の中央三次商では、この反標準環は表示した $R$ 自身である。
+中央一次部分が $kt$ なので、graded同型はこの直線を保存し、$t=1$ でfiltered affine同型となる。
+potential回復行列のrank19条件により、同じ二次関係空間を与えるpotentialはスカラー倍のみである。
+三次核も一本なので、その基底の変更はもう一つのスカラーとなる。
+従って全ての幾何学的矢は $\Gamma$ 作用から来る。
+逆はgraded同型から明らかである。
+次数全体の共通スカラーは $t=1$ の段階で消えており、余分な $\mathbb G_m$ 慣性を追加していない。
+この幾何学的矢の結論を、未証明のH3 locusの開性や全圏族のfpqc降下に置き換えていない。
+\end{proof}
