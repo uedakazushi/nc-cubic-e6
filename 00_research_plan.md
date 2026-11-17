@@ -1,6 +1,6 @@
 # 研究方針：非可換三次曲面から広がる幾何学
 
-2026-11-18 / e6-connections-v30。**再開時は本書を最初に読む。**
+2026-11-18 / e6-connections-v31。**再開時は本書を最初に読む。**
 GitHub mainが正本。主論文は `papers/nc-cubic-e6.tex`。基礎は `research/research_notes.md`、DAHA比較は `research/fricke_daha_comparison.md`、Poissonと二五次被覆は `research/poisson_order_notes.md`、LG/G2は `research/cayley_lg_connections.md`、全period/trialityは `research/conic_period_coordinates.md`。境界力学・link・局所化は `research/boundary_pell_dynamics.md`、閾値・解析modulus・MF・楕円/Prymは `research/boundary_analytic_moduli.md`。旧bundle・会話履歴を再開の前提にしない。
 
 ## I. 恒常的な研究原則と保存許可
@@ -20,6 +20,7 @@ GitHub mainが正本。主論文は `papers/nc-cubic-e6.tex`。基礎は `resear
 **同じ非可換三次曲面から回復される幾何を、実際の写像・作用・周期・局所模型で結ぶ。** 量子中心はFrickeへ、一次元表現はLG/Cayley/D4へ、対称LGはG2へつながる。周期、境界力学、局所特異点、圏のどの情報がどの不変量に残るかを比較する。
 現在の中心は、境界の解析modulus K=kappa²と高重み情報である。重み付き模型のMFは(n,K)で分類され、同じlink・閾値・HH次元でも非同値。四点配置の二捩れ付き楕円曲線も同じKを記録する。
 今回、その付随楕円曲線への**実際の有限写像**を、重み付きMilnor曲線の二次Kummer被覆から構成した。元の曲線では指定したzを保つ写像に平方類[x]の障害があり、sqrt(x)で正確に解消される。Prym内の有理Hodge因子、全n共通のCiani genus3中間曲線、楕円因子の超幾何方程式を得た。
+さらにCiani経由の写像が巡回Galois被覆であり、完全分岐と非分岐中間商から楕円引戻しの核が正確に標識二捩れ、誘導偏極次数がPell積bcとなることを証明した。楕円族自体はMiranda--Perssonの極端有理楕円曲面X411、j写像は次数6のBelyiである。この既知楕円曲面とPell--Prym幾何との接続を優先して追う。
 実germのmu27,tau24と主部のtau27を区別する問題は、通常のZ-graded dg特異点圏についてHua–KellerのHH0=Tjurinaにより解決した。**strictな二周期MFの相対HH公式との全比較は未構成**であり、次数と基礎環を明記する。Prym構成を高重みの実germへ解析的に移すことも未解決。
 元の八次元E6成分の完全決定は保持する。七次元正常形、横断積分、八次元形式近傍・表示stack、結節因子、二五次被覆は現行原稿にある。全intrinsic H3の相対代数化・降下・大域境界は未完成で、他分野研究の前提にしない。
 達成基準は、具体的写像、変形、局所模型、格子写像、圏的対応、障害、周期式を正確に与えること。型・名前・数値の一致だけで同一視しない。
@@ -70,13 +71,19 @@ g(C)=2bc−b−c、g(tildeC)=4bc−b−2c−1、Prym次元2bc−c−1。deckがE
 楕円周期は(kappa²−1)Pi''+2kappa Pi'+Pi/4=0。完全微分恒等式から証明し、Gauss超幾何(1/2,1/2;1)へ変換。kappa変動の周期であり、固定kappaのMilnor値monodromyやLGのh周期とは異なる。
 Hua–Keller最終v6 Thm5.9の**通常Z-graded dg特異点圏**でHH0=Tjurina。実tau24と主部tau27はdg Morita非同値。実germで異なるKもこの圏が区別する。Z/2相対HH=Jacとの全忘却・periodization比較や、実germへのPrym移行を済ませたとはしない。
 
+### G. 巡回被覆、整数theta偏極と極端有理楕円曲面
+
+主論文 `sec:prym-integral-polarization`。\(b=2m,c\)はPellの互いに素な整数。tildeC→Dは巡回Galois次数bc、tildeC→Eは巡回Galois次数2bc。前者は\(T=0\)の四点で完全分岐、\(r=0\)の二点に各2c点・指数m、\(r=\infty\)の二点に各b点・指数c。最大非分岐商はD→Eの2isogeny。
+楕円の標識二捩れ\(T_E=(0,0)\)は自然なJacobian pullback\(q^*:J(E)→J(tildeC)\)の**正確な核**である。Prym内の埋込\(J(D)\)へのJacobian theta制限の次数は\(bc\)（n=1,2,3で10,348,11830）、Prym全体のtheta制限型は\((1^{b-1},2^{2bc-b-c})\)。整数の直積分解は未構成。
+\(E_κ:\eta²=z³-2κz²+z\)は\(κ=±1\)でI1、無限遠でI4*を持つ極端有理楕円曲面\(X_{411}\)、Mordell--WeilはZ/2。\(j=64(4κ²-3)³/(κ²-1)\)は次数6のBelyi写像、分岐型\((3,3),(2,2,2),(4,1,1)\)。Miranda--Perssonの原論文Table5.2を一次画像で確認。分類そのものは既知で、Pell/Prymの具体的な幾何の新しい整理として扱う。
+
 ## IV. 次の優先課題と具体的着手
 
 **第一優先：実germと主部の比較を、次数と追加構造を保って進める。**
 Z-graded dg特異点圏の復元は適用できた。次はstrict二周期MFの相対HHと絶対Zdg HHの関係を、Hua–Keller、Dyckerhoff、periodizationの一次資料から具体化する。n=1でkappa,hの変動による厳密Tjurina跳躍とJacobian積を計算し、[f]と高重み変形がどこに残るかを調べる。tau差だけの議論を、基礎環・次数の違う圏へ流用しない。
 
-**並行して優先：Prym因子を整数構造と変形へ進める。**
-全n共通のCiani写像とnormを使い、楕円factorのpullback kernel・誘導偏極・整数格子を最初のb2,c5で求める。PFからkappa=±1,inftyのmonodromyを計算し、Kのlevel2標識との関係を調べる。Kummer被覆が最小なのは指定zを保つ平方根の意味であり、元のCから任意の楕円写像がないとは主張しない。
+**並行して優先：Prymの補因子・楕円モジュラー幾何を深化する。**
+楕円factorのpullback kernel・誘導偏極次数bcは解決した。次はb2,c5のPrym全体の偏極付き補因子、交叉格子、初等因子、thetaと水平切断の関係を求める。X411のI1/I4*とBelyi三値から楕円rank2局所系の実際の整数monodromyを計算し、level2標識・二同種・Prymの自然な局所系と比較する。Kummer被覆が最小なのは指定zを保つ平方根の意味であり、元のCから任意の楕円写像がないとは主張しない。
 高重みの実germには解析的同型がないため、Prym因子が変形で残るか、極限Hodge構造・stable reductionでのみ現れるかを別問題として定式化する。isogeny因子を圏の部分圏やHMSへ飛躍させない。
 
 **並行して優先：局所Weinsteinとfiltered mirror。**
@@ -89,10 +96,17 @@ trialityの3捩れperiod差、Klein7/21、N5/M5のbranchと値衝突を保持。
 
 ```sh
 python3 -m pip install -r computations/requirements.txt
-python3 computations/verify_boundary_prym.py
-python3 computations/verify_all.py  # 全35検証器。今回の実行範囲とは別
+python3 computations/verify_prym_integral_belyi.py
+python3 computations/verify_all.py  # 全36検証器。今回の実行範囲とは別
 latexmk -lualatex papers/nc-cubic-e6.tex
 ```
-今回は新Prym検証器を実行しPASS。Q上のKummer/Ciani代入、楕円j/isogeny、指標射影、PF完全微分、整数Pell/種数式と、元のVietaからのmu27/tau24を再計算した。証明書は `computations/boundary_prym_certificate.json`。連結性・Riemann–Hurwitz・norm・Hodge因子・dg復元は本文の通常証明と引用定理への依存である。
-新節単体のLuaLaTeX組版4頁、全頁画像、内部参照・overfullなしを確認。主論文全体の今回の再組版、旧34検証器全再実行、独立査読、新規性の網羅調査は未実施。
-主論文差分で既存証明本文・入力節・文献表を保持した。保存後main ref、必要ファイル、実行コードとblob SHAを確認する。PDF・wrapper・ログ・画像はGitへ入れず、pushした内容をLibraryへ保存しない。
+今回は巡回Prym・整数偏極・X411/Belyi検証器を実行し、整数合同式、Pell分岐数、
+Weierstrass不変量と三分岐値の有理多項式を厳密にPASS。
+新しい証明書は `computations/prym_integral_belyi_certificate.json`。
+完全分岐からのJacobian単射、標識二捩れ核、theta norm、
+Mumfordの偏極型、Kodaira--Tate・Shioda--Tateは通常の証明と既知定理に依存する。
+旧35検証器の全再実行、旧証明の独立再監査、主論文全体の再組版、
+個別結果の網羅的新規性調査は今回未実施。
+新節のLuaLaTeX単体組版の確認状態は組版後に確定させる。
+保存後main ref・必要ファイル・証明書・Git blob SHAを確認する。
+PDF・一時wrapper・ログはGitへ入れず、pushした内容をLibraryへ保存しない。
