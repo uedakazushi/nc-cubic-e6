@@ -27,7 +27,7 @@
 \newcommand{\PP}{\mathbb P}
 \title{非可換三次曲面を結ぶ幾何学\\\large 楕円 $E_6$ 量子化・指標多様体・消滅サイクルと例外群 $G_2$}
 \author{}
-\date{2026年11月17日\quad e6-connections-v21}
+\date{2026年11月17日\quad e6-connections-v22}
 \begin{document}\maketitle
 \begin{abstract}
 原始三乗根の量子 $\mathfrak{so}_3$ 包絡とその中心三次切断を、
@@ -50,14 +50,14 @@ Casimir臨界値多項式は$\Delta_{15}=N_5^2M_5$と分解する。
 ramification divisorはトーラスの$\mathrm{SL}_2$指標多様体であるCayley三次曲面となる。
 四sheet衝突の$D_4$ミニバーサル変形、triality、Jacobi留数対、
 実pillowcase、elliptope内部での実sheet一意性を明示する。
-さらにLG等位面を三角境界付き三次曲面へコンパクト化し、
-局所Milnor格子と境界に直交するPicard格子の$D_4$を包含による整数同型で結ぶ。
-境界の一次元radical、affine $D_4$、混合Hodge構造の四方向と一方向を分離する。
-Boalch--Palubaの既知定理を適用すると、対称LG等位面は$G_2$指標多様体の連結成分となり、
-$D_4$衝突とsimple foldに対応する$A_2$衝突が同じ$G_2$退化の二成分として現れる。
-三成分のラベル被覆を$A_2$の三次根被覆と同定し、底のbraid monodromyと
-各成分を保つHurwitz作用を区別する。LG座標でのHurwitz作用、Chebyshev反復、
-既知のKlein七点軌道上の置換群$S_7$を明示し、境界周期を$(2\pi i)^2$に正規化する。
+LG等位面の三角境界付き三次コンパクト化では、局所Milnor格子とPicard直交補の$D_4$を
+包含による整数同型で結び、境界radicalと混合Hodge構造の四方向と一方向を分離する。
+Boalch--Palubaの既知定理を適用し、$D_4$衝突と$A_2$衝突を同じ$G_2$退化の二成分として読む。
+成分交換のbraidとHurwitz作用を区別し、Chebyshev反復、Klein七点軌道の$S_7$、境界周期を明示する。
+さらにconic matching球面の周期を対数で表示し、係数零の族で
+$\Pi_0(h)=4\pi\arcsin\sqrt{-2h}$とそのPicard--Fuchs方程式を得る。
+指数化周期は$\mathcal Q+\mathcal Q^{-1}=2+8h$を満たし、Looijenga対の代数的periodと一致する。
+$h=-1/10$で$\mathcal Q=(3-4i)/5$となることから、混合Hodge拡大が有理係数でも非分裂となる例を与える。
 これらの明示的接続、既知理論の適用、未構成の圏的対応を区別して記述する。
 \end{abstract}
 \tableofcontents
@@ -105,8 +105,19 @@ Boalch--Palubaの公式をLG座標へ移し、成分被覆のcuspが$3A_1$曲面
 一生成元のChebyshev線型化、Klein七点集合上の完全対称群を直接確認する。
 七点軌道の存在およびFano平面・八元数に由来する位数6048の表現像は既知であり、
 その群と七点を置換する$S_7$を同一視しない。
-境界の原始cycle上の留数周期を明示するが、内部周期や混合Hodge拡大は未計算である。
-mirror/Fukaya同値、$G_2$型量子代数との同型、nearly K\"ahler幾何との圏的対応は未構成である。
+境界の原始cycle上の留数周期は$(2\pi i)^2$となる。
+
+第\ref{sec:logarithmic-periods}節では、conic pencilの二重被覆上で
+留数形式を$d\log z\wedge d\log a$へ変え、matching球面の周期を具体的な対数として計算する。
+係数零の一変数族のMorse球面では$4\pi\arcsin\sqrt{-2h}$となり、
+そのrank二の解局所系のmonodromyは無限二面体群となる。
+Friedmanの積分と代数的periodの比較を用い、Looijenga対の境界線束制限と結び付ける。
+特に$h=-1/10$の指数化周期$(3-4i)/5$が非捩れであることにより、
+一つのfiberの混合Hodge拡大が有理係数でも非分裂であると証明する。
+局所系の非分裂性と点ごとの混合Hodge非分裂性は異なる主張である。
+Friedman、Gross--Hacking--Keel、Lai--Zhou、Karwa--Laiの一次資料との比較箇所を同節に記す。
+全四内部周期の同時基底、全rank五Gauss--Manin接続、mirror/Fukaya同値、
+$G_2$型量子代数との同型、nearly K\"ahler幾何との圏的対応は未構成である。
 
 現時点で得た結果と仮定付きの帰結を次のように区別する。
 \begin{longtable}{p{.28\textwidth}p{.63\textwidth}}
@@ -126,6 +137,7 @@ Casimir特異中心の二類型&Poisson零点は総中心の五節点と五滑�
 Cayley・$D_4$・実凸幾何&トーラス指標多様体、四sheet衝突のミニバーサル性、留数対、elliptope内部の単射性。第\ref{sec:cayley-lg-connections}節。\\
 Milnor・Picard・$G_2$&指定退化での整数$D_4$比較、外部triality、重みの$4+1$、既知$G_2$退化を通じた$D_4$と$A_2$の接続。第\ref{sec:lg-picard-g2}節。\\
 二種類のbraidと周期&成分ラベルは$A_2$三次根被覆、Hurwitz作用は成分を保存。Chebyshev反復、Klein軌道上の$S_7$、境界周期$(2\pi i)^2$。第\ref{sec:g2-braids-periods}節。\\
+対数periodとHodge拡大&matching周期の対数表示、Morse球面のarcsine周期、Picard--Fuchs、代数的指数化periodと有理非分裂例。第\ref{sec:logarithmic-periods}節。\\
 \bottomrule
 \end{longtable}
 
@@ -575,6 +587,7 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_cayley_lg.tex}
 \input{papers/sections/quantum_cubic_lg_picard.tex}
 \input{papers/sections/quantum_cubic_g2_braids.tex}
+\input{papers/sections/quantum_cubic_log_periods.tex}
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
@@ -605,17 +618,19 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_companion_s5.py}&二素数での$N_5,M_5$ Frobenius分解型：既存PASS\\
 \path{verify_cayley_lg_connections.py}&Cayley・対数Poisson・$D_4$局所環・versal方向・留数対：既存PASS\\
 \path{verify_lg_picard_g2.py}&整数格子・triality・affine $D_4$・$G_2$係数：既存PASS\\
-\path{verify_g2_braids_periods.py}&成分三次式・Hurwitz・Chebyshev・七点$S_7$・境界留数：今回PASS\\\bottomrule
+\path{verify_g2_braids_periods.py}&成分三次式・Hurwitz・Chebyshev・七点$S_7$・境界留数：既存PASS\\
+\path{verify_logarithmic_periods.py}&conic留数・Morse球面・Picard--Fuchs・monodromy・非捩れ例：今回PASS\\\bottomrule
 \end{longtable}
-今回実行したのは最後の検証器で、有理数体上の恒等式と有限置換群を厳密に確認した。
-小証明書は\path{computations/g2_braids_periods_certificate.json}。
-configuration spaceの基本群、全次数Chebyshev漸化式、原始境界トーラスの同定と積分は
-本文の通常の証明であり、有限計算の検証とは区別する。
-旧25検証器は今回全再実行していない。
-新しいbraid・成分被覆・周期の節を独立wrapperでLuaLaTeX組版（4頁）し、4頁を画像点検した。
+今回実行したのは最後の検証器で、有理数体と記号的平方根を用いた厳密計算である。
+小証明書は\path{computations/logarithmic_periods_certificate.json}。
+matching球面の構成、解析的積分と接続、Friedmanのperiod比較、混合Hodge非分裂の議論は
+本文の通常の証明・一次資料への依存であり、有限計算の検証とは区別する。
+旧26検証器は今回全再実行していない。
+新しい対数周期節を独立wrapperでLuaLaTeX組版（4頁）し、全頁を画像点検した。
 新節内部の参照は解決済みで、overfull boxはない。
 これは主論文全体の今回の組版ではない。全旧証明の独立再監査、
-Lean形式化、mirror/Fukaya同値、全Gauss--Manin系、新規性の網羅調査は未実施である。
+Lean形式化、全rank五Gauss--Manin接続、mirror/Fukaya同値、
+非Archimedeanモデルの構成、新規性の網羅調査は未実施である。
 
 \begin{thebibliography}{99}
 \bibitem{DeDekenLowen} O. De Deken, W. Lowen,
