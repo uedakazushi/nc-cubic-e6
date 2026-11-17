@@ -17,5 +17,5 @@ python3 computations/verify_all.py  # 新規DAHA/Fricke検証器と結節中心�
 latexmk -lualatex papers/nc-cubic-e6.tex
 ```
 
-GitHub mainが正本。PDF・ZIP・組版中間物は追跡しない。他の研究は [分類](https://github.com/uedakazushi/nc-cubic-moduli)、[ambient比較](https://github.com/uedakazushi/nc-cubic-ambient-moduli)、[非AS短報](https://github.com/uedakazushi/nc-cubic-non-as) を参照。
+GitHub mainが正本。**GitHubへpush済みの内容はLibraryに重複保存しない。** PDF・ZIP・組版中間物はGitで追跡しない。他の研究は [分類](https://github.com/uedakazushi/nc-cubic-moduli)、[ambient比較](https://github.com/uedakazushi/nc-cubic-ambient-moduli)、[非AS短報](https://github.com/uedakazushi/nc-cubic-non-as) を参照。
 移行元の資料は [固定source commit](https://github.com/uedakazushi/nc-cubic-moduli/tree/c5fd8a8301f6b1c283a6f0510cde80ae6a006e80) を基準に抽出した。旧bundleは不要。
