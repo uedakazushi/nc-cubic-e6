@@ -1,0 +1,116 @@
+\section{特異中心を持つH3の二つの因子}
+\label{sec:nodal-centers}
+本節では固定包絡 $B_{\mathbf0}$ の中心三次切断のH3判定
+（$\Delta\ne0$ かつ超平面が中心三様体の射影双対に属さないこと）を、
+既存の固定包絡分類定理
+\texttt{papers/sections/cubic\_quantum\_triangle\_full\_cuts.tex} の
+\texttt{thm:quantum-triangle-full-H3} からの入力として用いる。
+この判定定理自体の全依存証明を今回新たに独立検証したわけではない。
+
+$B_{\mathbf0}$ の非斉次中心は
+\[
+P=\Omega^3+f\Omega^2-XYZ+e(X^2+Y^2+Z^2)=0,
+\quad f=\frac{1-q}{3},\quad e=-\frac{2q+1}{9}
+\]
+である。その三次斉次化が定める射影三様体 $\mathcal Y\subset\PP^4$ は
+既存の分類により五つの通常二重点 $p_0,p_\eta$ を持つ。
+$\Omega,X,Y,Z,t^3$ を座標とする $t=1$ のchartでは
+\[
+p_0=(0,0,0,0),\qquad
+p_\eta=\left(-\frac{2f}{3},2e\eta_1,2e\eta_2,2e\eta_3\right),
+\quad \eta_i\in\{\pm1\},\quad\eta_1\eta_2\eta_3=1.
+\]
+$\mathcal U\subset\PP^4$ はこの包絡の強いH3切断の許容開集合、
+$L_i\subset\PP^4$ は切断超平面が $p_i$ を通ることを表す超平面とする。
+
+\begin{theorem}[固定包絡H3の結節中心因子]
+\label{thm:nodal-divisors}
+上の既存H3判定定理の下で、$\mathcal U$ 内で中心三次曲面が特異になる
+切断の集合は、正確に
+\[
+ \mathcal D_{\rm node}=\mathcal U\cap\bigcup_{i\in\{0\}\cup\{\eta\}}L_i
+\]
+である。五つの $L_i$ は線型一般位置にあり、
+各 $\mathcal U\cap L_i$ は空でない既約な三次元因子で、
+$\mathcal D_{\rm node}$ は $\mathcal U$ 上単純正規交叉因子となる。
+一般点の中心はちょうど一つの $A_1$ 特異点を持ち、なお強いH3である。
+
+$\mathfrak A_4$ は $L_0$ を固定し、残り四つの $L_\eta$ を推移的に置換する。
+従って固定包絡の四次元DM stack $[\mathcal U/\mathfrak A_4]$ では
+結節中心の因子にはちょうど二つの既約成分がある。
+\end{theorem}
+\begin{proof}
+H3許容条件では切断超平面は $\mathcal Y$ の射影双対を避ける。
+従って $\mathcal Y$ の滑らかな部分で接しない。
+中心曲面の特異点は $\mathcal Y$ の五つの二重点の上に限られ、
+そこで切断二次形式は非退化である。逆に $L_i$ 上の許容切断は
+$p_i$ で通常二重点を持つ。よって集合としての等式を得る。
+
+五点の射影座標を
+\[
+ (S,U,V,W,T)= (0,0,0,0,1),\quad
+ (-1,\eta_1,\eta_2,\eta_3,1)
+\]
+とすれば、五行五列の座標行列の行列式は $16$ である。
+従って五つの接続条件 $H(p_i)=0$ は独立な線型形式であり、
+その零集合は座標超平面の配置と射影同値である。
+各 $L_i\cap\mathcal U$ が非空であることは
+命題\ref{prop:five-nodal-witnesses}で明示的に検証する。
+$\mathcal U$ は開なので、交叉の局所横断性と既約性はそのまま保たれる。
+最後に二符号変更と巡回置換からなる $\mathfrak A_4$ の作用は
+四つの符号三つ組を推移的に置換し、原点を固定する。
+\end{proof}
+
+\begin{proposition}[五つの厳密な結節中心H3例]
+\label{prop:five-nodal-witnesses}
+\[
+ G_D=2\Omega+X+2Y+3Z+D,
+ \qquad
+ \mathcal D_{\mathrm{ex}}=\{0\}\cup
+ \left\{\frac{4f}{3}-2e(\eta_1+2\eta_2+3\eta_3):
+ \eta_1\eta_2\eta_3=1,\ \eta_i=\pm1\right\}.
+\]
+$\mathcal D_{\mathrm{ex}}$ は相異なる五点からなり、各 $D\in\mathcal D_{\mathrm{ex}}$ について
+$B_{\mathbf0}/(G_D)$ は強いH3である。
+その中心曲面はただ一つの $A_1$ 特異点を持つ。
+五つの構造対象付きAbel圏は互いにpointed exact同値でない。
+\end{proposition}
+\begin{proof}
+$G_D=0$ から
+$\Omega=-(X+2Y+3Z+D)/2$ を代入して得る三変数三次式を $F_D$ と置く。
+$D=0$ では中心の二重点 $p_0$、その他の四値ではそれぞれ $p_\eta$ が
+この切断上にある。$q^2+q+1=0$ を用いると、
+各値の特異点Jacobiイデアルは正確に
+\[
+ (F_D,\partial_XF_D,\partial_YF_D,\partial_ZF_D)
+   =(X-X_i,Y-Y_i,Z-Z_i) \subset\mathbb Q(q)[X,Y,Z]
+\]
+となる。右辺の点は $p_i$ の $X,Y,Z$ 座標である。
+またその点の三変数Hessian行列式はどの場合も零でない。
+これらは \texttt{computations/verify\_nodal\_cuts.py} が代数的数体上の
+厳密Gr\"obner基底とHessianを計算し、
+\texttt{nodal\_cuts\_certificate.json} に小証明書を出力して再現できる。
+有限体への特殊化や浮動小数点判定は用いない。
+
+全ての $D$ に対し境界の判別式は
+$\Delta=2^3+27\cdot1\cdot2\cdot3=170\ne0$ である。
+従って無限遠境界も滑らかであり、中心曲面の特異点は上記の
+ただ一つの通常二重点で尽くされる。
+その二次接錐は非退化なので、切断超平面は $\mathcal Y$ の
+二重点を通る極限接超平面ではない。
+滑らかな部分での接触も他の特異点を生じるため存在せず、
+既存の固定包絡H3判定定理により強いH3となる。
+
+五つの $D$ は互いに異なる。
+固定包絡のpointed exact自己同型群 $\mathfrak A_4$ は
+切断係数の $\alpha$ と $\varepsilon$ を保つ。
+ここで $\alpha=2$ と規格化しているから、
+異なる $D=\varepsilon$ の切断は同型にならない。
+\end{proof}
+
+\begin{remark}[変形と境界の解釈]
+結節中心の五因子は許容H3開集合\emph{の内部}にある。
+従って中心三次曲面の判別式をそのままH3成分の境界方程式とするのは誤りである。
+一般の八次元表示stackでこの二つの因子がどのように延長・交叉し、
+他の表示chartにどう現れるかは未解決である。
+\end{remark}

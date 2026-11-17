@@ -1,6 +1,6 @@
 # 成分研究ノート
 
-2026-11-17 / triangle-component-v11。方針はルートの `00_research_plan.md`、証明は `papers/nc-cubic-e6.tex`（rootからのパス）。
+2026-11-17 / triangle-component-v12。方針はルートの `00_research_plan.md`、証明は `papers/nc-cubic-e6.tex`（rootからのパス）。
 このノートは履歴ではなく、現在の入力・障害・再開のための知識を記す。
 
 ## 1. 記法と既存入力
@@ -209,3 +209,11 @@ W上の三次bundleから零を除き、Gの三交換子を四次bundleで零と
 H3幾何学的対象間の全pointed exact矢は、canonicalRのgraded回復→中央一次tの保存→filtered affine同型→rank19でpotential scalar回復→三次kernel scalar回復によりGamma作用に一致する。共通次数スカラーはt1非斉次化で除去済み。これは幾何学的群oidの全矢の主張であり、H3 locusがZariski開であることや全intrinsic族のfpqc降下は未証明。表示stackの一般点H3と、指定点の全ArtinH3形式分類の両方を得たが、全H3成分の大域分類ではない。
 
 次の具体的課題はこの有限型表示stack内のH3 admissibilityの全値判定。滑らかな楕円境界でaffine central quotientの有限globaldimへ帰着済みである。一般中心値だけでなく、悪い中心値と高次元有限表示・Morita局所模型を調べ、H3 locusのconstructibility/Zariski開性を証明するか、障害を見つける。幾何学的root条件やblowup六点との比較には証明済みの適用範囲を確認し、Rainsの次数3全被覆を未証明のまま輸入しない。
+
+## 17. 固定包絡の結節中心H3因子（現在有効な結果）
+
+中心三様体はP=Omega^3+f Omega^2-XYZ+e(X²+Y²+Z²)=0、f=(1-q)/3、e=-(2q+1)/9。既存固定包絡判定はcut超平面Hがdual Y*を避け、Delta≠0ならH3とする。五つの通常二重点p0, p_eta（符号積+1）を通る切断条件L_iは線型独立で、中心のsingular locus in H3 = U∩(L0∪⋃L_eta)。五つはU上の非空既約SNC因子、A4商ではp0側と四符号点の軌道側の二つの既約因子となる。証明・対象範囲は主論文`thm:nodal-divisors`。
+
+検証可能な非空性witness：a=b=c=0、G_D=2Omega+X+2Y+3Z+D、D∈{0}∪{4f/3−2e(eta1+2eta2+3eta3): eta1eta2eta3=1}。いずれも境界Delta=170で、各DのJacobi idealは対応p_iの極大イデアル、三変数Hessian detは非零。従って中心は孤立A1一つ。既存固定包絡H3 criterionを適用すると五例ともH3かつpointed exactで互いに非同型。`computations/verify_nodal_cuts.py`をSymPy/Q(sqrt(-3))で実行し`nodal_cuts_certificate.json`を生成。通常の数学的入力である固定包絡H3 criterionそのものの有限globaldim証明はこのプログラムの検証対象外。
+
+意味：中心の特異判別式はH3モジュライの境界とは一致しない。次の問題はこれら二因子を八次元の表示stack・intrinsic H3族へ追跡することであり、全大域成分の既約閉包とH3開性は未解決。古典的な結節三次三様体の文献との新規性比較は未完了。

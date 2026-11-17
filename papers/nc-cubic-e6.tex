@@ -25,9 +25,9 @@
 \newcommand{\OO}{\mathcal O}
 \renewcommand{\AA}{\mathbb A}
 \newcommand{\PP}{\mathbb P}
-\title{楕円 $E_6$ 量子化成分の幾何学に向けて\\\large 七次元正常形・横断積分・八次元形式変形}
+\title{楕円 $E_6$ 量子化成分の幾何学に向けて\\\large 七次元正常形・八次元形式変形・結節中心因子}
 \author{研究原稿：H3開性・全大域境界の分類は未完成}
-\date{2026年11月17日\quad triangle-component-v11}
+\date{2026年11月17日\quad triangle-component-v12}
 \begin{document}\maketitle
 \begin{abstract}
 原始三乗根の量子 $\mathfrak{so}_3$ 包絡の中心三次切断から得られる四次元族は、
@@ -44,6 +44,7 @@
 適合したenhanced Abel変形から圏変形への同型類上の単射性を得る。
 さらに選んだ点の全Artin形式近傍を八変数で分類し、明示族の相対THCR境界と幾何学的一般点のH3性を認識する。
 指定表示の近傍にはsmooth DMな八次元代数的表示stackを構成する。
+固定包絡では既存H3判定と厳密計算から、結節中心の軌跡が五つの正規交叉因子をなし、四元交代群商で二つの既約成分になることを示す。
 全fiberのH3開性、全intrinsic族の降下、成分の大域閉包と全境界はなお未完成である。
 \end{abstract}
 \tableofcontents
@@ -65,7 +66,8 @@ Artin--Zhang豊富性、三次曲面の反標準Hilbert値を満たし、
 横断変形&全次数平坦なAS4包絡と中心三次商を形式的に構成。一般中心値でH3。第\ref{sec:integrate}節。\\
 一般点の圏の変形&滑らかな中心・境界と記載した局所order模型の下で $\HH^2=8,\HH^3=0$。第\ref{sec:hh}節。\\
 選んだ点の全Artin形式近傍&八変数の全同時形式族で分類。第\ref{sec:artin-enhancement}節。\\
-代数的表示stack&smooth DM八次元の近傍を構成。第\ref{sec:presentation-stack}節。H3の開性・全大域境界は未完成。\\\bottomrule
+代数的表示stack&smooth DM八次元の近傍を構成。第\ref{sec:presentation-stack}節。H3の開性・全大域境界は未完成。\\
+固定包絡の特異中心因子&既存H3判定を使い五つの正規交叉因子・商で二成分。第\ref{sec:nodal-centers}節。\\\bottomrule
 \end{tabular}\end{center}
 
 ポテンシャルPBW変形と中心元の存在はEtingof--Ginzburg \cite{EG} の既知結果を使う。
@@ -498,11 +500,12 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_artin_enhancement.tex}
 \input{papers/sections/quantum_cubic_algebraic_boundary.tex}
 \input{papers/sections/quantum_cubic_presentation_stack.tex}
+\input{papers/sections/quantum_cubic_nodal_centers.tex}
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
 \begin{center}\begin{tabular}{p{.55\textwidth}p{.36\textwidth}}\toprule
-検証器&今回の実行結果\\\midrule
+検証器&保存済み検証結果\\\midrule
 \path{verify_envelope_family.py}&全係数PBW、十二交換子、全中心式：PASS\\
 \path{verify_normal_form.py}&全係数正常形、局所指標：PASS\\
 \path{verify_smooth_witness.py}&標数0の特異点ideal $(1)$：PASS\\
@@ -515,12 +518,15 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_central_multivariate_lift.py}&八変数正則化・全先頭式：PASS\\
 \path{verify_potential_recovery.py}&potential rank19、中心直線rank3：PASS\\
 \path{verify_algebraic_boundary.py}&境界行列式・判別式：PASS\\
+\path{verify_nodal_cuts.py}&固定包絡の五つの結節中心例（新規実行）：PASS\\
 \path{verify_boundary_graph.py}&右graph・generic非三周期性：PASS\\\bottomrule
 \end{tabular}\end{center}
 有限体の標本による外挿はしていない。
 H3開性・相対圏の再構成・局所order認識は、計算証明書と通常の数学的証明を区別して記載した。
 全原稿の独立査読、Lean形式化、新規性の網羅調査は未実施である。
-本稿のLuaLaTeX組版と上記検証器を確認した。既存の全分類成果の独立再監査とは区別する。
+今回追加した結節中心検証器と追加節単体のLuaLaTeX組版は実行・確認済みである。
+旧13検証器のPASSは既存の保存済み証明書によるもので、この更新時に全再実行したとは主張しない。
+主原稿全体の今回の再組版と既存の全分類成果の独立再監査は未実施である。
 
 \begin{thebibliography}{99}
 \bibitem{DeDekenLowen} O. De Deken, W. Lowen,
