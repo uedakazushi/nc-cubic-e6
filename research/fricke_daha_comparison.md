@@ -68,6 +68,10 @@ u^2+v^2+w^2+uvw+A u+B v+C w+D_0=0
 - P. Etingof, A. Oblomkov, E. Rains, *Generalized double affine Hecke algebras of rank 1 and quantized del Pezzo surfaces*, Adv. Math. 212 (2007), 749–796, DOI 10.1016/j.aim.2006.11.008, [arXiv:math/0406480v3](https://arxiv.org/abs/math/0406480)。$\widetilde D_4$ は三角境界の三次曲面、$\widetilde E_6$ はnodal有理曲線境界の三次曲面。今回の一般8次元族を $\widetilde E_6$ GDAHAのspherical部分と無条件に同一視しない。
 - P. Etingof, V. Ginzburg, *Noncommutative del Pezzo surfaces and Calabi–Yau algebras*, JEMS 12 (2010), 1371–1416, DOI 10.4171/JEMS/235, [arXiv:0709.3593](https://arxiv.org/abs/0709.3593)。次数3 del Pezzo、単純楕円特異点 $\widetilde E_6$、滑らかな反標準楕円曲線とPoisson変形・量子化。一般8次元成分の幾何学的比較対象としてより近い。
 
+## 一般化Sklyanin--Painlevé代数との比較
+
+L. Chekhov, M. Mazzocco, V. Rubtsov, *Quantised Painlevé monodromy manifolds, Sklyanin and Calabi–Yau algebras*, Adv. Math. **376** (2021), 107442, DOI [10.1016/j.aim.2020.107442](https://doi.org/10.1016/j.aim.2020.107442), [arXiv:1905.02772](https://arxiv.org/abs/1905.02772) は、一般化Sklyanin–Painlevé代数を導入しPBW/PHS/Koszul性を調べ、Etingof–Ginzburg・Etingof–Oblomkov–Rains型量子del Pezzoを極限例に含むと述べる（原論文の公表要旨で確認）。本研究の固定qによる七次元族と当該パラメータ表示の正確な同定、固定包絡の五節点／七次元族の連結五重被覆・既約結節因子が先行結果に含まれるかは未確認。論文の定理番号・証明範囲を未読のまま既知定理として利用しない。
+
 ## 暫定呼称と次の研究
 
 全8次元候補の暫定名は **elliptic $E_6$ quantization component**（楕円 $E_6$ 量子化成分）。まだ全intrinsic H3モジュライの成分を大域同定したわけではなく、正式な命名ではない。三角境界のDAHA型部分には **Fricke–Askey–Wilson locus** を使う。
