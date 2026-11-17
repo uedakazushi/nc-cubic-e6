@@ -1,0 +1,240 @@
+\section{conic matching周期、対数座標、非分裂な混合Hodge構造}
+\label{sec:logarithmic-periods}
+本節では$\mathbb C$上で
+\[
+ W=uvw-\tfrac12(u^2+v^2+w^2)-Au-Bv-Cw,\qquad U=\{W=h\},
+ \qquad\omega=\frac{du\wedge dv}{uv-w-C}
+\]
+を用いる。境界cycleの向きは
+$\Pi_\infty=\int_{\delta_\infty}\omega=(2\pi i)^2$と固定する。
+前節で正規化した境界周期に対し、ここでは実際の内部周期を計算する。
+適切なconic matching球面では周期が対数に帰着し、係数零の一変数族では
+Picard--Fuchs方程式、無限二面体monodromy、代数的な指数化周期を明示できる。
+最後に$h=-1/10$を用い、混合Hodge拡大が有理係数でも非分裂となる例を与える。
+
+\subsection{conic pencilの二重被覆上で留数形式を積に分ける}
+\begin{theorem}[matching球面の対数周期]
+\label{thm:conic-matching-log-period}
+$U$が滑らかであると仮定し、
+\[
+ d(u)=u^2-1,\qquad
+ N(u)=(u^2+2Au+2h)(u^2-1)+B^2+C^2+2uBC
+\]
+と置く。$N$の相異なる単純零点$u_-,u_+$を、他の零点と$\pm1$を避ける
+単純な道$\gamma$で結び、道の近傍で$s(u)=\sqrt{u^2-1}$の枝を選ぶ。
+conic fiberの消える円を$\gamma$上でつないだmatching球面$\Sigma_\gamma$に、
+以下の公式と整合する向きを入れると
+\begin{equation}\label{eq:conic-matching-period}
+ \int_{\Sigma_\gamma}\omega
+ =2\pi i\int_\gamma\frac{du}{s(u)}
+ =2\pi i\bigl[\log(u+s(u))\bigr]_{u_-}^{u_+}.
+\end{equation}
+対数は道に沿って連続に取る。向き・枝・道を指定せずに周期の一価性を主張しない。
+\end{theorem}
+\begin{proof}
+$u\ne\pm1$で
+\[
+ v_0=\frac{B+uC}{d},\qquad w_0=\frac{C+uB}{d},\qquad
+ V=v-v_0,\quad T=w-w_0
+\]
+と置くと、直接展開により
+\[
+ W-h=-\tfrac12(T^2-2uVT+V^2)-\frac{N(u)}{2d(u)}.
+\]
+$a=T-(u+s)V$、$b=T-(u-s)V$とすれば
+\begin{equation}\label{eq:conic-multiplicative-model}
+ ab=-\frac{N(u)}{d(u)},\qquad
+ \omega=\frac{du}{s(u)}\wedge\frac{da}{a}.
+\end{equation}
+実際、$b-a=2sV$、$uV-T=-(a+b)/2$なので、fiber方向で
+$dV/(uV-T)=da/(sa)$となる。$u$依存の補正項は$du$との外積で消える。
+
+$\gamma$の内部では$a,b\ne0$の双曲線に円を取り、両端でその円を点へ縮める。
+単純零点では局所式が$ab=\text{unit}\cdot(u-u_\pm)$なので、
+円の円錐は滑らかな二次元円板となり、二端を閉じて球面を得る。
+各fiber円で$\int da/a=2\pi i$となる向きにすると、Fubiniの定理から
+最初の積分式を得る。$z=u+s$は$u=(z+z^{-1})/2$を満たし、
+$du/s=dz/z$なので後半も従う。
+\end{proof}
+
+この計算で現れる二重被覆は、有理曲線
+$u=(z+z^{-1})/2$であり、一般の楕円曲線の積分ではない。
+$u=\pm1$では座標変換が特異となるため、その点を端点とするcycleへ
+公式を無条件に流用しない。また本定理だけで全matching球面が整数$D_4$基底をなすとはしない。
+
+\subsection{一つの内部消滅球面を完全に計算する}
+\begin{theorem}[Morse球面の正確な周期]
+\label{thm:explicit-morse-period}
+$A=B=C=0$とし、$-1/2<h<0$、$r=\sqrt{-2h}\in(0,1)$とする。
+原点のMorse臨界点へ消える実球面$\delta_0(h)$を、$-r\le u\le r$上で
+\begin{align*}
+ v&=\frac{\sqrt{r^2-u^2}}{\sqrt{1-u^2}}\cos\theta,\\
+ w&=uv+\sqrt{r^2-u^2}\sin\theta,\qquad 0\le\theta\le2\pi
+\end{align*}
+と表示し、$du\wedge d\theta$に対応する向きを取る。このとき
+\begin{equation}\label{eq:arcsine-period}
+ \boxed{\Pi_0(h)=\int_{\delta_0(h)}\omega
+       =4\pi\arcsin\sqrt{-2h}}.
+\end{equation}
+$\delta_0(h)$は原始な$A_1$消滅cycleで、自己交叉数は$-2$である。
+\end{theorem}
+\begin{proof}
+代入すると
+$v^2-2uvw+w^2=r^2-u^2$であり、$W=-r^2/2=h$となる。
+各端点では円が一点へ縮み、近傍では$u$が端点からの距離の二次関数となるので、
+これは滑らかな埋込球面である。$r\to0$で原点へ収縮し、
+原点のHessianは$-I_3$なので通常の$A_1$消滅球面となる。
+標準的なMilnor fiberの交叉形式から自己交叉数は$-2$。
+もしこの類が整数倍なら自己交叉数もその整数の平方で割り切れるので、原始的である。
+
+上のパラメータ表示で
+\[
+ \omega=\frac{du\wedge d\theta}{\sqrt{1-u^2}}
+\]
+となる。表示上分母と分子が同時に零となる点でも、留数形式の滑らかさにより延長する。
+従って$2\pi\int_{-r}^{r}(1-u^2)^{-1/2}du=4\pi\arcsin r$を得る。
+この族の臨界点は原点と四つの符号点、臨界値は$0,-1/2$のみなので、
+考えた開区間のfiberは滑らかである。
+\end{proof}
+
+\begin{proposition}[Picard--Fuchsと無限二面体monodromy]
+\label{prop:period-dihedral-monodromy}
+$h\in\mathbb C\setminus\{0,-1/2\}$上で解析接続した$\Pi_0$と定数$\Pi_\infty$は
+二階方程式
+\begin{equation}\label{eq:arcsine-PF}
+ 2h(1+2h)\frac{d^2y}{dh^2}+(1+4h)\frac{dy}{dh}=0
+\end{equation}
+の独立な二解である。基点を$(-1/2,0)$に取り、実区間に沿う標準的な接続で
+$0,-1/2$の小周回を選ぶと、解の列$(\Pi_\infty,\Pi_0)^{\mathsf t}$への作用は
+\[
+ T_0=\begin{pmatrix}1&0\\0&-1\end{pmatrix},\qquad
+ T_{-1/2}=\begin{pmatrix}1&0\\-1&-1\end{pmatrix}.
+\]
+その像は無限二面体群であり、定数解の部分局所系を持つこのrank $2$の局所系は非分裂である。
+これは全rank $5$ Gauss--Manin系の行列を決定したという主張ではない。
+\end{proposition}
+\begin{proof}
+$h=-r^2/2$を使って式\eqref{eq:arcsine-period}を二回微分すれば
+式\eqref{eq:arcsine-PF}を得る。$0$の周りでは$r$の符号が変わり、$\Pi_0\mapsto-\Pi_0$。
+$-1/2$の周りでは$\arcsin r\mapsto\pi-\arcsin r$だから
+$\Pi_0\mapsto4\pi^2-\Pi_0=-\Pi_\infty-\Pi_0$となる。
+両行列はinvolutionで、積は
+\[
+ T_{-1/2}T_0=\begin{pmatrix}1&0\\-1&1\end{pmatrix}
+\]
+という非自明unipotentであり、無限二面体群を生成する。
+定数解と相補的な共通不変直線が$\Pi_0+c\Pi_\infty$で生成されるとすると、
+$T_0$から$c=0$、$T_{-1/2}$から$c=1/2$が必要となり矛盾する。
+\end{proof}
+
+このmonodromyは$h$を動かす\emph{係数族の解析接続}であり、
+前節の\emph{固定fiber内のHurwitz自己同型}とは異なる。
+定数を含む解の二次元空間を計算したのであって、全ホモロジーの二次元不変部分を
+無条件に同定したものでもない。
+
+\subsection{指数化周期は代数的トーラス座標になる}
+滑らかな三次曲面と境界三角形の組$(S,D)$について、整数比較完全列を使い
+\[
+ \mathcal P(\bar\gamma)=
+ \exp\left(\frac{1}{2\pi i}\int_\gamma\omega\right),\qquad
+ \bar\gamma\in H_2(U,\mathbb Z)/\mathbb Z\delta_\infty
+                  \cong D^\perp
+\]
+と置く。境界周期が$(2\pi i)^2$なので持上げによらない。
+向きを整合させれば、これは線束の制限
+$D^\perp\to\operatorname{Pic}^0(D)\cong\mathbb C^*$と一致する。
+この比較はFriedmanの既知のperiod定理\footnote{
+R. Friedman, \emph{On the geometry of anticanonical pairs},
+\href{https://arxiv.org/abs/1502.02560v2}{arXiv:1502.02560v2} (2016),
+\S3, Proposition 3.12, pp. 21--23.
+同原稿では境界積分が1となる形式を用いるため、ここでは$\omega/(2\pi i)^2$を代入する。}
+による。Gross--Hacking--Keel\footnote{
+M. Gross, P. Hacking, S. Keel, \emph{Moduli of surfaces with an anti-canonical cycle},
+Compos. Math. 151 (2015), 265--291,
+\href{https://doi.org/10.1112/S0010437X14007611}{doi:10.1112/S0010437X14007611},
+Definition 1.5, Theorem 1.8.}
+のLooijenga pairのperiod mapと同じ対象である。
+従って本節の積分は、単なる特殊関数の表示ではなく、
+三角境界への線束制限と混合Hodge拡大の具体的な値を与える。
+
+\begin{corollary}[代数的なmatching periodと一次元の明示式]
+\label{cor:algebraic-exponential-period}
+定理\ref{thm:conic-matching-log-period}のcycleについて
+\[
+ \mathcal P(\bar\Sigma_\gamma)=\frac{u_++s(u_+)}{u_-+s(u_-)}
+\]
+となる。従って、零点と平方根を選ぶ有限代数被覆上でこの指数化周期は代数的である。
+係数零の族で$\mathcal Q(h)=\mathcal P(\bar\delta_0(h))$と置くと
+\begin{equation}\label{eq:algebraic-period-trace}
+ \mathcal Q=(\sqrt{1+2h}-i\sqrt{-2h})^2,
+ \qquad
+ \boxed{\mathcal Q+\mathcal Q^{-1}=2+8h}.
+\end{equation}
+特に$h=(\mathcal Q-1)^2/(8\mathcal Q)$である。
+二つの局所monodromyはどちらも$\mathcal Q\mapsto\mathcal Q^{-1}$を誘導し、
+積の対数的translationは指数化で消える。
+\end{corollary}
+\begin{proof}
+一般式は式\eqref{eq:conic-matching-period}を指数化すれば得る。
+$r=\sqrt{-2h}$の実区間では
+$\mathcal Q=\exp(-2i\arcsin r)=(\sqrt{1-r^2}-ir)^2$。
+和を取ると$\mathcal Q+\mathcal Q^{-1}=2-4r^2=2+8h$となる。
+境界周期を足しても指数化には影響しないので、monodromyの主張も従う。
+\end{proof}
+
+この二重被覆は$\mathbb G_m$の反転商、すなわち$\mathrm{SL}_2$の
+固有値とtraceの関係と同型である。
+ただし、ここでの$\mathcal Q$は表現の固有値を定義から代入したものではなく、
+\emph{消滅球面の周期を指数化して得た量}である。
+前節のChebyshev線型化と同じトーラス反転構造が、今度は周期側に現れた。
+
+\subsection{混合Hodge拡大が有理係数でも非分裂となる具体例}
+\begin{theorem}[非捩れperiodが検出する非分裂性]
+\label{thm:explicit-nonsplit-MHS}
+$A=B=C=0$、$h=-1/10$の滑らかなLG等位面では、
+\[
+ \mathcal P(\bar\delta_0)=\frac{3-4i}{5}
+\]
+である。この値は1の冪根ではなく、
+\[
+ 0\longrightarrow\mathbb Q(-1)^4
+ \longrightarrow H^2(U,\mathbb Q)
+ \longrightarrow\mathbb Q(-2)\longrightarrow0
+\]
+は有理混合Hodge構造として分裂しない。
+\end{theorem}
+\begin{proof}
+$r=1/\sqrt5$を式\eqref{eq:algebraic-period-trace}へ代入すれば表示値を得る。
+もしこれが1の冪根なら、その逆数との和も代数的整数である。
+しかし和は$6/5$であり、有理数の代数的整数は整数だから矛盾する。
+
+重みのgraded pieceは前節で計算した通りである。
+$F^2H^2(U,\mathbb C)$は対数二形式$\omega$で張られる一次元空間。
+有理混合Hodge構造が分裂すれば、この直線は$\mathbb Q(-2)$の有理な持上げとなる。
+境界周期で割って$\delta_\infty$上の値を1に正規化した
+$[\omega]/(2\pi i)^2$は、そのとき有理cohomology classでなければならない。
+よって$\int_{\delta_0}\omega/(2\pi i)^2\in\mathbb Q$となり、
+その$2\pi i$倍の指数は1の冪根である。上の非捩れ性に矛盾する。
+\end{proof}
+
+これはrank $2$の\emph{局所系}の非分裂性とは別の、
+\emph{一つのfiberの混合Hodge構造}の非分裂性である。
+また一つのperiodの値が1の冪根である場合に、他の三方向も含めた全拡大が分裂するとはしない。
+
+\begin{remark}[mirror・非Archimedean周期への比較]
+Looijenga pairのperiodが積分・線束制限・Hodge拡大を結ぶことは既知理論である。
+Lai--Zhou\footnote{J. Lai, Y. Zhou, \emph{Mirror symmetry for log Calabi--Yau surfaces II},
+Compos. Math. 161 (2025), 2025--2090,
+\href{https://doi.org/10.1112/S0010437X25007080}{doi:10.1112/S0010437X25007080},
+\S2, Theorem 1.8.}
+はmirror族のperiodを用いたモジュライ的同定を行い、
+Karwa--Lai\footnote{S. Karwa, J. Lai,
+\emph{Non-archimedean periods for log Calabi--Yau surfaces},
+\href{https://arxiv.org/abs/2506.01651}{arXiv:2506.01651} (2025),
+Introduction equations (1)--(2), Theorem 6.14.}
+は適切なgood reductionの下で非Archimedean periodと代数的periodの一致を示す。
+本稿の代数的な比$z_+/z_-$はこれらと比較可能な明示例を与えるが、
+本稿で非Archimedean SYZ fibrationやmirror同値を構成したという意味ではない。
+本節の一般積分式・特定fiberの非分裂性の個別の既出性は未確認である。
+全四内部periodの同時基底、全rank $5$ Gauss--Manin接続、量子圏へのperiodの持上げは未解決。
+\end{remark}
