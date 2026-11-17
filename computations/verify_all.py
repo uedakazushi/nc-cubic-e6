@@ -23,13 +23,14 @@ checks = [
     'verify_casimir_poisson_leaves.py', 'verify_relative_poisson_cover.py',
     'verify_companion_s5.py', 'verify_cayley_lg_connections.py',
     'verify_lg_picard_g2.py', 'verify_g2_braids_periods.py',
+    'verify_logarithmic_periods.py',
 ]
 completed = []
 for name in checks:
     subprocess.run([sys.executable, str(root / name)], check=True, cwd=root)
     completed.append({'script': name, 'status': 'PASS'})
 result = {
-    'date': '2026-11-17', 'version': 'e6-connections-v21', 'status': 'PASS',
+    'date': '2026-11-17', 'version': 'e6-connections-v22', 'status': 'PASS',
     'python': platform.python_version(), 'sympy': sympy.__version__,
     'networkx': networkx.__version__, 'completed': completed,
     'separate_mathematical_inputs': [
@@ -53,6 +54,9 @@ result = {
         'Boalch--Paluba component and Hurwitz formulas and Klein orbit',
         'configuration spaces and the braid fundamental group',
         'primitive boundary torus and analytic Cauchy residue integral',
+        'conic matching sphere construction and analytic period continuation',
+        'Friedman Proposition 3.12 and Looijenga algebraic period comparison',
+        'rational mixed Hodge nonsplitting criterion using normalized periods',
     ],
     'not_certified_by_this_run': [
         'global H3 algebraic-stack construction',
@@ -65,7 +69,9 @@ result = {
         'choice-independent global Milnor-Picard splitting',
         'mirror or Fukaya-Seidel equivalence',
         'G2 quantum algebra comparison',
-        'full Gauss-Manin connection or mixed-Hodge extension splitting',
+        'full rank-five Gauss-Manin connection or simultaneous integral D4 period basis',
+        'splitting criterion for the entire family of mixed Hodge structures',
+        'non-archimedean SYZ model or good-reduction verification',
         'categorical relation to nearly Kahler geometry',
         'independent peer review', 'novelty', 'GitHub or Library saving',
     ],
