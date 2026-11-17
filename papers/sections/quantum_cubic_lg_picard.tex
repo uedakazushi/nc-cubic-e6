@@ -1,0 +1,279 @@
+\section{消滅サイクルからPicard格子へ、そして例外群$G_2$へ}
+\label{sec:lg-picard-g2}
+本節は$k=\mathbb C$とし、
+\[
+ W_{A,B,C}=uvw-\tfrac12(u^2+v^2+w^2)-Au-Bv-Cw,\qquad
+ U_{A,B,C;h}=\{W_{A,B,C}=h\}
+\]
+を考える。前節の一次元表現の\emph{臨界点被覆}と、本節の
+\emph{二次元の等位面}を区別する。
+Goldman--NeumannによるFricke曲面の位相、Deligneの混合Hodge理論、
+Boalch--Palubaの$G_2$指標多様体の定理を用い、
+この模型に現れる二つの$D_4$を実際の写像で結ぶ。
+一般理論自体は既知であり、以下の役割はその適用と正規化の明示である。
+
+\subsection{LG等位面はFricke族全体を与える}
+\begin{proposition}[正規化と三角境界]
+\label{prop:lg-fricke-compactification}
+$p=-2u,\ r=-2v,\ s=-2w$と置けば、$U_{A,B,C;h}$は
+\begin{equation}\label{eq:lg-fricke-level}
+ p^2+r^2+s^2+prs-4Ap-4Br-4Cs+8h=0
+\end{equation}
+となる。射影閉包$S\subset\PP^3$は
+\[
+ uvw-\tfrac12t(u^2+v^2+w^2)-t^2(Au+Bv+Cw)-ht^3=0
+\]
+であり、無限遠$D=S\cap\{t=0\}=D_1+D_2+D_3$は三角形である。
+$S$は$D$に沿って常に滑らかで、$U$が滑らかなら$S$は滑らかな三次曲面となる。
+\end{proposition}
+\begin{proof}
+式\eqref{eq:lg-fricke-level}の左辺に$(-2u,-2v,-2w)$を代入すると
+$-8(W-h)$となる。無限遠の辺の内部では反対の座標による偏微分が非零、
+各頂点では$t$微分が非零の平方の$-1/2$倍となる。
+\end{proof}
+
+元の量子代数のCasimir切断との比較も具体的である。
+その中心の記号$f,e,\ell_a,\ell_b,\ell_c,K,L,D_0$を用い、
+\[
+ A=\frac{D_0a+\ell_a}{4e^2},\quad
+ B=\frac{D_0b+\ell_b}{4e^2},\quad
+ C=\frac{D_0c+\ell_c}{4e^2},\quad
+ h=-\frac{D_0^3-fD_0^2+D_0K-L}{8e^3}
+\]
+とすれば、$u=X/(2e)$等によって同じ等位面を得る。
+\emph{これは一次元表現の正規化$A=(1-q)a$とは異なる底変更}である。
+同じFricke族の二つの実現を、係数が同一だと解釈してはならない。
+
+\subsection{境界の一方向を除くとPicardの$D_4$になる}
+\begin{theorem}[整数係数の比較完全列]
+\label{thm:lg-integral-picard-sequence}
+$U=S\setminus D$が滑らかなら、包含$j:U\hookrightarrow S$は
+\begin{equation}\label{eq:lg-integral-sequence}
+ 0\longrightarrow\mathbb Z\delta_\infty
+ \longrightarrow H_2(U,\mathbb Z)
+ \xrightarrow{j_*}\langle D_1,D_2,D_3\rangle^\perp
+ \longrightarrow0
+\end{equation}
+を与える。右端は交叉格子として$D_4(-1)$であり、
+$H_2(U,\mathbb Z)$はrank $5$の自由加群、$H_1(U,\mathbb Z)=0$である。
+交叉形式のradicalは正確に原始部分格子$\mathbb Z\delta_\infty$である。
+$\delta_\infty$は向きを除いて境界三角形の$H^1(D,\mathbb Z)$から来る。
+\end{theorem}
+\begin{proof}
+対$(S,D)$のコンパクト台cohomology完全列とPoincar\'e双対性から
+\[
+\begin{aligned}
+ 0=H^1(S)&\longrightarrow H^1(D)=\mathbb Z
+ \longrightarrow H_c^2(U)\cong H_2(U)\\
+ &\longrightarrow H^2(S)\longrightarrow H^2(D)\cong\mathbb Z^3
+ \longrightarrow H_c^3(U)\cong H_1(U)\longrightarrow0
+\end{aligned}
+\]
+を得る。三次曲面は有理的なので$H^2(S,\mathbb Z)=\operatorname{Pic}(S)$。
+中央の制限写像は三本の$D_i$との交叉数である。
+六点blow-upのmarkingを
+\[
+ D_i=L-E_{2i-1}-E_{2i}\quad(i=1,2,3),\qquad
+ L^2=1,\quad E_i^2=-1
+\]
+と取ると、$E_1,E_3,E_5$の交叉数ベクトルが標準基底になるので全射である。
+従って完全列と$H_1(U)=0$が従う。核側・商側が自由なので$H_2(U)$も自由である。
+右端の格子の基底は
+\[
+ \alpha_0=L-E_1-E_3-E_5,\quad
+ \alpha_1=E_1-E_2,\quad\alpha_2=E_3-E_4,\quad\alpha_3=E_5-E_6
+\]
+で、そのGram行列は負の$D_4$ Cartan行列である。
+コンパクトな二cycleの交叉数は$S$内に移しても変わらず、
+右端の形式は非退化だから、左端がちょうどradicalとなる。
+右端がtorsion-freeであることから左端は原始的である。
+\end{proof}
+
+\begin{theorem}[局所Milnor格子とPicard格子の実際の同型]
+\label{thm:lg-D4-Picard}
+$(A,B,C)=(2,2,2)$とし、$h_0=7/2$とする。
+$p=(-1,-1,-1)$の十分小さいMilnor球を選び、
+$0<|h-h_0|\ll1$に対する局所Milnor fiberを$M_h\subset U_{2,2,2;h}$とする。
+このとき二つの包含が誘導する写像は整数交叉格子の同型
+\begin{equation}\label{eq:actual-D4-comparison}
+ H_2(M_h,\mathbb Z)\xrightarrow{\ \sim\ }
+ \langle D_1,D_2,D_3\rangle^\perp\subset\operatorname{Pic}(S_h)
+\end{equation}
+を与える。従って局所消滅サイクルが式\eqref{eq:lg-integral-sequence}の分裂を与え、
+\[
+ H_2(U_h,\mathbb Z)\cong H_2(M_h,\mathbb Z)\oplus\mathbb Z\delta_\infty
+\]
+となる。分裂は指定した退化・Milnor近傍を用いるもので、
+全パラメータ上の選択に依存しない標準分裂とは主張しない。
+\end{theorem}
+\begin{proof}
+前節の局所分離式から$p$は$D_4$型曲面特異点である。
+他の臨界点$(2,2,2)$の値は$-10$なので、$h_0$の近傍では問題にならない。
+ADE特異点のMilnor格子の標準定理により$H_2(M_h)$は$D_4(-1)$、
+rank $4$、行列式$4$を持つ。
+局所cycleは境界$D$を避けるので、その$S_h$内の像は右端格子に入る。
+交叉数が保たれ、局所形式が非退化であるため、この写像は単射である。
+両格子のrankは$4$、行列式はともに$4$であり、
+包含の指数の平方は行列式の比$1$になる。従って指数は$1$で同型である。
+この同型の逆を局所cycleの包含と合成すれば完全列が分裂する。
+\end{proof}
+
+この定理は、同じLG等位面の中で\emph{局所Milnorの$D_4$と
+三角境界に直交するPicardの$D_4$を幾何学的な包含で結ぶ}。
+一般の二つの$D_4$格子に抽象同型がある、というだけの主張ではない。
+一方、量子代数の導来圏やFukaya圏の同値はここからは従わない。
+
+\begin{corollary}[外部trialityを検出する判別群]
+\label{cor:lg-picard-triality}
+対称な族を保つ巡回置換$\rho:(u,v,w)\mapsto(v,w,u)$は、
+式\eqref{eq:actual-D4-comparison}を通じ、局所Milnor格子とPicard格子の
+両方の判別群$(\mathbb Z/2)^2$の三非零元を巡回する。
+従って$\rho$の$\operatorname{Aut}(D_4)/W(D_4)\cong S_3$における像は
+位数$3$の外部trialityである。
+\end{corollary}
+\begin{proof}
+$\rho$-不変なMilnor球を選ぶと包含は$\rho$と可換する。
+境界格子$B=\langle D_1,D_2,D_3\rangle$のGram行列は
+\[
+ \begin{pmatrix}-1&1&1\\1&-1&1\\1&1&-1\end{pmatrix}.
+\]
+これは原始部分格子で、$B^*/B$の三非零元は
+$(D_1+D_2)/2,(D_2+D_3)/2,(D_3+D_1)/2$で表される。
+境界三本を回す$\rho$はこれらを巡回する。
+$\operatorname{Pic}(S)$はunimodularなので、原始直交補のgluingは
+$B^*/B$と$B^{\perp*}/B^\perp$の等変同型を与える。
+従ってPicardの$D_4$の判別群にも同じ作用がある。
+Weyl群は判別群へ自明に作用し、$D_4$では自己同型群のWeyl商が$S_3$だから結論を得る。
+\end{proof}
+
+\subsection{affine $D_4$、無限遠トーラス、混合Hodge構造}
+Goldman--NeumannはFricke曲面の滑らかなfiberの交叉形式を
+負のaffine $D_4$として計算している。\footnote{
+W. M. Goldman, W. D. Neumann, \emph{Homological action of the modular group on some cubic moduli spaces},
+Math. Res. Lett. 12 (2005), 575--591,
+\href{https://doi.org/10.4310/MRL.2005.v12.n4.a11}{doi:10.4310/MRL.2005.v12.n4.a11},
+Theorems 1--2, Proposition 3, \S3;
+\href{https://arxiv.org/abs/math/0402039}{arXiv:math/0402039}.}
+四つの外側元$o_1,\ldots,o_4$と中央元$c$に対し
+\[
+ o_i^2=c^2=-2,\quad o_i\cdot c=1,\quad o_i\cdot o_j=0\ (i\ne j),
+ \qquad \delta_\infty=o_1+o_2+o_3+o_4+2c
+\]
+となる。基底$(c,o_1,o_2,o_3,\delta_\infty)$への変換はunimodularであり、
+形式は$D_4(-1)\oplus(0)$となる。
+例えばPicard側への格子写像は$c\mapsto\alpha_0$、
+$o_i\mapsto\alpha_i$ ($i=1,2,3$)、
+$o_4\mapsto-2\alpha_0-\alpha_1-\alpha_2-\alpha_3$で明示できる。
+これは基底選択後の表示であり、全パラメータの消滅路を標準化するものではない。
+
+同論文\S3の境界plumbingでは無限遠の三次元多様体は
+monodromy $-I$の$T^2$束である。従ってその$H_1$は
+$\mathbb Z\oplus(\mathbb Z/2)^2$となる。
+判別群の二捩れと、前節のpillowcaseに現れたトーラスの同時反転が再び現れるが、
+\emph{三次元のmapping torusと二次元のpillowcaseは同じ空間ではない}。
+
+\begin{proposition}[重み二の四方向と重み四の境界方向]
+\label{prop:lg-mixed-hodge}
+滑らかな$U$の混合Hodge構造は
+\[
+ \operatorname{Gr}_2^W H^2(U,\mathbb Q)\cong\mathbb Q(-1)^4,
+ \qquad\operatorname{Gr}_3^W H^2(U,\mathbb Q)=0,
+ \qquad\operatorname{Gr}_4^W H^2(U,\mathbb Q)\cong\mathbb Q(-2)
+\]
+を持つ。そのcompact-support Hodge--Deligne多項式は
+$E_c(U;x,y)=1+4xy+(xy)^2$、Euler数は$6$である。
+ここではgraded pieceを同定し、混合Hodge構造の拡大の分裂は主張しない。
+\end{proposition}
+\begin{proof}
+$D$はsimple normal crossings divisorで、各成分は$\PP^1$、
+二重交点は三つである。Deligneの重みspectral sequence\footnote{
+P. Deligne, \emph{Th\'eorie de Hodge : II}, Publ. Math. IH\'ES 40 (1971), 5--57,
+\href{https://doi.org/10.1007/BF02684692}{doi:10.1007/BF02684692},
+\S3.2、Corollary 3.2.13.}
+において、重み二は$H^2(S)/\langle[D_1],[D_2],[D_3]\rangle$で次元$4$、
+重み三は$\bigoplus_i H^1(D_i)(-1)=0$。
+重み四は三角形の辺から頂点へのincidence写像の核で次元$1$、Tate型$(2,2)$である。
+また$E_c(S)=1+7xy+(xy)^2$、
+$E_c(D)=3(1+xy)-3=3xy$なので、差を取れば後半を得る。
+\end{proof}
+
+\subsection{例外群$G_2$が二つの異なる衝突をまとめる}
+対称部分族$A=B=C=\lambda$ではFricke係数は
+$b=-4\lambda,c=8h$である。
+Boalch--Palubaの定理\footnote{
+P. Boalch, R. Paluba, \emph{Symmetric cubic surfaces and $G_2$ character varieties},
+J. Algebraic Geom. 25 (2016), 607--631,
+\href{https://doi.org/10.1090/jag/668}{doi:10.1090/jag/668},
+\S4, Corollary 11, Remark 12;
+\href{https://arxiv.org/abs/1305.6594}{arXiv:1305.6594}.}
+を本稿の座標へ移すと次の接続を得る。
+
+\begin{proposition}[対称LG等位面の$G_2$実現（既知定理の適用）]
+\label{prop:lg-G2-realization}
+$G_2$の共役不変量を$(\alpha,\beta)$とする規約で、係数写像は
+\begin{align}\label{eq:lg-G2-parameters}
+ \alpha&=8h+2-12\lambda,\notag\\
+ \beta&=64\lambda^3+48\lambda^2-96\lambda h-12\lambda-2.
+\end{align}
+$(\alpha,\beta)$がregular semisimple共役類に対応する開集合では、
+$U_{\lambda,\lambda,\lambda;h}$は四穴球面の$G_2$指標多様体の
+一つの連結成分として実現される。
+ここで最初の三局所monodromyは$G_2$の次元6のsemisimple共役類に属し、
+第四が指定されたregular semisimple共役類に属する。
+全指標多様体には三つの連結成分があり、\emph{一つのLG等位面と全体を同一視しない}。
+\end{proposition}
+\begin{proof}
+Boalch--Palubaの底写像は
+$\alpha=c+2+3b$、$\beta=-b^3+3b^2+3bc+3b-2$である。
+$b=-4\lambda,c=8h$を代入すると式\eqref{eq:lg-G2-parameters}を得る。
+残りは同論文Corollary 11の適用である。
+\end{proof}
+
+同論文のregular locusの記述を本稿の座標で確認するには、
+二つのsingular cubic条件
+\[
+ \lambda^2+2\lambda-2h-1=0,\qquad
+ -16\lambda^3-3\lambda^2+12\lambda h+4h^2+2h=0
+\]
+に加え、余分なconic $16\lambda^2-4\lambda-8h-1=0$を区別する。
+滑らかな対称Fricke曲面であっても、このconic上で上記のregular semisimple記述を
+無条件に使ってはならない。
+
+\begin{corollary}[同じ$G_2$退化内の$D_4$と$A_2$]
+\label{cor:G2-D4-A2}
+第四局所monodromyの条件をregular unipotent共役類の閉包へ置き換えると、
+Boalch--Palubaの底点は$(\alpha,\beta)=(6,6)$となる。
+その二つの成分に対応するLG係数は
+\[
+ (\lambda,h)=(2,7/2)\quad\text{および}\quad
+ (\lambda,h)=(-1/4,1/8)
+\]
+であり、それぞれ$D_4$型および$A_2$型の特異fiberである。
+後者は、一次元表現の$S_5$モノドロミーを検出したsimple foldと同じ係数である。
+\end{corollary}
+\begin{proof}
+同論文Remark 12ではこの底点の二成分は
+$(b,c)=(-8,28),(1,1)$で、後者は係数fiberに重複度2で現れる。
+実際、$b$を決める三次式は
+\[
+ b^3+6b^2-15b+8=(b+8)(b-1)^2
+\]
+である。LGへの変換は上記の二組を与える。
+前者の$D_4$は既に示した。後者では$p=(1/2,1/2,1/2)$で
+$W=1/8$、Hessianのrankは$2$で、核は対角方向。
+対角上に$u=v=w=1/2+t$を代入すると正確に
+$W=1/8+t^3$となる。分離補題により局所方程式は
+非退化二次形式と非零三次項の和、すなわち$A_2$である。
+他の三臨界点は$(5/4,-1,-1)$の順列で、臨界値は$-23/32$だから同fiberにない。
+\end{proof}
+
+これは単に$D_4$と$G_2$という名前が一致するという接続ではない。
+本稿で別々に現れた\emph{四sheetの$D_4$衝突と二sheetのsimple foldが、
+同じ例外群の指標多様体の一つの退化を通じて結ばれる}。
+ただし係数fiberの重複度2、局所Milnor数2、Poisson臨界環の二重構造は
+異なる概念であり、数字が同じことから同一視しない。
+また、Boalch--Palubaの$G_2$実現やGoldman--Neumannのaffine $D_4$は既知結果である。
+今回の貢献の位置付けは、本稿のLG・非可換中心・表現被覆の具体式へ移し、
+包含による整数格子比較とtriality、異なる衝突の関係を明示したことである。
+個別の既出性の網羅調査は未了であり、$G_2$型量子代数との同型、
+mirror同値、Fukaya圏の同値、一般H3性を証明したとはしない。
