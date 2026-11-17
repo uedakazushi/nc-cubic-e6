@@ -1,0 +1,286 @@
+\section{境界の解析的modulus、Hochschild積、二捩れ付き楕円曲線}
+\label{sec:boundary-analytic-moduli}
+境界の二枝は、同じトーラス絡み目を持ちながら解析的には動き得る。
+本節では、実際の反復曲線に残る係数不変量と、その重み付き主部に付随する
+matrix factorization圏を区別して調べる。
+基礎体は$\mathbb C$、$n\ge1$とし、Pell列の互いに素な整数
+$2\le b_n<c_n$を用いる。$\kappa^2\ne1$、
+$\rho_\pm=\kappa\pm\sqrt{\kappa^2-1}$と置く。
+
+主論文の境界二枝定理から、条件を満たす初期conic $\{v=\kappa\}$の
+反復逆像の境界germは、正則局所座標で
+\begin{equation}\label{eq:boundary-weighted-model}
+ f_{n,\kappa}=F_{n,\kappa}+\text{高重み項},\qquad
+ F_{n,\kappa}=y^{2b_n}-2\kappa x^{c_n}y^{b_n}+x^{2c_n}
+\end{equation}
+と規格化できる。重みは$\operatorname{wt}(x)=b_n$、
+$\operatorname{wt}(y)=c_n$である。
+$F_{n,\kappa}$を\emph{重み付き模型}と呼び、一般の$f_{n,\kappa}$を
+この多項式へ解析的に置き換えない。後半には、その置換が実際に不可能な例を示す。
+
+\subsection{位相型が忘れる係数を解析同型から回収する}
+\begin{proposition}[二枝の先頭係数の不変量]
+\label{prop:boundary-kappa-analytic-invariant}
+同じ互いに素な$2\le b<c$に対し、最低重み式が
+$(y^b-r_1x^c)(y^b-r_2x^c)$となる二枝germを考える。
+$r_1,r_2$は非零かつ相異なるとする。
+二つのこの種のgermが解析的に同型なら
+\[
+ \mathcal I=\frac{(r_1+r_2)^2}{4r_1r_2}
+\]
+は一致する。特に実際の境界germの間の解析同型は
+$\kappa^2=(\kappa')^2$を必要とする。
+重み付き模型同士では、この条件は十分でもある。
+\end{proposition}
+\begin{proof}
+唯一の接線は$y=0$なので、解析座標変換を$(X,Y)$とすると
+$X=\alpha x+\text{高重み項}$、$\alpha\ne0$となる。
+各枝で$\operatorname{ord}x=b$、$\operatorname{ord}y=c$である。
+$Y$に$ib<c$の純粋項$x^i$があれば、それらの最小のものは枝上で
+他の項と相殺せず、像の$Y$の位数が$c$未満になる。
+従ってこれらの項は存在しない。
+$b\nmid c$より重み$c$の単項式は$y$のみなので、
+$Y=\beta y+\text{高重み項}$、$\beta\ne0$を得る。
+各枝の値$y^b/x^c$は共通の定数$\beta^b/\alpha^c$倍されるだけである。
+二枝の交換も許した上で、表示した量は不変となる。
+
+規格化$r_1r_2=1$、$r_1+r_2=2\kappa$では$\mathcal I=\kappa^2$。
+逆に$\kappa'=\kappa$なら同じ式であり、$\kappa'=-\kappa$なら
+$\zeta^c=-1$を満たす$\zeta$を取り、$x\mapsto\zeta x$で
+$F_{n,\kappa}(\zeta x,y)=F_{n,-\kappa}(x,y)$となる。
+\end{proof}
+
+重み付き模型の解析分類は、quasi-homogeneous平面曲線の一般分類の
+二枝の場合でもある。\footnote{
+L. M. C\^amara, \emph{On the classification of quasi-homogeneous curves},
+\href{https://arxiv.org/abs/1009.1664}{arXiv:1009.1664v1}, Theorem 1(iii), \S4.3。
+同論文の二点配置の$\mathbb C^*$商を、本稿の規格化に移したものとして比較する。}
+本稿では実際の高重み項を持つgermにも適用できる\emph{必要条件}を直接証明した。
+高重み項がある場合に$\kappa^2$だけで解析型が決まるとは主張しない。
+
+\subsection{同じHochschild次元でも、積が圏を区別する}
+\begin{theorem}[重み付き模型のdg Morita分類]
+\label{thm:weighted-boundary-Morita-classification}
+\[
+ \mathcal Q_{n,\kappa}
+ =\operatorname{MF}(\mathbb C[[x,y]],F_{n,\kappa})
+\]
+を二周期dg圏とする。必要ならそのperfect hullを取る。
+このとき
+\[
+ \boxed{\mathcal Q_{n,\kappa}\simeq_{\rm Morita}\mathcal Q_{m,\kappa'}
+ \quad\Longleftrightarrow\quad n=m\ \text{かつ}\ \kappa^2=(\kappa')^2.}
+\]
+これは\emph{重み付き模型}の分類であって、一般の実際の境界germ
+$f_{n,\kappa}$の二周期MF圏の分類ではない。
+\end{theorem}
+\begin{proof}
+$F_{n,\kappa}$の二偏微分は原点以外に共通零点を持たない。
+Dyckerhoffの公式\footnote{
+T. Dyckerhoff, \emph{Compact generators in categories of matrix factorizations},
+Duke Math. J. 159 (2011), 223--274,
+\href{https://doi.org/10.1215/00127094-1415869}{doi:10.1215/00127094-1415869};
+\href{https://arxiv.org/abs/0904.4713v5}{arXiv:0904.4713v5},
+Corollary 6.5（cohomologyを\emph{代数}として同定）、Theorem 5.9。
+Theorem 6.6のhomologyの次元だけを用いるのではない。}
+によって、Morita同値はJacobian環の$\mathbb C$-代数同型を与える。
+その次元は$(2b_n-1)(2c_n-1)$で、Pell列に沿って真に増加するから$n=m$である。
+
+重み付きEuler恒等式
+\[
+ b_nx(F_{n,\kappa})_x+c_ny(F_{n,\kappa})_y
+       =2b_nc_nF_{n,\kappa}
+\]
+により、ここではJacobian環とTjurina環が等しい。
+Mather--Yauの定理\footnote{
+J. N. Mather, S. S.-T. Yau,
+\emph{Classification of isolated hypersurface singularities by their moduli algebras},
+Invent. Math. 69 (1982), 243--251,
+\href{https://doi.org/10.1007/BF01399504}{doi:10.1007/BF01399504}, \S1の定理。
+有限次元Tjurina環は解析環でも形式完備化でも同じである。}
+は同じ埋込み次元の孤立複素超曲面germの接触同値を与える。
+前命題から$\kappa^2=(\kappa')^2$が必要となる。
+逆は前命題の明示的な\emph{右同値}による変数変換から従う。
+\end{proof}
+
+\begin{corollary}[固定された位相型の内部の連続な圏的modulus]
+$n$を固定すると、全$\kappa^2\ne1$でlinkは$T(2b_n,2c_n)$、
+Milnor数・Tjurina数は$(2b_n-1)(2c_n-1)$、
+対数標準閾値は$(b_n+c_n)/(2b_nc_n)$である。
+これらが全て同じでも、$\kappa^2$が異なれば上の二周期dg圏はMorita非同値である。
+\end{corollary}
+
+さらに生成元そのもののcohomology代数だけでも、この違いは消える。
+安定化剰余体$G_{n,\kappa}$のendomorphism dg代数のminimal $A_\infty$模型は、
+二次項が零であるため、基礎の積$m_2$として
+$\bigwedge_{\mathbb C}(\theta_x,\theta_y)$を持つ。
+しかしDyckerhoff Theorem 5.9の適合した模型では、符号規約を除いて
+\[
+ m_{b_n+c_n}(\underbrace{\theta_x,\ldots,\theta_x}_{c_n},
+                     \underbrace{\theta_y,\ldots,\theta_y}_{b_n})
+       =\pm(-2\kappa)
+\]
+に係数が現れる。これは選んだ模型での式であって、係数自体を
+$A_\infty$座標非依存の不変量とする主張ではない。
+Morita分類は上のHochschild\emph{積}とMather--Yauから得た。
+生成元の通常のendomorphism cohomology代数をdg代数全体と同一視してはならない。
+
+\subsection{四点配置からの楕円曲線とlevel $2$}
+重み$(b_n,c_n)$の例外曲線のtorus座標$z=y^{b_n}/x^{c_n}$上では、
+二枝の交点は$\rho_+,\rho_-$である。
+さらにtoric境界の二端$0,\infty$を含めて四点を取り、
+その二重被覆を
+\begin{equation}\label{eq:boundary-level-two-elliptic}
+ E^{\rm br}_\kappa:\quad \eta^2=z(z^2-2\kappa z+1)
+\end{equation}
+と定める。無限遠を原点$O$とし、非零二捩れ点$T=(0,0)$を標識する。
+これは\emph{解消上の四点配置に付随させた楕円曲線}であり、
+元の三次曲面の反標準楕円境界、Milnor fiber、あるいはMF圏の部分圏と
+同一視するものではない。
+
+\begin{proposition}[解析modulusは二捩れ付き楕円modulusとなる]
+\label{prop:boundary-elliptic-level-two}
+$E^{\rm br}_\kappa$は$\kappa^2\ne1$で滑らかであり、
+$(E^{\rm br}_\kappa,O,T)$の同型類は$K=\kappa^2$で完全に決まる。
+逆に原点と非零二捩れ点を標識した任意の複素楕円曲線がこの形で得られる。
+従って$K\in\mathbb A^1\setminus\{1\}$は、非尖点の粗moduli曲線$Y_0(2)$の座標である。
+その$j$不変量と判別式は
+\begin{equation}\label{eq:boundary-elliptic-j}
+ \Delta=64(K-1),\qquad
+ \boxed{j=\frac{64(4K-3)^3}{K-1}}.
+\end{equation}
+$J_2=64(K-1)$と書けば$j=(J_2+16)^3/J_2$となる。
+\end{proposition}
+\begin{proof}
+三つの有限分岐点$0,\rho_+,\rho_-$は相異なり、
+$O$を加えた二重被覆はgenus $1$である。
+一般の標識付き曲線を$Y^2=X(X^2+aX+b)$、$b\ne0$と書き、
+$X=s^2z,Y=s^3\eta$、$s^4=b$で規格化すれば表示式になる。
+規格化後に原点と$T$を保存するWeierstrass同型は
+$z\mapsto s^2z$、$\eta\mapsto s^3\eta$、$s^4=1$である。
+従って$\kappa$は符号を除いて定まり、$K$が完全不変量となる。
+$\Delta$と$j$は$a_2=-2\kappa,a_4=1$から
+$c_4=16(4\kappa^2-3)$を計算して得る。
+$Y_0(2)$はまさに非零二捩れ点（位数2の部分群）を持つ楕円曲線の粗moduliである。
+\end{proof}
+
+\begin{corollary}[$j$だけでは圏を区別できない]
+$(b,c)=(2,5)$、$\kappa=0$と$\kappa'=3\sqrt2/4$では
+$j(E^{\rm br}_\kappa)=j(E^{\rm br}_{\kappa'})=1728$。
+両MF圏のHochschild次元も$27$であるが、$K=0$と$K'=9/8$は異なるため
+重み付き模型の圏はMorita非同値である。
+\end{corollary}
+標識を忘れた楕円曲線の$j$と、二捩れ標識を残した$Y_0(2)$の情報量の差である。
+逆に$n$を変えて$\kappa$を固定すると、この楕円曲線は変わらないが
+MF圏のHochschild次元はPell型に増大する。
+
+\begin{proposition}[二同種写像はMF同値を意味しない]
+\label{prop:boundary-two-isogeny}
+$T$による商は次の明示的な次数2のisogenyで与えられる：
+\[
+ (z,\eta)\longmapsto
+ \left(X=z-2\kappa+z^{-1},\quad Y=\eta(1-z^{-2})\right),
+\]
+\[
+ Y^2=X\bigl(X^2+4\kappa X+4(\kappa^2-1)\bigr).
+\]
+非零二捩れ点$(X,Y)=(0,0)$を再び標識して規格化すると、
+\[
+ K\longmapsto K^\vee=\frac K{K-1},\qquad
+ J_2\longmapsto\frac{4096}{J_2}
+\]
+となる。例えば$K=4$と$K^\vee=4/3$の付随楕円曲線は二同種だが、
+同じ$n$の重み付きMF模型はMorita非同値である。
+\end{proposition}
+\begin{proof}
+$T$による平行移動は$(z,\eta)\mapsto(z^{-1},-\eta/z^2)$。
+表示した$X,Y$は不変で、直接代入して目標方程式を満たす。
+関数体の次数が2なので、この平行移動による商である。
+$X^2$の係数の平方と$X$の係数から規格化パラメータを計算すると
+$K^\vee=K/(K-1)$となる。これはinvolutionであり、$J_2$の式も従う。
+最後は定理\ref{thm:weighted-boundary-Morita-classification}による。
+\end{proof}
+
+このisogenyは標準的な二捩れ商の具体式であり、新しい一般isogeny理論ではない。
+境界の解析的modulus、Jacobian環の積、二捩れ付き楕円曲線が
+同じ$K$を記録するという比較に意味がある。
+
+\subsection{実際の境界germは主部と異なる：$\mu=27,\ \tau=24$の例}
+\begin{proposition}[一反復ですでに生じる高重み情報]
+\label{prop:actual-boundary-tjurina-defect}
+$A=B=C=0,h=1$の滑らかなLG曲面で、初期conicを$v=2$とする。
+一反復$C_1=g^{-1}\{v=2\}$の境界germは
+\[
+ \mu(C_1,p_w)=27,\qquad \tau(C_1,p_w)=24
+\]
+を持つ。従って$y^4-4x^5y^2+x^{10}$という重み付き主部へ
+解析的に接触同値ではない。
+\end{proposition}
+\begin{proof}
+この初期conicは$\kappa^2-1=3$、$N_v(\kappa)=18$で条件を満たす。
+$p_w$の射影chartで$x=U/W,y=V/W,t=T/W$とすると曲面式は
+\[
+ P=2xy-t(x^2+y^2+1)-2t^3=0.
+\]
+$r_1=2uv-w,r_2=2vr_1-u,r_3=2vr_2-r_1$、
+$V_g=2r_2r_3-v$と置く。これは$g^*v$の正確な式である。
+$H=t^7(V_g(x/t,y/t,1/t)-2)$は多項式で、
+\[
+ F(x,y)=\frac{\operatorname{Res}_t(P,H)}{64x^2y^5}
+\]
+も多項式となる。$P_t(0)=-1$であり、$t=0$以外の二つの局所根では
+$H(0,0,t)=-2t^7$が非零なので、その二factorは単元である。
+$x^2y^5$は境界の固定成分であるから、$F$は求める境界germの
+局所被約方程式を単元倍したものとなる。
+
+重み$(2,5)$で、計算に必要な重み$31$以下のjetは
+\begin{align*}
+ F_{\le31}={}&4(x^{10}-4x^5y^2+y^4)
+ -16x(x^{10}-7x^5y^2+y^4)\\
+ &+8x^2(3x^{10}-32x^5y^2+13y^4)
+ -16x^3(x^{10}-17x^5y^2+21y^4)\\
+ &+4x^4(x^{10}-64x^5y^2+227y^4)
+ +2y^2(287x^{10}-1204x^5y^2+59y^4).
+\end{align*}
+先頭部分の二偏微分は重み$18,15$の正則列である。
+filtered Koszul複体のexactnessにより、局所Jacobian環の随伴次数環は
+この先頭二偏微分の商であり、最大socle重みは$18+15-2-5=26$となる。
+従って重み$26$を超える単項式を切り捨てて\emph{正確に}計算できる。
+偏微分に必要なjetが重み$31=26+5$までである理由もこれである。
+
+重み$26$以下の45単項式を用いて、$F_x,F_y$の単項式倍の係数行列を作ると
+rankは$18$で、商の基底を
+\[
+ \{1,x,\ldots,x^{13}\}\ \cup\
+ \{y,xy,\ldots,x^8y\}\ \cup\
+ \{y^2,xy^2,x^2y^2,x^3y^2\}
+\]
+と取れる。従って$\mu=45-18=27$。
+この基底での有理数上の行消去は
+\[
+ [F]=12x^{13}-\tfrac{96}{5}x^{12}-\tfrac{12}{5}x^{11},\quad
+ [xF]=-\tfrac{96}{5}x^{13}-\tfrac{12}{5}x^{12},\quad
+ [x^2F]=-\tfrac{12}{5}x^{13},
+\]
+および$[x^3F]=[yF]=0$を与える。
+従って$([F])$の次元は正確に3、$\tau=27-3=24$である。
+表示したresultant、有限jet、行列rank、正規形は
+\texttt{verify\_boundary\_analytic\_moduli.py}が元のVieta式から厳密に再生成する。
+主部のTjurina数はEuler恒等式により$27$なので、接触同値は不可能である。
+\end{proof}
+
+\begin{remark}[比較の限界と次の問題]
+この例では$\mu$とlinkは主部と同じでも、Tjurina環は違う。
+一般の高重み項を持つ$F$について、二周期MFのHochschild環は
+Jacobian環であり、Tjurina環はその中の\emph{指定した類}$[F]$で割った商である。
+上の$\tau$の差だけから、標識なし二周期dg圏の非同値を結論してはいない。
+実際の境界germへ重み付き模型の完全分類を拡張するには、
+$[F]$に対応する追加構造、または別の圏的不変量を検討する必要がある。
+
+一方、$\kappa^2$の解析的不変性は実際の境界にも適用される。
+固定した$h=1,A=B=C=0$と$n$において、許容する$\kappa$を動かすだけで
+同じアフィン曲線$\mathbb G_m$・同じlink型・同じ閾値を持つ無限個の
+解析的に異なる境界が得られる。
+本節の新規性の網羅確認は未了であり、quasi-homogeneous分類、
+Mather--Yau、Dyckerhoff、楕円曲線の標準理論自体は既知として扱う。
+\end{remark}
