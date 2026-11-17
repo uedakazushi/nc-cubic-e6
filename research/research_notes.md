@@ -1,6 +1,6 @@
 # 成分研究ノート
 
-2026-11-17 / triangle-component-v13。方針はルートの `00_research_plan.md`、証明は `papers/nc-cubic-e6.tex`（rootからのパス）。
+2026-11-17 / triangle-component-v14。方針はルートの `00_research_plan.md`、証明は `papers/nc-cubic-e6.tex`（rootからのパス）。
 このノートは履歴ではなく、現在の入力・障害・再開のための知識を記す。
 
 ## 1. 記法と既存入力
@@ -220,3 +220,13 @@ H3幾何学的対象間の全pointed exact矢は、canonicalRのgraded回復→�
 七次元PBW族での結合：一次元表現から(a,b,c)=((1-q)yz-x,(1-q)zx-y,(1-q)xy-z)を得る。原点fiberは(x,y,z)=0と4つの符号解(eta1,eta2,eta3)/(1-q)、Jacobian detは-1,4,4,4,4。三二次式のP3斉次化では無限遠に3つの定数座標頂点があり、原点fiberの全8点は単純。有限etale次数8の射影解schemeから無限遠の3 sectionを除いて次数5のE→A'を得る。EはA3_xyzの開部分なので既約・連結。中心P_a及びそのX,Y,Z,Omega偏微分はこのE上で全係数恒等的に零（`verify_character_node_cover.py`で厳密確認）。中心三様体の五ODPの相対持上げとなる。節点を通るcutを添字付けるP3束はE上既約次元6、有限像はA'×P4の既約因子。固定位数3 H3開集合との交わりも非空既約、七次元族の結節中心因子はA4商で一つになる。主論文`thm:seven-nodal-irreducible`に幾何学的証明を記す。これはH3全体の特異中心軌跡の記述でも、八次元intrinsic成分の大域因子でもない。
 
 意味：中心の特異判別式はH3モジュライの境界とは一致しない。次の問題はこの既約因子を八次元の表示stack・intrinsic H3族へ追跡することであり、全大域成分の既約閉包とH3開性は未解決。古典的な結節三次三様体の文献との新規性比較は未完了。
+
+## 18. DAHA・character variety・skein・mirrorへの有効な接続
+
+固定q（三乗根）の量子so3を V_{abc} とすると、普遍AWのTerwilliger規約で A_aw=(1-q)x, B_aw=(1-q)y, C_aw=(1-q)z, 中央三元 alpha_aw=(1-q)a 等。**Casimirの厳密定数** Omega_aw=q(1-q)^3 Omega=3(q+2)Omega。従って切断Omega=-DはAW四中心パラメータ同時特殊化。証明は主論文 `thm:aw-casimir-exact`、厳密計算 `verify_daha_character.py`。
+
+中心P=0にOmega=-Dを入れて $u=-X/e,v=-Y/e,w=-Z/e$ とすると Fricke cubic u²+v²+w²+uvw+Au+Bv+Cw+T=0。A=-(Da+ell_a)/e² 等、T=-(D³-fD²+DK-L)/e³。係数写像Jacobianはa=b=c=0で 3D(D-2f/3)^4/e^9。Goldman四穴球面のトレースパラメータからFricke係数へのJacobianは(1,2,3,4)で-200。両者がgenerically finite dominantなのでgeneric有限etale底変更で**中心**を四穴球面相対SL2 character varietyに同定する（`thm:fricke-trace-dominant`）。量子代数全体とcharacter **stack** の同型ではない。
+
+Terwilligerのbraid生成元 sigma は (a,b,c)↔(b,a,c)、x↔y、z→(q²-q)xy-q²z+qc、Omega不変。中心で X↔Y、Z→(XY+cOmega-ell_c)/e-Z、Frickeで (u,v,w;A,B,C,T)→(v,u,-uv-C-w;B,A,C,T)。元関係を用いたPBWの全係数恒等式を別コード `verify_daha_braid.py` で独立再現。Jacobian括弧 {u,v}=2w+uv+C 等はGoldmanのPoisson括弧と定数・符号を除いて同型、sigmaはPoisson。滑らかなFricke中心の射影閉包は反標準三角形を持つLooijenga pairであり、四穴球面skeinのBousseau mirrorとの比較対象となる。
+
+先行研究・課題の具体表は `research/fricke_daha_comparison.md`。四穴球面skein=普遍AW同型（Crampé等）、rank-one DAHA embedding（Terwilliger）、Racah $U_q(sl2)$、Hikami cluster、Bousseau mirror、Painlevé、EOR E6-GDAHAの各適用範囲を分ける。**残課題**：root-of-unityでのskein/DAHA mapのspecialization、Casimir切断のH3性（一般の三角境界切断の滑らかH3条件とは別）、Brown--Gordon Poisson orderがGoldman bracketになるか、量子的VietaのH3心への延長、D4 triangleからE6 ellipticの相対変形。各個別式の文献新規性は未判定。原稿section `sec:daha-character`、二つの小JSON証明書を参照。
