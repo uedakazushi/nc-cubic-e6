@@ -27,7 +27,7 @@
 \newcommand{\PP}{\mathbb P}
 \title{楕円 $E_6$ 量子化成分の幾何学に向けて\\\large 七次元正常形・八次元形式変形・Fricke--DAHA幾何}
 \author{研究原稿：H3開性・全大域境界の分類は未完成}
-\date{2026年11月17日\quad triangle-component-v16}
+\date{2026年11月17日\quad triangle-component-v17}
 \begin{document}\maketitle
 \begin{abstract}
 原始三乗根の量子 $\mathfrak{so}_3$ 包絡の中心三次切断から得られる四次元族は、
@@ -55,6 +55,10 @@ Braid作用を量子的Vieta変換として明示し、Goldman型Poisson括弧�
 これらの障害は抽象的な圏変形や導来対応を否定せず、同時Sklyanin変形と心の変更を必要な比較対象として分離する。
 固定量子包絡のCasimir pencilではPoisson零点が総中心の五節点と五つの滑らかな臨界点に分かれ、
 特異な四中心値の$A_1$曲面のうち、前者から生じる二値のみが強いH3となる。
+さらに三低次係数を動かす相対Poisson臨界スキームが全係数で有限平坦次数15、
+一次元表現スキームが有限平坦次数5であることを示す。
+Casimir切断の臨界値多項式は既約五次式の二乗と別の五次式に因数分解し、
+一次元表現被覆および二乗因子の幾何学的monodromyは$S_5$となる。
 この部分族は楕円境界を持つ一般の八次元族と区別する。
 全fiberのH3開性、全intrinsic族の降下、成分の大域閉包と全境界はなお未完成である。
 \end{abstract}
@@ -83,7 +87,8 @@ Artin--Zhang豊富性、三次曲面の反標準Hilbert値を満たし、
 DAHAとcharacter variety&Askey--Wilson Casimirを規約まで同定し、Fricke係数dominance・量子的Vietaを証明。第\ref{sec:daha-character}節。\\
 量子化由来のPoisson構造&$Q=q\exp(\hbar)$ に対してGoldman型Jacobian括弧の9倍。Brown--Gordonによる中心fiberの比較。第\ref{sec:root-poisson-orders}節。\\
 二つの延長障害&非Casimir切断は指定した純粋 $q$ 変形の平坦商に持ち上がらず、Vietaは固定pointed H3心へ延長しない。抽象変形・導来対応の非存在ではない。\\
-Casimir特異中心の二類型&Poisson零点は総中心の五節点と五滑らか臨界点。四つの特異値は全て$A_1$だが、既存のH3判定では二値ずつ可否が分かれる。第\ref{sec:casimir-poisson-leaves}節。\\\bottomrule
+Casimir特異中心の二類型&Poisson零点は総中心の五節点と五滑らか臨界点。四つの特異値は全て$A_1$だが、既存のH3判定では二値ずつ可否が分かれる。第\ref{sec:casimir-poisson-leaves}節。\\
+相対Poisson被覆と$S_5Casimir特異中心の二類型&Poisson零点は総中心の五節点と五滑らか臨界点。四つの特異値は全て$A_1$だが、既存のH3判定では二値ずつ可否が分かれる。第\ref{sec:casimir-poisson-leaves}節。\\\bottomrule臨界スキーム有限平坦次数15、1次元表現次数5、$\Delta_{15}=N_5^2M_5$と$N_5$の$S_5$モノドロミー。第\ref{sec:relative-poisson-cover}節。\\\bottomrule
 \end{longtable}\end{center}
 
 ポテンシャルPBW変形と中心元の存在はEtingof--Ginzburg \cite{EG} の既知結果を使う。
@@ -528,6 +533,7 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_daha_character.tex}
 \input{papers/sections/quantum_cubic_poisson_orders.tex}
 \input{papers/sections/quantum_cubic_casimir_leaves.tex}
+\input{papers/sections/quantum_cubic_relative_poisson.tex}
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
@@ -553,13 +559,16 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_d4_lattice.py}&三角形の直交D4格子：既存PASS\\
 \path{verify_root_poisson.py}&全係数交換子微分・正確な係数9：既存PASS\\
 \path{verify_poisson_cut_obstruction.py}&切断の三障害・Vieta次数：既存PASS\\
-\path{verify_casimir_poisson_leaves.py}&十Poisson零点・四特異値・Hessian・一次元表現：今回PASS\\\bottomrule
+\path{verify_casimir_poisson_leaves.py}&十Poisson零点・四特異値・Hessian・一次元表現：既存PASS\\
+\path{verify_relative_poisson_cover.py}&次数15のGr\"obner環・二五次因子・単純fold：今回PASS\\\bottomrule
 \end{longtable}\end{center}
 有限体の標本による外挿はしていない。
-今回新規に実行したのは\path{verify_casimir_poisson_leaves.py}で、\path{casimir_poisson_leaves_certificate.json}に厳密計算結果を保持する。
-関連分野の既存五検証器は前回の実行証明書\path{computations/connections_validation.json}に記録されている。
-その他15検証器と既存五検証器を今回再実行したとは主張しない。
-新しいCasimir零点節は独立wrapperでLuaLaTeX組版（3頁）に成功した。初期二頁を画像点検し、三頁版は組版成功まで確認した。
+今回新規に実行したのは\path{verify_relative_poisson_cover.py}に相当する厳密SymPy検算で、
+原点での長さ15、$-\Omega$の特性多項式、無限遠Jacobian、単純foldとCasimir評価を確認した。
+小証明書は\path{relative_poisson_cover_certificate.json}に保存した。
+関連分野の以前の検証器21本を今回再実行したとは主張しない。
+今回の相対Poisson・$S_5$節は独立wrapperでLuaLaTeX組版（4頁）に成功し、頁を画像点検した。
+前回のCasimir零点節は独立wrapperで組版（3頁）した。
 Poisson節とDAHA節の前回の独立wrapperによる組版も保存済みの確認結果である。
 このwrapperは別の公表論文ではなく、主論文の今回の全体再組版を代用するものでもない。
 H3開性・相対圏の再構成・局所order認識・平坦イデアルの障害・H3心の再構成は、
@@ -620,6 +629,12 @@ Theorem 1: every smooth-at-infinity cubic with generic tritangent plane is a fou
 Math. Nachr. 297 (2024), 2639--2666,
 \href{https://doi.org/10.1002/mana.202300459}{doi:10.1002/mana.202300459}.
 Section 2: tritangent triangle and its orthogonal $D_4$ root lattice.
+\bibitem{IISDiscriminant} M. Inaba, K. Iwasaki, M.-H. Saito,
+\emph{Dynamics of the sixth Painlev\'e equation},
+S\'eminaires \& Congr\`es 14 (2006), 103--167,
+\href{https://emis.de/ft/47232}{original text}, \S9.1, Definition 9.1.
+Fricke判別式をトレースパラメータへ引き戻した場合の二乗因子について参照する。
+本稿の$N_5^2M_5$との同一視は主張しない。
 \bibitem{HavlicekPosta} M. Havl\'{\i}\v{c}ek, S. Po\v{s}ta,
 \emph{Center of quantum algebra $U'_q(\mathrm{so}_3)$},
 J. Math. Phys. 52 (2011), 043521,
