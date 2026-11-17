@@ -1,6 +1,6 @@
 # 研究方針：楕円E6量子化成分の完全決定
 
-2026-11-17 / triangle-component-v12 / 独立リポジトリ。**再開時は本書を最初に読む。**
+2026-11-17 / triangle-component-v13 / 独立リポジトリ。**再開時は本書を最初に読む。**
 この一式は `nc-cubic-e6` の成分研究に必要な現行成果を集約したもので、旧bundleを必要としない。
 パスはリポジトリrootからの相対パスで記す。本体は `papers/nc-cubic-e6.tex`、補足は `research/research_notes.md`。
 
@@ -49,13 +49,13 @@
    適合したenhanced Abel変形に対する圏比較の単射性は、下記の全Artin定理で解決した。相対代数性・H3族の実現と全大域境界は未完成であり、「完全分類済み」としない。
 7. **全Artin底の相対再構成。** AS-Cohen--MacaulayなH3反標準列の正方向Ext消滅からDe Deken--Lowen Theorem4.5を適用し、適合したenhanced Abel変形からdg圏変形への同型類上の単射性を証明した。全dg変形にheartが存在するとは主張しない。相対Serre作用が底変更に適合するsmooth proper dg変形では反標準環は次数別有限自由・左右noetherianで、四生成元・六二次関係・一三次関係の表示を持つ。二次包絡のAS4性と三次の正則正規性は別の未解決条件。証明は原稿第8節（`thm:artin-injective`, `thm:artin-section-ring`）。
 
-8. **固定包絡の結節中心因子。** 既存の全H3切断判定（`papers/sections/cubic_quantum_triangle_full_cuts.tex`）により、許容四次元切断空間の中心特異軌跡は五つの独立超平面との交わりで、単純正規交叉因子をなす。四つの符号nodeがA4軌道を作り、商では二つの既約因子。5つの相異なる孤立A1中心H3例を厳密Jacobi基底で確認した。証明は主論文定理`thm:nodal-divisors`・命題`prop:five-nodal-witnesses`、計算は`computations/verify_nodal_cuts.py`。
+8. **結節中心H3因子の七次元族への結合。** 固定包絡の許容四次元切断空間では五つの独立な節点条件が単純正規交叉因子をなし、A4商では二つの既約因子となる。相異なる5つのA1中心H3例を厳密Jacobi基底で確認した。さらにa,b,cを動かすと一次元表現が係数原点のZariski近傍で連結な有限etale五重被覆を与え、五節点条件のincidenceは既約六次元因子になる。七次元H3許容開集合との交わりも既約である。証明は主論文`thm:nodal-divisors`, `prop:five-nodal-witnesses`, `thm:seven-nodal-irreducible`。厳密計算は`computations/verify_nodal_cuts.py`, `computations/verify_character_node_cover.py`。全八次元intrinsic成分への延長は未証明。
 
 ## IV. 次の課題と具体的な着手
 
 **第一優先：有限型表示stack内の全H3 admissibility。**
 選んだ点の全Artin形式近傍は8変数族で分類済み。明示族は有限型底へ延び、相対THCR境界・全fiberの整域性・幾何学的一般点H3を認識した。さらにsmooth DM八次元表示stack [Z'/Gamma]とetale atlasを構成し、H3対象間の全幾何学的矢を決定した。
-固定包絡では結節中心であってもH3の内部に入ることが確定したため、中心の特異判別式をH3境界と同一視しない。次は一般中心値に限らない有限globaldimの全値判定を行う。悪い中心値、有限表示、局所Morita型を調べ、H3 locusのconstructibility/Zariski開性を証明するか反例を得る。形式smooth性だけから開性を推論しない。Rainsの次数3全被覆を未証明のまま使わない。
+固定包絡・七次元族では結節中心であってもH3の内部に入ることが確定したため、中心の特異判別式をH3境界と同一視しない。七次元族の既約結節因子が八次元表示stackでどのように延長されるかを追跡する。次は一般中心値に限らない有限globaldimの全値判定を行う。悪い中心値、有限表示、局所Morita型を調べ、H3 locusのconstructibility/Zariski開性を証明するか反例を得る。形式smooth性だけから開性を推論しない。Rainsの次数3全被覆を未証明のまま使わない。
 
 **第二優先：全intrinsic族の相対再構成と降下。**
 幾何学的矢と全Artin形式分類は得たが、一般非被約有限型底のSerre作用・反標準環・二次包絡の底変更とfpqc降下はまだ別問題である。表示stackのH3部分が実際のintrinsic族を全て被覆する範囲を証明し、有限慣性・分離性を決定する。
@@ -74,7 +74,7 @@ python3 computations/verify_all.py
 latexmk -lualatex papers/nc-cubic-e6.tex
 ```
 コードと小証明書は同じ専用ディレクトリに置き、統合結果はその `validation.json` に再生成する。
-通常の証明であるArtin再構成を計算PASSと同一視しない。既存13検証器の厳密計算PASSは旧証明書に記録されている。新規`verify_nodal_cuts.py`は今回厳密再実行した。
-今回の独立原稿をLuaLaTeXで組版する。巨大な既存H3原稿全体の再組版・網羅再検証・独立査読は対象外。
+通常の証明であるArtin再構成を計算PASSと同一視しない。既存13検証器の厳密計算PASSは旧証明書に記録されている。新規`verify_nodal_cuts.py`と`verify_character_node_cover.py`は今回厳密再実行した。
+今回の新規節のLuaLaTeX単体組版を確認した。主論文全体の組版は未実施。巨大な既存H3原稿全体の再組版・網羅再検証・独立査読は対象外。
 Git追跡対象は現行TeX・Markdown・Python・小JSONのみ。PDF・ZIP・中間物・cacheは含めない。
 生成・検証結果はコードと文書に、GitHub refの到達確認は保存時の応答に分けて記載する。
