@@ -27,7 +27,7 @@
 \newcommand{\PP}{\mathbb P}
 \title{非可換三次曲面を結ぶ幾何学\\\large 楕円 $E_6$ 量子化・指標多様体・消滅サイクルと例外群 $G_2$}
 \author{}
-\date{2026年11月17日\quad e6-connections-v25}
+\date{2026年11月17日\quad e6-connections-v26}
 \begin{document}\maketitle
 \begin{abstract}
 原始三乗根の量子 $\mathfrak{so}_3$ 包絡とその中心三次切断を、
@@ -67,6 +67,12 @@ Klein成分とそのコンパニオンの整数拡大類の位数$7,21,21$を得
 反復の最小次数は$1,7,41,239,\ldots$というPell漸化式に従う。
 二次無理数の固有付値により有限境界blow-upでの正則化を排除し、
 個別の反復付値を抽出するcorner blow-up回数は正確に$4n$となる。
+同じ写像のアフィンperfect圏上のDHKK entropyは零である一方、
+射の極filtrationの歪み率は$\log(3+2\sqrt2)$となる。
+一般conicの反復逆像の射影閉包では境界だけに算術種数が蓄積し、
+構造層の対象複雑度は$2\log(3+2\sqrt2)$の率で増大するが、
+開曲面へ局所化すると常に二項の自由解消を持つ。
+この対象列の成長率と自己関手のentropyを区別し、filteredなmirror比較の必要条件を明示する。
 これらの明示的接続、既知理論の適用、未構成の圏的対応を区別して記述する。
 \end{abstract}
 \tableofcontents
@@ -148,8 +154,21 @@ Cantat--Lorayの境界力学とJangのtropical Markov曲面の線型化\cite{Jan
 有理な境界方向に周期点がないため、指定コンパクト化を支配する有限境界blow-upでは
 正則自己同型に延長できない。これはalgebraic stabilityの否定ではない。
 一般のtropical化理論自体を新規とせず、周期と境界という二つの観測の差を具体化する。
-全rank五の代数的Gauss--Manin接続行列、mirror/Fukaya同値、圏的entropy、
-$G_2$型量子代数との同型、nearly K\"ahler幾何との圏的対応は未構成である。
+
+第\ref{sec:localization-entropy}節は、この成長を圏へ移す際の区別を扱う。
+アフィン引戻しは構造層というsplit generatorを固定するため、DHKK entropyは全$t$で零となる。
+一方、C\^ot\'{e}--Kartalのpole-order/localization filtrationを具体化すると、
+射のfiltrationの歪みはPell次数そのもので、指数率は$\log(3+2\sqrt2)$となる。
+一般conicの反復逆像の閉包は有理曲線のまま境界特異点を増やし、
+算術種数とproper圏の対象複雑度が二倍の指数率で成長する。
+開曲面への制限では全て二項の自由解消を持つので、局所化の前後で複雑度が異なる。
+通常の対象entropy、射のfiltration、閉包列の成長率を混同せず、
+Hochschildとperiodic cyclicの観測の差およびfiltered mirror比較の十分条件を明記する。
+DHKKの定義、proper圏の比較不等式、局所化filtration、HKR自体は既知理論で、
+書誌と適用箇所は同節に記す。
+全rank五の代数的Gauss--Manin接続行列、filtered・equivariantなmirror/Fukaya対応、
+元の非可換H3圏上の自己同値、$G_2$型量子代数との同型、
+nearly K\"ahler幾何との圏的対応は未構成である。
 
 現時点で得た結果と仮定付きの帰結を次のように区別する。
 \begin{longtable}{p{.28\textwidth}p{.63\textwidth}}
@@ -173,6 +192,7 @@ Milnor・Picard・$G_2$&指定退化での整数$D_4$比較、外部triality、�
 全四periodと円分性&conic開集合上の整数$D_4$基底、四period、root型判別式、有理Hodge分裂の必要十分条件と両種の有理係数例。第\ref{sec:four-D4-periods}節。\\
 trialityと三成分比較&指数3のperiod isogenyのWeyl商が$G_2$底写像。明示開集合で有理Hodge同型、Klein例の整数位数$7,21,21$。第\ref{sec:triality-period-isogeny}節。\\
 境界付値とPell力学&最小次数$1,7,41,\ldots$、射影交点次数、無理な固有付値、有限境界blow-upでの非正則化、個別抽出回数$4n$。第\ref{sec:boundary-pell-dynamics}節。\\
+局所化と三つの成長率&アフィンDHKK entropyは零、極filtrationの歪み率は$\log\Lambda$、曲線閉包の対象複雑度は$2\log\Lambda$。後者は自己関手のentropyではない。第\ref{sec:localization-entropy}節。\\
 \bottomrule
 \end{longtable}
 
@@ -626,6 +646,7 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_four_periods.tex}
 \input{papers/sections/quantum_cubic_triality_isogeny.tex}
 \input{papers/sections/quantum_cubic_boundary_dynamics.tex}
+\input{papers/sections/quantum_cubic_localization_entropy.tex}
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
@@ -660,19 +681,20 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_logarithmic_periods.py}&conic留数・Morse球面・Picard--Fuchs・monodromy・非捩れ例：既存PASS\\
 \path{verify_conic_period_coordinates.py}&整数$D_4$・四period・Jacobian・円分分裂例と非分裂例：既存PASS\\
 \path{verify_triality_period_isogeny.py}&指数3格子・Laurent式・Kleinの$7/21$・力学行列：既存PASS\\
-\path{verify_boundary_pell_dynamics.py}&全境界chamber・Pell次数・固有方向・抽出深さ：今回PASS\\\bottomrule
+\path{verify_boundary_pell_dynamics.py}&全境界chamber・Pell次数・固有方向・抽出深さ：既存PASS\\
+\path{verify_localization_entropy.py}&極filtrationのHilbert値・曲線交叉式・Pell種数：今回PASS\\\bottomrule
 \end{longtable}
-今回実行したのは最後の検証器で、全係数多項式、有理chamber、整数行列による厳密計算である。
-12個の線型chamber上の36恒等式を全て調べ、反復行列と連分数を$n=24$まで確認した。
-全$n$の次数・最小性、境界付値の空間と不変性、有限blow-upでの非正則化は
-本文の通常の証明であり、有限検算からの外挿ではない。
-小証明書は\path{computations/boundary_pell_dynamics_certificate.json}。
-旧29検証器は今回全再実行していない。
-新しい境界付値・Pell節を独立wrapperでLuaLaTeX組版（4頁）し、全頁を画像点検した。
-新節内部の参照は解決済みで、overfull boxはない。
-これは主論文全体の今回の組版ではない。全旧証明の独立再監査、Lean形式化、
-圏的entropy、全rank五の代数的Gauss--Manin接続行列、mirror/Fukaya同値、
-非Archimedean good reduction、新規性の網羅調査は未実施である。
+今回実行したのは最後の検証器で、全係数多項式・有理数・整数交叉行列を用いた厳密計算である。
+一反復の最高項、filtrationのHilbert値、交叉恒等式、$0\le n\le24$のPell行列と種数を確認した。
+小証明書は\path{computations/localization_entropy_certificate.json}。
+全$n$の主張、DHKK複雑度、proper圏の比較、局所化・HKR・周期巡回の比較は
+通常の証明および一次文献への依存であり、有限計算だけの形式検証ではない。
+旧30検証器は今回全再実行していない。
+新しい局所化・entropy節を独立wrapperでLuaLaTeX組版（5頁）し、全頁の画像を点検した。
+内部参照は解決し、前節のPell定理は抜粋用の参照名で表示した。overfull boxはない。
+主論文全体の今回の組版、全旧証明の独立再監査、Lean形式化、
+全rank五の代数的Gauss--Manin接続行列、filtered・equivariantなmirror/Fukaya対応、
+元の非可換H3圏の自己同値、非Archimedean good reduction、新規性の網羅調査は未実施である。
 
 \begin{thebibliography}{99}
 \bibitem{DeDekenLowen} O. De Deken, W. Lowen,
