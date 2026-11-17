@@ -1,6 +1,6 @@
 # Poisson量子化・中心切断・心の変更：現行研究ノート
 
-2026-11-17 / e6-connections-v17。最初に `../00_research_plan.md` を読む。
+2026-11-17 / e6-connections-v18。最初に `../00_research_plan.md` を読む。
 この主題の完全な証明は `../papers/sections/quantum_cubic_poisson_orders.tex` にあり、主論文 `../papers/nc-cubic-e6.tex` から読み込まれる。本ノートは証明を重複せず、規約・障害・次の構成に必要な知識を保持する。基本変形理論は `research_notes.md`、広い関連分野の比較は `fricke_daha_comparison.md` を参照する。これらの旧版にある「Poisson orderとの比較が未解決」という課題は、以下の限定された範囲では解決した。
 
 ## 1. 量子化からの括弧と規約
@@ -90,10 +90,23 @@ Casimir切断Omega=-Dの特異値は正確にD=0,2f/3,f,-f/3、A1個数はそれ
 
 一次元表現のCasimirは正確にOmega_E=f(uvw−u²−v²−w²)/3。原点の四符号sheetの一次微分は −f/3(eta1 dA'+eta2 dB'+eta3 dC')、互いに異なるのでOmegaはgeneric五sheetを分離する。従ってN5は既約五次・Galois群S5。この式とfoldを `computations/verify_relative_poisson_cover.py` で厳密検算した。
 
-**新しい数学的問い：** companion M5の係数を効率的に求め、そのGalois群、branch、smooth五重被覆との関係を決定する。M5の既約性を現時点で主張しない。既存のH3可否は固定包絡の特定Casimir値だけに使える。任意a,b,cや一般楕円E6成分のH3開性には未解決条件がある。
+コンパニオンM5の既約性とmonodromyは次節の完全対称群定理で解決した。**現在の数学的課題**は、二つのS5被覆の分岐因子の具体式と交叉、Poisson局所order、一般a,b,cでのH3判定、Painlevé VIの判別式との正確な比較である。任意a,b,cや一般楕円E6成分のH3開性には未解決条件がある。
 
-## 7. 一次文献と未確認点
+## 7. 独立な二つの幾何学的S5（解決済み）
 
+主論文 `thm:paired-quintic-S5` で、残余五次式M5の幾何学的既約性とGalois群S5、N5とM5の同時Galois群 **S5×S5** を証明した。従って二つの分解体は線型非交叉、判別式の平方類も独立。この証明の重要な細部は次の通り。
+
+基礎数体K0=Q(q)、q²+q+1=0。係数(a,b,c)=(30,19,29)を固定し、有限体の二つのsplit素数で中心臨界15次元環と一次元表現5次元環の両方の乗法行列を作る。p=1009, q=374ではM5が既約五次でFrobenius cycle(5)。p=1069, q=86ではN5が既約五次(5)、M5は既約二次と既約三次の積(2,3)。いずれもN5とM5は互いに素で分離的、Delta15=N5²M5を有限体上で独立確認。プログラム `computations/verify_companion_s5.py` と小証明書 `companion_s5_certificate.json` がこの有限体上の算術を厳密再現する（SymPyのみ、浮動小数点・ランダム標本なし）。
+
+M5の算術Galois群は5-cycleと型(2,3)の奇置換を持つ。位数30のS5部分群は存在せず、位数60はA5で奇置換を含まないのでS5。二つの算術S5が作るsubdirect productはGoursatによれば、直積、符号を一致させるC2 fiber product、または自己同型グラフのいずれか。p=1069の同時FrobeniusはN5側(5)偶、M5側(2,3)奇なので真のsubdirectを排除し、算術群S5×S5。
+
+**幾何学的な帰結には有理基点が重要。** 原点近傍で E と E' は双方とも有限etale五重被覆であり、原点fiberの各5点は全てK0有理（Eはp0,p_eta、E'はr0,r_eta）。Stacks Project [Tag0BTX](https://stacks.math.columbia.edu/tag/0BTX) の基本群完全列は原点の有理基点からsplitし、そのGalois(K0) sectionは二被覆の十点に自明に作用する。よって算術monodromy=幾何monodromy=S5×S5。**M5(D)自身は原点で四重根を持つ**ので、原点でétaleなのはDのみの零点schemeではなく四中心座標を保持する E' である。この区別を忘れない。kは任意の標数0代数閉体まで拡張できる。
+
+これでM5の既約性・Galois群・N5との独立性は未解決ではない。未解決なのは大域分岐因子の方程式、分岐の交叉、局所Morita/H3 admissibility、一般楕円E6族への接続、詳細な文献新規性である。二素数のFrobenius以外は通常の群論・基本群の証明であり、計算PASSを証明全体の形式検証と混同しない。
+
+## 8. 一次文献と未確認点
+
+- The Stacks Project Authors, [Lemma 58.14.3, Tag 0BTX](https://stacks.math.columbia.edu/tag/0BTX) は幾何学的に連結な底の算術・幾何fundamental group完全列。原点の有理基点sectionと組み合わせる。
 - M. Inaba, K. Iwasaki, M.-H. Saito, *Dynamics of the sixth Painlevé equation*, Séminaires & Congrès **14** (2006), 103–167, §9.1 Definition 9.1, https://emis.de/ft/47232 。Fricke判別式を境界トレースに引き戻した際の二乗因子が既知。本稿の別の係数写像による N5² M5 との具体的な同一性は未検証。PDFテキストを一次資料として確認したがweb screenshot取得はキャッシュエラーのため未成功。
 - M. Havlíček, S. Pošta, *Center of quantum algebra U'_q(so_3)*, J. Math. Phys. 52 (2011), 043521, DOI https://doi.org/10.1063/1.3579992 。三乗根の中心生成元と関係式に関する既知研究。今回公表要旨を確認したが、規約の完全照合と新規性調査は未完了。
 - S. Baseilhac, P. Roche, *Unrestricted Quantum Moduli Algebras. I. The Case of Punctured Spheres*, SIGMA 18 (2022), 025, 78 pp. DOI https://doi.org/10.3842/SIGMA.2022.025 ; arXiv:1912.02440。Theorems7.17,7.19、Corollary7.20(3)を原PDFで確認。Frobenius中心の有限被覆とGoldmanの比較を既知の一般機構として使う。本稿の全特殊化を同論文のgraph algebraと同定したわけではない。
@@ -103,7 +116,6 @@ Casimir切断Omega=-Dの特異値は正確にD=0,2f/3,f,-f/3、A1個数はそれ
 
 今回の独立計算は規約の確定と障害の明示を保証する。個々の式・障害定理の文献上の既出性を網羅的に確認したとはしない。
 
-## 8. 実行・組版・保存
+## 9. 再現・組版・保存範囲
 
-関連分野の旧五検証器のPASSは `connections_validation.json` に記録されている。今回は十Poisson零点・H3四値・S4対称性の検証器を独立実行しPASS。今回の小証明書は `computations/casimir_poisson_leaves_certificate.json`。他の20検証器の今回の全再実行、全旧証明の再監査、全主論文の組版は未実施。
-新しい相対Poisson節はLuaLaTeX wrapperで4頁の組版に成功し、レンダリング画像を点検した。旧DAHA/PoissonとCasimir節の組版は以前の確認結果。wrapperは別論文ではなくGitには含めない。コード・小証明書・主論文・方針・本ノートはGitHub mainに保存する。push済み内容はLibraryへ保存しない。
+現在の結果に不可欠な厳密検算は `computations/verify_relative_poisson_cover.py` と `verify_companion_s5.py`。前者の従来の証明書は `relative_poisson_cover_certificate.json`、今回の二素数因数分解・独立S5証明用小証明書は `companion_s5_certificate.json`。独立のLuaLaTeX wrapperで追加S5×S5定理2頁を組版・画像点検した。主論文全体の今回の組版、旧検証器22本の全再実行、独立査読、新規性の網羅調査は未実施。証明の数値部分、群論・基本群の通常証明、保存状態を区別する。GitHub mainを正本とし、push済み内容はLibraryへ重複保存しない。
