@@ -27,7 +27,7 @@
 \newcommand{\PP}{\mathbb P}
 \title{楕円 $E_6$ 量子化成分の幾何学に向けて\\\large 七次元正常形・八次元形式変形・Fricke--DAHA幾何}
 \author{研究原稿：H3開性・全大域境界の分類は未完成}
-\date{2026年11月17日\quad triangle-component-v14}
+\date{2026年11月17日\quad triangle-component-v15}
 \begin{document}\maketitle
 \begin{abstract}
 原始三乗根の量子 $\mathfrak{so}_3$ 包絡の中心三次切断から得られる四次元族は、
@@ -48,6 +48,11 @@
 さらにCasimir切断のAskey--Wilson代数との完全な表示同型とCasimir規約を与え、
 その中心が四穴球面のFricke character varietyを優越する四次元族を持つことを示す。
 Braid作用を量子的Vieta変換として明示し、Goldman型Poisson括弧と対数Calabi--Yau三角境界を同定する。
+量子化パラメータ $Q=q\exp(\hbar)$ の交換子微分は、このGoldman型括弧の正確に9倍を誘導する。
+そのPoisson order構造から滑らかなFricke中心上の有限次元中心fiber代数は同型になる。
+一方、$\Omega$ 係数が非零の中心三次切断のうち、この指定変形の平坦商に一次で持ち上がるのはCasimir切断だけである。
+量子的Vieta作用も、固定した反標準コンパクト化の構造対象付きH3心には延長しない。
+これらの障害は抽象的な圏変形や導来対応を否定せず、同時Sklyanin変形と心の変更を必要な比較対象として分離する。
 この部分族は楕円境界を持つ一般の八次元族と区別する。
 全fiberのH3開性、全intrinsic族の降下、成分の大域閉包と全境界はなお未完成である。
 \end{abstract}
@@ -62,9 +67,10 @@ Artin--Zhang豊富性、三次曲面の反標準Hilbert値を満たし、
 その二次包絡 $Q(R)$ がquadratic Koszul AS4型14641となる、現行研究の強いクラスである。
 同型は構造対象を保つexact同値であり、任意の導来同値による商ではない。
 
-本稿の目標は、後述の七次元族を含む既約成分を、その一般点・全境界・同型群oid・族まで決定することである。
-現時点で無条件に得た局所結果と、全モジュライの存在に依存する帰結を次のように区別する。
-\begin{center}\begin{tabular}{p{.28\textwidth}p{.63\textwidth}}\toprule
+本稿の目標は、後述の七次元族を含む既約成分を、その一般点・全境界・同型群oid・族まで決定すること、
+およびこの成分とDAHA・character variety・Poisson幾何の関係を明示することである。
+現時点で得た局所結果と、全モジュライの存在に依存する帰結を次のように区別する。
+\begin{center}\begin{longtable}{p{.28\textwidth}p{.63\textwidth}}\toprule
 対象&状態\\\midrule
 固定位数三の中央PBW部分&指定した開集合の正常形を全係数で証明。第\ref{sec:normal}節。\\
 横断変形&全次数平坦なAS4包絡と中心三次商を形式的に構成。一般中心値でH3。第\ref{sec:integrate}節。\\
@@ -72,14 +78,20 @@ Artin--Zhang豊富性、三次曲面の反標準Hilbert値を満たし、
 選んだ点の全Artin形式近傍&八変数の全同時形式族で分類。第\ref{sec:artin-enhancement}節。\\
 代数的表示stack&smooth DM八次元の近傍を構成。第\ref{sec:presentation-stack}節。H3の開性・全大域境界は未完成。\\
 結節中心因子&固定包絡では五つの正規交叉因子・商で二成分。七次元族では連結な五重被覆を用いて既約な六次元因子。第\ref{sec:nodal-centers}節。\\
-DAHAとcharacter variety&Askey--Wilson Casimirを規約まで同定し、Fricke係数dominance・量子的Vietaを証明。第\ref{sec:daha-character}節。\\\bottomrule
-\end{tabular}\end{center}
+DAHAとcharacter variety&Askey--Wilson Casimirを規約まで同定し、Fricke係数dominance・量子的Vietaを証明。第\ref{sec:daha-character}節。\\
+量子化由来のPoisson構造&$Q=q\exp(\hbar)$ に対してGoldman型Jacobian括弧の9倍。Brown--Gordonによる中心fiberの比較。第\ref{sec:root-poisson-orders}節。\\
+二つの延長障害&非Casimir切断は指定した純粋 $q$ 変形の平坦商に持ち上がらず、Vietaは固定pointed H3心へ延長しない。抽象変形・導来対応の非存在ではない。\\\bottomrule
+\end{longtable}\end{center}
 
 ポテンシャルPBW変形と中心元の存在はEtingof--Ginzburg \cite{EG} の既知結果を使う。
 Chekhov--Mazzocco--Rubtsov \cite{CMR} は一般化Sklyanin--Painlev\'{e}代数のPBW/Koszul性と
 量子del Pezzo・monodromy cubicとの関係を研究している。
 本稿の七次元族と同文献のパラメータ空間の厳密な対応、また結節中心因子の既出性は未確認である。
 以下のH3圏と結節中心の全同型類の主張を、同文献の既知定理として輸入しない。
+root-of-unity量子化とGoldman幾何の一般的な関係はBaseilhac--Roche、
+Poisson orderの中心fiberの同型はBrown--Gordon、三次曲面上のVietaの双有理力学はCantat--Lorayの先行研究に依存する。
+第\ref{sec:root-poisson-orders}節に一次資料の参照箇所と本稿の正確な適用範囲を記す。
+本稿の独立計算による規約の確定と、これらの一般理論そのものの新規性を混同しない。
 局所Hochschild計算はNegron--Schedler \cite{NS} の商の公式と整合し、
 root stackの一般的な計算はFu--Porta--Scherotzke--Sibilla \cite{FPSS} の
 2026年1月20日版、Proposition 6.17とも比較できる。
@@ -511,36 +523,42 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_presentation_stack.tex}
 \input{papers/sections/quantum_cubic_nodal_centers.tex}
 \input{papers/sections/quantum_cubic_daha_character.tex}
+\input{papers/sections/quantum_cubic_poisson_orders.tex}
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
-\begin{center}\begin{tabular}{p{.55\textwidth}p{.36\textwidth}}\toprule
+\begin{center}\begin{longtable}{p{.55\textwidth}p{.36\textwidth}}\toprule
 検証器&保存済み検証結果\\\midrule
-\path{verify_envelope_family.py}&全係数PBW、十二交換子、全中心式：PASS\\
-\path{verify_normal_form.py}&全係数正常形、局所指標：PASS\\
-\path{verify_smooth_witness.py}&標数0の特異点ideal $(1)$：PASS\\
-\path{verify_tangent_quotient.py}&核22、座標方向14、商8：PASS\\
-\path{verify_integrated_lift.py}&有理係数の全次数中心式：PASS\\
-\path{verify_cubic_obstruction.py}&全80一次重なり：PASS\\
-\path{verify_universal_cubic_syzygies.py}&全四syzygy、三次rank44：PASS\\
-\path{verify_second_order_incidence.py}&八方向同時二次補正：PASS\\
-\path{verify_rains_central_formula.py}&修正中心式の全係数恒等式：PASS\\
-\path{verify_central_multivariate_lift.py}&八変数正則化・全先頭式：PASS\\
-\path{verify_potential_recovery.py}&potential rank19、中心直線rank3：PASS\\
-\path{verify_algebraic_boundary.py}&境界行列式・判別式：PASS\\
-\path{verify_nodal_cuts.py}&固定包絡の五つの結節中心例（新規実行）：PASS\\
-\path{verify_character_node_cover.py}&五つの中心特異点恒等式・一次元表現（既存証明書）：PASS\\
-\path{verify_daha_character.py}&Askey--Wilson規約・Fricke係数・Poisson計算（今回PASS）\\
-\path{verify_daha_braid.py}&量子的VietaのPBW関係・Casimir不変（今回PASS）\\
-\path{verify_boundary_graph.py}&右graph・generic非三周期性：PASS\\\bottomrule
-\end{tabular}\end{center}
+\path{verify_envelope_family.py}&全係数PBW、十二交換子、全中心式：既存PASS\\
+\path{verify_normal_form.py}&全係数正常形、局所指標：既存PASS\\
+\path{verify_smooth_witness.py}&標数0の特異点ideal $(1)$：既存PASS\\
+\path{verify_tangent_quotient.py}&核22、座標方向14、商8：既存PASS\\
+\path{verify_integrated_lift.py}&有理係数の全次数中心式：既存PASS\\
+\path{verify_cubic_obstruction.py}&全80一次重なり：既存PASS\\
+\path{verify_universal_cubic_syzygies.py}&全四syzygy、三次rank44：既存PASS\\
+\path{verify_second_order_incidence.py}&八方向同時二次補正：既存PASS\\
+\path{verify_rains_central_formula.py}&修正中心式の全係数恒等式：既存PASS\\
+\path{verify_central_multivariate_lift.py}&八変数正則化・全先頭式：既存PASS\\
+\path{verify_potential_recovery.py}&potential rank19、中心直線rank3：既存PASS\\
+\path{verify_algebraic_boundary.py}&境界行列式・判別式：既存PASS\\
+\path{verify_nodal_cuts.py}&固定包絡の五つの結節中心例：既存PASS\\
+\path{verify_character_node_cover.py}&中心特異点恒等式・一次元表現：既存PASS\\
+\path{verify_boundary_graph.py}&右graph・generic非三周期性：既存PASS\\
+\path{verify_daha_character.py}&AW規約・Fricke係数・Poisson：今回再実行PASS\\
+\path{verify_daha_braid.py}&量子的Vieta・Casimir：今回再実行PASS\\
+\path{verify_d4_lattice.py}&三角形の直交D4格子：今回再実行PASS\\
+\path{verify_root_poisson.py}&全係数交換子微分・正確な係数9：今回PASS\\
+\path{verify_poisson_cut_obstruction.py}&切断の三障害・Vieta次数：今回PASS\\\bottomrule
+\end{longtable}\end{center}
 有限体の標本による外挿はしていない。
-H3開性・相対圏の再構成・局所order認識は、計算証明書と通常の数学的証明を区別して記載した。
-全原稿の独立査読、Lean形式化、新規性の網羅調査は未実施である。
-今回、新規のDAHA関連二検証器を厳密演算で再実行し、追加したDAHA節単体（四頁）をLuaLaTeXで組版した。
-それ以前の検証器のPASSは既存証明書に基づき、今回の再実行を意味しない。
-主原稿全体の今回の再組版、量子代数のskein--DAHA対応の完全な圏的同定、
-既存の全分類成果の独立再監査は未実施である。
+今回の実行範囲は最後の五検証器で、\path{computations/connections_validation.json}に記録する。
+残る15検証器のPASSは既存証明書に基づき、今回の再実行を意味しない。
+新しいPoisson節と既存DAHA節を一時的な組版用wrapperでLuaLaTeX組版し、該当頁を点検した。
+このwrapperは別の公表論文ではなく、主論文の今回の全体再組版を代用するものでもない。
+H3開性・相対圏の再構成・局所order認識・平坦イデアルの障害・H3心の再構成は、
+計算証明書と通常の数学的証明を区別して記載した。
+主原稿全体の今回の再組版、全原稿の独立査読、Lean形式化、
+量子代数のskein--DAHA対応の完全な圏的同定、新規性の網羅調査は未実施である。
 
 \begin{thebibliography}{99}
 \bibitem{DeDekenLowen} O. De Deken, W. Lowen,
