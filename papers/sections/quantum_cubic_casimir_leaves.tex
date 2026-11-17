@@ -157,6 +157,32 @@ $X=x^3+q^2x$等と式\eqref{eq:Omega}に代入すると、中心値は
 それぞれ$p_0$と$p_\eta$になる。
 \end{proof}
 
+\begin{corollary}[量子的Vietaと有限$S_4$対称性]
+\label{cor:poisson-ten-s4}
+固定包絡のgraded自己同型群$\mathfrak A_4$と
+第\ref{sec:daha-character}節の量子的Vieta生成元$\sigma$は、
+十個のPoisson零点の集合を保つ。
+$p_0,r_0$は両者で固定され、各四点集合
+$\{p_\eta\}$、$\{r_\eta\}$への作用は同じ$S_4$置換群を生成する。
+これは無限位数のmodular作用自体が$S_4$に等しいという主張ではなく、
+有限なPoisson零点集合への作用の像である。
+\end{corollary}
+\begin{proof}
+$a=b=c=0$では$\ell_c=0$なので
+式\eqref{eq:vieta-center}から
+$\sigma(X,Y,Z)=(Y,X,XY/e-Z)$ となる。
+符号点では$XY=4e^2\eta_1\eta_2=4e^2\eta_3$だから、
+$\sigma$は$(\eta_1,\eta_2,\eta_3)$を
+$(\eta_2,\eta_1,\eta_3)$へ移す。原点三座標は固定する。
+$\mathfrak A_4$内の二符号変更は四符号集合に正則な
+Klein四元群として作用し、巡回置換は三外側点を巡回する。
+これらは四点上の交代群を生成し、$\sigma$の互換を加えると
+対称群$S_4$となる。$\Omega$は全作用で固定されるから
+同じ置換が節点側と滑らか臨界点側に作用する。
+四点上の置換群位数24は
+\texttt{verify\_casimir\_poisson\_leaves.py}でも直接確認できる。
+\end{proof}
+
 \begin{remark}[同じADE型と異なる非可換正則性]
 同じ$A_1$型の中心曲面でも、総中心の節点を切る場合は
 非可換H3であり、総中心の滑らかな点に接して節点を作る場合は
