@@ -1,0 +1,296 @@
+\section{局所化が消す複雑度、極のfiltration、境界に蓄積する種数}
+\label{sec:localization-entropy}
+前節のPell成長を圏に移す際、まずどの量を測るかを区別しなければならない。
+本節では同じ自己同型について、通常のDHKK entropyは零、
+射の極次数の歪みは$\log(3+2\sqrt2)$、
+曲線の射影閉包の対象複雑度は$2\log(3+2\sqrt2)$となることを示す。
+最後の量は\emph{対象の列}の増大率であり、射影圏の自己関手のentropyを
+構成したという主張ではない。
+
+$U$は滑らかな複素LG曲面、$R=\mathcal O(U)$、$j:U\hookrightarrow S$は
+通常の三次コンパクト化、$D=D_u+D_v+D_w$とする。
+$g=\iota_v\iota_w\iota_u\iota_w$、$\sigma=g^*:R\to R$、
+$\Lambda=3+2\sqrt2$を固定し、前節の記号
+\[
+ M^n=\begin{pmatrix}a_n&-b_n\\-b_n&c_n\end{pmatrix},
+ \qquad d_n=b_n+c_n
+\]
+を使う。本節は\emph{可換な中心曲面}の$\Perf(U)$を扱う。
+元の非可換H3圏への$g$の持上げや、symplectic自己同型の存在は別問題である。
+
+\subsection{アフィン引戻しの通常の圏的entropyは零}
+\begin{proposition}[固定生成元と射への非自明な作用]
+\label{prop:affine-pullback-zero-entropy}
+非空のアフィン$k$-scheme $X=\Spec R$の自己射$f$について、
+$\mathbf Lf^*: \Perf(X)\to\Perf(X)$のDHKK entropyは
+\[
+ h_t(\mathbf Lf^*)=0\qquad(t\in\mathbb R)
+\]
+である。特に本稿の$g$では$h_t(\mathbf Lg^*)=0$である。
+しかし生成元$\OO_U$の自己準同型環に対する作用は$\sigma=g^*$であり、
+対象を固定することから関手が恒等だとは結論できない。
+\end{proposition}
+\begin{proof}
+$G=R$は$\Perf(R)$のsplit generatorで、$(\mathbf Lf^*)^nG\simeq G$。
+DHKKの三角塔による複雑度\footnote{
+G. Dimitrov, F. Haiden, L. Katzarkov, M. Kontsevich,
+\emph{Dynamical systems and categories},
+\href{https://arxiv.org/abs/1307.8418}{arXiv:1307.8418},
+Definitions 2.1, 2.4, Proposition 2.2, Lemma 2.3.}
+には一段の塔から$\delta_t(G,G)\le1$がある。
+任意の点$p\in X$を取り、exact関手
+$-\otimes_R^{\mathbf L}k(p):\Perf(R)\to\Perf(k(p))$を適用すると
+\[
+ 1=\delta_t(k(p),k(p))\le\delta_t(R,R)
+\]
+となる。従って$\delta_t(G,(\mathbf Lf^*)^nG)=1$で、定義から結論する。
+ここで非properな$\Perf(U)$に、proper圏用の有限次元Ext公式を流用していない。
+\end{proof}
+
+この命題はDHKKの定義の初等的帰結で、新しい一般entropy定理ではない。
+しかし前節で正の古典entropyを得た写像にも適用できるため、
+\emph{通常の$\Perf(U)$のentropyにPell成長を期待する方法は成立しない}。
+成長を検出するには、少なくとも射のfiltration等の追加データが必要である。
+
+\subsection{局所化の射に残る極次数}
+境界を定義するsectionを$s_D$とし、$m\ge0$について
+\begin{equation}\label{eq:pole-endomorphism-filtration}
+ F_mR=\{f\in R:\operatorname{div}_S(f)+mD\ge0\}
+ =\frac{H^0(S,\OO_S(mD))}{s_D^m}
+ \subset\operatorname{End}_{\Perf(U)}(\OO_U)
+\end{equation}
+と置く。右辺の割算はsectionを有理関数として読む意味で、ベクトル空間の商ではない。
+
+\begin{lemma}[次数filtrationと局所化表示]
+\label{lem:pole-degree-localization}
+$F_mR$は$u,v,w$の全次数$m$以下の多項式の像に一致し、
+\[
+ \dim F_mR=\binom{m+3}{3}-\binom m3
+ =\frac{3m^2+3m+2}{2}.
+\]
+また$R=\varinjlim_m\Hom_S(\OO_S,\OO_S(mD))$であり、
+そのcolimitのfiltrationが式\eqref{eq:pole-endomorphism-filtration}である。
+\end{lemma}
+\begin{proof}
+$D$は超平面切断である。三次hypersurfaceの完全列と
+$H^1(\PP^3,\OO(m-3))=0$により、全$m\ge0$で
+斉次多項式から$H^0(S,\OO_S(mD))$への制限は全射となる。
+$t=1$で非斉次化すれば次数filtrationを得る。
+三次の一本の関係によるHilbert値は上式となる。
+任意の$U$上の正則関数は、normalな$S$上で境界にのみ有限位数の極を持つので
+colimitの主張も従う。
+\end{proof}
+
+これはC\^ot\'{e}--Kartalのcategorical compactificationによる
+pole-order/localization filtrationの具体例である。\footnote{
+L. C\^ot\'{e}, Y. B. Kartal,
+\emph{Categorical action filtrations via localization and the growth as a symplectic invariant},
+\href{https://doi.org/10.1515/crelle-2023-0037}{doi:10.1515/crelle-2023-0037};
+\href{https://arxiv.org/abs/2108.05938v3}{arXiv:2108.05938v3},
+\S5.2.2, (5.9)--(5.10), Corollary 5.26, Theorem 5.27,
+\S7.1.1, Corollaries 7.1--7.2.}
+本稿でこれから測るのは、静的な関数$m\mapsto\dim F_mR$ではなく、
+自己同型が\emph{何倍の極次数を必要とするか}である。
+
+\begin{definition}[射filtrationの歪み率]
+\label{def:morphism-filtration-distortion}
+有限次元生成部分空間$V\subset R$、$1\in V$に対し
+$F_m^VR=V^m$とし、
+\[
+ \ell_V(n)=\min\{r\ge1:\sigma^n(V)\subset V^r\},\qquad
+ h_{\rm pole}(\sigma)=\lim_{n\to\infty}\frac1n\log\ell_V(n)
+\]
+と定める。この率を通常のDHKK entropyとは区別する。
+\end{definition}
+
+\begin{theorem}[Pell成長のfilteredな検出]
+\label{thm:filtered-pell-entropy}
+上の極限は存在し、有限次元生成部分空間$V$の選択に依存しない。
+本稿の$V=\langle1,u,v,w\rangle$では
+\[
+ \ell_V(n)=d_n,\qquad h_{\rm pole}(\sigma)=\log\Lambda>0.
+\]
+また、各$n$について$d_n$は全ての$m\ge1$に同時に
+$\sigma^n(F_mR)\subset F_{d_nm}R$を満たす最小の整数である。
+$\sigma^n$を共役する代数同型と、その逆がfiltrationを線型の尺度変更まで保つなら、
+共役後もこの歪みの指数率は変わらない。
+\end{theorem}
+\begin{proof}
+積を取ると$\ell_V(n+m)\le\ell_V(n)\ell_V(m)$なので、Feketeの補題から極限が存在する。
+別の有限次元生成空間$V'$に対して$V\subset(V')^a$、$V'\subset V^b$となる$a,b$がある。
+すると
+$\sigma^n(V')\subset V^{b\ell_V(n)}\subset(V')^{ab\ell_V(n)}$であり、
+逆向きも同様。従って両$\ell$は$n$によらない定数倍で比較され、指数率は同じである。
+$V=F_1R$の場合、$\ell_V(n)$は三座標の最小次数の最大値そのもので、
+前節の定理\ref{thm:pell-exact-degree}から$d_n$に等しい。
+乗法性が全$m$の上界を与え、$m=1$が最小性を与える。
+共役と逆共役に同じ線型比較を適用すれば最後の主張を得る。
+\end{proof}
+
+\begin{corollary}[一様な加法的shiftでは成長を吸収できない]
+\label{cor:no-additive-filtered-lift}
+極filtrationと線型同値なfiltration$G_mR$に対して、ある定数$C$で
+$\sigma(G_mR)\subset G_{m+C}R$が全$m$で成り立つことはない。
+従ってこのfiltrationを保つ自己同型、または次数を保つRees環自己同型による持上げも存在しない。
+\end{corollary}
+\begin{proof}
+そのような包含を反復すれば$\sigma^n(G_mR)\subset G_{m+nC}R$となる。
+有限生成空間$V$を一つの$G_m$に入れ、両filtrationの線型比較を用いると
+$\ell_V(n)=O(n)$となり、正の指数率に矛盾する。
+Reesの次数を保つ持上げは$C=0$の場合である。
+\end{proof}
+
+同じ射の像$\sigma^n(F_1R)$は全$n$で次元4のままである。
+$\dim F_{d_n}R\sim\tfrac32d_n^2$は、\emph{その像を含む極次数予算}の大きさであり、
+射の像そのものの次元が増えたことを意味しない。
+
+\subsection{開曲面では二項、閉包では指数的な対象複雑度}
+$v$座標の一般の値$\kappa\in\mathbb C$を一つ選び、
+$C_0=\{v=\kappa\}\subset U$が滑らかな既約affine conicとなるようにする。
+$C_n=g^{-n}(C_0)$、$\overline C_n\subset S$をその被約閉包とする。
+全$C_n$は$C_0$と同型なので、滑らかで正規化の種数は零である。
+
+\begin{theorem}[境界に集中する算術種数]
+\label{thm:boundary-curve-genus}
+全$n\ge0$で
+\begin{align*}
+ [\overline C_n]&=P_n=c_nD_u+b_nD_v+d_nD_w,\\
+ D\cdot\overline C_n&=2d_n,\qquad P_n^2=4b_nc_n,\\
+ p_a(\overline C_n)&=1+2b_nc_n-d_n,
+ \qquad \chi(\OO_{\overline C_n})=d_n-2b_nc_n.
+\end{align*}
+特異点は境界にのみあり、その局所$\delta$不変量の総和は
+$1+2b_nc_n-d_n$である。
+最初の四つの$(\deg, p_a)$は
+$(2,0),(14,14),(82,656),(478,23422)$となる。
+\end{theorem}
+\begin{proof}
+$\sigma^n(v)-\kappa$の境界極次数は、前節の$\Theta$模型から
+$(c_n,b_n,d_n)$である。
+実際、三境界の有理線$(0,1),(1,0),(1,-1)$に$M^n$を作用させた後、
+$\Theta$の第二成分を取ればそれぞれ$c_n,b_n,b_n+c_n$となる。
+定数$\kappa$は負の付値を消さない。$n=0$での$D_v$上の位数は零である。
+従って主因子の零部分の閉包と極部分は線型同値で、最初の式を得る。
+$D_i^2=-1$、$D_iD_j=1$ ($i\ne j$)から二つの交叉式が従う。
+$K_S=-D$とadjunctionにより$p_a=1+(P_n^2-DP_n)/2$となる。
+閉包は既約有理曲線で、$U$上では滑らかなので、正規化の種数公式が最後の主張を与える。
+この結果は各境界特異点のPuiseux型まで分類したものではない。
+\end{proof}
+
+\begin{theorem}[局所化前後で異なる対象の成長率]
+\label{thm:proper-versus-affine-complexity}
+$E$を$\Perf(S)$の任意のsplit generator、$Q_n=\OO_{\overline C_n}$とする。
+このとき
+\begin{equation}\label{eq:proper-object-growth}
+ \lim_{n\to\infty}\frac1n\log\delta_0(E,Q_n)=2\log\Lambda.
+\end{equation}
+一方、$\Perf(U)$では
+\[
+ j^*Q_n\simeq\operatorname{Cone}
+   (R\xrightarrow{\sigma^n(v)-\kappa}R),\qquad
+ \delta_0(R,j^*Q_n)\le2.
+\]
+従って局所化は、この自然な閉包の列の指数的複雑度を一様有界な複雑度へ落とす。
+\end{theorem}
+\begin{proof}
+$\eta(T)=\sum_i\dim\Hom_S(\OO_S,T[i])$は三角形に関して劣加法的である。
+従って$\eta(Q_n)\le\eta(E)\delta_0(E,Q_n)$。
+一方$\eta(Q_n)\ge|\chi(Q_n)|=2b_nc_n-d_n$ ($n\ge1$)であり、
+$b_n,c_n,d_n$はいずれも正定数倍の$\Lambda^n$に漸近する。
+これが指数率$2\log\Lambda$の下界を与える。
+
+上界にはsmooth proper圏におけるDHKKの比較不等式\footnote{
+Dimitrov--Haiden--Katzarkov--Kontsevich、前掲論文、Theorem 2.6の証明、式(9)。
+任意の対象$T$について、固定生成元からの$\delta_0$と
+$\sum_i\dim\Hom(E,T[i])$を$T$によらない定数で比較する。
+この部分だけでproper性を使う。}
+を用いる。$E^\vee$を有限個の固定vector bundleからなる有界複体で表す。
+任意のそのようなbundle $B$について
+$0\to B(-P_n)\to B\to B|_{\overline C_n}\to0$を使う。
+$P_n$は合計$2d_n$個の境界成分を順に足した有効因子である。
+途中の因子$T$の三係数は$d_n$以下で、$|T\cdot D_i|=O(d_n)$。
+$B|_{D_i}$は固定された次数の線束の直和なので
+\[
+ \sum_j h^j(D_i,B(-T)|_{D_i})=O(d_n).
+\]
+$0\to B(-T-D_i)\to B(-T)\to B(-T)|_{D_i}\to0$を$2d_n$回使うと
+$\sum_jh^j(S,B(-P_n))=O(d_n^2)$となる。
+有限個のbundleとhypercohomologyについて同じ評価を足し、
+$\sum_i\dim\Hom(E,Q_n[i])=O(d_n^2)$を得る。
+DHKK比較によって$\delta_0(E,Q_n)=O(d_n^2)$となり、下界と合わせて式を得る。
+
+アフィン側では$\sigma^n(v)-\kappa$は整域$R$の非零元なので、
+表示した二項複体が$R/(\sigma^n(v)-\kappa)$を解消する。
+二個の生成元のshiftからなる塔があるため、複雑度は2以下である。
+\end{proof}
+
+ここで$Q_n$が一つのexact自己関手の反復像であることは示していない。
+閉包を取る操作はexact関手ではなく、式\eqref{eq:proper-object-growth}を
+$\Perf(S)$の自己同値のentropyだと呼ぶことはできない。
+ただし、もしあるexact自己関手$\overline F$と対象$Q_0$が
+$\overline F^nQ_0\simeq Q_n$を満たすなら、三角塔の劣乗法性から
+$h_0(\overline F)\ge2\log\Lambda$が必要となる。
+そのようなliftの存在は本節の結論ではない。
+
+\subsection{Hochschild、周期巡回、wrapped側で必要な情報}
+滑らかなアフィン曲面のHKR同型は
+\[
+ \mathrm{HH}_0(R)=R,\qquad
+ \mathrm{HH}_2(R)=\Omega_R^2=R\omega
+\]
+を与える。$g^*\omega=\omega$なので、$F_mR$と$F_mR\omega$により
+両者に入るfiltrationの歪み率は同じ$\log\Lambda$である。
+一方、周期巡回homologyとde Rham cohomologyの標準比較\footnote{
+B. Antieau, \emph{Periodic cyclic homology and derived de Rham cohomology},
+Ann. K-Theory 4 (2019),
+\href{https://doi.org/10.2140/akt.2019.4.505}{doi:10.2140/akt.2019.4.505},
+\S3およびIntroductionの標数零の古典比較への参照。
+ここではsmoothな$\mathbb C$-代数に対する古典的mixed-complex HKRを用いる。}
+から
+\[
+ \mathrm{HP}_0(R)\cong H^0_{\rm dR}(U)\oplus H^2_{\rm dR}(U),\qquad
+ \mathrm{HP}_1(R)=0
+\]
+を得る。既存の$H_2(U)$上の恒等性から$g^*$は前者のrank $6$にも恒等に作用する。
+従って\emph{filtration付きの無限次元Hochschild群では見え、
+有限次元のperiodic cyclic群と通常の対象entropyでは見えない}という区別がある。
+HKRの一般理論そのものは新規結果ではない。
+
+\begin{proposition}[wrapped比較に対する十分条件と限界]
+\label{prop:conditional-filtered-mirror-growth}
+$\Psi:\Perf(U)\simeq\mathcal C$をexact同値とし、
+$L=\Psi(\OO_U)$、$\Phi=\Psi\circ\mathbf Lg^*\circ\Psi^{-1}$とする。
+すると$h_t(\Phi)=0$である。
+さらに$\operatorname{End}_{\mathcal C}(L)$に乗法的filtration$\mathcal A_\ell$があり、
+同型$\theta:R\xrightarrow{\sim}\operatorname{End}_{\mathcal C}(L)$が
+極filtrationと$\mathcal A$を相互に線型の尺度変更まで保ち、
+$\Phi(L)\simeq L$の選択の下で射への作用を共役するなら、
+この射の反復歪み率は$\log\Lambda$である。
+ここで$\mathcal A_\ell$の各部分は有限次元とし、歪みは
+$\Phi^n(\mathcal A_m)\subset\mathcal A_{Lm}$を全$m\ge1$で満たす
+最小整数$L$の指数率として測る。
+\end{proposition}
+\begin{proof}
+通常のentropyは同値による共役で不変なので最初の命題による。
+後半は定理\ref{thm:filtered-pell-entropy}の両方向のfiltration比較を用いる。
+\end{proof}
+
+C\^ot\'{e}--Kartalの結果は、対のHMSの下でpole-orderとReeb長のgrowthを
+比較する具体的な枠組みを与える。ただし、\emph{growth関数の次元の比較だけから、
+上命題に必要な特定自己同型との同変性や一様なfiltration比較は従わない}。
+本稿ではこの$g$に対するfiltered・equivariantなHMSをまだ構成していない。
+また$g$がholomorphic symplectic形式を保つことだけで、
+選んだLiouville構造のexact symplectomorphismになるとはしない。
+次に必要なのは、境界のlocalizationに適合するmirrorの対象と射を指定し、
+その作用が上の極次数をどのaction filtrationへ移すかを確かめることである。
+
+\begin{remark}[証明と検証の範囲]
+通常entropyの消滅は定義の初等的帰結であり、pole filtrationの一般論、HKR、
+proper圏の比較不等式は既知理論である。
+本節では特定のPell写像に対して$0,\log\Lambda,2\log\Lambda$という
+異なる測定値と、境界だけに蓄積する有理曲線の算術種数を証明した。
+\texttt{verify\_localization\_entropy.py}は全係数の一反復、
+Hilbert値、交叉恒等式、最初の25個の整数行列・種数を厳密に検算する。
+全$n$の証明、圏的複雑度、Hodge/巡回比較、mirrorの存在を
+有限計算だけで検証したとはしない。個別帰結の文献新規性の網羅確認は未了である。
+\end{remark}
