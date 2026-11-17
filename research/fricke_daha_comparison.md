@@ -1,6 +1,6 @@
 # Fricke・Askey–Wilson・DAHAとの比較
 
-2026-11-17 / e6-connections-v14 / 現在有効な文献比較。研究方針はリポジトリrootの `00_research_plan.md`、成分原稿は `papers/nc-cubic-e6.tex`。
+2026-11-17 / e6-connections-v16 / 現在有効な文献比較。研究方針はリポジトリrootの `00_research_plan.md`、成分原稿は `papers/nc-cubic-e6.tex`。
 
 ## Askey–Wilson代数との厳密な表示同型・Casimir
 
@@ -84,6 +84,14 @@ Terwilligerの $\mathrm{PSL}_2(\mathbb Z)$ 作用の生成元は $a\leftrightarr
 \]
 
 原関係、Casimir不変、中心元のVieta式を `verify_daha_braid.py` で独立にPBW厳密再現した。$F=u^2+v^2+w^2+uvw+Au+Bv+Cw+T$ におけるJacobian括弧 $\{u,v\}=\partial_wF$（巡回）はGoldmanのトレースPoisson形式と符号・スカラーを除いて一致する。この量子的Vieta生成元はPoisson同型である。主論文 `thm:aw-braid-vieta`, `prop:fricke-poisson-logcy`。braid群、mapping class group、Dehn twistとの作用の正確なfaithfulness・relationは先行研究と今後詳細照合する。
+
+## Poisson零点、表現論、Casimir切断のH3二類型
+
+主論文 `sec:casimir-poisson-leaves` では固定量子so3の総中心にあるPoisson零点を正確に十個に分類した。五個は総中心のA1節点かつ一次元character、五個は総中心が滑らかなCasimir臨界点。中心切断がA1特異点を持つ四値 D=0,2f/3,f,-f/3 は全て同じADE型だが、既存H3判定では前二値のみH3。この区別は中心上のPoisson葉と局所orderを同時に考える動機になる。
+
+さらに節点の形式平滑化パラメータは原点組で `D^2(f-D)`、四符号点組で `-(D+f/3)(D-2f/3)^2`。H3節点はCasimir方向で二次接触、非H3節点は一次横断。二つの符号四点集合に対してA4と量子的VietaがS4置換群を生成する。これは有限Poisson零点上の作用であり、modular群本体の有限性を意味しない。計算は `verify_casimir_poisson_leaves.py`。
+
+先行研究：M. Havlíček, S. Pošta, *Center of quantum algebra U'_q(so_3)*, J. Math. Phys. **52** (2011), 043521, [doi:10.1063/1.3579992](https://doi.org/10.1063/1.3579992) はroot-of-unity中心の構造を研究する。こちらで得た十零点とH3二類型の記述の文献上の新規性はまだ比較未了。
 
 ## なぜD4とE6が同時に現れるか：三角形付き三次曲面のPicard格子
 
