@@ -225,7 +225,52 @@ $K_{\bar C}=\OO_{\bar C}(-1)$ はadjunctionによるから、
 $K_{\bar C}(D_\infty)\simeq\OO_{\bar C}$ を自明化する。
 \end{proof}
 
+\begin{proposition}[三角境界からの $D_4\subset E_6$ 根格子（既知の幾何）]
+\label{prop:d4-inside-e6}
+$\bar C$ が滑らかな三次曲面で $D_\infty=D_1+D_2+D_3$ が
+三本の直線の三角形とする。このとき交叉形式について
+\[
+ K_{\bar C}^{\perp}\cong E_6(-1),\qquad
+ \langle D_1,D_2,D_3\rangle^{\perp}\cong D_4(-1).
+\]
+特に、四穴球面のFricke三次曲面で現れる $D_4$ 根格子は、
+三次del Pezzoの $E_6$ 根格子の、反標準三角形を固定した部分として具体化する。
+これは古典的な三次曲面・Naruki--Looijenga型周期理論の既知結果
+\cite{SchockD4} を本稿の座標に適用したものである。
+\end{proposition}
+\begin{proof}
+三次曲面上のtritangent planeの標準的なmarkingを選べば、
+$\bar C\simeq\operatorname{Bl}_{p_1,\ldots,p_6}\PP^2$ で、
+直線classを $H$、例外曲線classを $E_i$ として
+\[
+ D_1=H-E_1-E_2,\quad D_2=H-E_3-E_4,\quad D_3=H-E_5-E_6.
+\]
+従って $D_1+D_2+D_3=3H-\sum E_i=-K_{\bar C}$。
+$\operatorname{Pic}(\bar C)$ は
+$H^2=1,E_i^2=-1,H\cdot E_i=0$ の交叉形式を持つ。
+$L=aH-\sum b_iE_i$ が三本の $D_i$ と直交する条件は
+$b_1+b_2=b_3+b_4=b_5+b_6=a$ である。
+この整数解格子の基底は
+\[
+ \alpha_0=H-E_1-E_3-E_5,\quad
+ \alpha_1=E_1-E_2,\quad
+ \alpha_2=E_3-E_4,\quad
+ \alpha_3=E_5-E_6
+\]
+であり、$\alpha_i^2=-2$、$\alpha_0\cdot\alpha_j=1$ ($j=1,2,3$)、
+三つの外側rootは互いに直交する。
+そのGram行列は負の$D_4$型Cartan行列なので結論を得る。
+また $K^\perp\cong E_6(-1)$ は六点blow-upの標準根格子である。
+整数基底とGram行列の検算は
+\texttt{computations/verify\_d4\_lattice.py} にも記録する。
+\end{proof}
+
 \begin{remark}[先行研究との区別と次の比較]
+Goldman--Toledo \cite{GoldmanToledo} はさらに、無限遠が非退化なtritangent planeである\emph{任意の}affine三次曲面が
+四穴球面の相対character varietyとなることを示す。
+従ってFricke型方程式への同定そのものは既知であり、
+本研究での位置付けは指定した量子包絡の中心・Casimir規約を通じた
+明示的な比較にある。
 四穴球面skein代数と普遍Askey--Wilson代数の同定、rank-one DAHAへの写像、
 $\mathcal U_q(\mathfrak{sl}_2)$ のRacah問題、Braid作用は
 \cite{TerwilligerDAHA,AWAvatars,CookeLacabanne} で研究されている。
