@@ -1,0 +1,323 @@
+\section{trialityの周期isogeny、三つの$G_2$成分、Hodgeに見えない力学}
+\label{sec:triality-period-isogeny}
+本節は$\mathbb C$上の対称LG族$U_{\lambda,h}=\{W_\lambda=h\}$を扱う。
+同じ三次曲面に作用するHurwitz群、$D_4$の標識変更、
+$G_2$の三成分を交換する底のmonodromyを区別したうえで、
+それらを周期torusの指数3の写像で結ぶ。
+乗法的変数$\xi,\eta$は本節の周期座標であり、
+元の量子包絡の低次係数$a,b,c$とは異なる。
+
+\subsection{Hurwitzのホモロジー像と固定周期torus}
+\begin{proposition}[無限braid作用の有限ホモロジー像]
+\label{prop:hurwitz-homology-S3}
+滑らかな対称LG族の単連結局所底上で、$H_2(U,\mathbb Z)$を
+四つの外側元$o_1,o_2,o_3,o_4$と中央元$c$を持つ負のaffine $D_4$として標識できる。
+既存の生成元$B_1,B_2$の作用は、適切に番号を取れば
+\[
+ (B_1)_*=(o_2\ o_3),\qquad (B_2)_*=(o_1\ o_3),
+ \qquad o_4,c\text{ は固定}
+\]
+となる。従って像は$S_3$、純braid群の像は自明である。
+境界radical $\delta=o_1+o_2+o_3+o_4+2c$を割った$K\cong D_4(-1)$では、
+$c,o_1,o_2,o_3$が整数基底となる。
+これに対する指数化周期を$(\xi,\eta_1,\eta_2,\eta_3)$とすると
+\begin{equation}\label{eq:triality-fixed-periods}
+ \eta_1=\eta_2=\eta_3=\eta.
+\end{equation}
+標識を動かす作用は外側三周期の置換であり、固定曲面の周期点はその不動点となる。
+\end{proposition}
+\begin{proof}
+Goldman--Neumannのホモロジー作用の定理\footnote{
+W. M. Goldman, W. D. Neumann, \emph{Homological action of the modular group on some cubic moduli spaces},
+Math. Res. Lett. 12 (2005), 575--591,
+\href{https://doi.org/10.4310/MRL.2005.v12.n4.a11}{doi:10.4310/MRL.2005.v12.n4.a11},
+Theorems 1--2, Proposition 3, \S2.}
+を本稿の正規化へ移す。$\lambda=0$の四符号臨界点を
+$(1,-1,-1),(-1,1,-1),(-1,-1,1),(1,1,1)$と並べると、
+$B_1$は第二・第三、$B_2$は第一・第三を交換し、原点は固定する。
+体積形式を保つので、同論文の整合した消滅cycleには負号が付かない。
+対称smooth底は連結で、射影コンパクト化と境界三角形は局所自明な対の族をなす。
+従ってfiberwise自己同型のホモロジー作用を平行移動すれば、同じ行列が得られる。
+radicalの$o_4$係数が1なので、残る四元は商の整数基底である。
+$B_i^*\omega=\omega$より周期はこれらの置換で不変となり、式を得る。
+\end{proof}
+
+\begin{proposition}[不変格子と余不変格子の指数3]
+\label{prop:triality-index-three}
+$\sigma$を外側三根の巡回置換とし、$s=o_1+o_2+o_3$と置くと
+\[
+ K^\sigma=\mathbb Zc\oplus\mathbb Zs,
+ \qquad K_\sigma=K/(\sigma-1)K=\mathbb Z\bar c\oplus\mathbb Z\bar o.
+\]
+自然写像は$c\mapsto\bar c,s\mapsto3\bar o$で指数3であり、
+\[
+ \operatorname{Gram}(c,s)=\begin{pmatrix}-2&3\\3&-6\end{pmatrix}.
+\]
+従って不動period torusと不変格子の双対torusの間の制限は
+\begin{equation}\label{eq:triality-isogeny}
+ \mathcal T=\operatorname{Hom}(K_\sigma,\mathbb C^*)\longrightarrow
+ \mathcal T_I=\operatorname{Hom}(K^\sigma,\mathbb C^*),
+ \qquad(\xi,\eta)\longmapsto(\xi,\eta^3)
+\end{equation}
+というkernel $\mu_3$のisogenyである。
+不変格子と余不変格子を、実ベクトル空間上の折り畳みだけで同一視してはならない。
+\end{proposition}
+\begin{proof}
+巡回で不変な三外側係数は等しく、余不変群では三外側元が等しくなる。
+いずれも表示した自由加群なので自然写像の行列は$\operatorname{diag}(1,3)$。
+交叉数とtorusの式は直接従う。
+\end{proof}
+
+この折り畳みで、$D_4$の12正根のcharacterは
+\[
+ \eta,\ \xi\eta,\ \xi\eta^2\quad(\text{各重複度3}),\qquad
+ \xi,\ \xi\eta^3,\ \xi^2\eta^3\quad(\text{各重複度1})
+\]
+に移る。従って正根因子の積は
+\[
+ (1-\eta)^3(1-\xi\eta)^3(1-\xi\eta^2)^3
+ (1-\xi)(1-\xi\eta^3)(1-\xi^2\eta^3).
+\]
+ここでの三重性は根の制限の重複度であり、曲面特異点のMilnor数ではない。
+
+\subsection{対称Fricke係数を実際の二つの周期から再構成する}
+\begin{theorem}[対称族の周期による有理式]
+\label{thm:symmetric-period-reconstruction}
+$\xi,\eta\in\mathbb C^*$について
+\begin{align*}
+ S&=\eta+\eta^{-1}+\xi\eta+(\xi\eta)^{-1}
+                  +\xi\eta^2+(\xi\eta^2)^{-1},\\
+ L&=\xi+\xi^{-1}+\xi\eta^3+(\xi\eta^3)^{-1}
+                  +\xi^2\eta^3+(\xi^2\eta^3)^{-1}
+\end{align*}
+とし、
+\begin{equation}\label{eq:symmetric-period-reconstruction}
+ \lambda=(S+2)/4,\qquad h=(L+3S+4)/8
+\end{equation}
+と置く。上記六root characterが1でなく、
+$\eta,\xi\eta,\xi\eta^2$が$-1$でもないという非空開集合では、
+$U_{\lambda,h}$は滑らかで、適合したconic標識における四周期は
+\[
+ (\mathcal P(\alpha_1),\ldots,\mathcal P(\alpha_4))
+       =(\eta,\xi,\eta,\eta)
+\]
+となる。従って本定理の$\xi,\eta$は単なる形式的torus変数でなく、
+実際のLooijenga periodとして実現される。
+\end{theorem}
+\begin{proof}
+前節のconic多項式に$A=B=C=\lambda$を入れると
+\begin{equation}\label{eq:symmetric-quartic-factor}
+ N(u)=(u+1)\prod_{t\in\{\eta,\xi\eta,\xi\eta^2\}}
+                     \left(u+\frac{t+t^{-1}}2\right).
+\end{equation}
+式\eqref{eq:symmetric-period-reconstruction}を用いた直接展開の恒等式である。
+仮定より四根は相異なる。有限fiberの一つは$u=-1$であり、
+前節の$B^2\ne C^2$というchartには入らないため、ここを別に扱う。
+このfiberの二成分は
+\[
+ v+w=-\lambda\pm\sqrt{\lambda^2+2\lambda-1-2h}
+\]
+である。根の単純性により二成分は異なり、交点は境界上にある。
+射影閉包は境界に沿って滑らかで、他の単純退化fiberでも全空間は滑らか。
+従って$U$は滑らかである。
+
+三つの成分の境界座標を順に
+$z_1=-\xi\eta^2,z_2=-\xi\eta,z_3=-\eta$と選び、$z_4=-1$とする。
+これらの選択が整数標識に適合することを明示的sectionで確認する。
+\[
+ k=-\xi\eta^2,\qquad m=(k+k^{-1})/2,\qquad
+ \ell=-\tfrac12(\eta+1)(\xi\eta+1)
+\]
+と置けば、直線$v=ku+\ell,w=m$は$U_{\lambda,h}$の射影閉包上にある。
+有限根$u_i=(z_i+z_i^{-1})/2$の選択成分は
+$w=z_iv-2\lambda z_i/(z_i-1)$なので、sectionとの交点判定の値は
+\begin{gather*}
+ \frac{(\xi\eta^2-1)(\xi\eta^3-1)(\xi^2\eta^3-1)}{2\xi\eta^2},\\
+ \frac{(\xi\eta-1)(\xi\eta^2-1)(\xi^2\eta^3-1)}{2\xi\eta^2},\qquad
+ \frac{(\eta-1)(\xi\eta^2-1)(\xi\eta^3-1)}{2\xi\eta^2}.
+\end{gather*}
+全て非零である。$u=-1$ではsectionと交わらない方を$E_4$に取る。
+両成分の境界座標は同じ$-1$なので、これは$z_4$を変えない。
+無限遠でsectionは$D_3$と交わるから、$E_5=D_2$を取れる。
+前節と同様にsectionと交わらない五成分を縮約すれば$\mathbb F_1$となる。
+各$E_i$と$D_1$の交点は横断的であり、境界gluingの計算は
+$u_4=-1$でもそのまま成立する。
+従って四periodは$(z_1/z_2,z_2/z_3,z_3/z_4,z_3z_4)=(\eta,\xi,\eta,\eta)$。
+積分との比較は前節と同じFriedmanの定理による。
+\end{proof}
+
+\subsection{指数3の周期写像がBoalch--Palubaの三成分写像になる}
+\begin{theorem}[二つのWeyl商の間の可換図式]
+\label{thm:G2-period-isogeny-quotient}
+$K$の中央反射と三外側反射の積は$\mathcal T$上で
+\[
+ r_c(\xi,\eta)=(\xi^{-1},\xi\eta),\qquad
+ r_o(\xi,\eta)=(\xi\eta^3,\eta^{-1})
+\]
+を与え、位数12の$W(G_2)$を生成する。
+$\mathcal T/W(G_2)\cong\mathbb A^2_{S,L}$であり、
+式\eqref{eq:triality-isogeny}は同じWeyl群に同変である。
+$\mathcal T_I$側の基本不変量を$\alpha,\beta$とすれば、商の写像は
+\begin{equation}\label{eq:period-isogeny-on-quotients}
+ (S,L)\longmapsto
+ (\alpha,\beta)=(L,S^3-3SL-9S-6L-12).
+\end{equation}
+Fricke係数$b_F=-4\lambda=-S-2,c_F=8h=L+3S+4$を用いると
+\[
+ \alpha=c_F+2+3b_F,\qquad
+ \beta=-b_F^3+3b_F^2+3b_Fc_F+3b_F-2.
+\]
+これはBoalch--Palubaの三成分を選ぶ底写像に正確に一致する。
+従って同論文の次数3は、ここでは不変格子から余不変格子への指数3として説明される。
+\end{theorem}
+\begin{proof}
+反射の式は$D_4$の交叉数から計算する。
+$y_1=\eta,y_2=\xi\eta,y_3=(\xi\eta^2)^{-1}$と置くと$y_1y_2y_3=1$。
+二反射の生成群は三つの$y_i$の置換と同時反転である。
+$e_1=\sum y_i,e_2=\sum y_i^{-1}$とすれば、その不変環は
+$\mathbb C[e_1,e_2]^{e_1\leftrightarrow e_2}
+=\mathbb C[S=e_1+e_2,L=e_1e_2-3]$。
+
+不変格子のtorusには$y'_1=\xi,y'_2=\xi\eta^3,
+ y'_3=(\xi^2\eta^3)^{-1}$を用いると、
+$\alpha=\sum(y'_i+y_i'^{-1})=L$である。
+もう一つの基本不変量は
+$\beta=\sum_{i\ne j}y'_i/y'_j=\sum_i(y_i^3+y_i^{-3})$。
+Newton恒等式によりこれは$S^3-3SL-9S-6L-12$に等しい。
+最後に$b_F,c_F$を代入すれば既知の底写像\footnote{
+P. Boalch, R. Paluba, \emph{Symmetric cubic surfaces and $G_2$ character varieties},
+J. Algebraic Geom. 25 (2016), 607--631,
+\href{https://doi.org/10.1090/jag/668}{doi:10.1090/jag/668},
+Lemma 6, equation (12), Corollary 11, Proposition 18 and Remark 19;
+\href{https://arxiv.org/abs/1305.6594}{arXiv:1305.6594}.}
+と一致する。これは元の$G_2$指標多様体を新たに構成したのではなく、
+その既知の底写像と本稿のperiodの間に可換図式を与えるものである。
+\end{proof}
+
+この図式では$G_2$の長短根が入れ替わる。
+単なる$G_2$の群名の一致ではなく、二つの整数格子とその双対torusを区別する必要がある。
+表現論的にも、triality固定の$G_2\subset\mathrm{Spin}(8)$で
+$8|_{G_2}=1\oplus7$、$28|_{G_2}=14\oplus7\oplus7$となるので、
+$\chi_7=1+S$、$\chi_{14}=2+S+L$を用いると
+$b_F=-(\chi_7+1)$、$c_F=\chi_{14}+2\chi_7$として同じ係数を読める。
+これはBoalch--Paluba Remark 19のfundamental character記述とも整合する。
+ここで構成したのはtorusのisogenyであり、標数零の$G_2$群の非自明な中心isogeny、
+Langlands双対群の圏同値、量子代数間のisogenyを構成したとはしない。
+
+\subsection{三成分は有理Hodge構造で一致し、整数構造では異なり得る}
+\begin{theorem}[三乗根の差と有理混合Hodge構造]
+\label{thm:G2-companion-rational-Hodge}
+$G_2$のregularな底点を取り、torus持上げと$\zeta^3=1$を選ぶ。
+その三つのFricke成分は、上の商図式では
+$(\xi,\eta),(\xi,\zeta\eta),(\xi,\zeta^2\eta)$から得られる。
+三持上げが定理\ref{thm:symmetric-period-reconstruction}の開集合に入る範囲では、
+成分の$H^2(-,\mathbb Q)$は、標識した重みgraded pieceの同一視の下で
+混合Hodge構造として同型である。特に有理Hodge分裂の可否は三成分で同時である。
+この同型は標識に依存し、曲面の代数的同型や整数Hodge同型を主張しない。
+\end{theorem}
+\begin{proof}
+regular torus点のWeyl安定化群は自明なので、kernel $\mu_3$の三持上げは
+商でも相異なる三点を与える。
+四周期は$(\eta,\xi,\eta,\eta)$から
+$(\zeta^j\eta,\xi,\zeta^j\eta,\zeta^j\eta)$へ変わる。
+境界周期で正規化した積分の差は、外側三方向で$j/3$、中央方向で$0$、
+さらに枝による整数を加えたものである。
+従って$H_2$の有理基底で外側cycleの持上げに$j\delta_\infty/3$を加減すれば、
+$F^2$を張る正規化periodが一致する。
+重み二部分は全て型$(1,1)$、重み四商は型$(2,2)$なので、
+これは全Hodge filtrationと重みを保つ同型となる。
+同値に、periodで分類される拡大類の差が3捩れであり、有理化で消える。
+本定理は共通の明示開集合上の主張で、globalな標識選択や
+全底上の変動Hodge構造の同型を主張しない。
+\end{proof}
+
+\begin{corollary}[Klein曲面の7捩れと二つの21捩れコンパニオン]
+\label{cor:Klein-seven-twentyone-Hodge}
+$\varepsilon$を原始7乗根として$\xi=\eta=\varepsilon$を取ると
+$S=L=-1$、$(b_F,c_F)=(-1,0)$、$(\alpha,\beta)=(-1,-1)$となる。
+従って既知のKlein三次曲面
+\[
+ p^2+r^2+s^2+prs-p-r-s=0
+\]
+の四periodは全て$\varepsilon$に取れる。
+その整数混合Hodge拡大類の位数は正確に$7$である。
+同じ$G_2$底の他の二成分は
+\[
+ b_F=\frac{-5\pm\sqrt{21}}2,\qquad c_F=-3-3b_F
+\]
+で、整数拡大類の位数は正確に$21$となる。
+三成分は有理Hodge構造では分裂して同型だが、
+Klein成分と他の二成分は整数混合Hodge構造としては同型でない。
+\end{corollary}
+\begin{proof}
+$S,L$はどちらも非自明な7乗根六個の和なので$-1$。
+二つの$G_2$判別因子の値は$7,-7$で非零なのでregularである。
+全root characterが1でなく、補助開条件も満たす。
+成分三次式は$(b_F+1)(b_F^2+5b_F+1)$となる。
+三持上げのperiodは中央$\varepsilon$、外側$\zeta^j\varepsilon$である。
+$H_2$の整数比較完全列の核は原始的であるため、
+整数Hodge拡大類は四つの正規化対数の$\mathbb C/\mathbb Z$類で表される。
+その位数は四つの指数化periodの位数の最小公倍数で、$7,21,21$となる。
+この位数は整数graded pieceの基底変更でも変わらない。
+有理化すればいずれも零になるから、主張を得る。
+\end{proof}
+
+Klein七点braid軌道の存在と$G_2$実現自体はBoalch--Paluba\S7の既知結果である。
+ここで比較したのは、その曲面のHodge拡大と同じ底にあるコンパニオンであり、
+他の二曲面に同じ有限braid軌道があるとは結論しない。
+
+\subsection{周期が捉えない正のエントロピー}
+\begin{proposition}[ホモロジー恒等だが次数が指数増大する自己同型]
+\label{prop:period-invisible-entropy}
+一般の係数$A,B,C,h$の滑らかなLG等位面上で
+\[
+ \iota_u=(2vw-u-2A,v,w),\quad
+ \iota_v=(u,2uw-v-2B,w),\quad
+ \iota_w=(u,v,2uv-w-2C)
+\]
+とし、$g=\iota_v\iota_w\iota_u\iota_w$と置く（右から合成）。
+$g$は$H_2(U,\mathbb Z)$と全periodへ恒等に作用するが、
+\[
+ \lambda_1(g)=3+2\sqrt2,
+ \qquad h_{\rm top}(g)=\log(3+2\sqrt2)>0.
+\]
+特に有理Hodge分裂は、自己同型の力学が有限であることを意味しない。
+\end{proposition}
+\begin{proof}
+各$\iota$は$W$を保ち体積形式を反転するVieta involutionである。
+Goldman--Neumann Theorem 2により、その$H_2$作用は$-I$。
+四個の積$g$は$H_2$で恒等となり、留数形式も保存する。
+対称族では$g=B_1^2B_2^{-2}$である。
+Cayley参照fiberのtorus座標で$B_1,B_2$を表す行列は
+\[
+ \begin{pmatrix}1&0\\-1&1\end{pmatrix},\qquad
+ \begin{pmatrix}1&1\\0&1\end{pmatrix},
+ \quad M_g=\begin{pmatrix}1&-2\\-2&5\end{pmatrix}.
+\]
+$M_g$はlevel 2の合同部分群に属し、固有値は$3\pm2\sqrt2$。
+Cantat--Lorayの既知の力学的次数・エントロピー定理\footnote{
+S. Cantat, F. Loray, \emph{Dynamics on Character Varieties and Malgrange irreducibility of Painlev\'e VI equation},
+Ann. Inst. Fourier 59 (2009), 2927--2978,
+\href{https://doi.org/10.5802/aif.2512}{doi:10.5802/aif.2512}.
+ここでは著者preprint \href{https://arxiv.org/abs/0711.1579}{arXiv:0711.1579v2},
+Theorem B, Theorems 4.7--4.8の規約で照合した。}
+を適用して結論する。
+\end{proof}
+
+アフィン曲面の$H_2$へ自明に作用することと、
+射影コンパクト化の双有理写像としての次数増大は両立する。
+$g$は固定したコンパクト化の正則自己同型ではないので、
+射影多様体のcohomology上のspectral radiusとの単純な比較はできない。
+この例は、周期・格子だけでは見えない作用を局所化した圏や境界変更で
+捉える必要性を示す。ただし本稿ではその圏的entropyを計算していない。
+
+\begin{remark}[検証と新規性の位置付け]
+有限ホモロジー像、trialityの一般理論、$G_2$底写像、正のentropyは先行結果である。
+本節では本稿の周期と整合する標識を構成し、指数3の格子写像から既知の三成分写像を
+正確に再現して、三成分の有理Hodge比較とKleinの$7/21$捩れを導いた。
+これらの具体的帰結の文献上の既出性の網羅確認は未了である。
+整数格子、Laurent恒等式、sectionの非交叉、円分体での例、modular行列は
+\texttt{verify\_triality\_period\_isogeny.py}で厳密再現する。
+ホモロジー作用、線束period比較、Hodge拡大、entropyは本文の通常の証明と
+一次資料への依存であって、計算だけで形式検証したとはしない。
+\end{remark}
