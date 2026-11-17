@@ -1,6 +1,6 @@
 # 研究方針：楕円E6量子化成分の完全決定
 
-2026-11-17 / triangle-component-v13 / 独立リポジトリ。**再開時は本書を最初に読む。**
+2026-11-17 / triangle-component-v14 / 独立リポジトリ。**再開時は本書を最初に読む。**
 この一式は `nc-cubic-e6` の成分研究に必要な現行成果を集約したもので、旧bundleを必要としない。
 パスはリポジトリrootからの相対パスで記す。本体は `papers/nc-cubic-e6.tex`、補足は `research/research_notes.md`。
 
@@ -14,12 +14,14 @@
 原稿は日本語LuaLaTeXを原則とし、現在の成果を論理順に構成する。公表価値のある結果と必要な証明を削除して軽量化しない。
 ノートは有用な補題、着想、障害、反例、文献比較、再取得困難な情報を保持し、日誌や重複証明にしない。
 最新の方針・ノート・論文と必要最小限のコード・証明書だけで再開できるようにする。旧ZIP、旧原稿、ログ、キャッシュ、バックアップを含めない。
-研究区切りの承諾不要Library保存は一般的に許可されている。本プロジェクトではGitHub mainを正本とし、GitHub保存成功時はLibrary保存せず、失敗時の緊急避難に限る。Library既存資料は明示指示なしに削除しない。
+研究の区切りごとにユーザーの追加承諾なく軽量で自己完結した現行研究bundleをLibraryへ保存することは許可されている。GitHub mainを開発上の正本とし、成功時も現行版の継続bundleを別途Libraryに保存する。Library既存資料は明示指示なしに削除しない。
 日付・版番号を付け、生成・検証・commit・push・Library保存を別状態として報告する。通常のfast-forward main保存のみを使い、force push、不要なPR、GitHub Actionsは使わない。
 
 ## II. 現在の目標と達成基準
 
-**最優先目標は、既知の7次元H3族を含む既約成分を完全に決定すること。**
+**上位目標は、非可換三次曲面の楕円E6量子化成分の幾何学的理解と公表価値を最大化すること。**
+中心課題は既知の7次元H3族を含む既約成分の完全決定だが、それと並行して四穴球面character variety、Askey--Wilson/DAHA、skein・Goldman Poisson・cluster/mirrorとの厳密な相互関係を定式化する。
+従来の目標について、七次元族・八次元形式近傍・表示stack・結節中心因子までは解決したが、全intrinsic族の代数化と全境界の分類は未解決。
 対象は構造対象付きexact同値を射とするintrinsic H3であり、単なる導来同値類ではない。
 達成基準は、成分の存在と一意性、次元・一般点、全対象の被覆、全矢・慣性、境界・交叉、相対再構成・降下を揃えること。
 元の固定包絡4次元族の成分性は否定済み。7次元族は3-torsion中央境界の開正常形であり、最終的な成分と決め打ちしない。
@@ -51,16 +53,21 @@
 
 8. **結節中心H3因子の七次元族への結合。** 固定包絡の許容四次元切断空間では五つの独立な節点条件が単純正規交叉因子をなし、A4商では二つの既約因子となる。相異なる5つのA1中心H3例を厳密Jacobi基底で確認した。さらにa,b,cを動かすと一次元表現が係数原点のZariski近傍で連結な有限etale五重被覆を与え、五節点条件のincidenceは既約六次元因子になる。七次元H3許容開集合との交わりも既約である。証明は主論文`thm:nodal-divisors`, `prop:five-nodal-witnesses`, `thm:seven-nodal-irreducible`。厳密計算は`computations/verify_nodal_cuts.py`, `computations/verify_character_node_cover.py`。全八次元intrinsic成分への延長は未証明。
 
+9. **DAHA--character varietyの厳密な接続。** 三乗根での普遍Askey--Wilson代数の中央特殊化と量子so3包絡の同型、Casimir規約 `Omega_AW=3(q+2)Omega`、Casimir切断中心からFricke係数空間への4次元優越写像を証明した。Goldmanの四穴球面トレース係数とも一般有限分離底変更で比較できる。Artin braid生成元がFricke--Vieta変換 `(u,v,w)->(v,u,-uv-C-w)` を非可換持上げし、Goldman型Jacobian Poisson構造を保つ。切断の三角形反標準境界はLooijenga pair。証明は主論文 `sec:daha-character`；独立厳密再生は `computations/verify_daha_character.py`, `verify_daha_braid.py`。これらの個別式の既出性・直接spherical DAHA同型・一般楕円E6全域への延長は未確認。
+
 ## IV. 次の課題と具体的な着手
 
-**第一優先：有限型表示stack内の全H3 admissibility。**
+**第一優先：DAHA--character varietyから楕円E6成分への幾何学的橋渡し。**
+量子的Fricke--Vieta変換の対応をskein代数の半Dehn twistと一次文献の定理単位で比較し、Casimir切断（反標準三角境界）と楕円境界H3族を中央三次切断・平行移動の変形を介してつなぐ。Askey--Wilsonの三乗根特殊化とspherical DAHAの中心・Morita locusを区別して明示する。構成可能なら有限位数でのPoisson orderとGoldman括弧の定数を計算し、character varietyのcluster/mirrorとの比較を新しい独立定理へ昇格する。比較の未確認点は `research/fricke_daha_comparison.md` を参照。
+
+**第二優先：有限型表示stack内の全H3 admissibility。**
 選んだ点の全Artin形式近傍は8変数族で分類済み。明示族は有限型底へ延び、相対THCR境界・全fiberの整域性・幾何学的一般点H3を認識した。さらにsmooth DM八次元表示stack [Z'/Gamma]とetale atlasを構成し、H3対象間の全幾何学的矢を決定した。
 固定包絡・七次元族では結節中心であってもH3の内部に入ることが確定したため、中心の特異判別式をH3境界と同一視しない。七次元族の既約結節因子が八次元表示stackでどのように延長されるかを追跡する。次は一般中心値に限らない有限globaldimの全値判定を行う。悪い中心値、有限表示、局所Morita型を調べ、H3 locusのconstructibility/Zariski開性を証明するか反例を得る。形式smooth性だけから開性を推論しない。Rainsの次数3全被覆を未証明のまま使わない。
 
-**第二優先：全intrinsic族の相対再構成と降下。**
+**第三優先：全intrinsic族の相対再構成と降下。**
 幾何学的矢と全Artin形式分類は得たが、一般非被約有限型底のSerre作用・反標準環・二次包絡の底変更とfpqc降下はまだ別問題である。表示stackのH3部分が実際のintrinsic族を全て被覆する範囲を証明し、有限慣性・分離性を決定する。
 
-**第三優先：全成分の閉包・境界。**
+**第四優先：全成分の閉包・境界。**
 一般像の閉包に含まれるH3を、境界のsmooth/nodal/reducible型、PI位数、低次中心、Nakayama型で層別化する。
 固定位数3の対角係数零、滑らかな楕円境界の欠落、他の表示chartへの移行を漏らさない。
 RainsのE6/Weyl表示と比較するが、次数3・全パラメータ被覆を同文献の未証明部分から輸入しない。
@@ -75,6 +82,6 @@ latexmk -lualatex papers/nc-cubic-e6.tex
 ```
 コードと小証明書は同じ専用ディレクトリに置き、統合結果はその `validation.json` に再生成する。
 通常の証明であるArtin再構成を計算PASSと同一視しない。既存13検証器の厳密計算PASSは旧証明書に記録されている。新規`verify_nodal_cuts.py`と`verify_character_node_cover.py`は今回厳密再実行した。
-今回の新規節のLuaLaTeX単体組版を確認した。主論文全体の組版は未実施。巨大な既存H3原稿全体の再組版・網羅再検証・独立査読は対象外。
+今回のDAHA新規節単体（四頁）をLuaLaTeX組版し、同節の二検証器をSymPy厳密演算で実行した。主論文全体の組版は未実施。巨大な既存H3原稿全体の再組版・網羅再検証・独立査読は対象外。
 Git追跡対象は現行TeX・Markdown・Python・小JSONのみ。PDF・ZIP・中間物・cacheは含めない。
 生成・検証結果はコードと文書に、GitHub refの到達確認は保存時の応答に分けて記載する。
