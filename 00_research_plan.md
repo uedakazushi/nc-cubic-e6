@@ -1,6 +1,6 @@
 # 研究方針：楕円E6成分とDAHA・character varietyの幾何学
 
-2026-11-17 / triangle-component-v15。**再開時は本書を最初に読む。**
+2026-11-17 / triangle-component-v16。**再開時は本書を最初に読む。**
 GitHub mainの現行ファイルだけで再開する。主論文は `papers/nc-cubic-e6.tex`。基本ノートは `research/research_notes.md`、関連分野の現行比較は `research/fricke_daha_comparison.md`、Poisson量子化と延長障害の要点は `research/poisson_order_notes.md`。これらは主題別の現行知識であって更新履歴ではない。
 
 ## I. 恒常的な研究原則と保存許可
@@ -37,18 +37,23 @@ GitHub mainの現行ファイルだけで再開する。主論文は `papers/nc-
 8. **量子化由来のPoisson order（証明・厳密実行）。** Q=q exp(h) と動かすと `{X,Y}=-9 P_Z`（巡回）、OmegaはCasimir。Fricke座標ではJacobian括弧の正確に9倍。Brown--Gordon Theorem4.2から同一Fricke切断のsmooth locusで有限次元中心fiber代数は同型。全DでM3となることは別途未確認。`thm:root-poisson-goldman`, `cor:root-poisson-fibers`。
 9. **二つの延長障害（通常の証明と補助検算）。** G=Omega+beta X+gamma Y+delta Z+epsilon のPoisson主イデアル性、指定純粋q変形の一次平坦両側商への持上げ、beta=gamma=delta=0は同値。選択点G0で障害は9X(3Z−2Y)。Vietaのsigma(z)はPBW次数2、sigma(Z)は次数6なので固定pointed H3心へ延長しない。抽象変形・導来同値・心の変更は否定しない。`thm:poisson-cut-obstruction`, `prop:vieta-not-pointed-heart`。
 
+10. **Casimir pencilの十Poisson零点とH3二類型。** 固定包絡a=b=c=0の総中心YはPoisson零点を正確に十点持つ。五点はYの通常二重点で全て一次元表現の中心character、他の五点はYの滑らかなCasimir臨界点。Casimir切断が特異になる値はD=0,2f/3,f,-f/3のみで、全特異点はA1型、個数は1,4,1,4。既存の固定包絡H3判定により、前二値はH3、後二値は非H3である。H3側の節点平滑化パラメータはD方向に二次接触、非H3側は一次横断。量子的VietaとA4は二つの四点集合でS4を生成する。主論文 `sec:casimir-poisson-leaves`、`thm:ten-poisson-points`、`thm:casimir-four-values`、`prop:casimir-smoothing-orders`。厳密検算 `computations/verify_casimir_poisson_leaves.py`。Poissonの十点分類は通常の証明で独立に求めたが、H3判定と文献新規性は別途区別する。
+
 ## IV. 優先課題と具体的な着手
 
 **第一優先：障害を回避する幾何学的・圏的対応。**
 純粋q方向と既存八変数Sklyanin族の一次potentialを同じ正規形で比較する。中心切断に対するPoisson障害が追加の三次potential方向でどう打ち消されるかを、既存中央持上げと接空間行列から抽出する。並行して、FrickeのVieta変換を境界のblow-up/downまたは導来圏の心の変更で実現する。まずアフィン局所化との可換図式、構造対象の像、K群・Euler形式を計算する。未構成の導来同値を既知のaffine同型から推論しない。
 
-**第二優先：Poisson orderから表現論・H3許容条件へ。**
+**第二優先：Poisson零点の相対被覆と、H3を検出する局所order。**
+固定包絡ではCasimir pencilが十個のPoisson零点を5+5に分け、各種A1節点のH3可否を二次接触／一次横断で区別できた。次はa,b,c可変の三様体でPoisson零点schemeを有限表示・消去で調べ、二次接触部分と一次横断部分を相対的に追跡する。既存の七次元結節因子・一次元表現五重被覆と比較し、Poisson葉上の中心fiber代数および局所Morita模型による一般H3判定へつなぐ。全intrinsic八次元族へ移ると中心が常に大きいとは限らない点に注意する。
+
+**第三優先：Casimir中心上の表現論・H3許容条件へ。**
 Fricke sliceのsmooth locusで中心fiberが一定という帰結を使い、各Dで一つの9次元中心fiberを具体的行列代数として認識できる範囲を求める。例外的D、一次元表現・特異leaf、Azumaya locusを区別する。Brown--Gordonはfiberの同型を与えるが、有限globaldimやH3のZariski開性を自動的に与えない。一般楕円切断には今回の括弧が降りない点を必ず尊重する。
 
-**第三優先：skein・DAHA・cluster/mirrorとの正確な比較。**
+**第四優先：skein・DAHA・cluster/mirrorとの正確な比較。**
 Baseilhac--RocheのFrobenius/Goldman比較、Huangのroot-of-unity中心、Terwilligerの普遍DAHA埋込みと本稿の表示を定理単位で照合する。中央特殊化後の単射性、spherical idempotentのfullness、Morita範囲を個別に確認する。Bousseauのmirror/theta構成と三角境界のPBW基底を比較し、D4周期・W(D4)作用と楕円E6・W(E6)作用を区別する。個々の式の文献上の既出性は未確定。
 
-**第四優先：全intrinsic族の降下・成分閉包。**
+**第五優先：全intrinsic族の降下・成分閉包。**
 表示stack内の全H3 admissibility、一般非被約底でのSerre作用・反標準環・二次包絡の底変更とfpqc降下を証明する。境界のsmooth/nodal/reducible型、PI位数、低次中心、Nakayama型、対角係数零、他chartへの移行を漏らさない。形式smooth性だけから開性を導かず、Rainsの次数3全被覆の未証明部分を輸入しない。
 
 ## V. 再現と検証範囲
@@ -58,10 +63,11 @@ Baseilhac--RocheのFrobenius/Goldman比較、Huangのroot-of-unity中心、Terwi
 python3 -m pip install -r computations/requirements.txt
 python3 computations/verify_root_poisson.py
 python3 computations/verify_poisson_cut_obstruction.py
-# 全20検証器（今回の実行範囲とは区別）
+python3 computations/verify_casimir_poisson_leaves.py
+# 全21検証器（今回の実行範囲とは区別）
 python3 computations/verify_all.py
 latexmk -lualatex papers/nc-cubic-e6.tex
 ```
-今回実行したのはDAHA/Fricke、Braid、D4格子、root Poisson、切断障害の五検証器で、全て厳密演算PASS。`computations/connections_validation.json` に実行範囲を記す。他の15検証器のPASSは既存証明書に基づき、今回の再実行ではない。
-新Poisson節と既存DAHA節を一時的wrapperでLuaLaTeX組版し、該当頁を視覚点検した。これは主論文全体の今回の組版でも、独立した公表論文でもない。組版用wrapper・PDF・ログはGitに入れない。
+今回新規に実行したのはCasimir零点・平滑化次数・S4対称性の検証器で、厳密演算PASS。証明書は `computations/casimir_poisson_leaves_certificate.json`。関連分野の既存五検証器の実行結果は `computations/connections_validation.json` にある。その他15検証器も含め今回は全21検証器を再実行していない。
+新Casimir節は独立wrapperでLuaLaTeX組版（3頁）し、初期版の頁を視覚点検した。主論文全体の今回の組版や独立査読は未実施。組版用wrapper・PDF・ログはGitに入れない。
 今回の理論的証明の点検、有限恒等式の実行、文献の一次資料照合を区別する。全旧証明の独立再監査・新規性の網羅調査・全主論文の再組版は未実施。GitHub ref到達の確認は保存時に行う。Libraryには重複保存しない。
