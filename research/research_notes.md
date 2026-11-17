@@ -1,6 +1,6 @@
 # 成分研究ノート
 
-2026-11-17 / triangle-component-v11。方針はルートの `00_research_plan.md`、証明は `papers/quantum_cubic_component.tex`（rootからのパス）。
+2026-11-17 / triangle-component-v11。方針はルートの `00_research_plan.md`、証明は `papers/nc-cubic-e6.tex`（rootからのパス）。
 このノートは履歴ではなく、現在の入力・障害・再開のための知識を記す。
 
 ## 1. 記法と既存入力

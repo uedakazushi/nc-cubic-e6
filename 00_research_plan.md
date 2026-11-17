@@ -2,7 +2,7 @@
 
 2026-11-17 / triangle-component-v11 / 独立リポジトリ。**再開時は本書を最初に読む。**
 この一式は `nc-cubic-e6` の成分研究に必要な現行成果を集約したもので、旧bundleを必要としない。
-パスはリポジトリrootからの相対パスで記す。本体は `papers/quantum_cubic_component.tex`、補足は `research/research_notes.md`。
+パスはリポジトリrootからの相対パスで記す。本体は `papers/nc-cubic-e6.tex`、補足は `research/research_notes.md`。
 
 ## I. 恒常的な研究原則と保存許可
 
@@ -69,7 +69,7 @@ RainsのE6/Weyl表示と比較するが、次数3・全パラメータ被覆を�
 ```sh
 python3 -m pip install -r computations/requirements.txt
 python3 computations/verify_all.py
-latexmk -lualatex papers/quantum_cubic_component.tex
+latexmk -lualatex papers/nc-cubic-e6.tex
 ```
 コードと小証明書は同じ専用ディレクトリに置き、統合結果はその `validation.json` に再生成する。
 通常の証明であるArtin再構成を計算PASSと同一視しない。既存13検証器は厳密演算で再実行した。

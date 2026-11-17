@@ -1,6 +1,6 @@
 # Fricke・Askey–Wilson・DAHAとの比較
 
-2026-11-17 / triangle-component-v3 / 現在有効な文献比較。研究方針はリポジトリrootの `00_research_plan.md`、成分原稿は `papers/quantum_cubic_component.tex`。
+2026-11-17 / triangle-component-v3 / 現在有効な文献比較。研究方針はリポジトリrootの `00_research_plan.md`、成分原稿は `papers/nc-cubic-e6.tex`。
 
 ## Askey–Wilson代数との厳密な表示同型
 

@@ -1,6 +1,6 @@
 # Codex研究指示 — nc-cubic-e6
 
-2026-11-17。再開時は`00_research_plan.md`、`research/research_notes.md`、`papers/quantum_cubic_component.tex`の順に読む。
+2026-11-17。再開時は`00_research_plan.md`、`research/research_notes.md`、`papers/nc-cubic-e6.tex`の順に読む。
 
 このリポジトリは楕円E6量子化成分の独立した正本であり、全H3分類は`uedakazushi/nc-cubic-moduli`を正本とする。分類側のCodexと同じリポジトリを並列編集しない。
 
