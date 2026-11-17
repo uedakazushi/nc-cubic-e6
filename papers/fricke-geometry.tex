@@ -1,9 +1,15 @@
-% !TeX program = lualatex
+% !TeX root = fricke-geometry.tex
+% !LW recipe = latexmk (LuaLaTeX, repository root)
+\documentclass[11pt,a4paper]{ltjsarticle}
+% Resolve repository-relative inputs from either the root or papers/.
+\makeatletter
+\def\input@path{{./}{../}}
+\makeatother
 \input{papers/shared/preamble.tex}
 \title{量子三次曲面のFricke幾何と周期\\
 \large Poisson臨界被覆、$D_4$格子とtriality}
 \author{}
-\date{2026年11月18日\quad publication-v32}
+\date{2026年11月18日\quad \PublicationVersion}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -92,6 +98,8 @@ Cayley曲面のトーラス商とVieta力学はCantat--Loray \cite{CantatLorayCa
 
 \subsection{適用範囲}
 大域的な非可換三次曲面の形式変形とH3認識は関連論文\cite{CompanionE6}で扱う。
+その一般八次元表示族は$R(1,3)$型包絡の中心三次商の族であり、
+本稿の固定三捩れ表示はその特殊部分である。
 本稿の中心・臨界被覆・周期の主結果は、その全モジュライ分類を仮定しない。
 H3への言及は、構造対象を保つexact同値と飽和反標準環の認識が成り立つ場合に限定する。
 spherical DAHAとのMorita同値、非可換H3圏上のVieta自己同値、

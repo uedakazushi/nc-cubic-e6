@@ -1,0 +1,167 @@
+\section{\texorpdfstring{$R(1,3)$型包絡と楕円$E_6$量子化の同じ表示族}{R(1,3)型包絡と楕円E6量子化の同じ表示族}}
+\label{sec:e6-r13-comparison}
+本節の比較対象は、中心一次元を持つ\emph{次数付き包絡と中心三次直線の対}
+$(B,kG)$である。任意周期付き$\mathbb Z$-代数の全同型や、
+構造対象を忘れた圏の同値を比較しているのではない。
+Pym \cite[\S3.4, (9)]{PymR13}の$R(1,3)$型は三次元Sklyanin環の中心一次拡大であり、
+その包絡の一般商は七次元である。
+中心三次商まで選んだ八次元の族と、本稿の楕円$E_6$型を別々の成分候補として数えてはならない。
+以下では次元だけでなく関係式を比較する。
+
+\subsection{巡回ポテンシャルの交代部分とJacobian表示}
+$V=kx\oplus ky\oplus kz$とし、巡回語は自由代数の交換子部分空間による商で考える。
+$\operatorname{sym}$は通常の対称化を巡回語空間へ写す写像とする。
+例えば$\operatorname{sym}(xyz)=(xyz+xzy)/2$である。
+\begin{lemma}[交代係数が非零の巡回chart]
+\label{lem:e6-r13-cyclic-chart}
+定数項を除いた次数三以下の巡回ポテンシャルは一意に
+\[
+ \Phi=\alpha(xyz-xzy)+\operatorname{sym}(p_3+p_2+p_1),
+ \qquad p_i\in\operatorname{Sym}^iV
+\]
+と書ける。$\alpha\ne0$なら、$f=-\alpha^{-1}(p_3+p_2+p_1)$と置いて
+\[
+ \alpha^{-1}\Phi=xyz-xzy-\operatorname{sym}(f)
+\]
+と規格化できる。そのJacobian代数のRees包絡は
+\begin{equation}\label{eq:e6-r13-envelope}
+ [t,x]=[t,y]=[t,z]=0,\qquad
+ [y,z]=\operatorname{Sym}(\partial_xF_f),\quad\text{および巡回式},
+\end{equation}
+ただし$F_f=p'_3+t p'_2+t^2p'_1$、$f=p'_3+p'_2+p'_1$であり、
+右辺の$\operatorname{Sym}$は\emph{自由代数内の}対称化である。
+従ってこれは$R(1,3)$中心拡大のJacobian表示そのものである。
+\end{lemma}
+\begin{proof}
+三次巡回語は十一個あり、十個の対称三次単項式と
+$xyz-xzy$が基底をなす。実際、三文字が全て異なる場合の二軌道は
+$xyz,xzy$であり、対称和と差へ分解できる。
+それ以外は各多重次数に一軌道しかない。二次・一次巡回語は対称語である。
+巡回微分について
+$\partial_x^{\rm cyc}(xyz-xzy)=yz-zy$および
+$\partial_x^{\rm cyc}\operatorname{sym}(p)=\operatorname{Sym}(\partial_xp)$
+が単項式ごとに成り立つ。よって三関係は
+$[y,z]-\operatorname{Sym}(\partial_xf)=0$とその巡回式である。
+$t$による斉次化で式\eqref{eq:e6-r13-envelope}を得る。
+ポテンシャルの非零スカラー倍は関係イデアルを変えないので、
+この比較は包絡だけでなく、同じ元$G$を選んだ中心三次商も保つ。
+\end{proof}
+
+この恒等式自体はAS正則性を含意しない。
+以下では本稿の全次数平坦なAS4表示開集合と、
+既知の中心拡大の良い範囲 \cite{LBS,EG,PymR13}に制限する。
+また$f_3=0$等の退化を、滑らかな最高三次を持つ一般chartに含めない。
+
+\subsection{八変数族における明示的な係数変換}
+定理\ref{thm:eight-formal-central-lift}の記号を使い、
+$p=1+\kappa\lambda$とする。本稿のポテンシャルは
+\[
+ \Phi=pxyz-q_0xzy+\lambda(x^3+\eta^3y^3+\zeta^3z^3)
+       -\tfrac12(x^2+y^2+z^2)-ax-by-cz.
+\]
+補題\ref{lem:e6-r13-cyclic-chart}を適用すると
+\begin{align}
+ \alpha&=(p+q_0)/2,\notag\\
+ f&=-\frac{2}{p+q_0}\left(
+ (p-q_0)xyz+\lambda(x^3+\eta^3y^3+\zeta^3z^3)
+ -\tfrac12(x^2+y^2+z^2)-ax-by-cz\right).
+ \label{eq:e6-r13-f}
+\end{align}
+$\lambda=0$で$p+q_0=1+q_0\ne0$なので、この規格化は特殊点でも正則である。
+
+\begin{proposition}[一般包絡の$R(1,3)$表示]
+\label{prop:e6-r13-generic-envelope}
+命題\ref{prop:algebraic-presentation-flat}の底を、基準点を含む開部分へ縮める。
+その上の稠密開部分$\lambda\ne0$では、
+式\eqref{eq:e6-r13-f}の最高斉次三次$f_3$は滑らかであり、
+本稿の八変数族は$R(1,3)$型包絡と中心三次直線の対の族へ入る。
+$\lambda=0$では$f_3$は非零スカラー倍の$xyz$となる。
+これは\emph{切断の反標準楕円境界が特異になる}という意味ではない。
+\end{proposition}
+\begin{proof}
+$A x^3+B y^3+C z^3+Lxyz$で$ABC\ne0$の場合、
+三偏微分に共通射影零点があることは$L^3+27ABC=0$と同値である。
+座標の一つが零なら偏微分から全座標が零となる。
+全て非零なら三偏微分式を掛けて必要条件を得る。
+逆は代数閉性と座標スカラー変換によりHesse三次の特異点から従う。
+本稿では
+\[
+ A=\lambda,\quad B=\lambda\eta^3,\quad C=\lambda\zeta^3,
+ \quad L=p-q_0,
+ \qquad \Delta_f=(p-q_0)^3+27\lambda^3\eta^3\zeta^3.
+\]
+$\eta\zeta\ne0$かつ$\Delta_f|_{\lambda=0}=(1-q_0)^3\ne0$であるから、
+$p+q_0$と$\Delta_f$をさらに可逆化すれば主張の稠密開部分を得る。
+包絡の同定は補題による恒等式であり、中心元$G$も同じ環内の同じ元として保たれる。
+全次数flat性・AS4性・中心性は既証の命題
+\ref{prop:algebraic-presentation-flat}を用いる。
+$\lambda=0$においても、切断によって得る楕円曲線は
+第\ref{sec:seven}節の$E_u$であり、$f_3=0$とは別の曲線である。
+\end{proof}
+
+\subsection{包絡の七次元と中心切断を含む八次元}
+最高三次が滑らかな$f=f_3+f_2+f_1$の係数空間は十九次元である。
+中心一次直線を保つgraded同型を共通次数スカラーで規格化すると、
+生成元の変換は$\mathbf x\mapsto A\mathbf x+\mathbf b t$となり、
+\[
+ f\longmapsto\frac{f(A\mathbf x+\mathbf b)-f(\mathbf b)}{\det A}
+\]
+という$\operatorname{Aff}_3$作用を得る。
+この同型群oidと一般安定化群の有限性は
+\cite[定理 \texttt{thm:r13-affine}]{CompanionAmbient}で証明されている。
+従って包絡の一般商の次元は$19-12=7$である。
+
+中心三次については、先頭AS3環$S_0$が
+$Z(S_0)_1=Z(S_0)_2=0$, $Z(S_0)_3=k\omega$を持ち、
+$\omega$が中心三次元$\Omega_B$へ持ち上がる良い範囲を使う。
+最高active記号を順に引くことにより
+\[
+ Z(B)_3=k\Omega_B\oplus kt^3.
+\]
+よって三次直線の選択は$\PP^1$であり、$[t^3]$を除けば
+$G=\Omega_B+D t^3$と書ける。
+有限な一般射影安定化群で割ってもこの一次元は残るので、
+中心三次商の一般表示商は$7+1=8$次元である。
+これが\cite[命題 \texttt{prop:center}]{CompanionAmbient}の一次元ファイバーであり、
+本稿の独立な中心値$D$に対応する。
+
+\begin{corollary}[同じ表示成分の一般部分と三捩れ特殊部分]
+\label{cor:e6-r13-same-presentation}
+交代係数非零、滑らかな最高三次、上記の低次数中心条件と有限安定化群を満たす
+共通開部分では、$R(1,3)$型包絡の中心三次商と本稿の一般楕円$E_6$量子化は
+同じ表示incidenceに属する。
+定理\ref{thm:formal-potential-incidence-smooth}の基準点を通る唯一の局所既約成分は、
+この一般表示族の閉包である。
+従って本稿の八次元表示成分を、包絡の$R(1,3)$成分と別の曲面成分として数えない。
+\end{corollary}
+\begin{proof}
+交代係数を1へ規格化する操作は、巡回potential modulo scalarの開部分と
+十九係数の$f$の空間を同定する。補題の関係イデアルは同じなので、
+中心元の線型方程式も同じである。低次数中心が一定rank二の開部分では、
+中心直線のincidenceはこの既約な係数開部分上の$\PP^1$束となり既約である。
+命題\ref{prop:e6-r13-generic-envelope}と既証の一般中心条件により、
+八変数族の幾何学的一般点はこのincidenceへ入る。
+一方、指定点の全表示incidenceの完備局所環は
+定理\ref{thm:formal-potential-incidence-smooth}により二十二変数形式冪級数環で、
+座標・二スカラーの十四次元を除いた局所表示次元は八である。
+同定理で八変数族はこの局所表示を尽くすため、
+その稠密開部分の閉包が唯一の局所成分を与える。
+\end{proof}
+
+\begin{remark}[三つの異なる比較問題]\label{rem:e6-r13-scope}
+包絡の七次元、固定三捩れの\emph{曲面}の七次元、
+三捩れを動かす曲面の八次元を区別する。
+固定三捩れでは包絡は$(a,b,c)$の三次元、中心直線は$\PP^4$の四次元であり、
+一般包絡上の$7+1$という分解とは異なる。
+また$R(1,3)$という名称の一致は、AOUのAS曲面であることを含意しない。
+第\ref{sec:as-surface-scope}節のpoint-scheme障害は固定三捩れの族に限られ、
+横断した八次元族全体の非AS性には使えない。
+最後に、本節は次数付き表示の比較である。
+全intrinsic H3スタックの開性・相対再構成・降下・全境界の同定については、
+定理\ref{thm:conditional-component}の追加仮定を維持する。
+\end{remark}
+
+補題の巡回基底、次数一から三の全十九単項式に対する五十七個の微分恒等式、
+式\eqref{eq:e6-r13-f}の全係数変換、Hesse判別条件の必要恒等式と特殊点の単元性を
+\texttt{computations/verify\_r13\_comparison.py}で厳密検算した。
+これは有限標本からの外挿ではないが、AS4性・H3性や圏の相対降下を検算だけで証明するものでもない。

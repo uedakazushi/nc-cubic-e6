@@ -29,5 +29,10 @@
   ],
   "latex-workshop.latex.autoBuild.run": "onSave",
   "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.synctex.afterBuild.enabled": true
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.latex.rootFile.indicator": "\\documentclass[]{}",
+  "latex-workshop.latex.search.rootFiles.include": [
+    "papers/*.tex"
+  ],
+  "latex-workshop.latex.build.rootfileInStatus": true
 }

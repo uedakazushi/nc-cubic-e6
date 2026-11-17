@@ -70,6 +70,16 @@ def main():
     used_files = set()
     for paper in papers:
         files, text = expanded[paper.stem]
+        root_text = read(paper)
+        if len(re.findall(r"\\documentclass\b", root_text)) != 1:
+            errors.append(f"{paper.name}: manuscript must contain its own documentclass")
+        if len(re.findall(r"\\documentclass\b", text)) != 1:
+            errors.append(f"{paper.name}: duplicate/missing documentclass across inputs")
+        raw_root = paper.read_text(encoding="utf-8")
+        if f"% !TeX root = {paper.name}" not in raw_root:
+            errors.append(f"{paper.name}: missing explicit editor root")
+        if re.search(r"^%\s*!TeX\s+program\s*=", raw_root, re.M | re.I):
+            errors.append(f"{paper.name}: TeX-program comment bypasses the latexmk recipe")
         used_files.update(files)
         labels = LABEL.findall(text)
         duplicates = sorted(key for key, count in Counter(labels).items() if count > 1)

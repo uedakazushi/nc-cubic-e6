@@ -13,7 +13,7 @@ import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "publication-v32"
+VERSION = "publication-v33"
 DATE = "2026-11-18"
 PAPERS = ("nc-cubic-e6", "fricke-geometry", "cubic-boundary-prym")
 PREFIX = f"nc-cubic-e6-{VERSION}-{DATE.replace('-', '')}"
@@ -35,7 +35,7 @@ def main():
 
     entries = {}
     fixed = ("README.md", "00_research_plan.md", "AGENTS.md", "Makefile",
-             ".latexmkrc", ".gitignore", ".vscode/settings.json",
+             ".latexmkrc", "papers/.latexmkrc", ".gitignore", ".vscode/settings.json",
              "research/publication_status.md")
     for name in fixed:
         path = ROOT / name
@@ -73,6 +73,11 @@ def main():
     for name, expected in validation.get("support_source_sha256", {}).items():
         if digest(ROOT / "computations" / name) != expected:
             raise RuntimeError(f"support source changed since recorded run: {name}")
+
+    comparison = json.loads((ROOT / "computations/r13_comparison_certificate.json").read_text())
+    if comparison.get("status") != "PASS" or comparison.get("source_sha256") != digest(
+            ROOT / "computations/verify_r13_comparison.py"):
+        raise RuntimeError("current R13 comparison certificate is required; run make comparison")
 
     manifest = {
         "version": VERSION, "date": DATE,

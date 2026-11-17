@@ -1,10 +1,10 @@
 # 研究継続指示 — nc-cubic-e6
 
-2026-11-18 / publication-v32。最初に 00_research_plan.md を読む。
+2026-11-18 / publication-v33。最初に 00_research_plan.md を読む。
 
 ## 現行の構成
 
-- 主論文：papers/nc-cubic-e6.tex（正常形・形式変形・AOU比較）。
+- 主論文：papers/nc-cubic-e6.tex（正常形・形式変形・R(1,3)中心切断・AOU比較）。
 - 関連論文：papers/fricke-geometry.tex（中心・Poisson被覆・D4周期・triality）。
 - 関連論文：papers/cubic-boundary-prym.tex（Pell力学・境界特異点・局所圏・Prym）。
 - 共通設定・文献：papers/shared/。各原稿は独立に組版できる。
@@ -18,6 +18,7 @@
 
 ## 外してはいけない適用範囲
 
+- 一般のE6八次元表示族はR(1,3)包絡の中心三次商と同じ表示成分。包絡7＋切断1と、固定三捩れの包絡3＋切断4＝曲面7を混同しない。全intrinsic成分の追加仮定は維持する。
 - 七次元正常形は固定位数三・中央境界・対角非零の範囲。
 - HH²=8、HH³=0は滑らかな中心・反標準楕円分岐と指定局所order模型の下の定理。
 - 八変数形式表示と代数的表示stackを、全intrinsic H3の開性・降下・成分境界の完成と同一視しない。
@@ -39,7 +40,8 @@ force push、不要なPR・Actionsは使わない。PDF・ZIP・ログ・キャ�
 既存Libraryファイルの削除は明示指示なしに行わない。
 生成・検証・commit・push・保存の状態を別々に確認する。
 
-検証入口は make sources, make verify, make papers, make bundle。
+検証入口は make sources, make comparison, make verify, make papers, make bundle。
+各主原稿にdocumentclassと自己TeX root指定を保持し、TeX programコメントでlatexmkレシピを迂回しない。ルートとpapers/の双方から組版できる入力パスを維持する。
 新しい引用は各論文末尾の UsePublicationReferences のリストにも追加する。
 数学に関係するコードを変更した場合だけ、その依存計算を再実行する。
 一度確認した検証を、具体的理由なく繰り返さない。全研究継続原則は研究方針§Iにある。

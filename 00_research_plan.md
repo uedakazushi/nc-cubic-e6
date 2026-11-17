@@ -1,6 +1,6 @@
 # 研究方針：量子三次曲面・Fricke幾何・境界Prymの公表
 
-2026-11-18 / publication-v32。**研究再開時は本書を最初に読む。**
+2026-11-18 / publication-v33。**研究再開時は本書を最初に読む。**
 
 GitHub main を正本とする。公表用原稿は日本語LuaLaTeXの三論文に分ける。研究ノートと計算資産を含む現在の一式から再開でき、旧版・会話履歴の取得を必要としない。
 
@@ -25,17 +25,19 @@ GitHubは通常のfast-forwardで、約15分または作業の区切りにmain�
 
 | 原稿 | 中心結果 | 最優先の公表課題 |
 |---|---|---|
-| papers/nc-cubic-e6.tex | 七次元PBW正常形、条件付きHH²=8・HH³=0、八変数形式表示、反標準再構成、結節中心、AOU無限位数部分との比較 | H3/order認識の外部入力を監査し、証明範囲を固定する |
+| papers/nc-cubic-e6.tex | 七次元PBW正常形、条件付きHH²=8・HH³=0、八変数形式表示、R(1,3)中心切断との同定、反標準再構成、結節中心、AOU無限位数部分との比較 | H3/order認識の外部入力を監査し、証明範囲を固定する |
 | papers/fricke-geometry.tex | AW/Frickeの規約、次数15と5の被覆、N5²M5とS5×S5、LG/D4、全四period、triality isogeny | 二五次被覆・整数周期の新規性と既知Fricke/DAHA理論との比較 |
 | papers/cubic-boundary-prym.tex | Pell反復、境界二枝、局所化の成長、模型MF、実germ、Milnor二重被覆のPrymと偏極 | 境界からPrymまでの定理列と一次資料の最終監査 |
 
 構成変更の理由は、従来の総合原稿で量子変形論・指標多様体・境界特異点という三つの中心結果が埋もれていたためである。既存の定理と証明は、現在の三論文のいずれかに保持する。共通の記法と文献データは papers/shared/ に置く。
 
-元の「八次元E6成分を完全に決定する」という目標は保持する。指定局所order模型のHochschild計算、選んだ点の形式表示・適合したAbel変形、代数的表示stackまで到達している。**全intrinsic H3モジュライの相対代数化・開性・降下・全境界は未完成**である。この未解決問題を第二・第三論文の公表の前提にしない。
+元の「八次元E6成分を完全に決定する」という目標は、**R(1,3)型包絡の中心三次商と同じ一般表示成分の研究**として保持する。包絡7次元に切断1次元を加える比較を、別の曲面成分の探索と混同しない。固定三捩れの曲面7次元はこの一般8次元族の特殊部分である。指定局所order模型のHochschild計算、選んだ点の形式表示・適合したAbel変形、代数的表示stackまで到達している。**全intrinsic H3モジュライの相対代数化・開性・降下・全境界は未完成**である。この未解決問題を第二・第三論文の公表の前提にしない。
 
 ## III. 主要到達点・仮定・証明の所在
 
 ### A. 正常形と形式変形
+
+- lem:e6-r13-cyclic-chart, prop:e6-r13-generic-envelope, cor:e6-r13-same-presentation：交代係数非零の巡回potentialをJacobian型へ規格化し、八変数族の一般包絡と中心切断をR(1,3)表示に同定する。最高三次のHesse判別条件を全係数で記す。共通開部分と指定点の局所表示成分の結論であり、全intrinsic成分の無条件同定ではない。証明は papers/sections/e6_r13_comparison.tex、厳密恒等式は verify_r13_comparison.py。ambient原稿は既に7+1を正しく記載しており、本比較のために変更しない。
 
 - thm:normal：固定位数三、中央境界、対角非零という範囲で七次元正常形を得る。PBW、低次中心、残余A4群を直接計算する。対角係数零や非中央境界は含めない。
 - thm:HH8：滑らかな三次中心C、D∈|−K_C|の滑らかさ、Dに沿う k[[s,w]]⋊μ3 への局所Morita模型を仮定し、HH²の7+1分解とHH³=0を証明する。局所模型への具体族の適用は ass:order の入力である。
@@ -73,7 +75,7 @@ GitHubは通常のfast-forwardで、約15分または作業の区切りにmain�
 
 1. **公表範囲を固定する。** 三論文それぞれのIntroductionと主定理を突き合わせ、既知理論の適用を貢献として過大に述べていないか確認する。全分類の完成を待たずに公表できる定理列を確定する。
 2. **第一論文の外部認識を監査する。** ass:recognition, ass:order の各項から、同梱入力断片の証明と文献へ一つずつ辿る。飽和性、有限大域次元、局所order、Serre作用の適用範囲を別々に確認する。全H3の開性・降下を無断で仮定から除かない。
-3. **既出性比較を完結する。** 第一論文はEtingof–Ginzburg、CMR、Rains、AOU/VdB。第二論文はAW/DAHA、既知Fricke判別式、Goldman–Neumann、Friedman、Boalch–Paluba。第三論文はMarkov境界力学、準斉次特異点の分類、Prym/Ciani分解、Miranda–Persson。必要な係数変換・同一性を実際に計算し、未確認箇所をIntroductionへ反映する。
+3. **既出性比較を完結する。** 第一論文はPymのR(1,3)中心拡大、Etingof–Ginzburg、CMR、Rains、AOU/VdB。表示族の一致は今回の比較節で証明したので未解決へ戻さず、H3開性・相対降下とAS認識を別に調べる。第二論文はAW/DAHA、既知Fricke判別式、Goldman–Neumann、Friedman、Boalch–Paluba。第三論文はMarkov境界力学、準斉次特異点の分類、Prym/Ciani分解、Miranda–Persson。必要な係数変換・同一性を実際に計算し、未確認箇所をIntroductionへ反映する。
 4. **重点的な証明点検。** 二五次被覆の独立な幾何S5、整数D4標識とtrialityの全開条件、Prymの分岐と整数偏極を、計算証明書とは別に通読する。
 5. **次の研究として保持する。** n=1の実germでTjurina跳躍と[f]を調べ、Z-gradedと二周期の比較を進める。b=2,c=5のPrym補因子の整数偏極、X411の整数monodromy、有限位数AS部分との比較も有力である。いずれも投稿準備を際限なく拡張する前提にしない。
 
@@ -82,13 +84,14 @@ GitHubは通常のfast-forwardで、約15分または作業の区切りにmain�
 ~~~sh
 python3 -m pip install -r computations/requirements.txt
 python3 computations/verify_sources.py
+python3 computations/verify_r13_comparison.py
 python3 computations/verify_all.py
 make papers
 make bundle
 ~~~
 
-verify_sources.py は三原稿の入力・ラベル・引用を検査する。verify_all.py は36検証器の実行結果、実行時刻、使用ソースのhashを computations/validation.json に記す。計算は数学的主張の全体を独立に検証するものではない。
+verify_sources.py は三原稿の入力・ラベル・引用を検査する。verify_all.py は36検証器の実行結果、実行時刻、使用ソースのhashを computations/validation.json に記す。比較検算の結果は r13_comparison_certificate.json に別記する。既存36検証器の保存済PASSと今回の新検算を区別し、変更のないコードのhashを照合する。計算は数学的主張の全体を独立に検証するものではない。
 
-組版は標準のTeX Live日本語環境、LuaLaTeX、latexmkを用いる。三つのPDFは build/ に出力する。現行の生成・検証・監査範囲は **research/publication_status.md** に集約する。最新ソース以外の旧PDFを配布しない。
+組版は標準のTeX Live日本語環境、LuaLaTeX、latexmkを用いる。三主原稿はそれぞれdocumentclassとTeX root指定を持つ。ルートからの make papers、papers/からの latexmk -lualatex、およびlatexmk -cdで同じ build/ にPDFとSyncTeXを出力する。現行の生成・検証・監査範囲は **research/publication_status.md** に集約する。最新ソース以外の旧PDFを配布しない。
 
 bundleは scripts/build_bundle.py で現在の必要ファイルを選んで作成し、三PDF・入力ソース・計算資産の欠落、ZIP整合性を検査する。GitにはTeX・ノート・再現資産だけを保存する。

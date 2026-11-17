@@ -1,8 +1,14 @@
-% !TeX program = lualatex
+% !TeX root = nc-cubic-e6.tex
+% !LW recipe = latexmk (LuaLaTeX, repository root)
+\documentclass[11pt,a4paper]{ltjsarticle}
+% Resolve repository-relative inputs from either the root or papers/.
+\makeatletter
+\def\input@path{{./}{../}}
+\makeatother
 \input{papers/shared/preamble.tex}
 \title{三乗根量子三次曲面の正常形と形式変形}
 \author{}
-\date{2026年11月18日\quad publication-v32}
+\date{2026年11月18日\quad \PublicationVersion}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -13,6 +19,8 @@
 Hochschild変形空間の次元は8、三次障害空間は零となる。
 Artin底上の反標準環の再構成、二次包絡の平坦性の障害、
 形式表示族と適合したAbel変形の比較を分けて証明する。
+巡回ポテンシャルの交代・対称分解によって、一般部分を$R(1,3)$型包絡の中心三次商と同定する。
+包絡の七次元と切断を含む八次元を区別し、両者を別々の曲面成分として数えない。
 全H3モジュライの代数化・開性・降下を仮定なしに結論しない。
 反標準環からの二次包絡の一意性を用い、AOUの無限位数のblow-up構成との
 限定された非同一性も示す。
@@ -30,6 +38,10 @@ Artin底上の反標準環の再構成、二次包絡の平坦性の障害、
 であり、中心三次元の直線 $kG$ を選んで $R=B_{\mathbf a}/(G)$ を作る。
 この表示のパラメータ数、圏のHochschild接空間、全モジュライの局所次元は、
 比較定理を介して初めて結び付く。
+特に$R(1,3)$型包絡の七次元モジュライと、本稿の八次元の曲面表示族は
+異なる対象を数えている。第\ref{sec:e6-r13-comparison}節では関係式を同定し、
+一般包絡の七次元に中心三次直線の一次元が加わること、
+固定三捩れの七次元族がその特殊部分であることを示す。
 
 \subsection{中心結果と証明の依存関係}
 第一の結果は、固定位数三・中央境界・対角非零のPBW部分の正常形である。
@@ -72,6 +84,7 @@ miniversal底は八次元形式円板となる。
 七次元正常形 & 中央PBW・対角非零。定理\ref{thm:normal}。\\
 八次元Hochschild変形 & 指定した滑らかな中心・分岐order。定理\ref{thm:HH8}。\\
 全Artin形式表示 & 指定点、表示chartとenhancementの比較。第\ref{sec:artin-enhancement}節。\\
+$R(1,3)$との比較 & 次数付き包絡と中心三次直線。第\ref{sec:e6-r13-comparison}節。\\
 大域成分の一意性 & 代数的モジュライと相対比較の追加仮定付き。定理\ref{thm:conditional-component}。\\
 AOUとの比較 & 無限位数のblow-up構成とのpointed反標準比較。第\ref{sec:as-surface-scope}節。\\
 \bottomrule
@@ -85,6 +98,9 @@ Etingof--Ginzburg \cite[Theorem 3.3.2]{EG} は、指定された次数の斉次C
 正則に持ち上げる手順、表示の規格化、および圏の変形との比較を別に証明する。
 楕円 $E_6$ という呼称は同文献の三次ポテンシャルの型に由来し、
 本稿だけでWeyl群商による全モジュライ分類を得たという意味ではない。
+Pym \cite[\S3.4]{PymR13}および中心拡大の先行研究 \cite{LBS}との関係は、
+第\ref{sec:e6-r13-comparison}節で具体的な係数変換として記す。
+一般中心切断の表示族はambient比較論文\cite{CompanionAmbient}と共通である。
 
 Chekhov--Mazzocco--Rubtsov \cite[Definition 1.1, (1.5), Theorem 1.5]{CMR} は
 普遍Painlev\'e代数とその中心特殊化を扱う。
@@ -123,6 +139,7 @@ Vieta反復の境界特異点とPrymの証明は\cite{CompanionBoundary}に収�
 \input{papers/sections/quantum_cubic_artin_enhancement.tex}
 \input{papers/sections/quantum_cubic_algebraic_boundary.tex}
 \input{papers/sections/quantum_cubic_presentation_stack.tex}
+\input{papers/sections/e6_r13_comparison.tex}
 \input{papers/sections/quantum_cubic_nodal_centers.tex}
 \input{papers/sections/cubic_as_surface_scope.tex}
 \input{papers/sections/e6_moduli_scope.tex}
@@ -136,6 +153,6 @@ PBW還元、中心式、接空間行列、形式族の係数恒等式、結節�
 投稿前に必要な核心は、外部H3認識の依存証明の再点検、
 全intrinsic族の相対代数化・開性・降下、および既知の量子del Pezzo族との詳細な新規性比較である。
 形式円板と表示stackの構成を、これら全ての解決として扱わない。
-\UsePublicationReferences{AOUCubic,BG,CMR,CompanionBoundary,CompanionFricke,DeDekenLowen,EG,FIOS,IS,LBS,LVdB,LowenObject,NS,OUASSurfaces,Rains,Repo,StacksPerfect}
+\UsePublicationReferences{AOUCubic,BG,CMR,CompanionAmbient,CompanionBoundary,CompanionFricke,DeDekenLowen,EG,FIOS,IS,LBS,LVdB,LowenObject,NS,OUASSurfaces,PymR13,Rains,Repo,StacksPerfect}
 \input{papers/shared/bibliography.tex}
 \end{document}
