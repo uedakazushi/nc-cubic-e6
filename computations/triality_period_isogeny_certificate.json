@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-17",
+  "version": "e6-connections-v24",
+  "status": "PASS",
+  "field": "Q Laurent identities, integer lattices, Q(zeta_21)",
+  "Hurwitz_permutations_on_affine_D4": [[0,2,1,3,4],[2,1,0,3,4]],
+  "fixed_lattice_Gram": [[-2,3],[3,-6]],
+  "invariant_to_coinvariant": [[1,0],[0,3]],
+  "positive_D4_restriction_multiplicities": {"(0, 1)":3,"(1, 0)":1,"(1, 1)":3,"(1, 2)":3,"(1, 3)":1,"(2, 3)":1},
+  "symmetric_periods": ["b","a","b","b"],
+  "symmetric_conic_lifts": ["-a*b^2","-a*b","-b","-1"],
+  "line_section_disjointness": [
+    "(a*b**2 - 1)*(a*b**3 - 1)*(a**2*b**3 - 1)/(2*a*b**2)",
+    "(a*b - 1)*(a*b**2 - 1)*(a**2*b**3 - 1)/(2*a*b**2)",
+    "(b - 1)*(a*b**2 - 1)*(a*b**3 - 1)/(2*a*b**2)"
+  ],
+  "coefficient_formula": ["lambda=(S+2)/4","h=(L+3S+4)/8"],
+  "isogeny": "(a,b)->(a,b^3), kernel mu3",
+  "G2_base_formula": ["alpha=L","beta=S^3-3SL-9S-6L-12"],
+  "Fricke_base_formula": ["b_F=-S-2","c_F=L+3S+4"],
+  "Klein_components": [
+    {"j":0,"period_exponents_mod21":[3,3],"Fricke_b":"-1","Fricke_c":"0","integral_extension_order":7},
+    {"j":1,"period_exponents_mod21":[3,10],"Fricke_b":"-t**11 - t**9 - t**8 + t**7 + t**4 - 2*t**2 + t - 2","Fricke_c":"3*t**11 + 3*t**9 + 3*t**8 - 3*t**7 - 3*t**4 + 6*t**2 - 3*t + 3","integral_extension_order":21},
+    {"j":2,"period_exponents_mod21":[3,17],"Fricke_b":"t**11 + t**9 + t**8 - t**7 - t**4 + 2*t**2 - t - 3","Fricke_c":"-3*t**11 - 3*t**9 - 3*t**8 + 3*t**7 + 3*t**4 - 6*t**2 + 3*t + 6","integral_extension_order":21}
+  ],
+  "entropy_word":"B1^2 B2^(-2)=iota_v iota_w iota_u iota_w",
+  "modular_matrix":[[1,-2],[-2,5]],
+  "spectral_radius":"3+2*sqrt(2)",
+  "ordinary_proof_inputs":[
+    "Goldman--Neumann homology theorem and local-system transport",
+    "conic component contraction and Friedman period comparison",
+    "Weyl invariant ring and quotient isogeny argument",
+    "Hodge extension classification by period logarithms",
+    "Boalch--Paluba G2 component interpretation",
+    "Cantat--Loray dynamical-degree/entropy theorem"
+  ],
+  "not_certified":[
+    "independent audit of older E6 classification or S5xS5",
+    "canonical unmarked identification of all components",
+    "isomorphism of algebraic surfaces or derived/Fukaya categories",
+    "novelty or entire Gauss-Manin connection"
+  ]
+}
