@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-17",
+  "version": "e6-connections-v15",
+  "status": "PASS",
+  "python": "3.13.5",
+  "sympy": "1.14.0",
+  "completed": [
+    {"script": "verify_daha_character.py", "status": "PASS"},
+    {"script": "verify_daha_braid.py", "status": "PASS"},
+    {"script": "verify_d4_lattice.py", "status": "PASS"},
+    {"script": "verify_root_poisson.py", "status": "PASS"},
+    {"script": "verify_poisson_cut_obstruction.py", "status": "PASS"}
+  ],
+  "scope": "five exact related-fields verifiers only",
+  "not_run": ["remaining 15 legacy verifiers", "whole main manuscript compilation", "independent peer review"],
+  "typesetting": "old DAHA section plus new Poisson section in a temporary local wrapper; 11 pages"
+}
