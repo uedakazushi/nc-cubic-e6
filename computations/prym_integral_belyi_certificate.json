@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-18",
+  "version": "e6-connections-v31",
+  "status": "PASS",
+  "arithmetic": "exact rational polynomials and integer congruences",
+  "records": [
+    {
+      "n": 1,
+      "b": 2,
+      "c": 5,
+      "degree_cyclic_qprime": 10,
+      "degree_cyclic_q": 20,
+      "Prym_dimension": 14,
+      "elliptic_theta_degree": 10,
+      "Prym_theta_type": "(1^1,2^13)",
+      "qprime_ramification": "4*(bc); 2 fibers with 2c points of index m; 2 with b points of index c"
+    },
+    {
+      "n": 2,
+      "b": 12,
+      "c": 29,
+      "degree_cyclic_qprime": 348,
+      "degree_cyclic_q": 696,
+      "Prym_dimension": 666,
+      "elliptic_theta_degree": 348,
+      "Prym_theta_type": "(1^11,2^655)",
+      "qprime_ramification": "4*(bc); 2 fibers with 2c points of index m; 2 with b points of index c"
+    },
+    {
+      "n": 3,
+      "b": 70,
+      "c": 169,
+      "degree_cyclic_qprime": 11830,
+      "degree_cyclic_q": 23660,
+      "Prym_dimension": 23490,
+      "elliptic_theta_degree": 11830,
+      "Prym_theta_type": "(1^69,2^23421)",
+      "qprime_ramification": "4*(bc); 2 fibers with 2c points of index m; 2 with b points of index c"
+    },
+    {
+      "n": 4,
+      "b": 408,
+      "c": 985,
+      "degree_cyclic_qprime": 401880,
+      "degree_cyclic_q": 803760,
+      "Prym_dimension": 802774,
+      "elliptic_theta_degree": 401880,
+      "Prym_theta_type": "(1^407,2^802367)",
+      "qprime_ramification": "4*(bc); 2 fibers with 2c points of index m; 2 with b points of index c"
+    },
+    {
+      "n": 5,
+      "b": 2378,
+      "c": 5741,
+      "degree_cyclic_qprime": 13652098,
+      "degree_cyclic_q": 27304196,
+      "Prym_dimension": 27298454,
+      "elliptic_theta_degree": 13652098,
+      "Prym_theta_type": "(1^2377,2^27296077)",
+      "qprime_ramification": "4*(bc); 2 fibers with 2c points of index m; 2 with b points of index c"
+    },
+    {
+      "n": 6,
+      "b": 13860,
+      "c": 33461,
+      "degree_cyclic_qprime": 463769460,
+      "degree_cyclic_q": 927538920,
+      "Prym_dimension": 927505458,
+      "elliptic_theta_degree": 463769460,
+      "Prym_theta_type": "(1^13859,2^927491599)",
+      "qprime_ramification": "4*(bc); 2 fibers with 2c points of index m; 2 with b points of index c"
+    }
+  ],
+  "instances_checked": 10,
+  "full_cyclic_cover_degree": "2bc",
+  "maximal_etale_degree": 2,
+  "qprime_cyclic_cover_degree": "bc",
+  "four_total_ramification_points": true,
+  "kernel_q_pullback": "<[(0,0)-O]> of order 2",
+  "theta_degree_on_embedded_D": "bc",
+  "elliptic_j": "64*(4*kappa^2-3)^3/(kappa^2-1)",
+  "kodaira": "I1, I1, I4*",
+  "Miranda_Persson": "X411, Mordell-Weil Z/2",
+  "belyi_passport": {
+    "0": [
+      3,
+      3
+    ],
+    "1728": [
+      2,
+      2,
+      2
+    ],
+    "infinity": [
+      4,
+      1,
+      1
+    ]
+  },
+  "ordinary_inputs_not_computationally_certified": [
+    "cyclic covering function fields and local ramification indices",
+    "totally ramified pullback on Jacobians is injective",
+    "div(z)=2(0,0)-2O and the associated etale double cover",
+    "theta pullback and ramified Prym polarization",
+    "Tate Kodaira fiber criterion and Miranda-Persson classification"
+  ],
+  "not_claimed": [
+    "integral splitting of the whole Prym",
+    "an MF equivalence from a two-isogeny",
+    "analytically deformed Prym sector",
+    "novelty"
+  ]
+}
