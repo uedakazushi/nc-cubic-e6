@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-17",
+  "version": "e6-connections-v15",
+  "status": "PASS",
+  "coefficient_ring": "Q(Q)[a,b,c], specialized exactly in Q(sqrt(-3))[a,b,c]",
+  "parameter": "Q=q exp(h); first derivative = Q d/dQ at Q=q",
+  "q_relation": "q^2+q+1=0",
+  "generic_Casimir": "xyz+(x^2+Q^2*y^2+z^2)/(Q^2-1)+(a*x+Q*b*y+c*z)/(Q-1)",
+  "PBW_zyx_overlap": "identically zero for indeterminate Q,a,b,c",
+  "generic_Casimir_commutators": "all three identically zero",
+  "root_center_commutators": "all nine zero",
+  "central_Poisson_brackets": "{X,Y}=9*(X*Y-2*e*Z+c*Omega-ell_c), cyclic",
+  "Fricke_normalization": "{u,v}=9*(2*w+u*v+C), cyclic",
+  "checks": [
+    {"pair": "XY", "nonzero_PBW_coefficients": 13, "status": "PASS"},
+    {"pair": "YZ", "nonzero_PBW_coefficients": 13, "status": "PASS"},
+    {"pair": "ZX", "nonzero_PBW_coefficients": 13, "status": "PASS"}
+  ],
+  "not_certified": ["global H3 admissibility", "whole-center equality after arbitrary central quotient", "skein/DAHA Morita equivalence", "novelty", "categorical extension of Vieta"]
+}
