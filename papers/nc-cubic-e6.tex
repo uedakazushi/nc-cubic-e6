@@ -27,7 +27,7 @@
 \newcommand{\PP}{\mathbb P}
 \title{非可換三次曲面を結ぶ幾何学\\\large 楕円 $E_6$ 量子化・指標多様体・消滅サイクルと例外群 $G_2$}
 \author{}
-\date{2026年11月18日\quad e6-connections-v29}
+\date{2026年11月18日\quad e6-connections-v30}
 \begin{document}\maketitle
 \begin{abstract}
 原始三乗根の量子 $\mathfrak{so}_3$ 包絡とその中心三次切断を、
@@ -82,7 +82,12 @@ Newton面から対数標準閾値と局所MF圏のHochschild次元を計算す�
 重み付き模型の二周期MF圏は$(n,\kappa^2)$でdg Morita分類される。
 解消上の四点配置から二捩れ標識付き楕円曲線を付随させ、
 $j$や二同種関係だけではこの圏を区別できないことを例示する。
+重み付きMilnor曲線の二次Kummer被覆からこの楕円曲線への有限写像を構成し、
+Prymの有理Hodge因子として実現する。全Pell指数に共通のCiani四次曲線を介して
+三楕円分解と二同種写像を比較し、可変因子の超幾何Picard--Fuchs方程式を求める。
 実際の一反復境界には$\mu=27,\tau=24$の例があり、重み付き主部への解析的置換を排除する。
+Hua--Kellerの復元定理を用いると、通常の整数次数付きdg特異点圏も両者を区別する。
+二周期MFの相対Hochschild環と、この絶対的dg不変量を混同しない。
 これらの明示的接続、既知理論の適用、未構成の圏的対応を区別して記述する。
 \end{abstract}
 \tableofcontents
@@ -193,13 +198,24 @@ Puiseux--link対応、conductor公式、Milnor--Orlik公式とCasalsの定理そ
 重み付き模型では、quasi-homogeneous平面曲線の分類、Mather--Yau、
 DyckerhoffのHochschild\emph{環}を組み合わせて、二周期MF圏を$(n,\kappa^2)$で分類する。
 同じlink・Milnor数・閾値でも連続な圏的modulusが残る。
-解消上の四点配置に付随する二捩れ付き楕円曲線の粗modulusも$K=\kappa^2$であり、
+解消上の四点配置に付随する二捩れ標識付き楕円曲線の粗modulusも$K=\kappa^2$であり、
 $j=1728$が一致する二つの非同値MF模型と、二同種でも非同値の模型を与える。
-この楕円曲線を元の反標準境界やMilnor fiberの商と同一視しない。
+この楕円曲線を元の反標準境界と同一視しない。
 一方、元のVieta式から計算した実際の一反復の境界germは$\mu=27,\tau=24$を持ち、
 $\mu=\tau=27$の重み付き主部へ接触同値ではない。
-従って模型の分類を実際のgermへ無条件に延長せず、Hochschild環内の指定類$[f]$と高重み項を課題として残す。
+模型の分類を実際のgermへ無条件に延長しないことが重要である。
 一般分類・Mather--Yau・MF計算・楕円曲線の標準理論自体は既知で、一次資料と適用箇所は同節に記す。
+
+第\ref{sec:boundary-milnor-prym}節では、付随楕円曲線への写像を主部のMilnor曲線から構成する。
+指定した底関数を保つ写像には非自明な平方類$[x]$の障害があり、$a^2=x$の二次被覆でこれを解消する。
+その被覆のPrymに楕円因子が入り、全Pell指数に共通するgenus三のCiani曲線の三楕円分解を経由する。
+可変因子のPicard--Fuchs方程式はパラメータ$(1/2,1/2;1)$の超幾何方程式となる。
+MumfordのPrym理論とCiani曲線の既知の分解を、本稿の明示写像に適用する。
+さらにHua--Kellerの孤立超曲面の復元定理を用い、実germと主部の
+通常の整数次数付きdg特異点圏がHochschild次数零の次元$24,27$で区別されることを示す。
+これは二周期MFの相対的Hochschild公式の無条件な読み替えではない。
+Prym因子は重み付き模型についての有理Hodge因子であり、実germへの解析的移行、
+圏の部分圏、整数偏極付きの積分解は未構成である。
 全rank五の代数的Gauss--Manin接続行列、filtered・equivariantなmirror/Fukaya対応、
 元の非可換H3圏上の自己同値、$G_2$型量子代数との同型、
 nearly K\"ahler幾何との圏的対応は未構成である。
@@ -230,6 +246,7 @@ trialityと三成分比較&指数3のperiod isogenyのWeyl商が$G_2$底写像�
 境界linkと正規化欠損&二つの$(b_n,c_n)$ cusp、$T(2b_n,2c_n)$、conductorとMilnor位数、正規化と一点欠損の二成長率、局所Weinstein模型。第\ref{sec:boundary-torus-links}節。\\
 境界閾値とMF次元&Newton面から乗数イデアル、閾値、局所MFの次元成長を求める。曲面やH3圏の不変量と混同しない。第\ref{subsec:boundary-thresholds-mf}節。\\
 解析modulusと二捩れ&模型のMorita分類は$(n,\kappa^2)$。四点の楕円曲線は$Y_0(2)$に対応。実germの$\mu=27,\tau=24$が主部への置換を排除。第\ref{sec:boundary-analytic-moduli}節。\\
+Milnor被覆とPrym&二次Kummer被覆、Ciani中間曲線、可変楕円Hodge因子、超幾何周期、整数次数付きdg特異点圏による実germの区別。第\ref{sec:boundary-milnor-prym}節。\\
 \bottomrule
 \end{longtable}
 
@@ -687,6 +704,7 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_boundary_links.tex}
 \input{papers/sections/quantum_cubic_boundary_thresholds.tex}
 \input{papers/sections/quantum_cubic_boundary_moduli.tex}
+\input{papers/sections/quantum_cubic_boundary_prym.tex}
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
@@ -724,21 +742,22 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_boundary_pell_dynamics.py}&全境界chamber・Pell次数・固有方向・抽出深さ：既存PASS\\
 \path{verify_localization_entropy.py}&極filtrationのHilbert値・曲線交叉式・Pell種数：既存PASS\\
 \path{verify_boundary_torus_links.py}&二枝先頭式・Puiseux整数式・conductor・Milnor多項式・Chebyshev：既存PASS\\
-\path{verify_boundary_thresholds.py}&Newton閾値・半群・局所MF次元：今回再実行PASS\\
-\path{verify_boundary_analytic_moduli.py}&模型Jacobian環・二同種式・実germの$\mu=27,\tau=24$：今回PASS\\\bottomrule
+\path{verify_boundary_thresholds.py}&Newton閾値・半群・局所MF次元：既存PASS\\
+\path{verify_boundary_analytic_moduli.py}&模型Jacobian環・二同種式・実germの$\mu=27,\tau=24$：既存PASS\\
+\path{verify_boundary_prym.py}&Kummer/Ciani写像・種数・楕円周期式・実germのTjurina数再計算：今回PASS\\\bottomrule
 \end{longtable}
-今回実行したのは最後の二検証器であり、有理数体・整数環および$\mathbb Q(\sqrt2)$上の厳密演算である。
-新規の検算では、重み付きEuler式、三模型のJacobian環、楕円曲線と二同種写像の恒等式、
-元のVieta式からのresultant、正則初期列により正当化した有限jetと行消去を確認した。
-小証明書は\path{computations/boundary_thresholds_certificate.json}および
-\path{computations/boundary_analytic_moduli_certificate.json}。
-解析的不変量、Mather--Yau、Hochschild環のMorita不変性、filtered Koszulのstrictness、
-楕円曲線の粗moduli同定は本文の通常の証明と一次資料への依存で、有限実験からの外挿ではない。
-既存32検証器は今回全再実行していない。
-新しい解析modulus節を独立wrapperでLuaLaTeX組版（5頁）し、全頁を画像点検した。
+今回実行したのは最後の検証器であり、有理数体上の恒等式と整数行列を用いた。
+Kummer写像の代入、Cianiの三商と文字分解、二同種写像と$j$、
+Picard--Fuchsの完全微分恒等式、元のVieta式からのresultantと$\mu=27,\tau=24$を確認した。
+小証明書は\path{computations/boundary_prym_certificate.json}。
+被覆の連結性、Riemann--Hurwitz、Jacobianのnorm、Hodge因子、
+Gauss--Maninとの適合性、Hua--Kellerのdg復元は通常の証明と一次資料への依存であり、
+有限計算だけの形式検証ではない。旧34検証器の今回は全再実行をしていない。
+新しいPrym節を独立wrapperでLuaLaTeX組版（4頁）し、全頁を画像点検した。
 内部参照は解決し、overfull boxはない。主論文全体の今回の組版は未実施である。
-旧証明の独立再監査、一般の高重みgermのMF分類、楕円曲線とMF圏を結ぶ関手、
-filtered・equivariantなmirror/Fukaya対応、元の非可換H3圏の自己同値、新規性の網羅調査は未実施である。
+旧証明の独立再監査、偏極を保つ整数Prym分解、高重み実germへのPrym比較、
+二周期と整数次数付きdg圏の全比較、filtered・equivariantなmirror/Fukaya対応、
+元の非可換H3圏の自己同値、新規性の網羅調査は未実施である。
 
 \begin{thebibliography}{99}
 \bibitem{DeDekenLowen} O. De Deken, W. Lowen,
