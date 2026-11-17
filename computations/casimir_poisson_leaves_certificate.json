@@ -103,5 +103,7 @@
     "numerical symmetry is not a proof of newness",
     "Poisson-zero set classification is geometric support, not scheme multiplicity",
     "no categorical equivalence or Azumaya conclusion"
-  ]
+  ],
+  "formal_smoothing_origin": "D^2*(f-D)",
+  "formal_smoothing_sign": "-(D+f/3)*(D-2*f/3)^2"
 }
