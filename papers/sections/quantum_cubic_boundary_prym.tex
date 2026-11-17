@@ -1,0 +1,235 @@
+\section{境界の楕円modulusをMilnor被覆のPrym部分へ実現する}
+\label{sec:boundary-milnor-prym}
+前節の楕円曲線は、解消上の四点配置から付随させたものであった。
+本節では、その曲線へ実際の有限写像を構成する。
+ただし対象は\emph{重み付き主部のMilnor fiberに二次Kummer被覆を施したもの}である。
+元のMilnor fiberから同じ底座標を保って写すことには、明示的な平方類の障害がある。
+最後に、実際の高重みgermの復元について、整数次数付きdg特異点圏で得られる帰結を区別して述べる。
+
+以下$b=b_n,c=c_n$、$n\ge1$とし、$b$は偶数、$c$は奇数、$\gcd(b,c)=1$を用いる。
+$\kappa^2\ne1$、$K=\kappa^2$と置き、
+\[
+ V_{b,c;\kappa}=\{y^{2b}-2\kappa x^cy^b+x^{2c}=1\},\qquad
+ E_\kappa:\ \eta^2=z(z^2-2\kappa z+1)
+\]
+とする。$C_{b,c;\kappa}$は$V_{b,c;\kappa}$の滑らかな射影模型、
+$E_\kappa$では無限遠を原点とする。
+重み付き斉次性により$V$は局所Milnor fiberの代数的模型である。
+高重み項を持つ実境界の解析的Milnor fiberと無条件に同一視しない。
+
+\subsection{元のfiberでの障害と、最小の二次被覆}
+\begin{theorem}[平方類を解消するKummer被覆]
+\label{thm:boundary-kummer-prym}
+$C=C_{b,c;\kappa}$上の有理関数$z=y^b/x^c$を固定する。
+$C\to E_\kappa$でこの$z$を引き戻す有理写像は存在しない。
+一方、$\widetilde C$を$\mathbb C(C)(a)$、$a^2=x$の滑らかな射影模型とすると、
+\begin{equation}\label{eq:milnor-elliptic-map}
+ q:\widetilde C\longrightarrow E_\kappa,\qquad
+ z=\frac{y^b}{a^{2c}},\qquad \eta=\frac{y^{b/2}}{a^{3c}}
+\end{equation}
+は次数$2bc$の有限写像となる。
+$\pi:\widetilde C\to C$は連結な二重被覆で、分岐点は$x=0$の$2b$点である。
+従って
+\[
+ g(C)=2bc-b-c,\qquad
+ g(\widetilde C)=4bc-b-2c-1,\qquad
+ \dim\operatorname{Prym}(\widetilde C/C)=2bc-c-1.
+\]
+\end{theorem}
+\begin{proof}
+$Q(z)=z^2-2\kappa z+1$とすると、$V$の方程式は$x^{2c}Q(z)=1$である。
+$bp+cq_0=1$を満たす整数$p,q_0$を選び、$t=x^py^{q_0}$と置くと
+\[
+ x=t^bz^{-q_0},\quad y=t^cz^p,\qquad
+ t^{2bc}=\frac{z^{2cq_0}}{Q(z)}.
+\]
+右辺は$Q$の二根で位数$-1$を持つので、このKummer拡大は連結で次数$2bc$。
+四つの底点$0,\infty,\rho_+,\rho_-$上の点数は、それぞれ$2c,2b,1,1$である。
+Riemann--Hurwitzから$g(C)=2bc-b-c$を得る。
+$\rho_\pm$上の二点では$x$の極位数が$b$であり、$z=\infty$上の$2b$点では
+$x$の零位数が$bp+cq_0=1$である。
+これは$x=0,y^{2b}=1$という$V$の$2b$点でも直接確認できる。
+
+$E_\kappa$へ持ち上げるための関数の平方は
+\begin{equation}\label{eq:milnor-square-obstruction}
+ zQ(z)=\frac{y^b}{x^{3c}}
+      =x\left(\frac{y^{b/2}}{x^{(3c+1)/2}}\right)^2
+\end{equation}
+である。$x$は単純零点を持つため平方ではない。これが元の$C$での障害である。
+同式により平方根を添加する拡大はちょうど$\mathbb C(C)(\sqrt x)$となり、
+表示\eqref{eq:milnor-elliptic-map}を得る。滑らかな射影曲線間の有理写像は延長される。
+$\widetilde C\to\mathbb P^1_z$の次数は$4bc$、$E_\kappa\to\mathbb P^1_z$は次数2なので$q$の次数は$2bc$。
+$x$の極位数$b$は偶数であるから、$\pi$は無限遠では分岐せず、$2b$個の単純零点だけで分岐する。
+再びRiemann--Hurwitzを使い、残る数値を得る。
+\end{proof}
+
+\begin{corollary}[楕円曲線のPrym因子]
+\label{cor:elliptic-prym-factor}
+$E_\kappa$は$\operatorname{Prym}(\widetilde C/C)$のisogeny因子である。
+より正確には$q^*$の像はPrymに含まれ、
+\[
+ e_\kappa=\frac{1}{2bc}q^*q_*
+ \in\operatorname{End}^0(J(\widetilde C))
+\]
+はその像への冪等射である。
+従って$H^1(E_\kappa,\mathbb Q)$は$H^1(\widetilde C,\mathbb Q)$の
+deck involutionに関する反不変部分のHodge直和因子となる。
+\end{corollary}
+\begin{proof}
+$\delta(a,y)=(-a,y)$は$q$の座標では$(z,\eta)\mapsto(z,-\eta)$となる。
+後者は$E_\kappa$の逆元写像なので$\delta^*q^*=-q^*$。
+Prymは$\ker(1+\delta^*)^0$であり、連結な$q^*(E_\kappa)$はそこへ入る。
+曲線のnormとpullbackについて$q_*q^*=[2bc]$であるから$q^*$は有限核を持ち、
+表示した$e_\kappa$は冪等である。
+これはPrymの標準的なnorm理論\footnote{
+D. Mumford, \emph{Prym Varieties I}, in \emph{Contributions to Analysis},
+Academic Press (1974), 325--350, \S\S1--3。
+著者公開版でnormとpullback、および$P=\ker(1+\delta)^0$を確認した。
+}のこの被覆への適用であり、整数係数や主偏極を保つ積分解を主張するものではない。
+\end{proof}
+
+\subsection{全てのPell指数に共通するCiani四次曲線}
+\begin{theorem}[genus三の中間模型と三楕円分解]
+\label{thm:universal-ciani-milnor}
+$\widetilde C$から、$n$に依存しない滑らかな平面四次曲線
+\[
+ \mathcal C_\kappa:\quad X^4+Y^4-2\kappa X^2Y^2=Z^4
+\]
+への次数$bc/2$の写像が、アフィンchartで
+\[
+ (a,y)\longmapsto(X,Y)=(a^c,y^{b/2})
+\]
+により与えられる。
+$\alpha(X,Y)=(-X,Y)$、$\beta(X,Y)=(X,-Y)$とすると三つの商は楕円曲線であり、
+\[
+ J(\mathcal C_\kappa)\sim E_i^2\times D_\kappa,\qquad
+ D_\kappa:\ T^2=r^4-2\kappa r^2+1,
+\]
+となる。ここで$E_i$は$j=1728$の楕円曲線、$\sim$は複素数体上のisogenyである。
+さらに$\operatorname{Prym}(\widetilde C/C)$は$E_i\times D_\kappa$にisogenousな
+二次元の部分アーベル多様体を持つ。
+\end{theorem}
+\begin{proof}
+式への代入で写像を得る。一般の$X,Y\ne0$には、$a^c=X$の$c$通りと
+$y^{b/2}=Y$の$b/2$通りの持上げがあり、次数は$bc/2$。
+$\kappa^2\ne1$で平面四次は滑らかなので、そのgenusは3である。
+
+$\alpha$商と$\beta$商はそれぞれ
+\[
+ (X^2-\kappa Y^2)^2=1+(K-1)Y^4,\qquad
+ (Y^2-\kappa X^2)^2=1+(K-1)X^4
+\]
+であり、いずれも複素数体上で$j=1728$となる。
+$\alpha\beta$商は$r=Y/X,T=1/X^2$による$D_\kappa$である。
+三つの商写像による$H^0(\Omega^1)$の引戻しは、Klein四元群の相異なる三つの非自明指標に属し、
+各次元1で全体を張る。従って三楕円曲線からのJacobianのpullbackの和はisogenyとなる。
+これはCiani四次の標準的な三楕円分解の特殊例である。\footnote{
+E. W. Howe, F. Lepr\'evost, B. Poonen,
+\emph{Large torsion subgroups of split Jacobians of curves of genus two or three},
+Forum Math. 12 (2000), 315--364,
+\href{https://arxiv.org/abs/math/9809210}{arXiv:math/9809210}, \S4.1。
+本稿では三つの商の方程式と文字分解を直接確認する。
+}
+
+$\widetilde C\to\mathcal C_\kappa$は$\delta$と$\alpha$に関して等変である。
+$\alpha$反不変部分は$\beta$商と$\alpha\beta$商の二楕円因子であり、
+そのpullbackは有限核を持って$\operatorname{Prym}(\widetilde C/C)$へ入る。
+これが最後の主張である。
+\end{proof}
+
+$D_\kappa$から前節の$E_\kappa$へは
+\begin{equation}\label{eq:ciani-level2-isogeny}
+ (r,T)\longmapsto(z,\eta)=(r^2,rT)
+\end{equation}
+という次数2の写像がある。
+そのdeck変換$(r,T)\mapsto(-r,-T)$は固定点を持たず、
+原点を適合させれば二同種写像となる。
+\[
+ j(D_\kappa)=\frac{64(K+3)^3}{(K-1)^2}
+ =j\left(E_{\kappa^\vee}\right),\qquad
+ (\kappa^\vee)^2=\frac K{K-1}.
+\]
+従って前節のlevel $2$ isogenyは、ここでは\emph{共通のgenus三模型の商写像}として実現される。
+$n=1$では$g(C)=13$、$g(\widetilde C)=27$、Prym次元14、
+$\widetilde C\to\mathcal C_\kappa$の次数5、$\widetilde C\to E_\kappa$の次数20である。
+高genusの増大と独立に、可変な楕円因子は同じ式で残る。
+
+\subsection{Prym部分の周期はLegendre型方程式を満たす}
+\begin{proposition}[可変楕円因子のPicard--Fuchs方程式]
+\label{prop:boundary-prym-PF}
+$E_\kappa$上の形式$\omega_\kappa=dz/\eta$と平坦に動くcycleの周期$\Pi$は
+\begin{equation}\label{eq:boundary-prym-PF}
+ (\kappa^2-1)\Pi''+2\kappa\Pi'+\tfrac14\Pi=0
+\end{equation}
+を満たす。同式は系\ref{cor:elliptic-prym-factor}で得たPrym部分のrank二の周期系にも適用される。
+$q=(1-\kappa)/2$とすれば、これは
+$q(1-q)\Pi_{qq}+(1-2q)\Pi_q-\Pi/4=0$、すなわち
+パラメータ$(1/2,1/2;1)$のGauss超幾何方程式である。
+\end{proposition}
+\begin{proof}
+$P=z(z^2-2\kappa z+1)$と書く。
+$\partial_\kappa\omega=z^2dz/P^{3/2}$、
+$\partial_\kappa^2\omega=3z^4dz/P^{5/2}$なので、直接計算で
+\[
+ \left((\kappa^2-1)\partial_\kappa^2+2\kappa\partial_\kappa+\tfrac14\right)
+ \omega_\kappa
+ =d_z\left(\frac{z^2(1-z^2)}{2P^{3/2}}\right)
+\]
+を得る。右辺は楕円曲線の有理関数の微分であり、閉cycleでの積分は零となる。
+有限写像によるpullbackとtraceはGauss--Manin接続に適合するため、Prymの直和因子にも同じ式を得る。
+\end{proof}
+
+これは$\kappa$という\emph{解析modulusを動かす}周期系である。
+固定$\kappa$で値$F$を一周する有限位数のMilnor monodromyや、
+元のLG三次曲面のlevel $h$を動かしたarcsine周期系とは異なる。
+前節で$j$やisogenyが二周期MF模型を完全には分類しなかったこととも矛盾しない。
+ここで回収したのは、主部のMilnor被覆の\emph{有理Hodge因子}であって、圏の同値ではない。
+
+\subsection{実germの高重み情報を整数次数付きdg圏で検出する}
+最後に実際の$\mu=27,\tau=24$例へ戻る。
+$R_f=\mathbb C[[x,y]]/(f)$とし、
+\[
+ \mathcal S_f=D^b_{\rm dg}(\operatorname{mod}R_f)/\operatorname{Perf}_{\rm dg}(R_f)
+\]
+を、その通常の$\mathbb Z$-graded dg enhancementを持つ特異点圏とする。
+本節のHochschild cohomologyは、この整数次数付き圏の絶対的なものとする。
+
+\begin{corollary}[実境界と主部のdg特異点圏は非同値]
+\label{cor:actual-germ-Zdg-distinction}
+前節の一反復germ $f$と、その重み付き主部$F$について
+\[
+ \dim\mathrm{HH}^0(\mathcal S_f)=24,\qquad
+ \dim\mathrm{HH}^0(\mathcal S_F)=27.
+\]
+従って$\mathcal S_f$と$\mathcal S_F$はdg Morita非同値である。
+さらに、同じ$n$の許容する実境界germ同士で$\kappa^2\ne(\kappa')^2$なら、
+それらの整数次数付きdg特異点圏もMorita非同値である。
+\end{corollary}
+\begin{proof}
+Hua--Kellerの復元定理\footnote{
+Z. Hua, B. Keller, \emph{Cluster categories and rational curves},
+Geom. Topol. 28 (2024), 2569--2634,
+\href{https://doi.org/10.2140/gt.2024.28.2569}{doi:10.2140/gt.2024.28.2569};
+\href{https://arxiv.org/abs/1810.00749v6}{arXiv:1810.00749v6}, Theorem 5.9, pp.36--37。
+最終preprintの定理と証明を確認した。ここで使うのは一般の孤立超曲面についての定理であり、
+三次元flopやNCCRの存在を仮定する後続の定理ではない。
+}は、孤立超曲面germについて
+$\mathrm{HH}^0(\mathcal S_f)\cong\mathbb C[[x,y]]/(f,f_x,f_y)$を代数として与える。
+前節の厳密なTjurina数の計算とMorita不変性から最初の主張が従う。
+後半では、Morita同値ならTjurina環が同型となり、Mather--Yauによって接触型が一致する。
+前節で証明した実二枝の解析的不変量$\kappa^2$が一致しなければならない。
+\end{proof}
+
+\begin{remark}[基礎環・次数・実germを保つ]
+二周期MFの相対的Hochschild環をJacobian環と同定する公式と、
+上の整数次数付きdg特異点圏の絶対的$\mathrm{HH}^0$をTjurina環と同定する公式を入れ替えない。
+本系はHua--Kellerの指定するenhancementでの結論であり、
+本稿ではperiodization・忘却の全比較を構成せず、一般の二周期MFの復元へ無条件に言い換えない。
+同様に、Kummer--Prym構成は重み付き模型のMilnor curveについて証明したもので、
+$\tau=24$の実際のgermに解析的に移したものではない。
+
+Prymのnorm理論、Cianiの三楕円分解、超幾何方程式、dg復元の一般定理は既知である。
+本稿の位置付けは、境界から得た同じ$K$を明示的な有限写像とHodge因子へ結び、
+何を付加すれば幾何学的対応が実現し、どの範囲にはまだ移せないかを示すことにある。
+個別の既出性の網羅調査、偏極を含む整数分解、実germのPrym比較、HMSは未完了である。
+\end{remark}
