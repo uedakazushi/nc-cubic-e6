@@ -1,112 +1,94 @@
-# 研究方針：非可換三次曲面から広がる幾何学
+# 研究方針：量子三次曲面・Fricke幾何・境界Prymの公表
 
-2026-11-18 / e6-connections-v31。**再開時は本書を最初に読む。**
-GitHub mainが正本。主論文は `papers/nc-cubic-e6.tex`。基礎は `research/research_notes.md`、DAHA比較は `research/fricke_daha_comparison.md`、Poissonと二五次被覆は `research/poisson_order_notes.md`、LG/G2は `research/cayley_lg_connections.md`、全period/trialityは `research/conic_period_coordinates.md`。境界力学・link・局所化は `research/boundary_pell_dynamics.md`、閾値・解析modulus・MF・楕円/Prymは `research/boundary_analytic_moduli.md`。旧bundle・会話履歴を再開の前提にしない。
+2026-11-18 / publication-v32。**研究再開時は本書を最初に読む。**
+
+GitHub main を正本とする。公表用原稿は日本語LuaLaTeXの三論文に分ける。研究ノートと計算資産を含む現在の一式から再開でき、旧版・会話履歴の取得を必要としない。
 
 ## I. 恒常的な研究原則と保存許可
 
-**最優先は数学的に面白くすること。優先戦略は、多様な話題との具体的な接続を見つけ、検証可能な数学へ育てること。** 意外な同型・共通構造、見通し、新しい問い・方法を重視し、名称や定理数を増やすことを目的にしない。
-正確性を犠牲にせず、重要性、新規性、理解の深化、応用、実現可能性を総合して研究価値を最大化する。既定の分類の完遂が他の面白い接続より自動的に優先されるわけではない。重要な方針変更は現在の理由と元の目標の達成部分・残存部分を簡潔に記し、履歴を時系列に蓄積しない。
-証明済み、仮定付き、未完成、予想、計算的観察を区別する。主要主張の仮定・依存結果・証明箇所・未解決点を示す。原稿中の証明、今回の点検、計算実行、独立査読を分ける。誤りは依存する本文・要約・方針にも反映する。
-先行研究を一次資料で確認し、Introductionで既知結果の範囲と本稿の貢献を比較する。未確認の内容・書誌・新規性を推測で補わない。文献PDFや検索結果を大量収録しない。
-原稿は日本語LuaLaTeX。公表価値ある関連分野の結果も同じ主論文へ統合する。分割は数学的まとまりと公表上の利点で判断し、価値ある既存成果・必要証明を軽量化のために削除しない。
-研究ノートは着想、補題、計算、反例、障害、文献比較、再取得困難な情報を保持する。日誌・会話・更新履歴・重複証明にせず、主論文に証明があれば参照する。
-現行方針・ノート・論文と必要最小限の原稿、コード、入力、小証明書、再現手順で自己完結させる。旧ZIP・旧原稿・バックアップ・ログ・キャッシュ・組版中間物は除くが、数学的内容と検証可能性を損なわない。
-研究区切りの承諾不要Library保存は一般に許可されているが、**GitHubにpushした内容はLibraryに保存しない**。push失敗で未保存成果の保全が必要な場合だけ緊急退避できる。既存Libraryファイルを明示指示なしに削除しない。
-主要文書に日付・版番号を付け、生成・検証・commit・push・Library保存を別状態として報告する。約15分または数学的区切りでmainへ通常のfast-forward保存を行う。force push、不要なPR・Actionsを使わず、PDF・ZIPをGitで追跡しない。未実行をPASSと言わない。
+以下は今回の論文構成とは独立した一般原則である。
 
-## II. 現在の問いと研究選択
+1. 数学的重要性、新規性、理解の深化、応用、正確性、実現可能性を総合して研究価値を最大化する。目標・方針は柔軟に変更する。重要な変更には現在の理由と、元の目標の達成部分・残存部分を記すが、変更履歴は蓄積しない。分野間の接続は実際の写像・構造・障害で示し、名称や定理数を増やすことを目的にしない。
+2. 証明済み、追加仮定付き、証明未完成、予想、計算的観察を区別する。主要主張の仮定、依存結果、証明の所在、未解決点を示す。原稿に証明があること、今回点検したこと、計算したこと、独立査読を区別する。誤りがあれば依存する本文・要約・方針も訂正する。
+3. 公表前に一次文献を調べ、既知結果の仮定・範囲と本研究の貢献をIntroductionで具体的に比較する。書誌情報・文献内容・新規性を推測で補わない。文献PDFや検索出力の大量収録はしない。
+4. 価値ある結果は十分な証明とともに現行論文に保持する。日本語LuaLaTeXを標準とし、著者欄は空欄とする。原稿は現在の成果を理解する順に構成し、数学的なまとまりと公表上の利点に応じて分割・統合する。未解決箇所を完成結果として扱わない。
+5. ノートは現在有効な式、着想、補題、反例、失敗した方法の本質的障害、文献比較を整理する。日誌・会話・更新履歴にしない。再取得困難な情報は簡潔に残し、本文に十分な証明がある場合はその所在を参照する。
+6. 再開に必要な目標・達成基準・主要到達点・核心・具体的な次の着手は本書に集約する。詳細は論文とノートに置き、ファイル名、記法、主張の状態を現行版で一致させる。
+7. 継続用bundleは現行方針・ノート・論文・PDFと、理解・検証・再生成に必要な原稿、文献情報、コード、入力、小証明書だけで構成する。旧版、旧ZIP、バックアップ、変更履歴、ログ、キャッシュ、組版中間物を除く。軽量化のために数学的内容や検証可能性を削らない。固定容量・ページ数を目標にしない。
+8. **研究の区切りで、ユーザーに再確認せず現行bundleを保存する許可がある。** 本研究では最新のユーザー指示に従い、GitHubの正本に加えて研究継続用bundleをLibraryへ保存する。既存Libraryファイルの削除は別操作であり、明示指示なく行わない。日付・版番号を付け、生成・検証・commit・push・保存を区別して報告する。配布前に入力、参照、ZIP整合性、必要な組版と計算を確認する。
 
-**同じ非可換三次曲面から回復される幾何を、実際の写像・作用・周期・局所模型で結ぶ。** 量子中心はFrickeへ、一次元表現はLG/Cayley/D4へ、対称LGはG2へつながる。周期、境界力学、局所特異点、圏のどの情報がどの不変量に残るかを比較する。
-現在の中心は、境界の解析modulus K=kappa²と高重み情報である。重み付き模型のMFは(n,K)で分類され、同じlink・閾値・HH次元でも非同値。四点配置の二捩れ付き楕円曲線も同じKを記録する。
-今回、その付随楕円曲線への**実際の有限写像**を、重み付きMilnor曲線の二次Kummer被覆から構成した。元の曲線では指定したzを保つ写像に平方類[x]の障害があり、sqrt(x)で正確に解消される。Prym内の有理Hodge因子、全n共通のCiani genus3中間曲線、楕円因子の超幾何方程式を得た。
-さらにCiani経由の写像が巡回Galois被覆であり、完全分岐と非分岐中間商から楕円引戻しの核が正確に標識二捩れ、誘導偏極次数がPell積bcとなることを証明した。楕円族自体はMiranda--Perssonの極端有理楕円曲面X411、j写像は次数6のBelyiである。幾何学的置換モノドロミーは$S_4$で、位数4巡回部分群の六剰余類への作用と同型である。以前のPoisson零点上の$S_4$との自然な対応は未構成。この既知楕円曲面とPell--Prym幾何との接続を優先して追う。
-実germのmu27,tau24と主部のtau27を区別する問題は、通常のZ-graded dg特異点圏についてHua–KellerのHH0=Tjurinaにより解決した。**strictな二周期MFの相対HH公式との全比較は未構成**であり、次数と基礎環を明記する。Prym構成を高重みの実germへ解析的に移すことも未解決。
-元の八次元E6成分の完全決定は保持する。七次元正常形、横断積分、八次元形式近傍・表示stack、結節因子、二五次被覆は現行原稿にある。全intrinsic H3の相対代数化・降下・大域境界は未完成で、他分野研究の前提にしない。
-達成基準は、具体的写像、変形、局所模型、格子写像、圏的対応、障害、周期式を正確に与えること。型・名前・数値の一致だけで同一視しない。
+GitHubは通常のfast-forwardで、約15分または作業の区切りにmainへ保存する。force push、不要なPR・Actionsを使わない。PDF・ZIP・ログをGitで追跡しない。
 
-## III. 主要な到達点と確実性
+## II. 現在の目標と論文構成
 
-### A. 非可換変形とモジュライ
+目標は、三乗根量子三次曲面から得られた成果を、中心結果・仮定・既知理論との関係が読者に分かる三論文として公表できる状態へ進めることである。
 
-七次元中央PBW正常形、全係数CY AS4、全中心式、固定包絡四次元部分の非成分性（`prop:pbw`, `thm:normal`）。中央境界・対角非零の仮定を外さない。横断積分は全次数平坦、独立な超越的中心値でH3（`lem:central-lift`, `prop:formal-integral`, `lem:generic-D`）。数値中心値は別問題。
-滑らかな三次中心・反標準楕円境界・指定局所order模型でHH²=8、HH³=0（`thm:HH8`）。接空間rank18、gauge14、商8。全Artin表示族・enhancement・smooth DM八次元表示stackを保持。一般非被約底のintrinsic降下・H3開性・全境界は未完成で、成分定理の相対比較仮定を外さない。
+| 原稿 | 中心結果 | 最優先の公表課題 |
+|---|---|---|
+| papers/nc-cubic-e6.tex | 七次元PBW正常形、条件付きHH²=8・HH³=0、八変数形式表示、反標準再構成、結節中心、AOU無限位数部分との比較 | H3/order認識の外部入力を監査し、証明範囲を固定する |
+| papers/fricke-geometry.tex | AW/Frickeの規約、次数15と5の被覆、N5²M5とS5×S5、LG/D4、全四period、triality isogeny | 二五次被覆・整数周期の新規性と既知Fricke/DAHA理論との比較 |
+| papers/cubic-boundary-prym.tex | Pell反復、境界二枝、局所化の成長、模型MF、実germ、Milnor二重被覆のPrymと偏極 | 境界からPrymまでの定理列と一次資料の最終監査 |
 
-### B. Poisson・DAHA・二五次被覆
+構成変更の理由は、従来の総合原稿で量子変形論・指標多様体・境界特異点という三つの中心結果が埋もれていたためである。既存の定理と証明は、現在の三論文のいずれかに保持する。共通の記法と文献データは papers/shared/ に置く。
 
-固定包絡の五結節SNC因子、A4商の二成分、一般係数で既約六次元因子。中心特異性とH3境界は異なる。AW中央特殊化、Casimir規約、Fricke係数写像、量子的Vieta、D4⊂E6を明示。Q=q exp(hbar)の交換子は指定Goldman型括弧の9倍。Brown–Gordonを適用するが全DでのM3/Morita型は未確認。
-非Casimir切断の純粋q変形と固定pointed H3心へのVietaには障害があり、一般変形・心の変更は否定しない。十Poisson零点、四Casimir特異値、H3可否、二次接触／一次横断、S4作用を保持。
-相対Poisson臨界環は有限平坦次数15、一次元表現環は次数5。Delta15=N5²M5、同時幾何Galois群S5×S5。有限体計算と群論・基本群の証明は別。今回旧主張の独立再監査はしていない。
+元の「八次元E6成分を完全に決定する」という目標は保持する。指定局所order模型のHochschild計算、選んだ点の形式表示・適合したAbel変形、代数的表示stackまで到達している。**全intrinsic H3モジュライの相対代数化・開性・降下・全境界は未完成**である。この未解決問題を第二・第三論文の公表の前提にしない。
 
-### C. LG・格子・全period・triality
+## III. 主要到達点・仮定・証明の所在
 
-一次元表現Phi=grad[uvw−(u²+v²+w²)/2]、Jacobi環rank5、exact Lagrangian graph。分岐源CayleyはトーラスSL2指標多様体。D4 miniversal、三枝巡回、留数対、elliptope/pillowcaseと内部実sheet一意性。
-U=S\Dで0→Z delta_infty→H2(U,Z)→D^perp→0、右端D4(-1)、左端原始radical。指定退化のMilnor包含によるPicard整数比較、外部triality。全域標準分裂ではない。MHSは重み2の4方向と重み4の1方向。
-G2実現のD4/A2二成分、成分交換と内部Hurwitz、Klein七点S7と表現像6048を区別。境界周期(2pi i)²、matching対数、Morseのarcsine周期、無限二面体のrank二解局所系、有理非分裂例を保持。
-conic標識上の全四period=(z1/z2,z2/z3,z3/z4,z3*z4)、指定開集合で有理MHS分裂⇔全zi捩れ。W臨界値、Casimir値、被覆分岐は別。
-対称Hurwitzホモロジー像は外側S3、pure braidは自明。period=(xi,eta,eta,eta)、格子指数3とtorus isogeny(xi,eta)→(xi,eta³)。Weyl商はBP三成分写像。共通開集合で有理MHS比較、Klein整数拡大位数7,21,21。全底の標準VMHS・曲面/導来同値ではない。
+### A. 正常形と形式変形
 
-### D. 境界力学・局所化・二枝
+- thm:normal：固定位数三、中央境界、対角非零という範囲で七次元正常形を得る。PBW、低次中心、残余A4群を直接計算する。対角係数零や非中央境界は含めない。
+- thm:HH8：滑らかな三次中心C、D∈|−K_C|の滑らかさ、Dに沿う k[[s,w]]⋊μ3 への局所Morita模型を仮定し、HH²の7+1分解とHH³=0を証明する。局所模型への具体族の適用は ass:order の入力である。
+- lem:central-lift, thm:eight-formal-central-lift：中心のrank跳躍を低次補正の単元minorで処理し、八変数同時形式族を構成する。
+- thm:intrinsic-formal-eight と表示stack：適合したenhancement、Abel変形、反標準環の再構成の比較を明記する。一般dg変形のheart、任意の非被約底のH3開性・降下と混同しない。
+- lem:generic-D：独立な超越的中心値については中心局所化でH3性を得る。固定した数値中心値でのH3性を同じ議論で結論しない。
+- thm:conditional-component：全モジュライの成分判定は相対比較の追加仮定付きである。
+- lem:anticanonical-quadratic-hull, prop:aou-infinite-order-exclusion：飽和反標準環R=B/(G), deg G=3からQ(R)=Bを回復する。唯一の中心一次直線で割ったpoint schemeは、本七次元族ではP²、AOU §9の無限位数Sklyanin側では楕円曲線。従って指定構造対象を保つexact同値はない。有限位数AS曲面、別の構造対象、任意の導来同値、八次元横断族の非AS性は未判定。
 
-g=iota_v iota_w iota_u iota_w、Lambda=3+2sqrt2、M=[[1,-2],[-2,5]]。
-M^n=[[a,-b],[-b,c]]、d=b+c=1,7,41,...。境界Theta(r,t)=(|r|,|t|,|r+t|)、最小次数d、射影交点次数2d。無理固有付値、指定コンパクト化を支配する有限境界blow-up上の非正則化、個別付値抽出4n。algebraic stabilityの否定ではない。
-アフィン引戻しDHKK h_t=0、射の極filtrationの歪み率log Lambda。閉包class cD_u+bD_v+dD_w、算術種数delta=1+2bc−d、proper対象列率2log Lambda。filtered HHとrank6のHPを区別。
-条件kappa²≠1、N_v(kappa)≠0で境界はp_wの二枝、Puiseux(b,c)、交叉bc。最低面F_nk=y^(2b)−2kappa x^c y^b+x^(2c)、link T(2b,2c)、Milnor数(2b−1)(2c−1)、homology monodromy位数2bc。正規化と一点欠損の率log Lambda、2log Lambda。Chebyshev/Casals局所Weinstein模型は大域曲面や反復間の関手と未同定。
+詳細は research/research_notes.md。同梱する旧来の入力断片は補助資料であり、それが存在することと、その全依存証明の自己完結性・独立監査を区別する。
 
-### E. 閾値・解析modulus・MF・level2楕円曲線
+### B. Fricke・Poisson・周期
 
-`subsec:boundary-thresholds-mf`, `sec:boundary-analytic-moduli`。
-lct=(b+c)/(2bc)、0<tau<1の乗数イデアルはb(i+1)+c(j+1)>2bc tau。実境界MFのHH次元は(2b−1)(2c−1)、異なるnはMorita非同値。
-二枝先頭比I=(r1+r2)²/(4r1r2)=kappa²は高重み項のある実germにも解析的不変量。
-**重み付き模型**の二周期MF分類は(n,K)一致と同値。DyckerhoffのHHを代数として使い、Euler Jac=TjurinaとMather–Yauによる。通常Ext代数が同じでも高次A∞積に係数が現れる。一般高重みgermへの同じ証明の流用はしない。
-四点0,infty,rho±の二重被覆E_k:eta²=z(z²−2kappa z+1)、T=(0,0)。K=kappa²はY0(2)粗modulus、j=64(4K−3)³/(K−1)。K0と9/8はj1728が同じでも模型MFは非同値。2isogeny K→K/(K−1)も一般にMF同値でない。
-実例A=B=C=0,h=1、初期v=2,n=1はmu27,tau24。元のVietaからresultant、正則初期列socle26と重み31jetで厳密に確認。主部tau27へ接触非同値。今回の新コードでも独立再計算した。
+- thm:aw-casimir-exact：AW表示とCasimirの正確なスカラー。spherical DAHAとのMorita同値は未主張。
+- thm:relative-critical-flat, thm:critical-discriminant-quintics, thm:paired-quintic-S5：相対次数15と5、Δ15=N5²M5、同時幾何群S5×S5。有限体分解型だけで幾何群を証明したとはしない。
+- Cayley分岐源、四sheet衝突のD4、Milnor包含からPicard格子への整数比較を保持する。中心の座標、一次元表現の座標、LG値h、Casimir値Dは異なる。
+- thm:four-integer-D4-periods, thm:four-period-rational-split：指定conic開集合上の四周期 (z1/z2,z2/z3,z3/z4,z3*z4) と捩れ性による有理Hodge分裂。
+- thm:G2-period-isogeny-quotient, thm:G2-companion-rational-Hodge：指数3のperiod isogenyと既知G2底写像。共通開集合の有理MHS比較、Klein整数拡大の位数7,21,21。全底の標準VMHSや曲面・導来圏の同値ではない。
 
-### F. Kummer–Milnor被覆、Ciani、Prym、dg復元
+詳細は research/fricke_daha_comparison.md, poisson_order_notes.md, cayley_lg_connections.md, conic_period_coordinates.md。
 
-新節 `papers/sections/quantum_cubic_boundary_prym.tex`、`sec:boundary-milnor-prym`。
-CはF_nk=1の滑らかな射影模型。z=y^b/x^cについてz(z²−2kappa z+1)=x*(y^(b/2)/x^((3c+1)/2))²。xは2b個の単純零点を持つので非平方。**同じzを保つC→E_kはない**が、a²=xの連結二次被覆tildeCではz=y^b/a^(2c), eta=y^(b/2)/a^(3c)が次数2bcの写像qを与える。
-g(C)=2bc−b−c、g(tildeC)=4bc−b−2c−1、Prym次元2bc−c−1。deckがEの逆元に対応し、q*EはPrymに入る。q*q*/(2bc)（正確な順序は本文のq^*q_*）が有理冪等射を与える。整数・偏極付き積分解は未主張。
-全nで共通のCiani四次X4+Y4−2kappa X²Y²=Z4へ(X,Y)=(a^c,y^(b/2))、次数bc/2。Jac(Ciani)はEi²×D_kにisogenous、Eiはj1728、D_k:T²=r4−2kappa r²+1。PrymにEi×D_kの二次元部分が入る。D_k→E_kは(z,eta)=(r²,rT)の2isogenyで、既存level2対応を実際の商で実現する。
-楕円周期は(kappa²−1)Pi''+2kappa Pi'+Pi/4=0。完全微分恒等式から証明し、Gauss超幾何(1/2,1/2;1)へ変換。kappa変動の周期であり、固定kappaのMilnor値monodromyやLGのh周期とは異なる。
-Hua–Keller最終v6 Thm5.9の**通常Z-graded dg特異点圏**でHH0=Tjurina。実tau24と主部tau27はdg Morita非同値。実germで異なるKもこの圏が区別する。Z/2相対HH=Jacとの全忘却・periodization比較や、実germへのPrym移行を済ませたとはしない。
+### C. 境界・局所圏・Prym
 
-### G. 巡回被覆、整数theta偏極と極端有理楕円曲面
+- thm:pell-exact-degree：g=ι_vι_wι_uι_w、Λ=3+2√2、最低次数1,7,41,…。射影交点次数2d_n、有限境界blow-upでの非正則化、個別付値の抽出深さ4nを区別する。
+- 通常affine Perf entropyは零。射の極filtrationはlogΛ、proper曲線閉包・正規化欠損の対象列は2logΛ。関手entropyと対象列の成長を区別する。
+- 許容conicの境界は二つのPuiseux(b_n,c_n)枝、交叉b_nc_n、link T(2b_n,2c_n)。Newton閾値・conductor・Milnor数を本文で計算する。
+- 重み付き模型 F=y^(2b)−2κx^c y^b+x^(2c) の二周期MFは(n,κ²)で分類される。実germへの無条件延長はしない。具体的な実germのμ=27,τ=24と主部τ=27は、Hua–Kellerの通常Z-graded dg圏のHH⁰で区別する。二周期の相対HH=Jacと混同しない。
+- 指定した z=y^b/x^c を保つMilnor曲線からの楕円写像には平方類[x]の障害がある。a²=xの二次被覆では次数2bcの写像を構成でき、Prymに可変楕円因子が入る。任意の別の楕円写像の不存在は主張しない。
+- Ciani中間曲線、巡回次数bcと2bc、楕円引戻しの核となる標識二捩れ、theta線束の制限次数bc、Prym型 (1^(b−1),2^(2bc−b−c)) を保持する。楕円上の偏極isogenyの次数は(bc)²である。
+- 可変楕円は既知の極端有理楕円曲面X411、周期は (κ²−1)Π''+2κΠ'+Π/4=0。j写像の次数6とBelyi分岐を計算する。整数直積分裂、実高重みgermへのPrym移行、MF部分圏・HMSは未構成。
 
-主論文 `sec:prym-integral-polarization`。\(b=2m,c\)はPellの互いに素な整数。tildeC→Dは巡回Galois次数bc、tildeC→Eは巡回Galois次数2bc。前者は\(T=0\)の四点で完全分岐、\(r=0\)の二点に各2c点・指数m、\(r=\infty\)の二点に各b点・指数c。最大非分岐商はD→Eの2isogeny。
-楕円の標識二捩れ\(T_E=(0,0)\)は自然なJacobian pullback\(q^*:J(E)→J(tildeC)\)の**正確な核**である。Prym内の埋込\(J(D)\)へのJacobian theta制限の次数は\(bc\)（n=1,2,3で10,348,11830）、Prym全体のtheta制限型は\((1^{b-1},2^{2bc-b-c})\)。整数の直積分解は未構成。
-\(E_κ:\eta²=z³-2κz²+z\)は\(κ=±1\)でI1、無限遠でI4*を持つ極端有理楕円曲面\(X_{411}\)、Mordell--WeilはZ/2。\(j=64(4κ²-3)³/(κ²-1)\)は次数6のBelyi写像、分岐型\((3,3),(2,2,2),(4,1,1)\)。Miranda--Perssonの原論文Table5.2を一次画像で確認。分類そのものは既知で、Pell/Prymの具体的な幾何の新しい整理として扱う。
+詳細は research/boundary_pell_dynamics.md, boundary_analytic_moduli.md。
 
-## IV. 次の優先課題と具体的着手
+## IV. 次の課題と具体的な着手
 
-**第一優先：実germと主部の比較を、次数と追加構造を保って進める。**
-Z-graded dg特異点圏の復元は適用できた。次はstrict二周期MFの相対HHと絶対Zdg HHの関係を、Hua–Keller、Dyckerhoff、periodizationの一次資料から具体化する。n=1でkappa,hの変動による厳密Tjurina跳躍とJacobian積を計算し、[f]と高重み変形がどこに残るかを調べる。tau差だけの議論を、基礎環・次数の違う圏へ流用しない。
-
-**並行して優先：Prymの補因子・楕円モジュラー幾何を深化する。**
-楕円factorのpullback kernel・誘導偏極次数bcは解決した。次はb2,c5のPrym全体の偏極付き補因子、交叉格子、初等因子、thetaと水平切断の関係を求める。X411のI1/I4*とBelyi三値から楕円rank2局所系の実際の整数monodromyを計算し、level2標識・二同種・Prymの自然な局所系と比較する。Kummer被覆が最小なのは指定zを保つ平方根の意味であり、元のCから任意の楕円写像がないとは主張しない。
-高重みの実germには解析的同型がないため、Prym因子が変形で残るか、極限Hodge構造・stable reductionでのみ現れるかを別問題として定式化する。isogeny因子を圏の部分圏やHMSへ飛躍させない。
-
-**並行して優先：局所Weinsteinとfiltered mirror。**
-局所MF、局所Weinstein、大域H3を分け、対象・End環・action filtrationを指定する。通常affine Perf entropyは零なので正値を再発見しようとしない。pole/actionの線型比較に加えて特定gへの同変性が必要。
-
-**維持する課題：三成分Hodgeと非可換成分。**
-trialityの3捩れperiod差、Klein7/21、N5/M5のbranchと値衝突を保持。Sklyanin方向のq障害相殺、Vietaの心の変更、全H3開性・降下・全境界も維持する。公表前には旧依存定理を独立監査する。
+1. **公表範囲を固定する。** 三論文それぞれのIntroductionと主定理を突き合わせ、既知理論の適用を貢献として過大に述べていないか確認する。全分類の完成を待たずに公表できる定理列を確定する。
+2. **第一論文の外部認識を監査する。** ass:recognition, ass:order の各項から、同梱入力断片の証明と文献へ一つずつ辿る。飽和性、有限大域次元、局所order、Serre作用の適用範囲を別々に確認する。全H3の開性・降下を無断で仮定から除かない。
+3. **既出性比較を完結する。** 第一論文はEtingof–Ginzburg、CMR、Rains、AOU/VdB。第二論文はAW/DAHA、既知Fricke判別式、Goldman–Neumann、Friedman、Boalch–Paluba。第三論文はMarkov境界力学、準斉次特異点の分類、Prym/Ciani分解、Miranda–Persson。必要な係数変換・同一性を実際に計算し、未確認箇所をIntroductionへ反映する。
+4. **重点的な証明点検。** 二五次被覆の独立な幾何S5、整数D4標識とtrialityの全開条件、Prymの分岐と整数偏極を、計算証明書とは別に通読する。
+5. **次の研究として保持する。** n=1の実germでTjurina跳躍と[f]を調べ、Z-gradedと二周期の比較を進める。b=2,c=5のPrym補因子の整数偏極、X411の整数monodromy、有限位数AS部分との比較も有力である。いずれも投稿準備を際限なく拡張する前提にしない。
 
 ## V. 再現・検証・保存
 
-```sh
+~~~sh
 python3 -m pip install -r computations/requirements.txt
-python3 computations/verify_prym_integral_belyi.py
-python3 computations/verify_all.py  # 全36検証器。今回の実行範囲とは別
-latexmk -lualatex papers/nc-cubic-e6.tex
-```
-今回は巡回Prym・整数偏極・X411/Belyi検証器を実行し、整数合同式、Pell分岐数、
-Weierstrass不変量と三分岐値の有理多項式を厳密にPASS。
-新しい証明書は `computations/prym_integral_belyi_certificate.json`。
-完全分岐からのJacobian単射、標識二捩れ核、theta norm、
-Mumfordの偏極型、Kodaira--Tate・Shioda--Tateは通常の証明と既知定理に依存する。
-旧35検証器の全再実行、旧証明の独立再監査、主論文全体の再組版、
-個別結果の網羅的新規性調査は今回未実施。
-新節のLuaLaTeX単体組版の確認状態は組版後に確定させる。
-保存後main ref・必要ファイル・証明書・Git blob SHAを確認する。
-PDF・一時wrapper・ログはGitへ入れず、pushした内容をLibraryへ保存しない。
+python3 computations/verify_sources.py
+python3 computations/verify_all.py
+make papers
+make bundle
+~~~
+
+verify_sources.py は三原稿の入力・ラベル・引用を検査する。verify_all.py は36検証器の実行結果、実行時刻、使用ソースのhashを computations/validation.json に記す。計算は数学的主張の全体を独立に検証するものではない。
+
+組版は標準のTeX Live日本語環境、LuaLaTeX、latexmkを用いる。三つのPDFは build/ に出力する。現行の生成・検証・監査範囲は **research/publication_status.md** に集約する。最新ソース以外の旧PDFを配布しない。
+
+bundleは scripts/build_bundle.py で現在の必要ファイルを選んで作成し、三PDF・入力ソース・計算資産の欠落、ZIP整合性を検査する。GitにはTeX・ノート・再現資産だけを保存する。

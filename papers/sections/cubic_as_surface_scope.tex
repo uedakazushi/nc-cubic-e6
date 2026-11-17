@@ -1,0 +1,88 @@
+\section{反標準環による包絡の一意性とAS曲面との比較}
+\label{sec:as-surface-scope}
+
+本節では、四次元AS正則環の三次商であることと、
+三次元AS正則$\mathbb Z$-代数の$\qgr$であることを区別する。
+後者がOkawa--Ueda \cite[Definition~1.1]{OUASSurfaces}のAS曲面であり、
+del Pezzo型の標識には対応するvery strong helixが必要である。
+以下の一意性は、構造対象を保つexact同値に対する主張である。
+
+\begin{lemma}[飽和反標準環と二次包絡]\label{lem:anticanonical-quadratic-hull}
+構造対象を持つ二つの圏$(\mathcal A,\OO)$、$(\mathcal A',\OO')$が
+Serre作用を持ち、$\tau=S^{-1}[2]$、$\tau'=(S')^{-1}[2]$とする。
+構造対象を保つexact同値は、反標準orbit環
+\[
+ R=\bigoplus_{n\geq0}\Hom(\OO,\tau^n\OO),\qquad
+ R'=\bigoplus_{n\geq0}\Hom(\OO',(\tau')^n\OO')
+\]
+の次数付き同型を誘導する。
+さらに$R=B/(G)$で、$B$が一次生成二次関係環、$G$が三次斉次元なら、
+\[
+ Q(R):=T_k(R_1)/\bigl(\ker(R_1\otimes_kR_1\longrightarrow R_2)\bigr)
+ \simeq B.
+\]
+従って、このような二次包絡の次数付き同型類は$(\mathcal A,\OO)$から決まる。
+\end{lemma}
+\begin{proof}
+exact同値の導来拡張はSerre作用をその一意性により保つ。
+構造対象の同型と$F\tau\simeq\tau'F$の反復を用いると、
+各次数のHomの同型がorbit積と両立する。
+後半では、三次元による商は次数一・二の部分とその乗法を変えない。
+よって$R_1=B_1$であり、二次乗法の核は$B$の二次関係空間そのものである。
+$B$はこの関係空間で定義されるので結論を得る。
+\end{proof}
+
+この補題を斉次表示へ適用するには、表示した商環が
+\emph{飽和反標準環そのものであること}を確認する必要がある。
+任意の次数付き環の$\qgr$同値、任意の導来同値、
+構造対象を指定しない同値からの包絡復元は、ここでは主張しない。
+
+\begin{proposition}[AOUの無限位数blow-up表示との分離]
+\label{prop:aou-infinite-order-exclusion}
+式\eqref{eq:B}の$B_{\mathbf a}$と、そのH3切断
+$R_{\mathbf a,u}=B_{\mathbf a}/(G_{\mathbf a,u})$を取る。
+入力\ref{ass:recognition}(4)に従い、この商環が対応するpointed圏の
+飽和反標準環であるとする。
+このpointed圏は、Abdelgadir--Okawa--Ueda
+\cite[\S9]{AOUCubic}で\emph{無限位数の平行移動}から構成される
+反標準商$(\qgr F,\pi F)$とpointed exact同値ではない。
+\end{proposition}
+\begin{proof}
+同文献の式(9.6)--(9.10)は$F=P/(C'_3)$という二次AS4包絡を与え、
+Lemma~9.2は逆Serre作用を$(1)$と同定する。
+AS Cohen--Macaulay性による飽和性と合わせて$Q(F)=P$を得る。
+同節では中心一次直線は$kt$であり、$P/(t)$は滑らかな楕円曲線を
+point schemeとする三次元Sklyanin環である。
+
+一方、命題\ref{prop:pbw}より$Z(B_{\mathbf a})_1=kt$で、
+\[
+ B_{\mathbf a}/(t)=S_q
+ =k\langle x,y,z\rangle/(yz-qzy,\ zx-qxz,\ xy-qyx).
+\]
+$q^3=1$かつ$q\ne1$なので、$S_q$の二次関係を多重線型化したschemeは
+$\mathbb P^2$全体上の$\phi=\operatorname{diag}(1,q,q^2)$のgraphである。
+実際、$(x',y',z')=(x,qy,q^2z)$は全関係を満たし、
+任意の非零$(x,y,z)$でこの三線型方程式の係数行列はrank~2である。
+したがってその核はこの点に限られ、標準的な三つのaffine chart上の
+消去によりschemeとしてもgraphとなる。
+特に$S_q$のpoint schemeは二次元の$\mathbb P^2$である。
+
+もし上記のpointed exact同値があれば、補題
+\ref{lem:anticanonical-quadratic-hull}により$B_{\mathbf a}\simeq P$となる。
+唯一の中心一次直線は保存されるので$S_q\simeq P/(t)$を得るが、
+次数付き同型はpoint schemeを保つため、上の次元差に矛盾する。
+\end{proof}
+
+\begin{remark}[除外の範囲]\label{rem:aou-exclusion-scope}
+この命題は、AOUの\S9で指定された無限位数のblow-up表示を除外する。
+有限位数の特殊化、別の構造対象や別の標識を持つAS曲面、
+任意の導来同値を除外していない。
+同文献Theorem~9.4はblow-up側とAS代数側の\emph{導来同値}であり、
+ここで必要なpointed exact同値と置き換えることはできない。
+また第\ref{sec:integrate}節の横断方向では中心一次商のpoint schemeも
+楕円曲線へ変化するため、この障害を八次元変形族全体へ延長できない。
+したがって、七次元族あるいは八次元族の一般元について、
+「AS曲面である」「どの標識でもAS曲面にならない」のいずれも本節からは結論しない。
+公表に向けた次の比較では、許容する構造対象・標識・同値の種類と、
+AOU/Okawa--Ueda側の有限位数部分の適用範囲を先に固定する必要がある。
+\end{remark}

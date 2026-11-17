@@ -12,9 +12,27 @@
   "central_Poisson_brackets": "{X,Y}=9*(X*Y-2*e*Z+c*Omega-ell_c), cyclic",
   "Fricke_normalization": "{u,v}=9*(2*w+u*v+C), cyclic",
   "checks": [
-    {"pair": "XY", "nonzero_PBW_coefficients": 13, "status": "PASS"},
-    {"pair": "YZ", "nonzero_PBW_coefficients": 13, "status": "PASS"},
-    {"pair": "ZX", "nonzero_PBW_coefficients": 13, "status": "PASS"}
+    {
+      "pair": "XY",
+      "nonzero_PBW_coefficients": 13,
+      "status": "PASS"
+    },
+    {
+      "pair": "YZ",
+      "nonzero_PBW_coefficients": 13,
+      "status": "PASS"
+    },
+    {
+      "pair": "ZX",
+      "nonzero_PBW_coefficients": 13,
+      "status": "PASS"
+    }
   ],
-  "not_certified": ["global H3 admissibility", "whole-center equality after arbitrary central quotient", "skein/DAHA Morita equivalence", "novelty", "categorical extension of Vieta"]
+  "not_certified": [
+    "global H3 admissibility",
+    "whole-center equality after arbitrary central quotient",
+    "skein/DAHA Morita equivalence",
+    "novelty",
+    "categorical extension of Vieta"
+  ]
 }

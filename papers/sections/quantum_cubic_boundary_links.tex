@@ -139,8 +139,7 @@ Milnor fiberは二境界成分と種数$\delta_n-1$を持つ。
 各枝の一つのPuiseux対と相互交叉数が局所embedded topologyを決定する。
 同じ面の係数を二根が衝突しないように動かして
 $x^{2c}+y^{2b}$へ移せるので、絡み目は$T(2b,2c)$となる。
-これは平面曲線のPuiseux--link対応の標準適用であり、
-解析的な右同値の主張ではない。\footnote{
+これは平面曲線のPuiseux--link対応の適用である。\footnote{
 R. Casals, \emph{Lagrangian skeleta and plane curve singularities},
 J. Fixed Point Theory Appl. 24 (2022), 34,
 \href{https://doi.org/10.1007/s11784-022-00939-8}{doi:10.1007/s11784-022-00939-8},
@@ -286,15 +285,12 @@ Theorem 1.1およびCorollary 1.2。
 元のLG曲面のEuler数は$6$なので、最後の四多様体をその全体と同一視できない。
 また、異なる$n$の模型間のexact functor、$g$のwrapped自己同値、
 極filtrationとの一様な同変比較を構成したわけではない。
-しかし、前節まで抽象的だった「境界局所化のmirror対象」に対し、
-絡み目・実divide・thimbleの個数を指定した具体的な比較先を与える。
+絡み目・実divide・thimbleの個数を指定した局所的な比較先を与えるが、
+局所化との同変な圏的対応の構成は残る。
 
-\begin{remark}[何を証明し、何を検算したか]
-二枝の先頭項と全$n$の帰納法から、Puiseux型と相互交叉を決めた。
-局所link、conductor、Milnor公式、DHKK比較、Casalsの構成は既知理論の適用である。
+\begin{remark}[再現計算]
 \texttt{verify\_boundary\_torus\_links.py}は一反復の全係数先頭式、
 帰納漸化式、24反復の整数式、$n=1$模型のJacobi次元27とconductor14、
 monodromy多項式、Chebyshevの臨界値resultantを厳密に再現する。
-有限回の計算を全$n$の証明とせず、解析的右同値やglobal mirror同値も主張しない。
-個別のPell反復への適用の文献上の新規性は網羅確認未了である。
+全$n$の主張は二枝の先頭式の帰納法と引用した局所理論による。
 \end{remark}

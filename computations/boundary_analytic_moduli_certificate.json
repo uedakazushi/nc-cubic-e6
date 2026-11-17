@@ -9,19 +9,32 @@
       "kappa": "0",
       "K": "0",
       "Milnor_and_Tjurina": 27,
-      "Groebner_basis": ["x**9", "y**3"]
+      "Groebner_basis": [
+        "x**9",
+        "y**3"
+      ]
     },
     {
       "kappa": "2",
       "K": "4",
       "Milnor_and_Tjurina": 27,
-      "Groebner_basis": ["x**9 - 2*x**4*y**2", "x**4*y**3", "x**5*y - y**3/2", "y**5"]
+      "Groebner_basis": [
+        "x**9 - 2*x**4*y**2",
+        "x**4*y**3",
+        "x**5*y - y**3/2",
+        "y**5"
+      ]
     },
     {
       "kappa": "3*sqrt(2)/4",
       "K": "9/8",
       "Milnor_and_Tjurina": 27,
-      "Groebner_basis": ["x**9 - 3*sqrt(2)*x**4*y**2/4", "x**4*y**3", "x**5*y - 2*sqrt(2)*y**3/3", "y**5"]
+      "Groebner_basis": [
+        "x**9 - 3*sqrt(2)*x**4*y**2/4",
+        "x**4*y**3",
+        "x**5*y - 2*sqrt(2)*y**3/3",
+        "y**5"
+      ]
     }
   ],
   "analytic_invariant": "K=kappa^2=(rho1+rho2)^2/(4*rho1*rho2)",
@@ -30,7 +43,11 @@
   "modular_coordinate": "Tmod=64*(K-1), j=(Tmod+16)^3/Tmod",
   "two_isogeny": "X=z-2*kappa+1/z, Y=eta*(1-1/z^2)",
   "two_isogeny_parameter": "K -> K/(K-1); Tmod -> 4096/Tmod",
-  "same_j_distinct_level_examples": ["K=0", "K=9/8", "j=1728"],
+  "same_j_distinct_level_examples": [
+    "K=0",
+    "K=9/8",
+    "j=1728"
+  ],
   "actual_boundary_example": {
     "ambient": "A=B=C=0, h=1; initial conic v=2; n=1",
     "local_curve_recipe": "Res_t(P,H)/(64*x^2*y^5), with P=2xy-t(x^2+y^2+1)-2t^3",
@@ -40,7 +57,13 @@
     "Tjurina_matrix_rank": 21,
     "Milnor_number": 27,
     "Tjurina_number": 24,
-    "normal_forms_F_xF_x2F_x3F_yF": ["12*x**13 - 96*x**12/5 - 12*x**11/5", "-96*x**13/5 - 12*x**12/5", "-12*x**13/5", "0", "0"],
+    "normal_forms_F_xF_x2F_x3F_yF": [
+      "12*x**13 - 96*x**12/5 - 12*x**11/5",
+      "-96*x**13/5 - 12*x**12/5",
+      "-12*x**13/5",
+      "0",
+      "0"
+    ],
     "conclusion": "The actual boundary germ is not contact-equivalent to its quasihomogeneous initial form."
   },
   "ordinary_proof_inputs": [
@@ -55,6 +78,8 @@
     "dg Morita classification of actual higher-weight boundary germs",
     "principal model is analytically or categorically equivalent to actual germ",
     "elliptic attachment is a Milnor-fiber quotient or a categorical summand",
-    "elliptic isogeny induces an MF equivalence", "global HMS", "novelty"
+    "elliptic isogeny induces an MF equivalence",
+    "global HMS",
+    "novelty"
   ]
 }

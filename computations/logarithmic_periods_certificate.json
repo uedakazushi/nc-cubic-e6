@@ -17,9 +17,36 @@
     "Q": "(3-4i)/5",
     "Q_plus_inverse": "6/5"
   },
-  "monodromy_at_0": [[1,0],[0,-1]],
-  "monodromy_at_minus_half": [[1,0],[-1,-1]],
-  "unipotent_product": [[1,0],[-1,1]],
+  "monodromy_at_0": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      -1
+    ]
+  ],
+  "monodromy_at_minus_half": [
+    [
+      1,
+      0
+    ],
+    [
+      -1,
+      -1
+    ]
+  ],
+  "unipotent_product": [
+    [
+      1,
+      0
+    ],
+    [
+      -1,
+      1
+    ]
+  ],
   "not_computer_certified": [
     "matching sphere construction and orientation",
     "analytic integration and continuation",

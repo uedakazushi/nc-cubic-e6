@@ -20,11 +20,10 @@
       "critical_algebra_rank": 15,
       "character_algebra_rank": 5,
       "N5": "D**5 - 446*D**4 + 438*D**3 - 351*D**2 - 52*D + 98",
-      "N5_irreducible": true,
+      "M5": "D**5 - 404*D**4 - 215*D**3 + 279*D**2 + 226*D + 42",
       "N5_cycle_type": [
         5
       ],
-      "M5": "D**5 - 404*D**4 - 215*D**3 + 279*D**2 + 226*D + 42",
       "M5_cycle_type": [
         5
       ],
@@ -35,6 +34,7 @@
           "polynomial": "D**5 - 404*D**4 - 215*D**3 + 279*D**2 + 226*D + 42"
         }
       ],
+      "N5_irreducible": true,
       "Delta15_equals_N5sq_M5": "PASS",
       "N5_M5_coprime_and_squarefree": "PASS"
     },
@@ -49,11 +49,10 @@
       "critical_algebra_rank": 15,
       "character_algebra_rank": 5,
       "N5": "D**5 - 100*D**4 - 59*D**3 - 17*D**2 + 487*D + 534",
-      "N5_irreducible": true,
+      "M5": "D**5 + 303*D**4 - 196*D**3 + 70*D**2 - 349*D + 38",
       "N5_cycle_type": [
         5
       ],
-      "M5": "D**5 + 303*D**4 - 196*D**3 + 70*D**2 - 349*D + 38",
       "M5_cycle_type": [
         2,
         3
@@ -70,6 +69,7 @@
           "polynomial": "D**3 + 55*D**2 - 276*D - 260"
         }
       ],
+      "N5_irreducible": true,
       "Delta15_equals_N5sq_M5": "PASS",
       "N5_M5_coprime_and_squarefree": "PASS"
     }
@@ -88,7 +88,7 @@
   ],
   "not_certified_by_computation": [
     "geometric etale pi1 argument",
-    "newness of arithmetic/geometric results",
+    "newness of the arithmetic/geometric results",
     "global H3 admissibility",
     "spherical DAHA Morita comparison"
   ]

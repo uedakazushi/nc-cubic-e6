@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Run all exact certificates; geometric and categorical proofs are separate.
+"""Run exact arithmetic validators and record the actual execution and sources.
 
-validation.json is written only after every check succeeds. Updating this
-runner is not a run. Individual certificates state their executed scope.
+The current manifest is replaced, not appended. A failed execution overwrites
+a previous PASS. Geometric and categorical arguments are separate inputs.
 """
 from pathlib import Path
-import subprocess, sys, json, platform
+from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
+import subprocess, sys, json, platform, hashlib
 import sympy, networkx
 
 root = Path(__file__).resolve().parent
@@ -30,15 +32,7 @@ checks = [
     'verify_boundary_prym.py',
     'verify_prym_integral_belyi.py',
 ]
-completed = []
-for name in checks:
-    subprocess.run([sys.executable, str(root / name)], check=True, cwd=root)
-    completed.append({'script': name, 'status': 'PASS'})
-result = {
-    'date': '2026-11-18', 'version': 'e6-connections-v31', 'status': 'PASS',
-    'python': platform.python_version(), 'sympy': sympy.__version__,
-    'networkx': networkx.__version__, 'completed': completed,
-    'separate_mathematical_inputs': [
+SEPARATE_MATHEMATICAL_INPUTS = [
         'fixed-finite-order H3 recognition/openness',
         'fixed-envelope dual criterion for nodal-center H3',
         'Terwilliger universal AW Casimir and PSL2Z action',
@@ -92,8 +86,8 @@ result = {
         'Miranda--Persson X411 classification, Kodaira and Shioda--Tate',
         'Gauss-Manin compatibility of finite curve maps',
         'Hua--Keller Theorem 5.9 for ordinary Z-graded dg singularity categories',
-    ],
-    'not_certified_by_this_run': [
+    ]
+NOT_CERTIFIED = [
         'global H3 algebraic-stack construction',
         'all-boundary component classification',
         'relative quadratic-envelope AS4 recognition',
@@ -120,7 +114,78 @@ result = {
         'complete comparison between relative periodic and absolute dg Hochschild theory',
         'functors or exact cobordisms between different local Weinstein models',
         'independent peer review', 'novelty', 'GitHub or Library saving',
-    ],
-}
-(root / 'validation.json').write_text(json.dumps(result, indent=2) + '\n')
-print('ALL CURRENT EXACT CHECKS PASS')
+    ]
+
+def utc_now():
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def sha256(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def source_snapshot():
+    names = checks + ["central_tangent.py", "integrate_via_rains.py",
+                      "verify_all.py", "requirements.txt"]
+    return {name: sha256(root / name) for name in sorted(set(names))}
+
+
+def write_manifest(completed, before, *, started_at=None, failed=None,
+                   record_origin="direct execution", executed_runner_sha256=None):
+    """Record only a completed execution; source hashes bind the stated scope."""
+    now = datetime.now(timezone.utc)
+    changed = [name for name, digest in before.items()
+               if sha256(root / name) != digest]
+    if changed:
+        failed = {"source_changed_during_run": changed}
+    status = "PASS" if failed is None and completed == checks else "FAIL"
+    result = {
+        "schema_version": 2,
+        "date": now.astimezone(ZoneInfo("Asia/Tokyo")).date().isoformat(),
+        "completed_at_utc": now.isoformat(timespec="seconds"),
+        "status": status,
+        "scope": "Execution of the 36 exact arithmetic validators listed below; not an independent audit of mathematical proofs.",
+        "record_origin": record_origin,
+        "python": platform.python_version(), "sympy": sympy.__version__,
+        "networkx": networkx.__version__,
+        "runner_sha256": executed_runner_sha256 or before["verify_all.py"],
+        "support_source_sha256": {name: before[name] for name in
+            ("central_tangent.py", "integrate_via_rains.py", "requirements.txt")},
+        "completed": [{"script": name, "status": "PASS",
+                       "source_sha256": before[name]} for name in completed],
+        "source_integrity": "unchanged" if not changed else "changed",
+        "separate_mathematical_inputs": SEPARATE_MATHEMATICAL_INPUTS,
+        "not_certified_by_this_run": NOT_CERTIFIED,
+    }
+    if started_at is not None:
+        result["started_at_utc"] = started_at
+    if failed is not None:
+        result["failure"] = failed
+    (root / "validation.json").write_text(
+        json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+    return status
+
+
+def main():
+    before = source_snapshot()
+    started = utc_now()
+    completed = []
+    for i, name in enumerate(checks, 1):
+        print(f"[{i}/{len(checks)}] {name}", flush=True)
+        try:
+            subprocess.run([sys.executable, str(root / name)], check=True, cwd=root)
+        except subprocess.CalledProcessError as exc:
+            write_manifest(completed, before, started_at=started,
+                           failed={"script": name, "returncode": exc.returncode})
+            return exc.returncode or 1
+        completed.append(name)
+    status = write_manifest(completed, before, started_at=started)
+    if status != "PASS":
+        print("SOURCE INTEGRITY FAILED", file=sys.stderr)
+        return 1
+    print("ALL CURRENT EXACT CHECKS PASS (arithmetic scope only)")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

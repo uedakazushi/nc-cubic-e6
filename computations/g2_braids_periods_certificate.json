@@ -3,23 +3,109 @@
   "version": "e6-connections-v21",
   "status": "PASS",
   "arithmetic": "exact Q-polynomial identities; explicit permutations of seven points",
-  "hurwitz_maps": ["(u, -2*lambda + 2*u*v - w, v)", "(w, v, -2*lambda - u + 2*v*w)"],
+  "hurwitz_maps": [
+    "(u, -2*lambda + 2*u*v - w, v)",
+    "(w, v, -2*lambda - u + 2*v*w)"
+  ],
   "inverse_braid_and_center_identities": "PASS",
   "preserves_W_jacobian_Poisson_and_volume": "PASS",
   "component_cubic": "xi^3+6xi^2+3(1-alpha)xi+beta+2",
   "depressed_cubic": "z^3-3Pz+Q, P=alpha+3, Q=beta+6alpha+12",
   "branch_equation": "4P^3-Q^2=0",
   "pullback_branch": "-(b^2+b-c-1)^2*(b^2-8b-4c-16)",
-  "cusp_parameters": {"alpha": -3, "beta": 6, "b": -2, "c": 1, "lambda": "1/2", "h": "1/8"},
+  "cusp_parameters": {
+    "alpha": -3,
+    "beta": 6,
+    "b": -2,
+    "c": 1,
+    "lambda": "1/2",
+    "h": "1/8"
+  },
   "cusp_surface_singularity": "3A1; each Hessian determinant 9/4",
-  "chebyshev_identity_checked_degrees": [1,2,3,4,5,6,7],
-  "klein_orbit": [[0,0,0],[0,0,1],[0,1,0],[1,0,0],[1,1,0],[1,0,1],[0,1,1]],
-  "klein_braid_permutations_zero_based": [[2,0,6,4,5,3,1],[1,5,6,0,2,3,4]],
+  "chebyshev_identity_checked_degrees": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "klein_orbit": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      1
+    ]
+  ],
+  "klein_braid_permutations_zero_based": [
+    [
+      2,
+      0,
+      6,
+      4,
+      5,
+      3,
+      1
+    ],
+    [
+      1,
+      5,
+      6,
+      0,
+      2,
+      3,
+      4
+    ]
+  ],
   "transposition_word": "q^-1 p q^-2 p q^-1 p^3 = (5 7), 1-based labels",
   "klein_permutation_group_order": 5040,
   "klein_component_polynomial": "(xi+1)*(xi^2+5xi+1)",
   "boundary_double_residue": 1,
-  "ordinary_proof_inputs": ["configuration-space interpretation of braid groups", "Poisson and Poincare residue naturality", "primitive boundary torus identification", "primitive group plus transposition argument"],
-  "known_results_used": ["Boalch--Paluba sections 4.1, 5, 7 and Corollary 17, Theorem 20"],
-  "not_certified_or_claimed": ["actual analytic period integration by this program", "full Gauss-Manin connection or mixed-Hodge extension splitting", "quantum G2 algebra or derived equivalence", "S7 identified with the group of order 6048", "newness or independent audit of old H3 and S5xS5 claims"]
+  "ordinary_proof_inputs": [
+    "configuration-space interpretation of braid groups",
+    "Poisson and Poincare residue naturality",
+    "primitive boundary torus identification",
+    "primitive group plus transposition argument"
+  ],
+  "known_results_used": [
+    "Boalch--Paluba sections 4.1, 5, 7 and Corollary 17, Theorem 20"
+  ],
+  "not_certified_or_claimed": [
+    "actual analytic period integration by this program",
+    "full Gauss-Manin connection or mixed-Hodge extension splitting",
+    "quantum G2 algebra or derived equivalence",
+    "S7 identified with the group of order 6048",
+    "newness or independent audit of old H3 and S5xS5 claims"
+  ]
 }

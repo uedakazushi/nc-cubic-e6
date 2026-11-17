@@ -5,18 +5,100 @@
   "field": "Q, integral lattices and formal Laurent identities",
   "conic_discriminant": "(u^2+2Au+2h)(u^2-1)+B^2+C^2+2uBC",
   "coefficient_jacobian": "-16*(B - C)*(B + C)",
-  "root_basis_Gram": [[-2,1,0,0],[1,-2,1,1],[0,1,-2,0],[0,1,0,-2]],
-  "period_exponent_matrix": [[1,-1,0,0],[0,1,-1,0],[0,0,1,-1],[0,0,1,1]],
+  "root_basis_Gram": [
+    [
+      -2,
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      -2,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      -2,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      -2
+    ]
+  ],
+  "period_exponent_matrix": [
+    [
+      1,
+      -1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      -1,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      -1
+    ],
+    [
+      0,
+      0,
+      1,
+      1
+    ]
+  ],
   "period_exponent_determinant": 2,
-  "four_periods": ["z1/z2","z2/z3","z3/z4","z3*z4"],
+  "four_periods": [
+    "z1/z2",
+    "z2/z3",
+    "z3/z4",
+    "z3*z4"
+  ],
   "D4_roots_count": 24,
   "pair_identity": "ui-uj=(zi-zj)(zi*zj-1)/(2zi*zj)",
   "discriminant_factor": "Disc(N)=prod_{i<j}(zi-zj)^2(zi*zj-1)^2/(2^12*(z1*z2*z3*z4)^6)",
-  "split_rational_parameters": {"A":"1/4","B":"1/2","C":"1/4","h":"1/8"},
+  "split_rational_parameters": {
+    "A": "1/4",
+    "B": "1/2",
+    "C": "1/4",
+    "h": "1/8"
+  },
   "split_polynomial": "u**4 + u**3/2 - 3*u**2/4 - u/4 + 1/16",
   "split_cyclotomic_identity": "16*z^4*N((z+z^-1)/2)=(z^9-1)/(z-1)",
-  "nonsplit_rational_parameters": {"A":"-65/16","B":"75/16","C":"-65/16","h":"3575/288"},
-  "nonsplit_conic_sheet_coordinates": ["2","3","4","6"],
-  "ordinary_proof_inputs": ["conic bundle contraction to F1","gluing of multidegree-zero line bundles on a boundary triangle","Friedman Proposition 3.12: exponential integral period equals restriction","mixed Hodge weights and rational splitting criterion"],
-  "not_computer_certified": ["geometric existence of a compatible marking","algebraic de Rham connection matrices","global H3 admissibility","mirror or Fukaya equivalence","novelty","whole manuscript compilation"]
+  "nonsplit_rational_parameters": {
+    "A": "-65/16",
+    "B": "75/16",
+    "C": "-65/16",
+    "h": "3575/288"
+  },
+  "nonsplit_conic_sheet_coordinates": [
+    "2",
+    "3",
+    "4",
+    "6"
+  ],
+  "ordinary_proof_inputs": [
+    "conic bundle contraction to F1",
+    "gluing of multidegree-zero line bundles on a boundary triangle",
+    "Friedman Proposition 3.12: exponential integral period equals restriction",
+    "mixed Hodge weights and rational splitting criterion"
+  ],
+  "not_computer_certified": [
+    "geometric existence of a compatible marking",
+    "algebraic de Rham connection matrices",
+    "global H3 admissibility",
+    "mirror or Fukaya equivalence",
+    "novelty",
+    "whole manuscript compilation"
+  ]
 }

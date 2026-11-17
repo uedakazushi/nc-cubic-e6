@@ -3,11 +3,20 @@
   "version": "e6-connections-v15",
   "status": "PASS",
   "central_cut": "G=Omega+beta*X+gamma*Y+delta*Z+eps",
-  "quadratic_leading_brackets_divided_by_9": ["X*(-Y*gamma + Z*delta)", "Y*(X*beta - Z*delta)", "Z*(-X*beta + Y*gamma)"],
+  "quadratic_leading_brackets_divided_by_9": [
+    "X*(-Y*gamma + Z*delta)",
+    "Y*(X*beta - Z*delta)",
+    "Z*(-X*beta + Y*gamma)"
+  ],
   "coefficient_matrix_rank": 3,
   "Poisson_ideal_condition": "beta=gamma=delta=0, proved using degree-three center relation",
   "distinguished_cut": "2*Omega+X+2*Y+3*Z+5",
   "distinguished_obstruction": "9*X*(3*Z-2*Y) + terms of center degree <=1",
   "Vieta_degree": "sigma(z)=(q^2-q)*xy-q^2*z+q*c has PBW degree 2, not 1",
-  "not_computer_certified": ["flat-ideal obstruction lemma", "pointed H3 reconstruction", "derived equivalence or mutation construction", "novelty"]
+  "not_computer_certified": [
+    "flat-ideal obstruction lemma",
+    "pointed H3 reconstruction",
+    "derived equivalence or mutation construction",
+    "novelty"
+  ]
 }

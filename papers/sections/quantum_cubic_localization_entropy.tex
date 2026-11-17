@@ -16,7 +16,8 @@ $\Lambda=3+2\sqrt2$を固定し、前節の記号
  \qquad d_n=b_n+c_n
 \]
 を使う。本節は\emph{可換な中心曲面}の$\Perf(U)$を扱う。
-元の非可換H3圏への$g$の持上げや、symplectic自己同型の存在は別問題である。
+関連論文で扱う非可換曲面の圏への$g$の持上げや、
+選択したLiouville構造のexact symplectic自己同型としての実現は別問題である。
 
 \subsection{アフィン引戻しの通常の圏的entropyは零}
 \begin{proposition}[固定生成元と射への非自明な作用]
@@ -47,8 +48,8 @@ $-\otimes_R^{\mathbf L}k(p):\Perf(R)\to\Perf(k(p))$を適用すると
 ここで非properな$\Perf(U)$に、proper圏用の有限次元Ext公式を流用していない。
 \end{proof}
 
-この命題はDHKKの定義の初等的帰結で、新しい一般entropy定理ではない。
-しかし前節で正の古典entropyを得た写像にも適用できるため、
+この命題はDHKKの定義の初等的帰結である。
+前節の正の次数成長を持つ写像にも適用できるため、
 \emph{通常の$\Perf(U)$のentropyにPell成長を期待する方法は成立しない}。
 成長を検出するには、少なくとも射のfiltration等の追加データが必要である。
 
@@ -251,10 +252,12 @@ Ann. K-Theory 4 (2019),
  \mathrm{HP}_0(R)\cong H^0_{\rm dR}(U)\oplus H^2_{\rm dR}(U),\qquad
  \mathrm{HP}_1(R)=0
 \]
-を得る。既存の$H_2(U)$上の恒等性から$g^*$は前者のrank $6$にも恒等に作用する。
+を得る。Goldman--Neumann\cite{BoundaryGoldmanNeumann}, Theorems 1--2により、
+$U$の被約ホモロジーは次数2だけにあり、$H_2(U,\mathbb Z)\cong\mathbb Z^5$である。
+前節で説明した$g$の$H_2(U)$上の恒等性から、
+$g^*$は前者の次元$6$の空間にも恒等に作用する。
 従って\emph{filtration付きの無限次元Hochschild群では見え、
 有限次元のperiodic cyclic群と通常の対象entropyでは見えない}という区別がある。
-HKRの一般理論そのものは新規結果ではない。
 
 \begin{proposition}[wrapped比較に対する十分条件と限界]
 \label{prop:conditional-filtered-mirror-growth}
@@ -284,13 +287,8 @@ C\^ot\'{e}--Kartalの結果は、対のHMSの下でpole-orderとReeb長のgrowth
 次に必要なのは、境界のlocalizationに適合するmirrorの対象と射を指定し、
 その作用が上の極次数をどのaction filtrationへ移すかを確かめることである。
 
-\begin{remark}[証明と検証の範囲]
-通常entropyの消滅は定義の初等的帰結であり、pole filtrationの一般論、HKR、
-proper圏の比較不等式は既知理論である。
-本節では特定のPell写像に対して$0,\log\Lambda,2\log\Lambda$という
-異なる測定値と、境界だけに蓄積する有理曲線の算術種数を証明した。
+\begin{remark}[再現計算]
 \texttt{verify\_localization\_entropy.py}は全係数の一反復、
 Hilbert値、交叉恒等式、最初の25個の整数行列・種数を厳密に検算する。
-全$n$の証明、圏的複雑度、Hodge/巡回比較、mirrorの存在を
-有限計算だけで検証したとはしない。個別帰結の文献新規性の網羅確認は未了である。
+圏的複雑度の全$n$の評価とHodge/巡回比較は本文の証明と引用した定理による。
 \end{remark}

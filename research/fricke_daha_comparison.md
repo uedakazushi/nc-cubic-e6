@@ -1,6 +1,7 @@
 # Fricke・Askey–Wilson・DAHAとの比較
 
-2026-11-17 / e6-connections-v18 / 現在有効な文献比較。研究方針はリポジトリrootの `00_research_plan.md`、成分原稿は `papers/nc-cubic-e6.tex`。
+2026-11-18 / publication-v32。研究方針はリポジトリrootの `00_research_plan.md`。本書の証明を収める原稿は `papers/fricke-geometry.tex`、反標準包絡・形式変形は `papers/nc-cubic-e6.tex`、境界力学・Prymは `papers/cubic-boundary-prym.tex`。以下のファイルパスは特記しない限りrootからの相対パスである。
+数学的点検・計算・組版の実施範囲は `research/publication_status.md`、再現計算の機械的な結果は `computations/validation.json` を参照する。定理の証明、計算器のPASS、新規性の確認を区別する。
 
 ## Askey–Wilson代数との厳密な表示同型・Casimir
 
@@ -37,7 +38,7 @@ V_{a,b,c}\simeq
 \[
 \boxed{\Omega_{\mathrm{AW}}=q(1-q)^3\Omega_{a,b,c}=3(q+2)\Omega_{a,b,c}.}
 \]
-従ってCasimir切断 $V_{a,b,c}/(\Omega+D)$ は普遍Askey–Wilson代数の4中心パラメータ同時特殊化そのものである。主論文 `thm:aw-casimir-exact`、厳密計算は `computations/verify_daha_character.py`。$X,Y,Z$ は三乗根特有の追加中心である（全元をDAHA側で同定することは別課題）。
+従ってCasimir切断 $V_{a,b,c}/(\Omega+D)$ は普遍Askey–Wilson代数の4中心パラメータ同時特殊化そのものである。Fricke原稿 `thm:aw-casimir-exact`、厳密計算は `computations/verify_daha_character.py`。$X,Y,Z$ は三乗根特有の追加中心である（全元をDAHA側で同定することは別課題）。
 
 ## Fricke型4次元部分族と係数空間へのdominance
 
@@ -83,20 +84,20 @@ Terwilligerの $\mathrm{PSL}_2(\mathbb Z)$ 作用の生成元は $a\leftrightarr
 \boxed{(u,v,w;A,B,C,T)\mapsto(v,u,-uv-C-w;B,A,C,T)}.
 \]
 
-原関係、Casimir不変、中心元のVieta式を `verify_daha_braid.py` で独立にPBW厳密再現した。$F=u^2+v^2+w^2+uvw+Au+Bv+Cw+T$ におけるJacobian括弧 $\{u,v\}=\partial_wF$（巡回）はGoldmanのトレースPoisson形式と符号・スカラーを除いて一致する。この量子的Vieta生成元はPoisson同型である。主論文 `thm:aw-braid-vieta`, `prop:fricke-poisson-logcy`。braid群、mapping class group、Dehn twistとの作用の正確なfaithfulness・relationは先行研究と今後詳細照合する。
+原関係、Casimir不変、中心元のVieta式を `computations/verify_daha_braid.py` で独立にPBW厳密再現した。$F=u^2+v^2+w^2+uvw+Au+Bv+Cw+T$ におけるJacobian括弧 $\{u,v\}=\partial_wF$（巡回）はGoldmanのトレースPoisson形式と符号・スカラーを除いて一致する。この量子的Vieta生成元はPoisson同型である。Fricke原稿 `thm:aw-braid-vieta`, `prop:fricke-poisson-logcy`。braid群、mapping class group、Dehn twistとの作用の正確なfaithfulness・relationは先行研究と今後詳細照合する。
 
 ## 相対Poisson臨界被覆・S5対称群と二重五次判別式
 
-本研究では固定量子so3の三低次係数(a,b,c)に関して、Casimir切断の臨界点schemeを全域有限平坦次数15と証明した。一次元表現は全域有限平坦次数5で、二つは局所的に「5節点の二重厚み(10)+滑らかな5臨界点」として分かれる。従って臨界値判別式は `Delta15(D)=N5(D)^2 M5(D)`、N5は1次元表現のCasimir normで既約、Galois/幾何monodromyはS5。残りM5も幾何学的に既約・Galois群S5であり、N5との合成分解体のGalois群はS5×S5（線型非交叉）。二素数上の厳密なFrobenius分解型と原点の完全分裂etale被覆による通常の証明は主論文 `thm:paired-quintic-S5` と `verify_companion_s5.py` にある。未解決は分岐divisorとその交叉・一般H3条件。主論文 `sec:relative-poisson-cover` に通常の証明と明示式、`verify_relative_poisson_cover.py` に小さい厳密検証コードを置いた。
+本研究では固定量子so3の三低次係数(a,b,c)に関して、Casimir切断の臨界点schemeを全域有限平坦次数15と証明した。一次元表現は全域有限平坦次数5で、二つは局所的に「5節点の二重厚み(10)+滑らかな5臨界点」として分かれる。従って臨界値判別式は `Delta15(D)=N5(D)^2 M5(D)`、N5は1次元表現のCasimir normで既約、Galois/幾何monodromyはS5。残りM5も幾何学的に既約・Galois群S5であり、N5との合成分解体のGalois群はS5×S5（線型非交叉）。二素数上の厳密なFrobenius分解型と原点の完全分裂etale被覆による通常の証明はFricke原稿 `thm:paired-quintic-S5` と `computations/verify_companion_s5.py` にある。未解決は分岐divisorとその交叉・一般H3条件。Fricke原稿 `sec:relative-poisson-cover` に通常の証明と明示式、`computations/verify_relative_poisson_cover.py` に小さい厳密検証コードを置いた。
 
-幾何学的に最も有効なのは
-[
- (u,v,w)longmapsto(vw-u,wu-v,uv-w),qquad
- Omega_{mathcal E}=rac f3(uvw-u^2-v^2-w^2)
-]
+幾何学的に有効なのは
+\[
+ (u,v,w)\longmapsto(vw-u,wu-v,uv-w),\qquad
+ \Omega_{\mathcal E}=\frac f3(uvw-u^2-v^2-w^2)
+\]
 の組である。第一式は次数5のgradient mapで、底(A,B,C)=(-1/4,-1/4,-1/4)にsimple fold（他の三点は非分岐）を持つ。総空間が既約・次数5が素数なのでモノドロミーS5。第二式は各sheetのCasimirを与え、genericに五値を区別する。
 
-**古典Painlevé VIとの先行研究比較:** M. Inaba, K. Iwasaki, M.-H. Saito, *Dynamics of the sixth Painlevé equation*, *Séminaires & Congrès* **14** (2006), 103–167, §9.1 Definition 9.1、[原テキスト](https://emis.de/ft/47232) は、Fricke cubic判別式の境界モノドロミーtraceパラメータへの引戻しに二乗因子が生じることを記載している。今回のN5²M5は**別の係数写像**であり、因数の一致や新規性を主張しない。形式の類似は四穴球面のRiemann–Hilbert、Riccati成分と非可換の1次元characterとの関連を調べる動機になるが、両者を同定する写像は未構成。
+**古典Painlevé VIとの先行研究比較:** M. Inaba, K. Iwasaki, M.-H. Saito, *Dynamics of the sixth Painlevé equation*, *Séminaires & Congrès* **14** (2006), 103–167, §9.1 Definition 9.1、[原テキスト](https://emis.de/ft/47232) は、Fricke cubic判別式の境界モノドロミーtraceパラメータへの引戻しに二乗因子が生じることを記載している。本稿のN5²M5は**別の係数写像**であり、因数の一致や新規性を主張しない。形式の類似は四穴球面のRiemann–Hilbert、Riccati成分と非可換の1次元characterとの関連を調べる動機になるが、両者を同定する写像は未構成。
 
 
 ### 二つの独立なS5とPainlevéへの課題
@@ -109,15 +110,15 @@ Inaba–Iwasaki–SaitoのPainlevé VIにおけるtraceパラメータへの判�
 
 ## Poisson零点、表現論、Casimir切断のH3二類型
 
-主論文 `sec:casimir-poisson-leaves` では固定量子so3の総中心にあるPoisson零点を正確に十個に分類した。五個は総中心のA1節点かつ一次元character、五個は総中心が滑らかなCasimir臨界点。中心切断がA1特異点を持つ四値 D=0,2f/3,f,-f/3 は全て同じADE型だが、既存H3判定では前二値のみH3。この区別は中心上のPoisson葉と局所orderを同時に考える動機になる。
+Fricke原稿 `sec:casimir-poisson-leaves` では固定量子so3の総中心にあるPoisson零点を正確に十個に分類した。五個は総中心のA1節点かつ一次元character、五個は総中心が滑らかなCasimir臨界点。中心切断がA1特異点を持つ四値 D=0,2f/3,f,-f/3 は全て同じADE型だが、既存H3判定では前二値のみH3。この区別は中心上のPoisson葉と局所orderを同時に考える動機になる。
 
-さらに節点の形式平滑化パラメータは原点組で `D^2(f-D)`、四符号点組で `-(D+f/3)(D-2f/3)^2`。H3節点はCasimir方向で二次接触、非H3節点は一次横断。二つの符号四点集合に対してA4と量子的VietaがS4置換群を生成する。これは有限Poisson零点上の作用であり、modular群本体の有限性を意味しない。計算は `verify_casimir_poisson_leaves.py`。
+さらに節点の形式平滑化パラメータは原点組で `D^2(f-D)`、四符号点組で `-(D+f/3)(D-2f/3)^2`。H3節点はCasimir方向で二次接触、非H3節点は一次横断。二つの符号四点集合に対してA4と量子的VietaがS4置換群を生成する。これは有限Poisson零点上の作用であり、modular群本体の有限性を意味しない。計算は `computations/verify_casimir_poisson_leaves.py`。
 
 先行研究：M. Havlíček, S. Pošta, *Center of quantum algebra U'_q(so_3)*, J. Math. Phys. **52** (2011), 043521, [doi:10.1063/1.3579992](https://doi.org/10.1063/1.3579992) はroot-of-unity中心の構造を研究する。こちらで得た十零点とH3二類型の記述の文献上の新規性はまだ比較未了。
 
 ## なぜD4とE6が同時に現れるか：三角形付き三次曲面のPicard格子
 
-滑らかなFricke cubicの射影閉包 \(\bar C\) は三角形 \(D_1+D_2+D_3\in|-K|\) を持つ三次del Pezzo。Picard格子には \(K^\perp\cong E_6(-1)\) があり、三角形の各成分にも直交する格子は既知の \(D_4(-1)\)（[N. Schock, *Math. Nachr.* 297 (2024), §2](https://doi.org/10.1002/mana.202300459) はNaruki--Looijengaを参照）。六点blow-up markingでは \(D_i=H-E_{2i-1}-E_{2i}\) で、\(H-E_1-E_3-E_5,E_1-E_2,E_3-E_4,E_5-E_6\) が具体的な\(D_4\) 単純根。新規の格子同定ではなく、本稿で選んだFricke座標に対する幾何学的説明である。証明は主論文 `prop:d4-inside-e6`、独立交叉計算は `verify_d4_lattice.py`。
+滑らかなFricke cubicの射影閉包 \(\bar C\) は三角形 \(D_1+D_2+D_3\in|-K|\) を持つ三次del Pezzo。Picard格子には \(K^\perp\cong E_6(-1)\) があり、三角形の各成分にも直交する格子は既知の \(D_4(-1)\)（[N. Schock, *Math. Nachr.* 297 (2024), §2](https://doi.org/10.1002/mana.202300459) はNaruki--Looijengaを参照）。六点blow-up markingでは \(D_i=H-E_{2i-1}-E_{2i}\) で、\(H-E_1-E_3-E_5,E_1-E_2,E_3-E_4,E_5-E_6\) が具体的な\(D_4\) 単純根。新規の格子同定ではなく、本稿で選んだFricke座標に対する幾何学的説明である。証明はFricke原稿 `prop:d4-inside-e6`、独立交叉計算は `computations/verify_d4_lattice.py`。
 
 Goldman--Toledo, [arXiv:1006.3838](https://arxiv.org/abs/1006.3838) は、無限遠で非退化tritangent planeを持つ任意のaffine三次曲面が四穴球面の相対SL2 character varietyから得られることを証明する。従って「中心がFricke cubicになる」自体の既出性を再確認し、独自の新規性候補を**三乗根でのPBW・Casimir・Braidの厳密な量子化とH3理論との接合**に絞る。
 
@@ -141,15 +142,17 @@ Goldman--Toledo, [arXiv:1006.3838](https://arxiv.org/abs/1006.3838) は、無限
 
 - P. Terwilliger, *The Universal Askey–Wilson Algebra and DAHA of Type $(C_1^\vee,C_1)$*, SIGMA 9 (2013), 047, DOI 10.3842/SIGMA.2013.047, [arXiv:1202.4673](https://arxiv.org/abs/1202.4673)。普遍Askey–Wilson代数から普遍階数1 DAHAへの単射を証明している。ただしその中央特殊化が全てspherical DAHAと同型になるとは、本研究では証明していない。
 - A. Oblomkov, *Double affine Hecke algebras of rank 1 and affine cubic surfaces*, IMRN 2004 (18), 877–912, DOI 10.1155/S1073792804133072, [arXiv:math/0306393](https://arxiv.org/abs/math/0306393)。$(C_1^\vee,C_1)$ DAHAの中心の三角境界付きaffine cubicとspherical量子化。通常 $\widetilde D_4$ 側の幾何学。
-- P. Etingof, A. Oblomkov, E. Rains, *Generalized double affine Hecke algebras of rank 1 and quantized del Pezzo surfaces*, Adv. Math. 212 (2007), 749–796, DOI 10.1016/j.aim.2006.11.008, [arXiv:math/0406480v3](https://arxiv.org/abs/math/0406480)。$\widetilde D_4$ は三角境界の三次曲面、$\widetilde E_6$ はnodal有理曲線境界の三次曲面。今回の一般8次元族を $\widetilde E_6$ GDAHAのspherical部分と無条件に同一視しない。
+- P. Etingof, A. Oblomkov, E. Rains, *Generalized double affine Hecke algebras of rank 1 and quantized del Pezzo surfaces*, Adv. Math. 212 (2007), 749–796, DOI 10.1016/j.aim.2006.11.008, [arXiv:math/0406480v3](https://arxiv.org/abs/math/0406480)。$\widetilde D_4$ は三角境界の三次曲面、$\widetilde E_6$ はnodal有理曲線境界の三次曲面。一般八次元族を $\widetilde E_6$ GDAHAのspherical部分と無条件に同一視しない。
 - P. Etingof, V. Ginzburg, *Noncommutative del Pezzo surfaces and Calabi–Yau algebras*, JEMS 12 (2010), 1371–1416, DOI 10.4171/JEMS/235, [arXiv:0709.3593](https://arxiv.org/abs/0709.3593)。次数3 del Pezzo、単純楕円特異点 $\widetilde E_6$、滑らかな反標準楕円曲線とPoisson変形・量子化。一般8次元成分の幾何学的比較対象としてより近い。
 
 ## 一般化Sklyanin--Painlevé代数との比較
 
-L. Chekhov, M. Mazzocco, V. Rubtsov, *Quantised Painlevé monodromy manifolds, Sklyanin and Calabi–Yau algebras*, Adv. Math. **376** (2021), 107442, DOI [10.1016/j.aim.2020.107442](https://doi.org/10.1016/j.aim.2020.107442), [arXiv:1905.02772](https://arxiv.org/abs/1905.02772) は、一般化Sklyanin–Painlevé代数を導入しPBW/PHS/Koszul性を調べ、Etingof–Ginzburg・Etingof–Oblomkov–Rains型量子del Pezzoを極限例に含むと述べる（原論文の公表要旨で確認）。本研究の固定qによる七次元族と当該パラメータ表示の正確な同定、固定包絡の五節点／七次元族の連結五重被覆・既約結節因子が先行結果に含まれるかは未確認。論文の定理番号・証明範囲を未読のまま既知定理として利用しない。
+L. Chekhov, M. Mazzocco, V. Rubtsov, *Quantised Painlevé monodromy manifolds, Sklyanin and Calabi–Yau algebras*, Adv. Math. **376** (2021), 107442, DOI [10.1016/j.aim.2020.107442](https://doi.org/10.1016/j.aim.2020.107442), [arXiv:1905.02772v2](https://arxiv.org/pdf/1905.02772v2) のDefinition 1.1、式(1.5)、Theorem 1.5、Proposition 4.2を一次本文で照合した。一般化Sklyanin–Painlevéの表示・PBW/PHS/Koszul性が比較対象であり、非可換変形原稿 `papers/sections/e6_algebra_deformations.tex` に本稿の表示との係数対応を記す。
+
+**仮定の範囲が重要である。** Definition 1.1では \(q\) が1の根でないことを仮定する。本稿の \(q^3=1,\ q\ne1\) における関係式の代数的特殊化と、同文献の定理の適用は別である。三乗根でのPBW・中心・H3認識は本稿の証明と明示入力で確認する。固定包絡の五節点、七次元族の連結五重被覆・既約結節因子が先行研究に含まれるか、新規性の定理単位の照合はなお残る。
 
 ## 暫定呼称と次の研究
 
-全8次元候補の暫定名は **elliptic $E_6$ quantization component**（楕円 $E_6$ 量子化成分）。まだ全intrinsic H3モジュライの成分を大域同定したわけではなく、正式な命名ではない。三角境界のDAHA型部分には **Fricke–Askey–Wilson locus** を使う。
+八変数の形式変形とsmooth DM表示stackは非可換変形原稿で扱う。全intrinsic H3モジュライの成分を大域同定していないため、これを確定した「E6成分」として呼ばない。三角境界のDAHA型部分には **Fricke–Askey–Wilson locus** を使う。
 
 次は (1) Casimir・三乗中心の全元対応、(2) root-of-unity AW特殊化から実際のspherical DAHAへの比較とMorita範囲、(3) 一般8次元Etingof–Ginzburg型族と相対H3モジュライの比較、(4) DAHA braid／mapping class群作用と圏の自己同値の関係を検証する。証明前に全8次元族を「DAHA成分」と断定しない。

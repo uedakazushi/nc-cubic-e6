@@ -1,0 +1,230 @@
+\input{papers/shared/preamble.tex}
+\title{三次曲面のPell力学と境界特異点\\\large 局所圏のmodulusとMilnor被覆のPrym偏極}
+\author{}
+\date{2026年11月18日\quad publication-v32}
+\begin{document}
+\maketitle
+\begin{abstract}
+三角形を無限遠境界に持つ滑らかなアフィン三次曲面上で、
+四つのVieta involutionの合成によるconicの反復逆像を調べる。
+反復曲線のアフィン部分は全て$\mathbb G_m$と同型であるが、
+射影閉包は一つの境界点に二つのcuspを持つ。
+そのPuiseux対はPell行列の係数$(b_n,c_n)$となり、
+算術種数、局所Milnor数、対数標準閾値を明示的に与える。
+アフィンperfect圏の通常のentropyが零となる一方、
+射の極次数、正規化層、正規化欠損層は異なる増大率を持つ。
+境界の先頭係数$K=\kappa^2$は解析的不変量であり、
+重み付き主部の二周期matrix factorization圏をPell指数とともに分類する。
+さらに主部の射影Milnor曲線の二次被覆から楕円曲線への有限写像を構成し、
+そのJacobian引戻しの核を標識二捩れ、Prym内の楕円因子へのtheta制限次数を$b_nc_n$と決定する。
+この構成を共通のCiani四次曲線と極端有理楕円曲面$X_{411}$に結び付ける。
+実際の境界germには主部とTjurina数が異なる例があるため、
+実germ、重み付き模型、そのMilnor被覆の各結論を区別する。
+\end{abstract}
+\tableofcontents
+
+\section{問題と主結果}
+本稿の対象は、複素数体上の滑らかなアフィン三次曲面
+\begin{equation}\label{eq:boundary-paper-cubic}
+ U=\{uvw-\tfrac12(u^2+v^2+w^2)-Au-Bv-Cw=h\}
+\end{equation}
+と、その通常の三次射影閉包$S$である。
+無限遠の三角形を$D=D_u+D_v+D_w$とする。
+曲面方程式を一つの変数について二次方程式と読むと、Vieta involution
+\[
+ \iota_u(u,v,w)=(2vw-u-2A,v,w)
+\]
+およびその巡回二式を得る。
+合成は右から行い、以下では
+\begin{equation}\label{eq:boundary-paper-word}
+ g=\iota_v\iota_w\iota_u\iota_w,\qquad
+ M=\begin{pmatrix}1&-2\\-2&5\end{pmatrix},\qquad
+ M^n=\begin{pmatrix}a_n&-b_n\\-b_n&c_n\end{pmatrix},
+ \quad \Lambda=3+2\sqrt2
+\end{equation}
+を固定する。この曲面族はFricke指標多様体の族でもある。
+量子代数の中心として現れる背景と周期の比較は関連論文
+\cite{CompanionFricke}で扱うが、以下の境界計算は式
+\eqref{eq:boundary-paper-cubic}から出発し、非可換モジュライの存在定理を仮定しない。
+
+正の次数成長を持つ自己同型についても、アフィン曲面の構造層は引戻しで固定される。
+また一つの滑らかなconicを反復しても、アフィン曲線の同型類は変わらない。
+そこで、成長が射の極次数と射影閉包のどの局所情報へ移るかを問う。
+本稿では、同じPell列が境界付値、Puiseux対、局所圏の次元、
+Prymに埋め込まれる楕円曲線の偏極次数を支配することを明示する。
+
+\subsection{反復conicの境界と、局所化前後の成長}
+$\kappa\in\mathbb C$について
+\begin{equation}\label{eq:boundary-paper-admissible}
+ \kappa^2\ne1,\qquad
+ (\kappa^2+2B\kappa+2h)(\kappa^2-1)+A^2+C^2+2\kappa AC\ne0
+\end{equation}
+を仮定し、$C_n=g^{-n}\{v=\kappa\}\subset U$と置く。
+この条件の下で全$C_n$は$\mathbb G_m$と同型である。
+被約閉包を$\overline C_n$、その正規化を$\nu_n:\mathbb P^1\to\overline C_n$と書く。
+
+\begin{theorem}[境界二枝と三つの測定値]\label{thm:boundary-paper-growth}
+$n\ge1$とする。$\overline C_n$の唯一の特異点は
+$p_w=[0:0:1:0]$であり、そこにPuiseux対$(b_n,c_n)$を持つ二枝が交わる。
+二枝の交叉重複度は$b_nc_n$で、重み$(b_n,c_n)$の主部は
+\[
+ F_{n,\kappa}=y^{2b_n}-2\kappa x^{c_n}y^{b_n}+x^{2c_n}.
+\]
+従って
+\[
+ \mu_n=(2b_n-1)(2c_n-1),\qquad
+ \operatorname{lct}_{p_w}(S;\overline C_n)=\frac{b_n+c_n}{2b_nc_n}.
+\]
+$g^n$の座標環における最小次数の最大値を$d_n$とすると
+\[
+ d_n=b_n+c_n,\qquad d_0=1,\quad d_1=7,\quad
+ d_{n+2}=6d_{n+1}-d_n.
+\]
+一方、$\Perf(U)$上のDHKK entropyは全$t\in\mathbb R$で零であり、
+射の極filtrationの歪み率は$\log\Lambda$である。
+$\Perf(S)$の任意のsplit generatorを$E$とすると、対象列
+\[
+ Q_n=\OO_{\overline C_n},\qquad B_n=\nu_{n,*}\OO_{\mathbb P^1},
+ \qquad Z_n=B_n/Q_n
+\]
+の$\delta_0(E,-)$の指数増大率は順に
+$2\log\Lambda,\log\Lambda,2\log\Lambda$となる。
+\end{theorem}
+\begin{proof}
+次数については定理\ref{thm:pell-exact-degree}、
+境界二枝については定理\ref{thm:two-boundary-Puiseux}、
+局所不変量については定理\ref{thm:boundary-torus-link}と
+定理\ref{thm:boundary-lct}で証明する。
+三つの成長の比較は命題\ref{prop:affine-pullback-zero-entropy}、
+定理\ref{thm:filtered-pell-entropy}、
+定理\ref{thm:proper-versus-affine-complexity}、
+定理\ref{thm:normalization-defect-growth}による。
+\end{proof}
+対象列$Q_n,B_n,Z_n$を一つの自己関手の反復像と同定したわけではない。
+その増大率と、アフィン自己関手のentropyを別の量として扱う。
+
+\subsection{位相型の内部の解析modulus}
+\begin{theorem}[重み付き模型の圏的分類と実germの区別]
+\label{thm:boundary-paper-moduli}
+重み付き模型の二周期dg圏
+$\mathcal Q_{n,\kappa}=\operatorname{MF}(\mathbb C[[x,y]],F_{n,\kappa})$は
+\[
+ \mathcal Q_{n,\kappa}\simeq_{\rm Morita}\mathcal Q_{m,\kappa'}
+ \quad\Longleftrightarrow\quad n=m\ \text{かつ}\ \kappa^2=(\kappa')^2
+\]
+を満たす。固定した$n$ではlink、Milnor数、Tjurina数、対数標準閾値は
+$\kappa$によらないが、$K=\kappa^2$はこれらの圏を区別する。
+
+実際の反復境界germについても$K$は解析的不変量であるが、完全不変量とは主張しない。
+$A=B=C=0,h=1,\kappa=2,n=1$の実germは
+$\mu=27,\tau=24$を持ち、$\tau=27$の重み付き主部と接触非同値である。
+その通常の整数次数付きdg特異点圏も、主部のものとMorita非同値である。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:boundary-kappa-analytic-invariant}と
+定理\ref{thm:weighted-boundary-Morita-classification}が分類を与える。
+実germの計算は命題\ref{prop:actual-boundary-tjurina-defect}、
+整数次数付きdg圏の区別は系\ref{cor:actual-germ-Zdg-distinction}にある。
+\end{proof}
+二周期MFでは相対Hochschild環がJacobian環を与え、
+通常の整数次数付きdg特異点圏では絶対的$\mathrm{HH}^0$がTjurina環を与える。
+後者による実germの区別を、そのまま前者の分類へ置き換えることはしない。
+
+\subsection{同じmodulusを記録するPrymの楕円因子}
+$b=b_n,c=c_n$とし、$C$を$F_{n,\kappa}=1$の滑らかな射影模型、
+$\widetilde C$を$a^2=x$を添加した二次被覆の滑らかな射影模型とする。
+次の定理では$\deg\Theta|_E$は楕円曲線上の\emph{線束の次数}を意味する。
+対応する偏極isogenyの次数はその平方である。
+
+\begin{theorem}[Prymの二捩れ核と整数偏極]\label{thm:boundary-paper-prym}
+滑らかな楕円曲線
+\[
+ D_\kappa:T^2=r^4-2\kappa r^2+1,\qquad
+ E_\kappa:\eta^2=z(z^2-2\kappa z+1)
+\]
+に対して巡回被覆の分解
+\[
+ \widetilde C\xrightarrow{q'}D_\kappa\xrightarrow{\psi}E_\kappa,
+ \quad
+ q'(a,y)=\left(\frac{y^{b/2}}{a^c},\frac1{a^{2c}}\right),
+ \quad \psi(r,T)=(r^2,rT)
+\]
+があり、次数は$\deg q'=bc$, $\deg\psi=2$である。
+合成$q=\psi q'$のJacobian引戻しの核は
+\[
+ \ker q^*=\{0,[(0,0)-O]\}\subset J(E_\kappa)
+\]
+である。$q'^*:J(D_\kappa)\hookrightarrow J(\widetilde C)$の像は
+$\operatorname{Prym}(\widetilde C/C)$に含まれ、
+\[
+ \deg\bigl(\Theta_{J(\widetilde C)}|_{q'^*J(D_\kappa)}\bigr)=bc.
+\]
+Prym全体へのtheta制限の偏極型は
+$(1^{b-1},2^{2bc-b-c})$である。
+\end{theorem}
+\begin{proof}
+写像の構成と平方類の障害は定理\ref{thm:boundary-kummer-prym}、
+巡回性と分岐は定理\ref{thm:prym-cyclic-inertia}、
+核と偏極は定理\ref{thm:prym-elliptic-theta-degree}で証明する。
+\end{proof}
+$K$は標識二捩れ付き楕円曲線の粗modulusであり、
+その標識は上の自然な引戻しの核としても回収される。
+固定した$\kappa$に対して楕円因子の同型類は変わらないが、
+theta制限次数は$b_nc_n$となり、指数率$2\log\Lambda$で増大する。
+全$n$に共通するCiani四次曲線を経由すると三楕円分解が得られ、
+$\kappa$を動かす楕円族は既知の極端有理楕円曲面$X_{411}$となる。
+
+\subsection{先行研究との関係と本稿の範囲}
+Fricke三次曲面のVieta作用、境界の双有理力学、entropyは
+Cantat--Loray\cite{CantatLorayCayley}により研究されている。
+Jang\cite{JangBoundary}はMarkov曲面のtropical作用を
+$\mathbb R^2/\{\pm1\}$上の線型作用で記述する。
+本稿はこれらの一般理論を新規結果とはせず、指定した語$g$とconicの列に対し、
+最小次数、二枝の先頭係数、Puiseux対、正規化欠損を同時に計算する。
+
+圏的複雑度にはDHKKの定義とsmooth proper圏での比較を用いる
+\cite{BoundaryDHKK}。
+閾値の計算はNewton非退化特異点に対するHowaldの方法
+\cite{BoundaryHowald}、局所Weinstein模型はCasalsの既知構成
+\cite{BoundaryCasals}の適用である。
+二枝の重み付き解析分類はC\^amara\cite{BoundaryCamara}の一般分類と整合する。
+MFの分類にはDyckerhoffのHochschild環の計算
+\cite{BoundaryDyckerhoff}とMather--Yauの復元定理
+\cite{BoundaryMatherYau}を使い、実germの整数次数付きdg圏には
+Hua--Keller\cite{BoundaryHuaKeller}を適用する。
+これらの定理では、Hochschild\emph{次元}の一致だけで圏の同値を結論しない。
+
+Prymのnormと偏極はMumford\cite{BoundaryMumford}の一般理論に従う。
+Ciani四次の三楕円分解、楕円曲線の二同種、
+$X_{411}$の分類\cite{BoundaryMirandaPersson}も既知である。
+本稿の具体的な比較は、反復境界の同じ$K$から有限写像を構成し、
+平方類の障害、引戻しの核、誘導偏極の次数まで計算する点にある。
+これらのPell反復への適用の個別の既出性については、なお文献比較を要する。
+
+以上の結果は、明示した仮定の下で本文中に証明を置く。
+ただし本稿のPrym構成は重み付き主部のMilnor曲線についての構成であり、
+高重み項を持つ実germへの移行、偏極を保つPrym全体の直積分解、
+元の非可換曲面の自己同値、filteredかつ同変なHMSを主張するものではない。
+研究ノートにはこれらの未解決点と、再現計算の範囲を記す。
+
+\input{papers/sections/quantum_cubic_boundary_dynamics.tex}
+\input{papers/sections/quantum_cubic_localization_entropy.tex}
+\input{papers/sections/quantum_cubic_boundary_links.tex}
+\input{papers/sections/quantum_cubic_boundary_thresholds.tex}
+\input{papers/sections/quantum_cubic_boundary_moduli.tex}
+\input{papers/sections/quantum_cubic_boundary_prym.tex}
+\input{papers/sections/quantum_cubic_prym_polarization.tex}
+
+\section{残る比較問題}
+第一に、実germの高重み項がMilnor被覆のHodge構造とPrym因子へ及ぼす影響を調べる必要がある。
+$\mu=27,\tau=24$の例は、重み付き主部へ解析的に置き換える方法の限界を示す。
+第二に、二周期MFの相対Hochschild構造と整数次数付きdg圏の絶対Hochschild構造の比較では、
+基礎環、周期化、指定された関数の類$[f]$を保持しなければならない。
+第三に、極filtrationの歪み率をmirror側のaction filtrationへ移すには、
+圏同値だけでなく、指定した$g$との同変性と一様なfiltration比較が必要である。
+本文の有限計算は多項式恒等式・整数式・指定した局所代数を検算するもので、
+これらの未構成の比較や新規性の網羅調査を代替しない。
+
+\UsePublicationReferences{BoundaryCamara,BoundaryCasals,BoundaryDHKK,BoundaryDyckerhoff,BoundaryGoldmanNeumann,BoundaryHowald,BoundaryHuaKeller,BoundaryMatherYau,BoundaryMirandaPersson,BoundaryMumford,CantatLorayCayley,CompanionFricke,JangBoundary}
+\input{papers/shared/bibliography.tex}
+\end{document}

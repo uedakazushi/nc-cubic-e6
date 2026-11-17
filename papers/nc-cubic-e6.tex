@@ -1,698 +1,122 @@
-\documentclass[11pt,a4paper]{ltjsarticle}
-\usepackage[margin=24mm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable}
-\usepackage{mathrsfs} % \mathscr used by the relative elliptic surface in the Prym section
-\usepackage[haranoaji]{luatexja-preset}
-\usepackage[unicode,hidelinks]{hyperref}
-\setlength{\emergencystretch}{3em}
-\newtheorem{theorem}{定理}[section]
-\newtheorem{proposition}[theorem]{命題}
-\newtheorem{lemma}[theorem]{補題}
-\newtheorem{corollary}[theorem]{系}
-\theoremstyle{definition}\newtheorem{definition}[theorem]{定義}
-\newtheorem{assumption}[theorem]{入力・仮定}
-\theoremstyle{remark}\newtheorem{remark}[theorem]{注意}
-\renewcommand{\proofname}{証明}
-\newcommand{\HH}{\operatorname{HH}}
-\newcommand{\qgr}{\operatorname{qgr}}
-\newcommand{\coh}{\operatorname{coh}}
-\newcommand{\Perf}{\operatorname{Perf}}
-\newcommand{\Ext}{\operatorname{Ext}}
-\newcommand{\Hom}{\operatorname{Hom}}
-\newcommand{\Spec}{\operatorname{Spec}}
-\newcommand{\Spf}{\operatorname{Spf}}
-\newcommand{\GL}{\operatorname{GL}}
-\newcommand{\gldim}{\operatorname{gldim}}
-\newcommand{\OO}{\mathcal O}
-\renewcommand{\AA}{\mathbb A}
-\newcommand{\PP}{\mathbb P}
-\title{非可換三次曲面を結ぶ幾何学\\\large 楕円 $E_6$ 量子化・指標多様体・消滅サイクルと例外群 $G_2$}
+% !TeX program = lualatex
+\input{papers/shared/preamble.tex}
+\title{三乗根量子三次曲面の正常形と形式変形}
 \author{}
-\date{2026年11月18日\quad e6-connections-v31}
-\begin{document}\maketitle
+\date{2026年11月18日\quad publication-v32}
+\begin{document}
+\maketitle
 \begin{abstract}
-原始三乗根の量子 $\mathfrak{so}_3$ 包絡とその中心三次切断を、
-非可換三次曲面、DAHA、指標多様体、特異点論を結ぶ具体的な族として研究する。
-固定位数三の中央楕円境界部分には七次元のPBW正常形があり、
-三捩れを離れる平坦な中央三次商変形と八変数の全Artin表示族を構成する。
-滑らかな三次中心・反標準楕円境界および記載した局所order模型の下で、
-Hochschild接空間は八次元、障害空間は零となる。
-全intrinsic H3モジュライの代数化・降下・大域境界は未完成である。
-
-Casimir切断は普遍Askey--Wilson代数の中央特殊化に一致し、
-その中心は四穴球面のFricke三次曲面を与える。
-量子化パラメータの交換子微分は指定したGoldman型括弧の9倍を誘導する。
-一方、非Casimir切断の純粋$q$変形と、固定pointed H3心へのVieta作用には障害がある。
-相対Poisson臨界スキームは有限平坦次数15、一次元表現は次数5であり、
-Casimir臨界値多項式は$\Delta_{15}=N_5^2M_5$と分解する。
-二つの五次因子の同時幾何学的monodromyは$S_5\times S_5$である。
-
-一次元表現被覆をLandau--Ginzburgポテンシャルの臨界点族と読むと、
-ramification divisorはトーラスの$\mathrm{SL}_2$指標多様体であるCayley三次曲面となる。
-四sheet衝突の$D_4$ミニバーサル変形、triality、Jacobi留数対、
-実pillowcase、elliptope内部での実sheet一意性を明示する。
-LG等位面の三角境界付き三次コンパクト化では、局所Milnor格子とPicard直交補の$D_4$を
-包含による整数同型で結び、境界radicalと混合Hodge構造の四方向と一方向を分離する。
-Boalch--Palubaの既知定理を適用し、$D_4$衝突と$A_2$衝突を同じ$G_2$退化の二成分として読む。
-成分交換のbraidとHurwitz作用を区別し、Chebyshev反復、Klein七点軌道の$S_7$、境界周期を明示する。
-conic matching周期の対数表示とMorse球面のarcsine周期から、Looijenga対の代数的periodへ接続する。
-さらにconic成分を選ぶ有限標識被覆上で、整数$D_4$基底の全四periodを
-$(z_1/z_2,z_2/z_3,z_3/z_4,z_3z_4)$と同時に表示する。
-指定conic開集合では有理混合Hodge分裂と全$z_i$の捩れ性が同値となり、
-有理数係数の滑らかな分裂例・非分裂例をともに与える。
-対称族ではtrialityの不変・余不変格子の指数3が周期torusの$\mu_3$ isogenyを与え、
-そのWeyl商は既知の$G_2$三成分写像と一致する。
-共通の明示開集合上で三成分の有理混合Hodge構造を比較し、
-Klein成分とそのコンパニオンの整数拡大類の位数$7,21,21$を得る。
-全ホモロジーと周期へ自明に作用する正entropyの自己同型を境界付値で捉え直すと、
-反復の最小次数は$1,7,41,239,\ldots$というPell漸化式に従う。
-二次無理数の固有付値により有限境界blow-upでの正則化を排除し、
-個別の反復付値を抽出するcorner blow-up回数は正確に$4n$となる。
-同じ写像のアフィンperfect圏上のDHKK entropyは零である一方、
-射の極filtrationの歪み率は$\log(3+2\sqrt2)$となる。
-一般conicの反復逆像の射影閉包では境界だけに算術種数が蓄積し、
-構造層の対象複雑度は$2\log(3+2\sqrt2)$の率で増大するが、
-開曲面へ局所化すると常に二項の自由解消を持つ。
-この対象列の成長率と自己関手のentropyを区別し、filteredなmirror比較の必要条件を明示する。
-さらに境界特異点を二つのPell型cuspへ分解し、絡み目を$T(2b_n,2c_n)$と同定する。
-正規化層の対象複雑度は$\log\Lambda$、一つの境界点に支持される欠損層は$2\log\Lambda$の率を持つ。
-明示的なChebyshev実morsificationを通じて既知の局所Weinstein構成へ接続し、
-その局所模型と元の大域曲面・自己同型を同一視しない。
-Newton面から対数標準閾値と局所MF圏のHochschild次元を計算する。
-同じ位相型の内部でも先頭係数$\kappa^2$が解析的modulusとして残り、
-重み付き模型の二周期MF圏は$(n,\kappa^2)$でdg Morita分類される。
-解消上の四点配置から二捩れ標識付き楕円曲線を付随させ、
-$j$や二同種関係だけではこの圏を区別できないことを例示する。
-重み付きMilnor曲線の二次Kummer被覆からこの楕円曲線への有限写像を構成し、
-Prymの有理Hodge因子として実現する。全Pell指数に共通のCiani四次曲線を介して
-三楕円分解と二同種写像を比較し、可変因子の超幾何Picard--Fuchs方程式を求める。
-さらにそのMilnor被覆を巡回Galois被覆として記述し、楕円引戻しの核を標識二捩れ、
-誘導theta偏極の次数をPell積$b_nc_n$と決定する。
-可変楕円族は極端有理楕円曲面$X_{411}$を与え、$j$写像は次数6のBelyi写像となる。
-実際の一反復境界には$\mu=27,\tau=24$の例があり、重み付き主部への解析的置換を排除する。
-Hua--Kellerの復元定理を用いると、通常の整数次数付きdg特異点圏も両者を区別する。
-二周期MFの相対Hochschild環と、この絶対的dg不変量を混同しない。
-これらの明示的接続、既知理論の適用、未構成の圏的対応を区別して記述する。
+原始三乗根で定義される量子 $\mathfrak{so}_3$ 包絡と、その正則中心三次商を研究する。
+中央境界を固定したPBW拡大の対角非零部分を七次元の正常形で記述し、
+境界の三捩れ平行移動を動かす八変数の形式表示族を構成する。
+滑らかな三次中心と反標準楕円分岐因子に沿う指定局所order模型の下で、
+Hochschild変形空間の次元は8、三次障害空間は零となる。
+Artin底上の反標準環の再構成、二次包絡の平坦性の障害、
+形式表示族と適合したAbel変形の比較を分けて証明する。
+全H3モジュライの代数化・開性・降下を仮定なしに結論しない。
+反標準環からの二次包絡の一意性を用い、AOUの無限位数のblow-up構成との
+限定された非同一性も示す。
 \end{abstract}
-\tableofcontents
 
-\section{問題、幾何学的接続、主張の状態}
-基礎体 $k$ は標数0の代数閉体とする。
-H3とは、構造対象 $\OO$ を持つExt有限noetherian Abel圏 $\mathcal A$ で、
-反Serre作用 $\tau=S^{-1}[2]$ のheart保存、Gabriel--Krull rank-one torsion-free exceptional条件、
-Artin--Zhang豊富性、三次曲面の反標準Hilbert値を満たし、
-反標準環 $R=\bigoplus_{n\ge0}\Hom(\OO,\tau^n\OO)$ が一次生成、
-その二次包絡 $Q(R)$ がquadratic Koszul AS4型14641となる、現行研究の強いクラスである。
-同型は構造対象を保つexact同値であり、任意の導来同値による商ではない。
+\section{序論}\label{sec:e6-introduction}
+非可換三次曲面を中心超曲面として与える表示と、構造対象を持つ圏から
+反標準環を再構成する記述を、具体的な変形問題の上で比較する。
+基礎体 $k$ は標数0の代数閉体、$q$ は原始三乗根とする。
+基本的な包絡は
+\[
+ B_{\mathbf a}=k\langle t,x,y,z\rangle/
+ (yz-qzy-tx-at^2,\;zx-qxz-ty-bt^2,\;xy-qyx-tz-ct^2,\;[t,x],[t,y],[t,z])
+\]
+であり、中心三次元の直線 $kG$ を選んで $R=B_{\mathbf a}/(G)$ を作る。
+この表示のパラメータ数、圏のHochschild接空間、全モジュライの局所次元は、
+比較定理を介して初めて結び付く。
 
-本稿を貫く問いは、非可換三次曲面の具体的な代数から、どのような幾何学が回復されるか、
-そして異なる分野で現れる構造がどの範囲で同じものになるか、というものである。
-中心のFricke方程式は指標多様体へ、root-of-unity変形はPoisson orderへ、
-一次元表現の五重被覆はLandau--Ginzburgの臨界点とCayley曲面へ導く。
-最後の構成では、トーラスの指標多様体、局所$D_4$変形、留数代数、
-実pillowcaseと凸幾何が一つの勾配写像の異なる側面として現れる。
-七次元族を含む八次元成分の決定は、この相互関係を組織化する重要な課題として保持するが、
-未解決の大域分類を他分野との比較の前提とはしない。
+\subsection{中心結果と証明の依存関係}
+第一の結果は、固定位数三・中央境界・対角非零のPBW部分の正常形である。
+対称一次補正の非対角成分を平行移動で消し、対角成分を有限\'etale底変更で規格化すると、
+上の $B_{\mathbf a}$ に帰着する（定理\ref{thm:normal}）。
+残余群は偶符号変更と巡回置換からなる $\mathfrak A_4$ であり、
+中心三次直線の四次元と $(a,b,c)$ の三次元を合わせて七次元を得る。
+ここでの中心・PBW・同型計算は、H3認識の仮定とは独立した代数的主張である。
 
-第\ref{sec:cayley-lg-connections}節の$\Phi=(vw-u,wu-v,uv-w)$では、
-ramification divisorが$u^2+v^2+w^2+2uvw-1=0$となる。
-このCayley曲面のトーラス商とmodular作用はCantat--Loray
-\cite[\S1.5]{CantatLorayCayley}の既知の幾何であり、
-$D_4$の変形とtrialityはMikosz--Weber \cite[Proposition 3, \S5]{MikoszWeberTriality}、
-elliptopeのnearly K\"ahler multi-moment像としての出現は
-Dixon \cite[Lemma 3.5]{DixonElliptope}と比較する。
-本稿はこれらの一般理論を新たに発見したと主張せず、指定した表現被覆との正確な同定、
-四sheet衝突のversal性、実sheetの一意性を証明する。
+第二の結果は、次の幾何学的仮定の下での変形空間の計算である。
+\begin{theorem}[Hochschild変形空間：定理\ref{thm:HH8}]
+滑らかな射影三次曲面 $C$ と滑らかな $D\in|-K_C|$ 上のorder $\Lambda$ が、
+$C\setminus D$ ではAzumayaであり、$D$ に沿って\'etale局所的な完備化で
+$k[[s,w]]\rtimes\mu_3$、$\zeta(s,w)=(s,\zeta w)$ とMorita同値であるとする。
+このとき $\mathcal C=\Perf(C,\Lambda)$ に対し
+\[
+ \HH^0(\mathcal C)=k,\qquad \HH^1(\mathcal C)=0,\qquad
+ \dim\HH^2(\mathcal C)=8,\qquad \HH^n(\mathcal C)=0\quad(n\ge3).
+\]
+通常のHochschild複体が制御する形式変形は無障害であり、
+miniversal底は八次元形式円板となる。
+\end{theorem}
+証明は局所固定部分の計算と $T_C(-\log D)$ のコホモロジーによる。
+具体的な中心商がこの局所order模型を満たすという認識は入力\ref{ass:order}で明示する。
+接空間行列の階数計算から、その幾何学的認識を逆に推論しない。
 
-第\ref{sec:lg-picard-g2}節では、同じLGの近傍等位面内で
-局所Milnor fiberの包含からPicardの$D_4$への整数格子同型を構成する。
-これは退化を指定した比較であり、全パラメータ上で選択に依存しない標準同定ではない。
-Goldman--NeumannのFricke曲面の位相とDeligneの重み理論に照らして境界の一次元方向を分離し、
-判別群への作用から局所とPicardの双方で外部trialityを検出する。
-またBoalch--Palubaの$G_2$実現とunipotent退化の記述を本稿の座標に適用すると、
-四sheetの$D_4$衝突と二sheetの$A_2$衝突が同じ例外群の退化で結ばれる。
-これらの先行定理の書誌と適用箇所は同節に記す。
+第三の結果は、七次元部分を横断する実際の形式族の構成である。
+中央三次の低次補正の一意性（補題\ref{lem:central-lift}）を使って
+中心が跳ぶ三捩れ点でも指定切断を持ち上げ、八変数の同時形式表示を得る
+（定理\ref{thm:eight-formal-central-lift}）。
+適合したAbel変形との比較は第\ref{sec:artin-reconstruction}節と
+第\ref{sec:artin-enhancement}節、代数的な表示stackは第\ref{sec:presentation-stack}節で扱う。
+これらを全intrinsic H3の成分定理へ進めるために必要な追加条件は、
+最後の定理\ref{thm:conditional-component}にまとめる。
 
-第\ref{sec:g2-braids-periods}節は、成分を選ぶ三次根被覆の$B_3$と、
-成分内部で作用するHurwitzの$B_3$を分離する。
-Boalch--Palubaの公式をLG座標へ移し、成分被覆のcuspが$3A_1$曲面を与えること、
-一生成元のChebyshev線型化、Klein七点集合上の完全対称群を直接確認する。
-七点軌道の存在およびFano平面・八元数に由来する位数6048の表現像は既知であり、
-その群と七点を置換する$S_7$を同一視しない。
-境界の原始cycle上の留数周期は$(2\pi i)^2$となる。
-
-第\ref{sec:logarithmic-periods}節では、conic pencilの二重被覆上で
-留数形式を$d\log z\wedge d\log a$へ変え、matching球面の周期を対数で計算する。
-係数零のMorse球面では$4\pi\arcsin\sqrt{-2h}$となり、rank二の解局所系のmonodromyは無限二面体群となる。
-Friedmanの積分と線束制限の比較を使い、$h=-1/10$で有理混合Hodge拡大の非分裂例を得る。
-局所系の非分裂性と点ごとの混合Hodge非分裂性は異なる主張である。
-第\ref{sec:four-D4-periods}節はこれを四つの内部方向へ進める。
-conic成分の縮約から整数$D_4$基底を明示し、全四periodを四根の二重持上げの積と比で記述する。
-この式はroot hypertorusの判別式、有理Hodge分裂の必要十分条件、
-有理数係数の円分的分裂例と非分裂例を与える。
-Naruki--Looijengaのperiod torusとFriedman--CarlsonのHodge解釈は既知であり、
-本稿では本LG座標での再構成と具体例として位置付ける。
-
-第\ref{sec:triality-period-isogeny}節では、Goldman--Neumannの有限ホモロジー像を用いて
-対称族の周期を二変数へまとめ、不変格子と余不変格子の指数3を保持する。
-明示的sectionにより、従来の$B^2\ne C^2$ chartの外にある対称族でも
-適合したconic標識と周期$(\eta,\xi,\eta,\eta)$を構成する。
-周期isogenyのWeyl商がBoalch--Palubaの三成分写像となることから、
-共通の明示開集合上で三成分の有理Hodge構造を同定する。
-Kleinの例では整数拡大類は$7,21,21$という異なる位数を持ち、
-有理構造で失われる違いを検出する。
-有限ホモロジー像、triality、既知の$G_2$底写像、Cantat--Lorayのentropy定理自体は
-新規とせず、それらを実際のperiodへ接続した帰結と区別する。
-
-第\ref{sec:boundary-pell-dynamics}節では、周期に見えない正entropyの写像を境界付値で観測する。
-Cantat--Lorayの境界力学とJangのtropical Markov曲面の線型化\cite{JangBoundary}を比較対象とし、
-本稿の明示的な四Vieta合成について、最小多項式次数、射影交点次数、
-個別の反復付値の抽出深さを区別して計算する。
-最小次数はPell単数$3+2\sqrt2$の漸化式、固有方向は二次無理数、
-一つの反復付値を得るcorner blow-upは正確に$4n$回となる。
-有理な境界方向に周期点がないため、指定コンパクト化を支配する有限境界blow-upでは
-正則自己同型に延長できない。これはalgebraic stabilityの否定ではない。
-一般のtropical化理論自体を新規とせず、周期と境界という二つの観測の差を具体化する。
-
-第\ref{sec:localization-entropy}節は、この成長を圏へ移す際の区別を扱う。
-アフィン引戻しは構造層というsplit generatorを固定するため、DHKK entropyは全$t$で零となる。
-一方、C\^ot\'{e}--Kartalのpole-order/localization filtrationを具体化すると、
-射のfiltrationの歪みはPell次数そのもので、指数率は$\log(3+2\sqrt2)$となる。
-一般conicの反復逆像の閉包は有理曲線のまま境界特異点を増やし、
-算術種数とproper圏の対象複雑度が二倍の指数率で成長する。
-開曲面への制限では全て二項の自由解消を持つので、局所化の前後で複雑度が異なる。
-通常の対象entropy、射のfiltration、閉包列の成長率を混同せず、
-Hochschildとperiodic cyclicの観測の差およびfiltered mirror比較の十分条件を明記する。
-DHKKの定義、proper圏の比較不等式、局所化filtration、HKR自体は既知理論で、
-書誌と適用箇所は同節に記す。
-
-第\ref{sec:boundary-torus-links}節では、この算術種数を局所的に分解する。
-一般conicの反復閉包には一つの境界特異点しかなく、その二枝はPell数$(b_n,c_n)$をPuiseux対に持つ。
-相互交叉数とconductorを求め、絡み目を$T(2b_n,2c_n)$、Milnor monodromyの正確な位数を$2b_nc_n$と同定する。
-正規化層の成長率$\log\Lambda$と、一点に支持される欠損層の成長率$2\log\Lambda$を分離する。
-さらに明示的なChebyshev実morsificationをCasalsの既知のWeinstein構成へ適用する。
-Puiseux--link対応、conductor公式、Milnor--Orlik公式とCasalsの定理そのものは既知で、
-本稿では指定反復における各量の正確な対応として用いる。一次資料の参照箇所は同節に記す。
-局所絡み目の模型を元の大域曲面と同一視せず、局所monodromyと曲面自己同型も分ける。
-第\ref{subsec:boundary-thresholds-mf}節ではHowaldのNewton計算法とDyckerhoffのHochschild公式を
-この境界に適用し、閾値の減衰率$\log\Lambda$とMF次元の増大率$2\log\Lambda$を分離する。
-
-第\ref{sec:boundary-analytic-moduli}節は、位相型と次元が忘れる係数を扱う。
-先頭二枝の比から$\kappa^2$を実際の境界germの解析的不変量として回収する。
-重み付き模型では、quasi-homogeneous平面曲線の分類、Mather--Yau、
-DyckerhoffのHochschild\emph{環}を組み合わせて、二周期MF圏を$(n,\kappa^2)$で分類する。
-同じlink・Milnor数・閾値でも連続な圏的modulusが残る。
-解消上の四点配置に付随する二捩れ標識付き楕円曲線の粗modulusも$K=\kappa^2$であり、
-$j=1728$が一致する二つの非同値MF模型と、二同種でも非同値の模型を与える。
-この楕円曲線を元の反標準境界と同一視しない。
-一方、元のVieta式から計算した実際の一反復の境界germは$\mu=27,\tau=24$を持ち、
-$\mu=\tau=27$の重み付き主部へ接触同値ではない。
-模型の分類を実際のgermへ無条件に延長しないことが重要である。
-一般分類・Mather--Yau・MF計算・楕円曲線の標準理論自体は既知で、一次資料と適用箇所は同節に記す。
-
-第\ref{sec:boundary-milnor-prym}節では、付随楕円曲線への写像を主部のMilnor曲線から構成する。
-指定した底関数を保つ写像には非自明な平方類$[x]$の障害があり、$a^2=x$の二次被覆でこれを解消する。
-その被覆のPrymに楕円因子が入り、全Pell指数に共通するgenus三のCiani曲線の三楕円分解を経由する。
-可変因子のPicard--Fuchs方程式はパラメータ$(1/2,1/2;1)$の超幾何方程式となる。
-MumfordのPrym理論とCiani曲線の既知の分解を、本稿の明示写像に適用する。
-さらにHua--Kellerの孤立超曲面の復元定理を用い、実germと主部の
-通常の整数次数付きdg特異点圏がHochschild次数零の次元$24,27$で区別されることを示す。
-これは二周期MFの相対的Hochschild公式の無条件な読み替えではない。
-第\ref{sec:prym-integral-polarization}節では、Milnor被覆の巡回Galois構造を解明し、
-完全分岐から楕円因子のpullbackを整数格子上で精密化する。
-元の楕円曲線からJacobianへの引戻しの核は標識二捩れ$[(0,0)-O]$、
-Prym内の楕円部分多様体へのtheta制限次数は$bc$と決定する。
-さらにMiranda--Perssonの極端有理楕円曲面$X_{411}$と三分岐値のBelyi写像を同定する。
-これらの一般楕円曲面分類自体は既知であり、本稿のPell族への明示的出現が接続である。
-Prym因子は重み付き模型についての有理Hodge因子であり、実germへの解析的移行、
-圏の部分圏、整数偏極付きの積分解は未構成である。
-全rank五の代数的Gauss--Manin接続行列、filtered・equivariantなmirror/Fukaya対応、
-元の非可換H3圏上の自己同値、$G_2$型量子代数との同型、
-nearly K\"ahler幾何との圏的対応は未構成である。
-
-現時点で得た結果と仮定付きの帰結を次のように区別する。
-\begin{longtable}{p{.28\textwidth}p{.63\textwidth}}
+\begin{center}
+\begin{tabular}{p{.28\textwidth}p{.62\textwidth}}
 \toprule
-対象&状態\\\midrule
-固定位数三の中央PBW部分&指定した開集合の正常形を全係数で証明。第\ref{sec:normal}節。\\
-横断変形&全次数平坦なAS4包絡と中心三次商を形式的に構成。一般中心値でH3。第\ref{sec:integrate}節。\\
-一般点の圏の変形&滑らかな中心・境界と記載した局所order模型の下で $\HH^2=8,\HH^3=0$。第\ref{sec:hh}節。\\
-選んだ点の全Artin形式近傍&八変数の全同時形式族で分類。第\ref{sec:artin-enhancement}節。\\
-代数的表示stack&smooth DM八次元の近傍を構成。第\ref{sec:presentation-stack}節。H3の開性・全大域境界は未完成。\\
-結節中心因子&固定包絡では五つの正規交叉因子・商で二成分。七次元族では連結な五重被覆を用いて既約な六次元因子。第\ref{sec:nodal-centers}節。\\
-DAHAとcharacter variety&Askey--Wilson Casimirを規約まで同定し、Fricke係数dominance・量子的Vietaを証明。第\ref{sec:daha-character}節。\\
-量子化由来のPoisson構造&$Q=q\exp(\hbar)$でGoldman型Jacobian括弧の9倍。Brown--Gordonによる中心fiberの比較。第\ref{sec:root-poisson-orders}節。\\
-二つの延長障害&非Casimir切断は指定した純粋$q$変形の平坦商に持ち上がらず、Vietaは固定pointed H3心へ延長しない。\\
-Casimir特異中心の二類型&Poisson零点は総中心の五節点と五滑らか臨界点。四特異値は全て$A_1$だが既存H3判定では二値ずつ可否が分かれる。第\ref{sec:casimir-poisson-leaves}節。\\
-相対Poisson被覆と二五次式&臨界スキーム有限平坦次数15、一次元表現次数5。$\Delta_{15}=N_5^2M_5$、二つの五次因子の同時幾何monodromyは$S_5\times S_5$。第\ref{sec:relative-poisson-cover}節。\\
-Cayley・$D_4$・実凸幾何&トーラス指標多様体、四sheet衝突のミニバーサル性、留数対、elliptope内部の単射性。第\ref{sec:cayley-lg-connections}節。\\
-Milnor・Picard・$G_2$&指定退化での整数$D_4$比較、外部triality、重みの$4+1$、既知$G_2$退化を通じた$D_4$と$A_2$の接続。第\ref{sec:lg-picard-g2}節。\\
-二種類のbraidと周期&成分ラベルは$A_2$三次根被覆、Hurwitz作用は成分を保存。Chebyshev反復、Klein軌道上の$S_7$、境界周期$(2\pi i)^2$。第\ref{sec:g2-braids-periods}節。\\
-対数periodとHodge拡大&matching周期の対数表示、Morse球面のarcsine周期、Picard--Fuchs、代数的指数化periodと有理非分裂例。第\ref{sec:logarithmic-periods}節。\\
-全四periodと円分性&conic開集合上の整数$D_4$基底、四period、root型判別式、有理Hodge分裂の必要十分条件と両種の有理係数例。第\ref{sec:four-D4-periods}節。\\
-trialityと三成分比較&指数3のperiod isogenyのWeyl商が$G_2$底写像。明示開集合で有理Hodge同型、Klein例の整数位数$7,21,21$。第\ref{sec:triality-period-isogeny}節。\\
-境界付値とPell力学&最小次数$1,7,41,\ldots$、射影交点次数、無理な固有付値、有限境界blow-upでの非正則化、個別抽出回数$4n$。第\ref{sec:boundary-pell-dynamics}節。\\
-局所化と三つの成長率&アフィンDHKK entropyは零、極filtrationの歪み率は$\log\Lambda$、曲線閉包の対象複雑度は$2\log\Lambda$。後者は自己関手のentropyではない。第\ref{sec:localization-entropy}節。\\
-境界linkと正規化欠損&二つの$(b_n,c_n)$ cusp、$T(2b_n,2c_n)$、conductorとMilnor位数、正規化と一点欠損の二成長率、局所Weinstein模型。第\ref{sec:boundary-torus-links}節。\\
-境界閾値とMF次元&Newton面から乗数イデアル、閾値、局所MFの次元成長を求める。曲面やH3圏の不変量と混同しない。第\ref{subsec:boundary-thresholds-mf}節。\\
-解析modulusと二捩れ&模型のMorita分類は$(n,\kappa^2)$。四点の楕円曲線は$Y_0(2)$に対応。実germの$\mu=27,\tau=24$が主部への置換を排除。第\ref{sec:boundary-analytic-moduli}節。\\
-Milnor被覆とPrym&二次Kummer被覆、Ciani中間曲線、可変楕円Hodge因子、超幾何周期、整数次数付きdg特異点圏による実germの区別。第\ref{sec:boundary-milnor-prym}節。\\
-整数偏極とモジュラー幾何&巡回被覆、核となる標識二捩れ、theta次数$bc$、極端有理楕円曲面$X_{411}$とBelyi分岐型。第\ref{sec:prym-integral-polarization}節。\\
+主張 & 適用範囲と証明箇所\\\midrule
+七次元正常形 & 中央PBW・対角非零。定理\ref{thm:normal}。\\
+八次元Hochschild変形 & 指定した滑らかな中心・分岐order。定理\ref{thm:HH8}。\\
+全Artin形式表示 & 指定点、表示chartとenhancementの比較。第\ref{sec:artin-enhancement}節。\\
+大域成分の一意性 & 代数的モジュライと相対比較の追加仮定付き。定理\ref{thm:conditional-component}。\\
+AOUとの比較 & 無限位数のblow-up構成とのpointed反標準比較。第\ref{sec:as-surface-scope}節。\\
 \bottomrule
-\end{longtable}
+\end{tabular}
+\end{center}
 
-ポテンシャルPBW変形と中心元の存在はEtingof--Ginzburg \cite{EG} の既知結果を使う。
-Chekhov--Mazzocco--Rubtsov \cite{CMR} は一般化Sklyanin--Painlev\'{e}代数のPBW/Koszul性と
-量子del Pezzo・monodromy cubicとの関係を研究している。
-本稿の七次元族と同文献のパラメータ空間の厳密な対応、また結節中心因子の既出性は未確認である。
-以下のH3圏と結節中心の全同型類の主張を、同文献の既知定理として輸入しない。
-root-of-unity量子化とGoldman幾何の一般的な関係はBaseilhac--Roche、
-Poisson orderの中心fiberの同型はBrown--Gordon、三次曲面上のVietaの双有理力学はCantat--Lorayの先行研究に依存する。
-第\ref{sec:root-poisson-orders}節に一次資料の参照箇所と本稿の正確な適用範囲を記す。
-本稿の独立計算による規約の確定と、これらの一般理論そのものの新規性を混同しない。
-局所Hochschild計算はNegron--Schedler \cite{NS} の商の公式と整合し、
-root stackの一般的な計算はFu--Porta--Scherotzke--Sibilla \cite{FPSS} の
-2026年1月20日版、Proposition 6.17とも比較できる。
-Brauer捩れを無条件に消して非捩れroot stackと導来同値だとはしない。
-orderとstacky曲面の比較については \cite{FIOS} を参照する。
-Rains \cite{Rains} の次数三の場合の全パラメータ被覆を既知定理として輸入しない。
-同論文末尾のConjecture 1とその後の議論では、次数一・二の全パラメータ検証と、
-その他の場合の一般性の検証が明確に区別されている。
+\subsection{先行研究と本稿の位置づけ}
+Etingof--Ginzburg \cite[Theorem 3.3.2]{EG} は、指定された次数の斉次CYポテンシャルへの
+低次項の付加がPBW型CY変形を与え、非定数中心元が存在することを示した。
+本稿はこの存在定理を用いる。中心が跳ぶ特殊点で、選んだ中心元を
+正則に持ち上げる手順、表示の規格化、および圏の変形との比較を別に証明する。
+楕円 $E_6$ という呼称は同文献の三次ポテンシャルの型に由来し、
+本稿だけでWeyl群商による全モジュライ分類を得たという意味ではない。
 
-\section{七次元族と保持する既存結果}\label{sec:seven}
-$q^2+q+1=0$ を固定する。$\mathbf a=(a,b,c)$ に対し
-\begin{equation}\label{eq:B}
-B_{\mathbf a}=\frac{k\langle t,x,y,z\rangle}
-{(yz-qzy-tx-at^2,\ zx-qxz-ty-bt^2,\ xy-qyx-tz-ct^2,\ [t,x],[t,y],[t,z])}
-\end{equation}
-と置く。$d=(q-1)^{-1}=-(q+2)/3$ とし、
-\begin{align}
-X_h&=x^3+q^2t^2x,\quad Y_h=y^3+q^2t^2y,\quad Z_h=z^3+q^2t^2z,\\
-\Omega_{\mathbf a,h}&=xyz+\frac{q-1}{3}t(x^2+z^2)+\frac{q+2}{3}ty^2
-                 +dt^2(ax+qby+cz).\label{eq:Omega}
-\end{align}
+Chekhov--Mazzocco--Rubtsov \cite[Definition 1.1, (1.5), Theorem 1.5]{CMR} は
+普遍Painlev\'e代数とその中心特殊化を扱う。
+同文献のDefinition 1.1には $q$ が根でないという仮定があるため、
+その定理を三乗根へ無条件に適用しない。
+表示式の具体的な特殊化と、本稿で直接証明する三乗根での中心増大を区別する。
+一般化Sklyanin--Painlev\'e族の全同型類や結節因子との完全な既出性比較は未完であり、
+本稿の各計算を網羅的な新規性確認済みとはしない。
 
-\begin{proposition}\label{prop:pbw}
-全係数で $B_{\mathbf a}$ はPBW基底 $t^\ell x^iy^jz^k$ を持ち、
-各fiberはnoetherian quadratic Koszul CY AS4型14641の整域である。
-低次数中心は
-\[
-Z(B_{\mathbf a})_1=kt,\qquad
-Z(B_{\mathbf a})_3=k\Omega_{\mathbf a,h}\oplus kX_h\oplus kY_h\oplus kZ_h\oplus kt^3
-\]
-であり、非被約底を含む底変更と可換する。
-\end{proposition}
-\begin{proof}
-$t=1$ の書換えは
-$yx=q^2xy-q^2z-q^2c$、$zx=qxz+y+b$、$zy=q^2yz-q^2x-q^2a$。
-唯一の重なり $zyx$ の二還元が全係数で一致する。
-Rees斉次化とDiamond lemmaからPBW基底を得る。
-活動次数の先頭環は三変数量子多項式環 $S$ の中央多項式拡大 $S[t]$ であり、
-整域・noetherian性が従う。正則中央拡大のAS正則性 \cite{LBS} と二次Gr\"obner基底からAS4とKoszul性を得る。
-Nakayama自己同型は $t$ を固定し $x_i\mapsto x_i+v_it$ と書ける。
-第一関係の差は
-$(1-q)t(v_yz+v_zy)+((1-q)v_yv_z-v_x)t^2=0$。
-PBW独立性から全 $v_i=0$、よってCYである。
+局所Hochschild層はNegron--Schedler \cite{NS} の商の公式と整合し、
+orderの大域的な捩れはFaber--Ingalls--Okawa--Satriano \cite{FIOS} の枠組みと比較する。
+Brauer捩れを消して通常のroot stackと同一視する必要はない。
+Abel変形と有向 $\mathbb Z$-代数の比較にはDe Deken--Lowen \cite{DeDekenLowen}、
+Hochschild障害理論にはLowen--Van den Bergh \cite{LVdB,LowenObject} を用いる。
+Rains \cite{Rains} の次数三の全パラメータ被覆は証明済み入力として使わない。
+AS surfaceという語はAOU/Okawa--Uedaの定義と区別して扱い、
+反標準二次包絡から得られる限定的な比較を第\ref{sec:as-surface-scope}節に置く。
 
-式\eqref{eq:Omega}と三つの $X_h$ の十二交換子は元の関係から零となる。
-$S$ の中心単項式の条件は $i\equiv j\equiv k\pmod3$。
-活動次数一・二には非定数中心がなく、三次には $x^3,y^3,z^3,xyz$ のみがある。
-最高記号を引く帰納法で全低次数中心を得る。
-非中心係数を消す際に使う $1-q,1-q^2$ は単元なので、底変更についても同じ議論が有効である。
-\end{proof}
+\subsection{規約と研究の分担}
+本稿のH3は、構造対象 $\OO$ を持つExt有限noetherian Abel圏で、
+$\tau=S^{-1}[2]$ のheart保存、Gabriel--Krull rank-one torsion-free exceptionality、
+Artin--Zhang豊富性、三次曲面の反標準Hilbert値を満たし、
+反標準環が一次生成で、その二次包絡がquadratic Koszul AS4型14641である強いクラスを指す。
+同型は構造対象を保つexact同値とする。必要な認識入力は\ref{ass:recognition}に列挙する。
+この定義を一般の導来同値で割ったモジュライ問題へ読み替えない。
 
-再開と検証に必要な全中心式を保持する。$t=1$ における元を $X,Y,Z,\Omega$ とし、
-$f=(1-q)/3,e=-(2q+1)/9$ と置くと
-\begin{align*}
-\ell_a&=((2q+1)a^3+2(q-1)a+3qbc)/9,\quad \ell_b,\ell_c\text{ は巡回置換},\\
-K&=((q+1)(a^2+b^2+c^2)+(q+2)abc)/3,\\
-L&=((1-q)(a^2b^2+a^2c^2+b^2c^2)+(q+2)(a^2+b^2+c^2))/9.
-\end{align*}
-全中心は一本の関係
-\begin{equation}\label{eq:center}
-\begin{split}
-0={}&\Omega^3+f\Omega^2-XYZ+e(X^2+Y^2+Z^2)\\
-&-(aX+bY+cZ)\Omega+\ell_aX+\ell_bY+\ell_cZ+K\Omega+L
-\end{split}
-\end{equation}
-で与えられる。元のPBW関係でこの恒等式を検証できる。
-四生成元が先頭中心を生成することと、$\Omega$ に関するmonic三次式の剰余
-$X^iY^jZ^k\Omega^r$ ($0\le r<3$) の相異なる最高記号により、これが全関係である。
+Fricke中心、Poisson臨界被覆、$D_4$周期とtrialityの証明は関連論文\cite{CompanionFricke}、
+Vieta反復の境界特異点とPrymの証明は\cite{CompanionBoundary}に収める。
+これらの主結果は、本稿の未完成の大域H3分類を前提としない。
 
-$u=[\alpha:\beta:\gamma:\delta:\varepsilon]\in\PP^4$ に対して
-\[
-G_{\mathbf a,u}=\alpha\Omega_{\mathbf a,h}+\beta X_h+\gamma Y_h+\delta Z_h+\varepsilon t^3,
-\qquad R_{\mathbf a,u}=B_{\mathbf a}/(G_{\mathbf a,u})
-\]
-とする。$\Delta=\alpha^3+27\beta\gamma\delta$、
-$T_{\rm ell}=\{\beta\gamma\delta\Delta\ne0\}$ と置く。
-境界は、平面三次
-\[
-E_u:\quad \beta x^3+\gamma y^3+\delta z^3+\alpha q^2xyz=0
-\]
-の $\phi=\operatorname{diag}(1,q,q^2)$ によるtwisted homogeneous coordinate ringである。
-$T_{\rm ell}$ 上では三座標頂点を避ける滑らかな楕円曲線であり、$\phi$ は正確な位数三の平行移動となる。
-
-\begin{assumption}[現行H3原稿から使う入力]\label{ass:recognition}
-次の結果を既存の証明への明示的な依存として使う。
-(1) $\mathbf a=0$ の切断のH3部分は非空開集合 $\mathcal U\subset\PP^4$ である。
-(2) 被約有限型底上、PBW平坦な中央包絡・中央三次商族で、中央境界が滑らかな楕円THCR、
-その平行移動が同一の有限位数を持つ場合、H3条件は開条件である。
-(3) 中央滑らか楕円境界の場合、H3性は $R[t^{-1}]_0$ の有限大域次元と同値である。
-(4) H3のpointed exact同値から反標準環と二次包絡が復元される。
-証明の所在は研究ノートの固定参照表に記す。今回、これらの全依存定理を独立に再証明したとはしない。
-\end{assumption}
-
-入力\ref{ass:recognition}よりH3開集合 $\mathcal V\subset\AA^3\times T_{\rm ell}$ を得る。
-零切片は $\mathcal U_{\rm ell}=\mathcal U\cap T_{\rm ell}$ に一致するため、$\mathcal V$ は非空で七次元既約である。
-全包絡同型は次数スカラーを除いて二符号変更と巡回置換だけであり、
-\begin{equation}\label{eq:N}
-\mathcal N=[\mathcal V/\mathfrak A_4]
-\end{equation}
-は七次元の滑らかな分離DM表示stackである。
-実際、中心一次直線を保って $x_i\mapsto\sum_jM_{ij}x_j+v_it$ と書き、
-境界のpoint graphを比較すると $M$ は対角・巡回型になる。
-関係の $tx_j$ 係数が $v_i=0$ を強制し、残りから
-$M=\lambda\operatorname{diag}(\epsilon_i)$、$\epsilon_i^2=1,\prod\epsilon_i=1$ を得る。
-従って $a=b=c=0$ は余次元三の正則閉部分stackであり、固定包絡四次元族の非成分性が従う。
-
-\section{固定位数三の全中央PBW正常形}\label{sec:normal}
-\begin{theorem}\label{thm:normal}
-$S=k\langle x,y,z\rangle/(yz-qzy,\mathrm{cyclic})$ の中央PBW拡大を
-\[
-r_i=t\sum_jA_{ij}x_j+b_it^2,\qquad [t,x_i]=0
-\]
-と書く。ここで $A$ は対称とする。
-$A_{11}A_{22}A_{33}\ne0$ の開部分は、有限\'{e}taleな係数拡大の後、式\eqref{eq:B}へ正規化される。
-従って七次元族は、この固定位数三・中央境界部分の指定開集合の全正常形である。
-\end{theorem}
-\begin{proof}
-ポテンシャルを
-\[
-\Phi=xyz-qxzy-\tfrac12\sum_{i,j}A_{ij}x_ix_j-\sum_i b_ix_i
-\]
-と書く。二次以下の巡回語は対称式として扱える。
-$x_i=X_i+v_i$ とすると、非対角二次係数を消す唯一の平行移動は
-\[
-v_1=A_{23}/(1-q),\quad v_2=A_{13}/(1-q),\quad v_3=A_{12}/(1-q)
-\]
-である。対角係数 $h_i=A_{ii}$ は変わらず、新しい定数は
-\[
-b'_i=b_i+h_iv_i+(1-q)v_jv_k\qquad(\{i,j,k\}=\{1,2,3\})
-\]
-となる。これはポテンシャルを直接展開した恒等式である。
-次に $X_i=r_iY_i$、$t$ は固定とし、
-\[
-r_i^2=h_jh_k,\qquad r_1r_2r_3=h_1h_2h_3
-\]
-を選ぶ。単元の平方根を有限\'{e}taleに添加すれば可能で、選択肢は四つの偶符号である。
-$h_ir_i=r_jr_k$ により対角一次係数はすべて1、新定数は $b'_i/(r_jr_k)$ となる。
-残余群は前節の全同型計算と一致する。
-\end{proof}
-
-対称性は単なる便宜上の十分条件ではない。
-巡回三次syzygyを一次補正へ作用させると
-$\sum_{ij}A_{ij}[x_i,x_j]=0$ を得る。
-$q\ne1$ の量子平面では三つの交換子が独立なので反対称部分は零である。
-逆に対称 $A$ はKoszul PBW条件を満たす \cite{BG,EG}。
-したがって本節は対称な表示だけを恣意的に選んだ分類ではない。
-ただし中央境界を失う変形、非正規境界、対角係数零の閉部分はこの定理に含めない。
-
-\section{三捩れから外へ出る全次数の変形}\label{sec:integrate}
-\subsection{低次中心がないことによる持上げ}
-\begin{lemma}[中央三次の正則持上げ]\label{lem:central-lift}
-$A=k[[s]]$、$K=k((s))$ とする。
-$V_A$ を濾過各次数で有限自由なPBW族、$\operatorname{gr}V_A=S_A$ とする。
-$S_A$ に中央三次元 $g_A$ があり、$g_0$ の中心持上げ $G_0\in V_0$ が存在すると仮定する。
-さらに $F_2Z(V_0)=k$、$\dim_K Z(S_K)_3=1$、
-$V_K$ に次数三の非定数中心元が存在するとする。
-このとき $g_A$ は $V_A$ の中心元へ持ち上がり、その定数項を固定すれば一意である。
-指定した $G_0$ を特殊値に取れる。
-\end{lemma}
-\begin{proof}
-$g_A$ の任意の持上げ $\widetilde g$ を選び、補正を
-$F_2V_A/A$ の九つの基底で書く。
-三生成元との交換子は有限自由加群間の線型方程式 $M(s)c=b(s)$ となる。
-$F_2Z(V_0)=k$ なので $M(0)$ の階数は9であり、ある $9\times9$ minorは単元である。
-この九行を使った解 $c$ は $A$ に属する。
-一般fiberでは非定数中心元の最高記号が $g_K$ の非零倍であり、
-規格化すれば全方程式の解が存在する。九行で解は一意なので、残る行も $K$ 上で零になる。
-$A$ は整域であるから全行が $A$ 上で零である。
-特殊fiberでも定数を除いた解は一意なので所望の $G_0$ へ戻る。
-\end{proof}
-
-\subsection{楕円曲線を固定し、平行移動を動かす}
-有限な座標拡大の後、境界曲線を
-\[
-E_\lambda:\quad x^3+y^3+z^3-3\lambda xyz=0,\qquad \lambda^3\ne1
-\]
-とする。原点を $(1:-1:0)$、三捩れ点を $p_0=(1:-q:0)$ と取る。
-\[
-p_s=(1:b(s):s),\qquad 1+b(s)^3+s^3-3\lambda b(s)s=0,\qquad b(0)=-q
-\]
-を考える。$b$ に関する偏微分は $3q^2\ne0$ なので、$b(s)$ は一意の形式解を持ち、
-実際に有限型曲線の\'{e}tale局所座標で定義される。
-対応する三変数環は
-\[
-S_s=k\langle x,y,z\rangle/(yz+b(s)zy+sx^2,\ \mathrm{cyclic})
-\]
-である。
-
-\begin{proposition}[全次数の包絡・切断変形]\label{prop:formal-integral}
-七次元族の滑らかな楕円境界部分の任意の幾何学的点は、
-境界の平行移動が三捩れから動く、全次数平坦なCY AS4包絡と正則中央三次商の形式族へ延長できる。
-その一般fiberも滑らかな同じ楕円曲線を境界とする。
-ここでは一般fiberのH3性はまだ結論しない。
-\end{proposition}
-\begin{proof}
-上記のSklyanin表示は $p_s$ による平行移動の二次包絡である。
-multilinear行列の行列式は
-$b(s)s\{3\lambda xyz-(x^3+y^3+z^3)\}$。
-一般fiberは非退化な楕円AS3、特殊fiberは既知の量子多項式環である。
-全次数AS正則性は \cite{IS} と標準の楕円THCR認識を使う。
-各次数のHilbert値は両fiberで等しいので、DVR上の有限加群の構造定理により $S_A$ は次数別に自由である。
-THCR族への全射の三次核は階数一の束をなし、これを $kg_A$ と書く。
-平行移動の場合のNakayama公式から $g_A$ は中心であり、$g_0$ は指定した境界三次式である。
-
-ポテンシャルの二次・一次項を特殊fiberの値に固定してPBW変形を取る。
-Etingof--Ginzburg \cite[Theorem 3.3.2(i)]{EG} と正則中央拡大の定理により、
-Rees包絡は各fiberでCY AS4、全次数で平坦である。
-同定理(ii)から一般fiberに非定数中央三次元が存在する。
-一般平行移動は位数一・二・三ではなく、先頭環の低次数中心は定数と唯一の三次直線に限られる。
-特殊fiberでは命題\ref{prop:pbw}により $F_2Z=k$。
-補題\ref{lem:central-lift}を適用すると、指定した中央三次切断が正則に持ち上がる。
-境界三次元の正則性と次数別乗法の単射により、商も全次数で平坦となる。
-境界THCRが整域なので $t$-進最高記号から商の整域性も従う。
-\end{proof}
-
-\begin{lemma}[超越的中心値のH3性]\label{lem:generic-D}
-前命題の包絡と中央三次持上げを中心値 $D$ から独立に定義し、
-$D$ をそれらの定義体上超越的に取る。このとき一般fiberの切断 $G+D$ はH3である。
-\end{lemma}
-\begin{proof}
-非斉次化 $V$ は有限大域次元を持つCY3環で、$G$ は非定数中心元である。
-$G$ の最高記号が非零の正次数正則元なので $G$ は定義体 $F$ 上超越的である。
-$F(D)$ 上の $V/(G+D)$ は、$D=-G$ と同定した中心局所化
-$V\otimes_{F[G]}F(G)$ に等しい。
-中心局所化は有限大域次元を保つ。
-滑らかな中央楕円境界に対する入力\ref{ass:recognition}(3)を適用してH3を得る。
-これは任意の数値 $D$ に関する開性や許容条件を主張する議論ではない。
-\end{proof}
-
-この構成は七次元族の幾何学的一般点から外へ出るH3一般fiberを与える。
-境界データ $(E,\rho)$ の二次元、対称二次・一次ポテンシャルの九係数、
-平行移動三次元、共通拡大一方向、中心値一方向を数えると
-\[
-2+9-3-1+1=8
-\]
-となる。
-$1+b(s)$ が単元なので非対角二次項は平行移動で一意に消せる。
-一般の境界の射影自己同型群は有限であり、対角二次係数の一つを共通拡大で規格化すれば、
-この計算は単なる冗長パラメータ数でなく、八次元の一般表示族の次元を与える。
-全intrinsic族への射を大域的に定義したこととは区別する。
-
-\section{滑らかな中心でのHochschild変形空間}\label{sec:hh}
-\begin{assumption}[本節の幾何学的適用範囲]\label{ass:order}
-$C$ は滑らかな射影三次曲面、$D\in|-K_C|$ は滑らかな楕円曲線とする。
-$\Lambda$ は $C$ 上の有限orderで、$C\setminus D$ ではAzumaya、
-$D$ 上では\'{e}tale局所的な完備化が
-\[
-k[[s,w]]\rtimes\mu_3,\qquad \zeta(s,w)=(s,\zeta w)
-\]
-とMorita同値であるとする。
-七次元族の滑らかな中心を持つ開部分は、既存の中心・境界order定理によりこの範囲に入る。
-原点切片には第\ref{sec:exact}節の厳密な滑らかさの証明書を持つ点がある。
-\end{assumption}
-
-\begin{lemma}[局所Hochschild層]\label{lem:local-HH}
-仮定\ref{ass:order}の下で、$C$ 上の局所Hochschild cohomology層は
-\[
-\mathcal{HH}^0=\OO_C,\quad
-\mathcal{HH}^1=T_C(-\log D),\quad
-\mathcal{HH}^2=\bigwedge^2T_C(-\log D),\quad
-\mathcal{HH}^{>2}=0
-\]
-である。
-\end{lemma}
-\begin{proof}
-非分岐部分は局所Morita不変性と通常のHKRである。
-分岐点では $A=k[[s,w]]$ の二変数Koszul分解を使い、
-$\Ext_{A^e}(A,A\rtimes\mu_3)^{\mu_3}$ を計算する。
-恒等元の部分は $\bigwedge T_A$ の不変部分であり、その基底は
-\[
-1;\qquad \partial_s,\ w\partial_w;\qquad w\partial_s\wedge\partial_w.
-\]
-$z=w^3$ とすると $w\partial_w=3z\partial_z$ なので、これらは
-$\OO_C,T_C(-\log D),\wedge^2T_C(-\log D)$ に対応する。
-
-非恒等元の固定部分は $w=0$ の直線である。
-Koszul分解の $w$ 方向を計算すると、寄与は法線表現の行列式を伴う。
-この一次元表現への $\mu_3$ 作用は非自明なので、次数一・二の両方で不変部分は零である。
-これは \cite[Theorem 1.1]{NS} の固定部分公式の直接計算でもある。
-この局所計算はBrauer捩れを消す大域的同値を必要としない。
-局所Morita同値の変更は、恒等部分の中心に由来するpolyvector層に恒等に作用する。
-それらの同定は非分岐稠密開上で通常の中心の同定に一致し、局所自由層への延長が一意であるから貼り合う。
-非恒等部分は局所的に零なので、Brauer捩れから新しい層が生じることもない。
-\end{proof}
-
-\begin{theorem}[八次元の無障害な圏変形]\label{thm:HH8}
-$\mathcal C=\Perf(C,\Lambda)$ とする。仮定\ref{ass:order}の下で
-\[
-\HH^0(\mathcal C)=k,\qquad \HH^1(\mathcal C)=0,\qquad
-\dim\HH^2(\mathcal C)=8,\qquad \HH^n(\mathcal C)=0\ (n\ge3).
-\]
-さらに標準的な完全列
-\[
-0\longrightarrow H^1(C,T_C(-\log D))\longrightarrow\HH^2(\mathcal C)
-\longrightarrow H^0(C,\OO_C)\longrightarrow0
-\]
-があり、左右の次元は7と1である。
-従って通常のHochschild複体で制御される圏の形式変形は無障害で、
-次数スカラーの高次自己同型を別にすれば、そのminiversal底は八次元形式円板である。
-\end{theorem}
-\begin{proof}
-滑らかな三次曲面について $H^{>0}(\OO_C)=0$、
-$h^0(T_C)=0,h^1(T_C)=4,h^2(T_C)=0$。
-後二つは $C\subset\PP^3$ の法束列とEuler列、
-$h^0(\OO_C(3))=19$、$h^0(T_{\PP^3}|_C)=15$ から得る。
-$h^0(T_C)=0$ は、連結自己同型が27本の直線を固定し、
-六本を縮約した $\PP^2$ 上で一般位置の六点を固定することからも従う。
-
-対数接束の完全列
-\[
-0\longrightarrow T_C(-\log D)\longrightarrow T_C
-\longrightarrow\OO_D(D)\longrightarrow0
-\]
-を使う。楕円曲線上の $\OO_D(D)$ の次数は3なので $h^0=3,h^1=0$。
-従って対数接束のcohomologyの次元は順に $0,7,0$ である。
-また $D=-K_C$ から $\wedge^2T_C(-\log D)=\OO_C$。
-
-局所から大域へのHochschild spectral sequenceを補題\ref{lem:local-HH}に適用する。
-非零項は $H^0(\OO_C)$、$H^1(T_C(-\log D))$、
-$H^0(\wedge^2T_C(-\log D))$ に限られ、すべての微分は次数の理由で零である。
-一般的な大域HKR形式性を別途仮定せず、主張と完全列を得る。
-通常の変形理論 \cite{LVdB} では接空間が $\HH^2$、小拡大に対する障害が $\HH^3$ に属する。
-後者の消滅から形式的滑らかさ、前者の有限次元性から八次元のminiversal底を得る。
-\end{proof}
-
-\begin{corollary}
-構造対象 $\OO$ がexceptionalである場合、その持上げの障害と選択の曖昧さ \cite{LowenObject} は
-それぞれ $\Ext^2(\OO,\OO)$ と $\Ext^1(\OO,\OO)$ に属し、いずれも零である。
-従って構造対象を持つ圏の形式変形でも、接空間と障害の上記の値は変わらない。
-\end{corollary}
-
-\begin{remark}
-この定理は、全H3変形が自動的に同じ14641二次包絡を持つこと、
-逆Serre作用が任意の変形heartを保つこと、全次数の相対反標準環が再構成できることを証明していない。
-圏の八次元形式変形と、全H3スタックの八次元開部分を同一視するには、これらの比較が必要である。
-\end{remark}
-
-\section{厳密計算と具体的な横断方向}\label{sec:exact}
-非斉次化 $t=1$、$a=b=c=0$ とし、
-\[
-\Phi_0=xyz-qxzy-\tfrac12(x^2+y^2+z^2),\qquad
-G_0=2\Omega+X+2Y+3Z+5
-\]
-を取る。$\Delta=170$、$\beta\gamma\delta=6$。
-式\eqref{eq:center}に $\Omega=-(X+2Y+3Z+5)/2$ を代入した三次式を $F$ とすると、
-$\mathbb Q(q)$ 上で $(F,F_X,F_Y,F_Z)$ のGr\"obner基底は $(1)$ である。
-既存の境界正則性定理と合わせ、この点は滑らかな中心と楕円境界を持つH3点である。
-
-次数一から三の巡回語は20個、次数三以下のPBW語も20個ある。
-それぞれ $\dot\Phi,\dot G$ の係数を未知数とし、
-変形した関係式の下で $[G_0+\epsilon\dot G,x_i]=0\pmod{\epsilon^2}$ を一次化する。
-全105行40列の行列 $M$ を $\mathbb Q(q)$ 上で計算すると
-\[
-\operatorname{rank}M=18,\quad\dim\ker M=22.
-\]
-12個のaffine座標変更、ポテンシャルのスカラー、切断のスカラーの14列を明示すると、
-すべて核に入り階数14である。
-既知の七次元族を加えたspanの階数は21であり、次の方向を加えると22になる：
-\[
-\dot\Phi=x^3+2y^3+3z^3+2xyz,
-\]
-\begin{align*}
-\dot G={}&(22q+6)x+(5q+9)y+(18q+18)z\\
-&-\tfrac43(q+1)(x^2+z^2)-\tfrac43(q+4)y^2+6xy+9q\,xz+18yz.
-\end{align*}
-従って\emph{このポテンシャル・中央三次incidence}の接空間商は正確に八次元である。
-これは全H3変形の被覆を行列の階数だけから推論したものではない。
-
-全次数の明示例として、別の許容候補切断
-$2\Omega+X+8Y+27Z+D$ に対し
-\begin{equation}\label{eq:explicit-integral}
-\Phi_u=(1+2u)xyz-qxzy+u(x^3+8y^3+27z^3)-\tfrac12(x^2+y^2+z^2)
-\end{equation}
-を取る。Etingof--GinzburgのAppendix 9.1の中心式を
-\[
-X_{\rm R}=x,\quad Y_{\rm R}=2y,\quad Z_{\rm R}=3z,
-\quad q_{\rm R}=q/(1+2u),\quad t_{\rm R}=-18u/(1+2u)
-\]
-で変換すると、$u=0$ で正則な有理中心三次元を得る。
-$x^3$ 係数を1、定数を $D$ と規格化した特殊値は正確に
-$2\Omega+X+8Y+27Z+D$ である。
-全有理係数は小さいJSONに保持し、原関係からの三つの交換子を
-$\mathbb Q(q)(u)$ 上で独立に零へ還元した。
-この検算は原典の中心性を前提としない。
-$D=5$ と固定した一般 $u$ のH3性をこの計算だけで主張しない。
-一般中心値 $D$ については補題\ref{lem:generic-D}が適用される。
-
-\section{既約成分について何が確定し、何が残るか}\label{sec:component}
-\begin{theorem}[相対モジュライ比較を明示した成分判定]\label{thm:conditional-component}
-次の条件を仮定する。
-\begin{enumerate}
-\item 問題のH3対象を含む局所有限型のrigidified代数的モジュライstack $\mathfrak M$ があり、
-上記の平坦な反標準環の族を受け入れる。
-\item 一般点でH3の無限小変形から構造対象付き圏の無限小変形への写像が単射である。
-\item 第\ref{sec:integrate}節の八次元一般表示族とその七次元族への特殊化が、
-この相対モジュライ問題の族として実現される。
-\end{enumerate}
-このとき七次元族の一般点を通る既約成分は唯一で、次元は8である。
-その点で $\mathfrak M$ は滑らかで、完成局所底は八次元形式円板となる。
-\end{theorem}
-\begin{proof}
-条件(2)と定理\ref{thm:HH8}から接空間次元は8以下である。
-条件(3)の一般表示族は、境界の平行移動を動かし、同型による冗長性を除いて八次元である。
-その閉包が七次元族の一般点を含むので、局所次元は8以上となる。
-一般慣性は自明であるため\'{e}tale局所環を取れ、接空間次元とKrull次元はともに8。
-従って局所環は正則であり、唯一の既約成分を持つ。
-\end{proof}
-
-第\ref{sec:artin-reconstruction}節で条件(2)を適合したenhanced Abel変形の範囲では証明する。
-他の条件を未検証のまま外して「全成分を完全に決定した」とはしない。
-特に正則な八次元形式近傍を得ても、全既約成分の境界の記述はそれだけでは得られない。
-完全決定には、一般族の像の閉包に含まれるH3対象を漏れなく認識し、
-滑らかな楕円境界が消える点、中心が特異になる点、非PI領域、
-別の表示を持つ点について全矢と慣性を求める必要がある。
-
-有力な候補は、Etingof--Ginzburg型の一般中心三次商を含む八次元成分である。
-Rainsの $E_6$ 型幾何学と比較する際には、
-固定した楕円境界のfiltered deformationの六次元と、境界曲線・平行移動の二次元を区別する。
-期待される重み付き射影表示やWeyl商を、そのまま全H3の同値と断定しない。
-指定potential chartでの全Artin包絡認識と八変数の同時中心切断は後節で解決する。
-全intrinsic形式変形との比較、H3族の相対実現、閉包の境界の認識は保持すべき課題である。
-他方、指標多様体・特異点・実幾何との具体的接続は、それらの完成を待たずに調べられる。
-
+\tableofcontents
+\input{papers/sections/e6_algebra_deformations.tex}
 \input{papers/sections/quantum_cubic_artin_reconstruction.tex}
 \input{papers/sections/quantum_cubic_quadratic_obstruction.tex}
 \input{papers/sections/quantum_cubic_multivariate_formal_chart.tex}
@@ -700,202 +124,18 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_algebraic_boundary.tex}
 \input{papers/sections/quantum_cubic_presentation_stack.tex}
 \input{papers/sections/quantum_cubic_nodal_centers.tex}
-\input{papers/sections/quantum_cubic_daha_character.tex}
-\input{papers/sections/quantum_cubic_poisson_orders.tex}
-\input{papers/sections/quantum_cubic_casimir_leaves.tex}
-\input{papers/sections/quantum_cubic_relative_poisson.tex}
-\input{papers/sections/quantum_cubic_cayley_lg.tex}
-\input{papers/sections/quantum_cubic_lg_picard.tex}
-\input{papers/sections/quantum_cubic_g2_braids.tex}
-\input{papers/sections/quantum_cubic_log_periods.tex}
-\input{papers/sections/quantum_cubic_four_periods.tex}
-\input{papers/sections/quantum_cubic_triality_isogeny.tex}
-\input{papers/sections/quantum_cubic_boundary_dynamics.tex}
-\input{papers/sections/quantum_cubic_localization_entropy.tex}
-\input{papers/sections/quantum_cubic_boundary_links.tex}
-\input{papers/sections/quantum_cubic_boundary_thresholds.tex}
-\input{papers/sections/quantum_cubic_boundary_moduli.tex}
-\input{papers/sections/quantum_cubic_boundary_prym.tex}
-\input{papers/sections/quantum_cubic_prym_polarization.tex}
+\input{papers/sections/cubic_as_surface_scope.tex}
+\input{papers/sections/e6_moduli_scope.tex}
 
-\section{再現と検証範囲}
-全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
-\begin{longtable}{p{.55\textwidth}p{.36\textwidth}}\toprule
-検証器&保存済み検証結果\\\midrule
-\path{verify_envelope_family.py}&全係数PBW、十二交換子、全中心式：既存PASS\\
-\path{verify_normal_form.py}&全係数正常形、局所指標：既存PASS\\
-\path{verify_smooth_witness.py}&標数0の特異点ideal $(1)$：既存PASS\\
-\path{verify_tangent_quotient.py}&核22、座標方向14、商8：既存PASS\\
-\path{verify_integrated_lift.py}&有理係数の全次数中心式：既存PASS\\
-\path{verify_cubic_obstruction.py}&全80一次重なり：既存PASS\\
-\path{verify_universal_cubic_syzygies.py}&全四syzygy、三次rank44：既存PASS\\
-\path{verify_second_order_incidence.py}&八方向同時二次補正：既存PASS\\
-\path{verify_rains_central_formula.py}&修正中心式の全係数恒等式：既存PASS\\
-\path{verify_central_multivariate_lift.py}&八変数正則化・全先頭式：既存PASS\\
-\path{verify_potential_recovery.py}&potential rank19、中心直線rank3：既存PASS\\
-\path{verify_algebraic_boundary.py}&境界行列式・判別式：既存PASS\\
-\path{verify_nodal_cuts.py}&固定包絡の五つの結節中心例：既存PASS\\
-\path{verify_character_node_cover.py}&中心特異点恒等式・一次元表現：既存PASS\\
-\path{verify_boundary_graph.py}&右graph・generic非三周期性：既存PASS\\
-\path{verify_daha_character.py}&AW規約・Fricke係数・Poisson：既存PASS\\
-\path{verify_daha_braid.py}&量子的Vieta・Casimir：既存PASS\\
-\path{verify_d4_lattice.py}&三角形の直交D4格子：既存PASS\\
-\path{verify_root_poisson.py}&全係数交換子微分・正確な係数9：既存PASS\\
-\path{verify_poisson_cut_obstruction.py}&切断の三障害・Vieta次数：既存PASS\\
-\path{verify_casimir_poisson_leaves.py}&十Poisson零点・四特異値・Hessian・一次元表現：既存PASS\\
-\path{verify_relative_poisson_cover.py}&次数15のGr\"obner環・二五次因子・単純fold：既存PASS\\
-\path{verify_companion_s5.py}&二素数での$N_5,M_5$ Frobenius分解型：既存PASS\\
-\path{verify_cayley_lg_connections.py}&Cayley・対数Poisson・$D_4$局所環・versal方向・留数対：既存PASS\\
-\path{verify_lg_picard_g2.py}&整数格子・triality・affine $D_4$・$G_2$係数：既存PASS\\
-\path{verify_g2_braids_periods.py}&成分三次式・Hurwitz・Chebyshev・七点$S_7$・境界留数：既存PASS\\
-\path{verify_logarithmic_periods.py}&conic留数・Morse球面・Picard--Fuchs・monodromy・非捩れ例：既存PASS\\
-\path{verify_conic_period_coordinates.py}&整数$D_4$・四period・Jacobian・円分分裂例と非分裂例：既存PASS\\
-\path{verify_triality_period_isogeny.py}&指数3格子・Laurent式・Kleinの$7/21$・力学行列：既存PASS\\
-\path{verify_boundary_pell_dynamics.py}&全境界chamber・Pell次数・固有方向・抽出深さ：既存PASS\\
-\path{verify_localization_entropy.py}&極filtrationのHilbert値・曲線交叉式・Pell種数：既存PASS\\
-\path{verify_boundary_torus_links.py}&二枝先頭式・Puiseux整数式・conductor・Milnor多項式・Chebyshev：既存PASS\\
-\path{verify_boundary_thresholds.py}&Newton閾値・半群・局所MF次元：既存PASS\\
-\path{verify_boundary_analytic_moduli.py}&模型Jacobian環・二同種式・実germの$\mu=27,\tau=24$：既存PASS\\
-\path{verify_boundary_prym.py}&Kummer/Ciani写像・種数・楕円周期式・実germのTjurina数再計算：既存PASS\\
-\path{verify_prym_integral_belyi.py}&巡回位数・分岐数・theta次数・楕円$X_{411}$・Belyi：今回PASS\\\bottomrule
-\end{longtable}
-今回新規に実行したのは最後の巡回被覆・整数偏極・Belyi検証器であり、
-整数の合同式、分岐のRiemann--Hurwitz数値、楕円Weierstrass不変量、
-Belyiの分岐多項式を厳密にPASSと確認した。
-証明書は\path{computations/prym_integral_belyi_certificate.json}。
-完全分岐からのJacobian引戻し単射、二捩れ核、normによるtheta制限次数、
-MumfordのPrym偏極型、Kodaira--Tate・Shioda--Tateは
-原稿の通常の証明または明記した既知定理への依存で、計算のみの検証ではない。
-従来の35検証器を今回すべて再実行していない。
-新しい巡回偏極・Belyi節の単体LuaLaTeX組版と
-主論文全体の今回の組版、旧証明の独立査読は未実施である。
-偏極を保つPrym全体の整数直和分解、高重み実germへのPrym比較、
-二周期と整数次数付きdg圏の全比較、filtered・equivariantなmirror/Fukaya対応、
-元の非可換H3圏の自己同値、新規性の網羅調査は未実施である。
-
-\begin{thebibliography}{99}
-\bibitem{DeDekenLowen} O. De Deken, W. Lowen,
-\emph{Abelian and derived deformations in the presence of $\mathbb Z$-generating geometric helices},
-J. Noncommut. Geom. 5 (2011), 477--505,
-\href{https://doi.org/10.4171/JNCG/83}{doi:10.4171/JNCG/83}, Theorem 4.5, Proposition 4.6, pp. 495--496.
-\bibitem{StacksPi1} The Stacks Project Authors,
-\emph{The Stacks Project},
-\href{https://stacks.math.columbia.edu/tag/0BTX}{Tag 0BTX}, Lemma 58.14.3
-(arithmetic--geometric fundamental group exact sequence).
-\bibitem{StacksPerfect} The Stacks Project Authors,
-\emph{The Stacks Project},
-\href{https://stacks.math.columbia.edu/tag/0BDK}{Tag 0BDK}, Lemma 36.31.3.
-\bibitem{EG} P. Etingof, V. Ginzburg,
-\emph{Noncommutative del Pezzo surfaces and Calabi--Yau algebras},
-J. Eur. Math. Soc. 12 (2010), 1371--1416.
-\href{https://arxiv.org/abs/0709.3593v4}{arXiv:0709.3593v4}.
-Theorem 3.3.2(i),(ii), Proposition 7.3.1, Appendix 9.1。
-\bibitem{LBS} L. Le Bruyn, S. P. Smith, M. Van den Bergh,
-\emph{Central extensions of three dimensional Artin--Schelter regular algebras},
-Math. Z. 222 (1996), 171--212, Theorem 2.6, Corollary 2.7。
-\bibitem{BG} A. Braverman, D. Gaitsgory,
-\emph{Poincar\'e--Birkhoff--Witt theorem for quadratic algebras of Koszul type},
-J. Algebra 181 (1996), 315--328, Theorem 0.5。
-\bibitem{IS} N. Iyudu, S. Shkarin,
-\emph{Three dimensional Sklyanin algebras and Gr\"obner bases},
-\href{https://arxiv.org/abs/1601.00564}{arXiv:1601.00564}, Theorem 1.1, Corollary 6.1。
-\bibitem{NS} C. Negron, T. Schedler,
-\emph{The Hochschild cohomology ring of a global quotient orbifold},
-Adv. Math. 364 (2020), 106978.
-\href{https://arxiv.org/abs/1809.08715}{arXiv:1809.08715}, Theorem 1.1, Appendix A。
-\bibitem{FIOS} E. Faber, C. Ingalls, S. Okawa, M. Satriano,
-\emph{On stacky surfaces and noncommutative surfaces},
-\href{https://arxiv.org/abs/2206.13359v2}{arXiv:2206.13359v2}, 8 February 2024,
-Theorem 1.5, Corollary 1.7。Brauer捩れ付きの比較として使用する。
-\bibitem{FPSS} L. Fu, M. Porta, S. Scherotzke, N. Sibilla,
-\emph{Hochschild--Kostant--Rosenberg isomorphism for derived Deligne--Mumford stacks},
-\href{https://arxiv.org/abs/2509.00501v3}{arXiv:2509.00501v3}, 20 January 2026,
-Proposition 6.17。一般root stackの恒等部分への帰着を比較し、$n=2$ に限る後半の式を $n=3$ へ流用しない。
-\bibitem{TerwilligerDAHA} P. Terwilliger,
-\emph{The universal Askey--Wilson algebra and DAHA of type $(C_1^\vee,C_1)$},
-SIGMA 9 (2013), 047, \href{https://doi.org/10.3842/SIGMA.2013.047}{doi:10.3842/SIGMA.2013.047},
-Definitions 2.1, 2.2, 2.6; Lemmas 2.3, 2.5, 2.8.
-\bibitem{GoldmanTrace} W. M. Goldman,
-\emph{Trace coordinates on Fricke spaces of some simple hyperbolic surfaces},
-in \emph{Handbook of Teichm\"uller Theory}, Vol. II (2009), 611--684,
-\href{https://doi.org/10.4171/055-1/16}{doi:10.4171/055-1/16},
-\S5.2.1, equation (5.2.1.2).
-\bibitem{GoldmanToledo} W. M. Goldman, D. Toledo,
-\emph{Affine cubic surfaces and relative $\mathrm{SL}(2)$-character varieties of compact surfaces},
-\href{https://arxiv.org/abs/1006.3838}{arXiv:1006.3838}.
-Theorem 1: every smooth-at-infinity cubic with generic tritangent plane is a four-holed-sphere character variety.
-\bibitem{SchockD4} N. Schock,
-\emph{The $W(E_6)$-invariant birational geometry of the moduli space of marked cubic surfaces},
-Math. Nachr. 297 (2024), 2639--2666,
-\href{https://doi.org/10.1002/mana.202300459}{doi:10.1002/mana.202300459}.
-Section 2: tritangent triangle and its orthogonal $D_4$ root lattice.
-\bibitem{IISDiscriminant} M. Inaba, K. Iwasaki, M.-H. Saito,
-\emph{Dynamics of the sixth Painlev\'e equation},
-S\'eminaires \& Congr\`es 14 (2006), 103--167,
-\href{https://emis.de/ft/47232}{original text}, \S9.1, Definition 9.1.
-Fricke判別式をトレースパラメータへ引き戻した場合の二乗因子について参照する。
-本稿の$N_5^2M_5$との同一視は主張しない。
-\bibitem{HavlicekPosta} M. Havl\'{\i}\v{c}ek, S. Po\v{s}ta,
-\emph{Center of quantum algebra $U'_q(\mathrm{so}_3)$},
-J. Math. Phys. 52 (2011), 043521,
-\href{https://doi.org/10.1063/1.3579992}{doi:10.1063/1.3579992}.
-三乗根を含むroot-of-unity中心の構造について参照し、規約の完全な同一視は追加検証事項。
-\bibitem{CantatLorayCayley} S. Cantat, F. Loray,
-\emph{Dynamics on Character Varieties and Malgrange irreducibility of Painlev\'e VI equation},
-Ann. Inst. Fourier 59 (2009), 2927--2978,
-\href{https://doi.org/10.5802/aif.2512}{doi:10.5802/aif.2512}, \S1.5.
-\bibitem{JangBoundary} S. u. Jang,
-\emph{Tropical Dynamics of Markov Surfaces},
-\href{https://arxiv.org/abs/2306.11357v2}{arXiv:2306.11357v2},
-Lemma 4.8 and Theorem 4.10. 取得した2025年12月版の題名と番号を使用する。
-\bibitem{MikoszWeberTriality} M. Mikosz, A. Weber,
-\emph{Triality, characteristic classes, $D_4$ and $G_2$ singularities},
-J. Homotopy Relat. Struct. 10 (2015), 995--1011,
-\href{https://doi.org/10.1007/s40062-014-0094-3}{doi:10.1007/s40062-014-0094-3}, Proposition 3, \S5.
-\bibitem{DixonElliptope} K. Dixon,
-\emph{The multi-moment maps of the nearly K\"ahler $S^3\times S^3$},
-Geom. Dedicata 200 (2019), 351--362,
-\href{https://doi.org/10.1007/s10711-018-0375-9}{doi:10.1007/s10711-018-0375-9}, Lemma 3.5.
-\bibitem{HikamiCluster} K. Hikami,
-\emph{Note on character varieties and cluster algebras},
-SIGMA 15 (2019), 003,
-\href{https://doi.org/10.3842/SIGMA.2019.003}{doi:10.3842/SIGMA.2019.003}.
-\bibitem{AWAvatars} N. Cramp\'e et al.,
-\emph{The Askey--Wilson algebra and its avatars},
-J. Phys. A 54 (2021), 063001,
-\href{https://doi.org/10.1088/1751-8121/abd783}{doi:10.1088/1751-8121/abd783}.
-\bibitem{CookeLacabanne} J. Cooke, N. Lacabanne,
-\emph{Higher rank Askey--Wilson algebras as skein algebras},
-Ann. Inst. Fourier 76 (2026), 1055--1117,
-\href{https://doi.org/10.5802/aif.3729}{doi:10.5802/aif.3729}.
-\bibitem{BousseauSkein} P. Bousseau,
-\emph{Strong positivity for the skein algebras of the $4$-punctured sphere and the $1$-punctured torus},
-Comm. Math. Phys. 398 (2023), 1--58,
-\href{https://doi.org/10.1007/s00220-022-04512-9}{doi:10.1007/s00220-022-04512-9}.
-\bibitem{EOR} P. Etingof, A. Oblomkov, E. Rains,
-\emph{Generalized double affine Hecke algebras of rank 1 and quantized del Pezzo surfaces},
-Adv. Math. 212 (2007), 749--796,
-\href{https://doi.org/10.1016/j.aim.2006.11.008}{doi:10.1016/j.aim.2006.11.008}.
-\bibitem{CMR} L. Chekhov, M. Mazzocco, V. Rubtsov,
-\emph{Quantised Painlev\'e monodromy manifolds, Sklyanin and Calabi--Yau algebras},
-Adv. Math. 376 (2021), 107442,
-\href{https://doi.org/10.1016/j.aim.2020.107442}{doi:10.1016/j.aim.2020.107442},
-\href{https://arxiv.org/abs/1905.02772}{arXiv:1905.02772}.
-本稿では公表済み要旨の範囲を参照し、定理単位の比較は未了。
-\bibitem{Rains} E. M. Rains,
-\emph{Filtered deformations of elliptic algebras},
-\href{https://arxiv.org/abs/2107.13540v2}{arXiv:2107.13540v2}, 17 February 2022,
-Propositions 2.2, 2.3, Example 2.1, Section 6末尾のConjecture 1とRemark。
-\bibitem{LVdB} W. Lowen, M. Van den Bergh,
-\emph{Hochschild cohomology of abelian categories and ringed spaces},
-Adv. Math. 198 (2005), 172--221,
-\href{https://arxiv.org/abs/math/0405227}{arXiv:math/0405227}。
-\bibitem{LowenObject} W. Lowen,
-\emph{Hochschild cohomology, the characteristic morphism and derived deformations},
-Compos. Math. 144 (2008), 1557--1580,
-\href{https://arxiv.org/abs/0707.2602}{arXiv:0707.2602}。
-\bibitem{Repo} \emph{nc-cubic-moduli research repository},
-\href{https://github.com/uedakazushi/nc-cubic-moduli}{GitHub main}。
-本稿の依存する個別ファイル・ラベル・確認済み状態は研究ノートの入力表に固定する。
-\end{thebibliography}
+\section{計算の役割と残る課題}
+PBW還元、中心式、接空間行列、形式族の係数恒等式、結節例には厳密有理計算の検証器を付す。
+再現入口は\path{computations/verify_all.py}であり、コードと小証明書を公開する。
+計算が確認するのは記載した恒等式・階数・具体例である。
+全次数の平坦性、圏の再構成、H3認識、代数的モジュライへの降下は、
+本文の通常の証明と明示した入力に依存する。
+投稿前に必要な核心は、外部H3認識の依存証明の再点検、
+全intrinsic族の相対代数化・開性・降下、および既知の量子del Pezzo族との詳細な新規性比較である。
+形式円板と表示stackの構成を、これら全ての解決として扱わない。
+\UsePublicationReferences{AOUCubic,BG,CMR,CompanionBoundary,CompanionFricke,DeDekenLowen,EG,FIOS,IS,LBS,LVdB,LowenObject,NS,OUASSurfaces,Rains,Repo,StacksPerfect}
+\input{papers/shared/bibliography.tex}
 \end{document}

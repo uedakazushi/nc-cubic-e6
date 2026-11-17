@@ -4,22 +4,95 @@
   "status": "PASS",
   "arithmetic": "Q[A,B,C,h] and integral intersection matrices; no numerical inference",
   "Vieta_word": "iota_v iota_w iota_u iota_w (right to left)",
-  "one_step_minimal_degrees": [3,7,4],
-  "one_step_leading_terms": ["4*u*v**2","64*u**2*v**5","8*u*v**3"],
+  "one_step_minimal_degrees": [
+    3,
+    7,
+    4
+  ],
+  "one_step_leading_terms": [
+    "4*u*v**2",
+    "64*u**2*v**5",
+    "8*u*v**3"
+  ],
   "filtration_dimension": "(3m^2+3m+2)/2",
-  "Hilbert_dimensions_m0_to20": [1,4,10,19,31,46,64,85,109,136,166,199,235,274,316,361,409,460,514,571,631],
+  "Hilbert_dimensions_m0_to20": [
+    1,
+    4,
+    10,
+    19,
+    31,
+    46,
+    64,
+    85,
+    109,
+    136,
+    166,
+    199,
+    235,
+    274,
+    316,
+    361,
+    409,
+    460,
+    514,
+    571,
+    631
+  ],
   "curve_polar_class": "c_n D_u+b_n D_v+(b_n+c_n)D_w",
   "curve_degree": "2d_n",
   "curve_self_intersection": "4b_n c_n",
   "curve_arithmetic_genus": "1+2b_n c_n-d_n",
   "curve_Hilbert_polynomial": "2d_n m+d_n-2b_n c_n",
-  "checked_n_range": [0,24],
+  "checked_n_range": [
+    0,
+    24
+  ],
   "displayed_integer_rows": [
-    {"n":0,"b":0,"c":1,"d":1,"degree":2,"arithmetic_genus":0,"chi_structure_sheaf":1},
-    {"n":1,"b":2,"c":5,"d":7,"degree":14,"arithmetic_genus":14,"chi_structure_sheaf":-13},
-    {"n":2,"b":12,"c":29,"d":41,"degree":82,"arithmetic_genus":656,"chi_structure_sheaf":-655},
-    {"n":3,"b":70,"c":169,"d":239,"degree":478,"arithmetic_genus":23422,"chi_structure_sheaf":-23421},
-    {"n":24,"b":835002744095575440,"c":2015874949414289041,"d":2850877693509864481,"degree":5701755387019728962,"arithmetic_genus":3366522229028921351787876149251641600,"chi_structure_sheaf":-3366522229028921351787876149251641599}
+    {
+      "n": 0,
+      "b": 0,
+      "c": 1,
+      "d": 1,
+      "degree": 2,
+      "arithmetic_genus": 0,
+      "chi_structure_sheaf": 1
+    },
+    {
+      "n": 1,
+      "b": 2,
+      "c": 5,
+      "d": 7,
+      "degree": 14,
+      "arithmetic_genus": 14,
+      "chi_structure_sheaf": -13
+    },
+    {
+      "n": 2,
+      "b": 12,
+      "c": 29,
+      "d": 41,
+      "degree": 82,
+      "arithmetic_genus": 656,
+      "chi_structure_sheaf": -655
+    },
+    {
+      "n": 3,
+      "b": 70,
+      "c": 169,
+      "d": 239,
+      "degree": 478,
+      "arithmetic_genus": 23422,
+      "chi_structure_sheaf": -23421
+    },
+    {
+      "n": 24,
+      "b": 835002744095575440,
+      "c": 2015874949414289041,
+      "d": 2850877693509864481,
+      "degree": 5701755387019728962,
+      "arithmetic_genus": 3366522229028921351787876149251641600,
+      "chi_structure_sheaf": -3366522229028921351787876149251641599
+    }
   ],
   "ordinary_proof_conclusions": {
     "affine_DHKK_entropy": "h_t(Lg*)=0 for every real t",

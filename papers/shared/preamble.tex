@@ -1,0 +1,41 @@
+% 共通の組版設定。本文と証明は各論文の節ファイルに一度だけ置く。
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable}
+\usepackage{mathrsfs}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage[unicode,hidelinks]{hyperref}
+\setlength{\emergencystretch}{3em}
+\hypersetup{bookmarksnumbered=true}
+\pdfstringdefDisableCommands{\def\qgr{qgr}\def\HH{HH}\def\Perf{Perf}}
+\providecommand{\PublicationVersion}{publication-v32}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{定義}
+\newtheorem{assumption}[theorem]{入力・仮定}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\newcommand{\HH}{\operatorname{HH}}
+\newcommand{\qgr}{\operatorname{qgr}}
+\newcommand{\coh}{\operatorname{coh}}
+\newcommand{\Perf}{\operatorname{Perf}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Spf}{\operatorname{Spf}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\gldim}{\operatorname{gldim}}
+\newcommand{\OO}{\mathcal O}
+\renewcommand{\AA}{\mathbb A}
+\newcommand{\PP}{\mathbb P}
+
+% 各原稿の引用だけを共通文献データから組版する。
+\makeatletter
+\newcommand{\UsePublicationReferences}[1]{%
+  \@for\pub@reference:=#1\do{%
+    \expandafter\def\csname pubref@\pub@reference\endcsname{}%
+  }%
+}
+\makeatother

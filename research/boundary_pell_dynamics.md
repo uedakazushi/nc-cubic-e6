@@ -1,12 +1,12 @@
 # 境界Pell力学・局所化・トーラス絡み目
 
-2026-11-17 / e6-connections-v27。最初に `../00_research_plan.md` を読む。
-完全な証明は主論文が入力する `quantum_cubic_boundary_dynamics.tex`、`quantum_cubic_localization_entropy.tex`、`quantum_cubic_boundary_links.tex`。H2恒等性と古典entropyの入力は `quantum_cubic_triality_isogeny.tex` の `prop:period-invisible-entropy`。本ノートは現在有効な式・障害・文献・着手を整理する。
+2026-11-18 / publication-v32。再開時は [研究方針](../00_research_plan.md) を最初に読む。
+公表用原稿は [cubic-boundary-prym.tex](../papers/cubic-boundary-prym.tex)。完全な証明は同稿が入力する `quantum_cubic_boundary_dynamics.tex`, `quantum_cubic_localization_entropy.tex`, `quantum_cubic_boundary_links.tex` にある。H2恒等性は境界力学節でGoldman–Neumann Theorem 2から直接導く。Fricke周期と古典entropyの背景は [fricke-geometry.tex](../papers/fricke-geometry.tex) を参照する。本文の証明、文献依存、実行した検算、組版の状態は [公表準備の確認状況](publication_status.md) と [検算結果](../computations/validation.json) で区別する。
 
 ## 1. 記号と観測の区別
 
 滑らかなU={uvw−(u²+v²+w²)/2−Au−Bv−Cw=h}、通常の三次閉包S、三角境界D=D_u+D_v+D_w。g=iota_v iota_w iota_u iota_w（右から合成）、sigma=g*、Lambda=3+2sqrt2。各Vietaは該当座標を2*(他二座標の積)−元座標−2*(対応係数)へ移す。
-Goldman–Neumannの既知定理からgはH2(U,Z)とperiodで恒等、留数形式omegaを保存する。今回はこの旧入力全体の独立再監査ではない。
+Goldman–Neumann Theorem 2からgはH2(U,Z)とperiodで恒等、留数形式omegaを保存する。同論文への変換は(x,y,z)=(2u,2v,2w)、(P,Q,R)=(-4A,-4B,-4C)、fiberの値-8h-2。各VietaのH2作用は-Iなので四つの積は恒等。
 同じgについて、通常のPerf(U)のDHKK entropy=0、射の極filtration歪み率=log Lambda、曲線閉包の対象列の増大率=2log Lambda。正規化層はlog Lambda、一点欠損層は2log Lambdaとなる。対象列の率を自己関手entropyと呼ばない。
 
 ## 2. 境界付値・最低次数・Pell単数
@@ -43,7 +43,7 @@ j*Q_n=[R --sigma^n(v)-kappa--> R]でdelta0≤2。閉包はexact functorでない
 
 ## 6. 二枝のPuiseux型とtoric上の係数保存
 
-主論文 `thm:two-boundary-Puiseux`、`cor:boundary-trace-recovered`。
+公表用原稿 `thm:two-boundary-Puiseux`、`cor:boundary-trace-recovered`。
 明示条件はkappa²≠1と
 N_v(kappa)=(kappa²+2Bkappa+2h)(kappa²−1)+A²+C²+2kappa AC≠0。
 出発conicはu²+w²−2kappa uw+2Au+2Cw+kappa²+2Bkappa+2h=0。
@@ -62,7 +62,7 @@ primitive重みray(b,c)を抽出したtoric変更後、二枝は例外torusのz=
 
 ## 7. Torus link・conductor・有限Milnor monodromy
 
-主論文 `thm:boundary-torus-link`。
+公表用原稿 `thm:boundary-torus-link`。
 linkはT(2b,2c)、二成分それぞれT(b,c)、linking=bc。
 delta_branch=(b−1)(c−1)/2、delta_total=1+2bc−b−c、mu=(2b−1)(2c−1)=2delta−1。
 正規化環C[[s+]]⊕C[[s−]]のconductorはs+^delta C[[s+]]⊕s−^delta C[[s−]]。各枝のconductor指数はmu_branch+他枝交叉=(b−1)(c−1)+bc。dx/f_yの位数も−deltaを与える。
@@ -74,7 +74,7 @@ Milnor fibrationのtopological型を重み付き代表で計算するのであ�
 
 ## 8. 正規化完全列が分離する成長
 
-主論文 `thm:normalization-defect-growth`。
+公表用原稿 `thm:normalization-defect-growth`。
 nu_n:P1→bar C_n、B_n=nu_*O_P1、Z_n=B_n/Q_n。Z_nはp_wだけに支持されlength delta。H0(Q_n)→H0(B_n)はCの恒等、H1(B_n)=0だからH1(Q_n)=H0(Z_n)。前節の全種数は一つの点の正規化欠損となる。
 任意proper split generator Eに対し、B_nの率log Lambda、Z_nの率2log Lambda。
 Z_nの上界はlength個のk(p_w)からのcomposition series、下界はH0 length。
@@ -83,7 +83,7 @@ B_nの下界はHom(O(1),B_n)=H*(P1,O(−2d_n))の全次元2d_n−1。上界は�
 
 ## 9. Chebyshev divideと局所Weinstein模型
 
-主論文 `prop:Pell-Chebyshev-Weinstein`。
+公表用原稿 `prop:Pell-Chebyshev-Weinstein`。
 weighted代表x^(2c)−y^(2b)に対し
 F_epsilon=epsilon^(2bc)[T_(2c)(x/epsilon^b)−T_(2b)(y/epsilon^c)]。
 cosine extremaの格子がmu個の実Morse点で、同parityのdelta点は零levelのreal node、異parityのdelta−1点は極値。leading係数の尺度変更で元のweighted代表へ戻る。
@@ -94,14 +94,15 @@ Casals Thm1.1/Cor1.2はこのreal morsificationから、linkのmaximal-tb Legend
 
 smooth affine HKRでHH0=R、HH2=R omega。omega不変なので極filtration歪みlog Lambda。HP_even=H0_dR⊕H2_dRはrank6でg恒等、HP_odd=0。無限次元filtered HHで見える成長が有限HPと通常対象entropyでは消える。
 Exact同値Psi:Perf(U)≅CとL=Psi(O)を仮定して共役しても通常entropyは零。End(L)のaction filtrationと極filtrationの相互線型比較、特定gの射への同変性を別に証明できた場合だけ、射の歪み率log Lambdaが移る。Côté–Kartalの静的growth比較だけではこの仮定は従わない。
-gがholomorphic symplecticを保つだけで選択Liouville構造のexact symplectomorphismとはしない。今回も可換中心曲面が対象で、元の非可換H3圏の自己同値ではない。
+gがholomorphic symplecticを保つだけで選択Liouville構造のexact symplectomorphismとはしない。対象は可換中心曲面であり、関連する非可換曲面の圏への自己同値の持上げは未構成である。
 
 ## 11. 一次文献と確認範囲
 
+- W. M. Goldman, W. D. Neumann, *Homological action of the modular group on some cubic moduli spaces*, Math. Res. Lett.12 (2005),575–591, DOI https://doi.org/10.4310/MRL.2005.v12.n4.a11 ; https://arxiv.org/abs/math/0402039 。Theorems 1–2で滑らかなfiberのH2=Z5とlevel2合同部分群の符号作用を確認。本文の正規化変換は上の§1。
 - R. Casals, *Lagrangian skeleta and plane curve singularities*, J. Fixed Point Theory Appl.24 (2022),34, DOI https://doi.org/10.1007/s11784-022-00939-8 。公開原本文Thm1.1、Cor1.2、Example1.3後のChebyshev、§2.1 Remark2.1、§2.2 divideを確認。一般理論は既知。局所絡み目への適用に限定する。
-- D. Kerner, V. Vinnikov, *On the determinantal representations of singular plane curves*, arXiv:0906.3012v1, https://arxiv.org/abs/0906.3012v1 、2009年6月版§2.2.3 Definition–Proposition2.2、(7)。conductor指数mu_i+sum intersectionを原PDFテキストで確認。web screenshot取得はcache errorで未成功で、図の読取りには依存していない。
-- C. Hertling, M. Mase, *The combinatorics of weight systems and characteristic polynomials of isolated quasihomogeneous singularities*, J. Algebr. Comb.56 (2022),929–954, DOI https://doi.org/10.1007/s10801-022-01138-x 。原公開本文Thm6.4(a)のMilnor–Orlik公式を確認。原Milnor–Orlik論文はTopology9 (1970),385–393で、今回は元論文全体を直接確認したとはしない。
-- G. Dimitrov, F. Haiden, L. Katzarkov, M. Kontsevich, *Dynamical systems and categories*, arXiv:1307.8418, https://arxiv.org/abs/1307.8418 。Definitions2.1,2.4、Prop2.2、Lemma2.3、Thm2.6証明Eq(9)は前節で確認。proper対象列の上界に比較を用いる。
+- D. Kerner, V. Vinnikov, *On the determinantal representations of singular plane curves*, arXiv:0906.3012v1, https://arxiv.org/abs/0906.3012v1 、2009年6月版§2.2.3 Definition–Proposition2.2、(7)。conductor指数mu_i+sum intersectionを原PDFテキストで確認。
+- C. Hertling, M. Mase, *The combinatorics of weight systems and characteristic polynomials of isolated quasihomogeneous singularities*, J. Algebr. Comb.56 (2022),929–954, DOI https://doi.org/10.1007/s10801-022-01138-x 。原公開本文Thm6.4(a)のMilnor–Orlik公式を確認。原Milnor–Orlik論文はTopology9 (1970),385–393。原Milnor–Orlik論文全体の確認は未了。
+- G. Dimitrov, F. Haiden, L. Katzarkov, M. Kontsevich, *Dynamical systems and categories*, arXiv:1307.8418, https://arxiv.org/abs/1307.8418 。Definitions2.1,2.4、Prop2.2、Lemma2.3、Thm2.6証明Eq(9)を参照する。proper対象列の上界に比較を用いる。
 - L. Côté, Y. B. Kartal, *Categorical action filtrations via localization and the growth as a symplectic invariant*, J. Reine Angew. Math.801 (2023),173–238, DOI https://doi.org/10.1515/crelle-2023-0037 ; arXiv:2108.05938v3。§5.2.2 (5.9)–(5.10)、Cor5.26、Thm5.27、§7.1.1 Cor7.1–7.2。pole/Reeb growthの比較枠組みで、個別gの同変性は追加事項。
 - B. Antieau, *Periodic cyclic homology and derived de Rham cohomology*, Ann. K-Theory4 (2019),505–519, DOI https://doi.org/10.2140/akt.2019.4.505 。§3とIntroductionの古典的標数0比較。smooth C代数のmixed-complex HKRとして使用。
 - S. u. Jang, *Tropical Dynamics of Markov Surfaces*, arXiv:2306.11357v2, https://arxiv.org/abs/2306.11357v2 、取得2025年12月版Lemma4.8、Thm4.10。R²/±線型化は既知。別版の題名・番号を混在させない。
@@ -111,7 +112,7 @@ gがholomorphic symplecticを保つだけで選択Liouville構造のexact symple
 
 ## 12. 再現と次の課題
 
-`computations/verify_boundary_torus_links.py`を今回Q・Z上で実行しPASS。全係数一反復と帰納式、n=1..24の整数値、n=1模型Jacobi次元27・conductor14、monodromy多項式とChebyshev resultantsを確認。証明書は `boundary_torus_links_certificate.json`。全nの主張、解析/位相、DHKK、Casalsの構成は通常証明として区別する。
-新節単体はLuaLaTeX5頁、全頁画像・内部参照・overfullなしを点検。旧31検証器全再実行、主論文全体の今回の組版、独立査読、新規性網羅調査は未実施。
-次はn=1 divideの交叉とmicrolocal quiver、正規化完全列の局所圏への像、反復間のtoric共通解消とexact cobordismの可能性を調べる。局所模型の存在だけでglobal mirror/g作用を主張しない。三成分Hodge比較の幾何学化は並行して保持する。
-GitHub mainが正本。push済み内容をLibraryへ保存しない。
+再現コードは `computations/verify_boundary_pell_dynamics.py`, `verify_localization_entropy.py`, `verify_boundary_torus_links.py`。境界chamber、Pell行列、全係数一反復と帰納式、Hilbert値・交叉式、有限範囲の整数値、n=1模型のJacobi次元27・conductor14、monodromy多項式、Chebyshev resultantsを検算する。各証明書は同じ `computations/` 内にある。`computations/validation.json` は全36検証器の実行をPASSとして記録している。全nの主張、解析/位相、DHKK、Casalsの構成は本文の通常証明と引用した定理による。独立査読、新規性の網羅調査、原稿組版の最新状態は [公表準備の確認状況](publication_status.md) を参照する。
+
+次はn=1 divideの交叉とmicrolocal quiver、正規化完全列の局所圏への像、反復間のtoric共通解消とexact cobordismの可能性を調べる。局所模型の存在だけでglobal mirror/g作用を主張しない。三成分Hodge比較の幾何学化は関連するFricke研究で扱う。
+保存と再開の規則は [研究方針](../00_research_plan.md) に従う。

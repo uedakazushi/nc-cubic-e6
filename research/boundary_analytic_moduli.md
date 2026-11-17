@@ -1,6 +1,6 @@
 # 境界の解析modulus・MF・楕円曲線・Milnor被覆のPrym
 
-2026-11-18 / e6-connections-v31。最初に `../00_research_plan.md` を読む。完全な証明は主論文の `quantum_cubic_boundary_thresholds.tex`, `quantum_cubic_boundary_moduli.tex`, `quantum_cubic_boundary_prym.tex`。元の全反復・link・正規化は `research/boundary_pell_dynamics.md` と `sec:boundary-torus-links` にある。本ノートは現行の具体式・区別・文献・次の着手を保持する。
+2026-11-18 / publication-v32。再開時は [研究方針](../00_research_plan.md) を最初に読む。公表用原稿は [cubic-boundary-prym.tex](../papers/cubic-boundary-prym.tex)。完全な証明は同稿が入力する `quantum_cubic_boundary_thresholds.tex`, `quantum_cubic_boundary_moduli.tex`, `quantum_cubic_boundary_prym.tex`, `quantum_cubic_prym_polarization.tex` にある。全反復・link・正規化の知識は [境界Pellノート](boundary_pell_dynamics.md) に整理する。本文の証明、文献依存、実行した検算、組版の状態は [公表準備の確認状況](publication_status.md) と [検算結果](../computations/validation.json) で区別する。
 
 ## 1. 実germと重み付き模型
 
@@ -11,7 +11,7 @@
 ## 2. 閾値と異なる反復の圏
 
 lct=(b+c)/(2bc)、減衰率log Lambda。0<tau<1の乗数イデアルは b(i+1)+c(j+1)>2bc tau の単項式で生成。これは境界Dに係数1を加えた対の閾値ではない。
-実f_nkの二周期MFについて、Dyckerhoff Cor6.5でHH even=Jac(f_nk)（代数として）、odd=0。mu=(2b−1)(2c−1)、増大率2log Lambda。異なるnはHH次元でdg Morita非同値。この圏をPerf(U)、非可換H3圏、局所化の核と同一視していない。
+実f_nkの二周期MFについて、Dyckerhoff Cor6.5でHH even=Jac(f_nk)（代数として）、odd=0。mu=(2b−1)(2c−1)、増大率2log Lambda。異なるnはHH次元でdg Morita非同値。この圏をPerf(U)、関連する非可換曲面の圏、局所化の核と同一視していない。
 
 ## 3. 位相型が忘れるK=kappa²
 
@@ -39,7 +39,7 @@ F=Res_t(P,H)/(64x²y^5)は局所被約方程式の単元倍。P_t(0)=−1、他�
 Jac基底はx^0..13、x^0..8y、x^0..3y²。
 [F]=12x13−96x12/5−12x11/5、[xF]=−96x13/5−12x12/5、[x²F]=−12x13/5、[x³F]=[yF]=0。([F])は次元3。主部mu=tau27なので接触非同値。
 
-**現在確定した圏的帰結：** Hua–Keller最終版Thm5.9の通常のZ-graded dg特異点圏S_fについて、絶対HH^0(S_f)=Tjur(f)。従ってこの実境界と主部はHH0次元24対27によりdg Morita非同値。異なるKの実germも、Tjurina復元と前節の解析的不変量により、この整数次数付き圏が区別する。
+**圏的帰結：** Hua–Keller最終版Thm5.9の通常のZ-graded dg特異点圏S_fについて、絶対HH^0(S_f)=Tjur(f)。従ってこの実境界と主部はHH0次元24対27によりdg Morita非同値。異なるKの実germも、Tjurina復元と前節の解析的不変量により、この整数次数付き圏が区別する。
 二周期MFの相対HH=Jacと絶対Zdg HH0=Tjurを入れ替えない。periodizationや基礎環忘却の全比較は未構成で、一般strict二周期MFの分類をtauだけで結論したわけではない。3fold flop/NCCRの存在を仮定するHua–Kellerの後続定理は使っていない。
 
 ## 7. Milnor二次被覆のPrymにE_kを実現する
@@ -60,7 +60,7 @@ g(tildeC)=4bc−b−2c−1、Prym次元2bc−c−1。deck delta(a,y)=(-a,y)はE�
 alpha商 q²=1+(K−1)Y4、beta商 q²=1+(K−1)X4（両j1728）、
 alpha beta商 Dk:T²=r4−2kappa r²+1（r=Y/X,T=1/X²）。
 三つの非自明指標のHodge成分が各1次元なのでJac(Ck)~Ei²×Dk。delta↔alphaの等変性からPrym(tildeC/C)にEi×Dkにisogenousな二次元部分が入る。
-Dk→Ekは(z,eta)=(r²,rT)の非分岐次数2、deck(r,T)↦(-r,-T)。原点を適合させれば2isogenyで、j(Dk)=64(K+3)³/(K−1)²=j(E_{K/(K−1)})。既存のlevel2対応が共通genus3曲線を通る商として実現された。
+Dk→Ekは(z,eta)=(r²,rT)の非分岐次数2、deck(r,T)↦(-r,-T)。原点を適合させれば2isogenyで、j(Dk)=64(K+3)³/(K−1)²=j(E_{K/(K−1)})。level2対応を共通genus3曲線を通る商として実現する。
 n1ではgC13、gtilde27、Prym14、Cianiへの次数5、Eへの次数20。
 
 Eのomega=dz/etaの周期Piは(kappa²−1)Pi''+2kappa Pi'+Pi/4=0。P=zQとして、作用素をomegaに作用させるとd_z[z²(1−z²)/(2P^(3/2))]。従ってこれは完全微分から得る厳密PF式。q=(1−kappa)/2でGauss(1/2,1/2;1)。pullback/traceがGauss–Maninに適合しPrymのrank2部分にも同じ式。
@@ -80,9 +80,9 @@ Eのomega=dz/etaの周期Piは(kappa²−1)Pi''+2kappa Pi'+Pi/4=0。P=zQとし�
 
 ## 10. 巡回Milnor被覆、Prym偏極とX411の整数構造
 
-主論文 `papers/sections/quantum_cubic_prym_polarization.tex`（`thm:prym-cyclic-inertia`, `thm:prym-elliptic-theta-degree`, `prop:prym-extremal-X411`）に通常の証明を統合した。
+公表用原稿の入力 [quantum_cubic_prym_polarization.tex](../papers/sections/quantum_cubic_prym_polarization.tex) に通常の証明がある（`thm:prym-cyclic-inertia`, `thm:prym-elliptic-theta-degree`, `prop:prym-extremal-X411`）。
 
-前節の `tildeC: y^(4m)-2kappa a^(2c)y^(2m)+a^(4c)=1`（b=2m,c奇数, gcd(m,c)=1）から
+§7の `tildeC: y^(4m)-2kappa a^(2c)y^(2m)+a^(4c)=1`（b=2m,c奇数, gcd(m,c)=1）から
 `D:T²=r⁴-2kappa r²+1`, `E:eta²=z(z²-2kappa z+1)` への写像は
 `r=y^m/a^c,T=a^(-2c)`, `z=r²,eta=rT`。
 tildeC→Dはcyclic Galois次数bc。生成元はa↦ζ_(2c)a,y↦ζ_(2m)y。tildeC→Eはcyclic Galois次数2bcで、生成元の位相はaに1/(4c)、yにj/(4m)（j≡3 mod4, gcd(j,4m)=1）を取る。
@@ -90,7 +90,7 @@ tildeC→Dはcyclic Galois次数bc。生成元はa↦ζ_(2c)a,y↦ζ_(2m)y。til
 tildeC→Dのbranch表：T=0の四点に各一点・指数bcの**完全分岐**、r=0の二点に各2c点・指数m、r=∞の二点に各b点・指数c。RH合計は `4(bc-1)+2(bc-2c)+2(bc-b)=2g(tildeC)-2`。従ってD→EはtildeC→Eの最大非分岐中間被覆（次数2）。全分岐からD→J(tildeC)のpullbackはinjective。
 
 E上では `div(z)=2(0,0)-2O`、D=E(sqrt z)のetale二重被覆。したがって`ker[q^*:J(E)→J(tildeC)]=<[(0,0)-O]>`（正確に位数2）。補助二捩れ標識が自然なPrym引戻しの核そのものとして回復される。
-Prym内のembedded elliptic D上のambient Jacobian thetaの制限次数は**bc**。Eをsourceにしたpullbackの次数は2bcなので混同しない。
+Prym内のembedded elliptic D上のambient Jacobian thetaの制限の線束次数は**bc**。対応する偏極isogenyの次数は(bc)²。Eをsourceにしたpullbackの線束次数は2bcなので混同しない。
 Prym全体のtheta制限偏極型は `(1^(b-1),2^(2bc-b-c))`（ramified double coverのMumford公式）。n=1,2,3でD上のtheta次数は10,348,11830。Pell率は2log(3+2sqrt2)。
 
 `E_k:eta²=z³-2kappa z²+z`のdeltaは64(kappa²-1)、c4=16(4kappa²-3)、j=64(4kappa²-3)³/(kappa²-1)。
@@ -100,11 +100,12 @@ j/1728は次数6のBelyi mapでpassport `j=0:(3,3); j=1728:(2,2,2); j=∞:(4,1,1
 Miranda–Persson, *On extremal rational elliptic surfaces*, Math. Z. **193** (1986), 537–558, Table 5.2, DOI https://doi.org/10.1007/BF01160474 。著者原PDFの表を画像でも確認。
 これらのKodaira・Belyi・極端楕円曲面理論は既知で、本稿での貢献はPell/Prym因子との明示的関係。
 
-厳密検証コード `computations/verify_prym_integral_belyi.py` は整数合同・10組のPell分岐数・楕円c4/Delta/j・三分岐値を再生成（PASS）。小証明書は `prym_integral_belyi_certificate.json`。全域のGalois被覆・偏極・Kodaira判定は通常の証明と先行定理に基づく。Prym全体の整数直和分裂、実高重みgermへのPrym移行、MFへの関手は未構成。
+厳密検証コード `computations/verify_prym_integral_belyi.py` は整数合同・10組のPell分岐数・楕円c4/Delta/j・三分岐値を再生成する。小証明書は `computations/prym_integral_belyi_certificate.json`。全域のGalois被覆・偏極・Kodaira判定は通常の証明と先行定理に基づく。Prym全体の整数直和分裂、実高重みgermへのPrym移行、MFへの関手は未構成。
 
-## 11. 次の着手と検証状態
+## 11. 次の着手と検証範囲
 
-実germについてはZdg圏の区別が解決したので、相対二周期HHと絶対Zdg HHの比較、[f]の役割、n1でのkappa/h変動のTjurina跳躍を調べる。未確認の比較を結論に使わない。
-Prym側ではq*のkernelと埋込楕円偏極次数bcが解決した。次は固定b2,c5のPrym全体の偏極付き補因子の整数格子、楕円因子のmonodromyとMFの次数構造を精査する。高重みの変形で楕円factorが残るか、stable reduction/極限Hodgeにのみ残るかを別問題にする。同じ有理Hodge因子からMF部分圏/HMSを推論しない。
-直近の新規計算は `verify_prym_integral_belyi.py` を実行しPASS。以前の `verify_boundary_prym.py` も証明書にPASS記録がある。Q上の代入・j・指標・完全微分とPell整数式、元Vietaから独立のmu27/tau24計算を含む。証明書は `boundary_prym_certificate.json`。全nの幾何、norm理論、dg復元は通常の証明と文献入力。
-巡回偏極・Belyi節の独立LuaLaTeX組版の確認範囲は研究方針を参照する。以前のPrym節は独立LuaLaTeX4頁、全頁画像・内部参照・overfullなしを確認。主論文全体の今回の組版、他の35検証器全再実行、独立査読、新規性の網羅確認は未実施。mainへの統合差分で既存証明・文献を保持。pushした内容はLibraryへ保存しない。
+実germについては相対二周期HHと絶対Zdg HHの比較、[f]の役割、n=1でのkappa/h変動のTjurina跳躍を調べる。整数次数付きdg特異点圏の区別は本文の系で得られるが、未構成の周期化比較を結論に使わない。
+Prym側では固定b=2,c=5のPrym全体の偏極付き補因子の整数格子、楕円因子のmonodromyとMFの次数構造を精査する。高重みの変形で楕円factorが残るか、stable reduction/極限Hodgeにのみ残るかを別問題にする。同じ有理Hodge因子からMF部分圏/HMSを推論しない。
+
+再現コードは `computations/verify_boundary_analytic_moduli.py`, `verify_boundary_prym.py`, `verify_prym_integral_belyi.py`。前二者は主部と実germのJacobian/Tjurina計算、後二者はKummer/Ciani写像、指標、完全微分、分岐数、Weierstrass/Belyi式を検算する。`computations/validation.json` は全36検証器の実行をPASSとして記録している。有限計算と全nの幾何学的証明、norm理論、Hua–Kellerの文献入力は別の検証範囲である。独立査読、個別帰結の新規性の網羅調査、原稿組版の最新状態は [公表準備の確認状況](publication_status.md) を参照する。
+保存と再開の規則は [研究方針](../00_research_plan.md) に従う。

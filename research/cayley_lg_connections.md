@@ -1,7 +1,7 @@
 # Cayley・LG・消滅サイクル・G2・braidと周期
 
-2026-11-17 / e6-connections-v22。再開時は `../00_research_plan.md` を先に読む。
-完全な証明は主論文が読み込む `quantum_cubic_cayley_lg.tex`、`quantum_cubic_lg_picard.tex`、`quantum_cubic_g2_braids.tex`、`quantum_cubic_log_periods.tex`（すべて `../papers/sections/`）。本ノートは現在必要な式・区別・文献・未解決の核心をまとめ、全文証明を重複させない。
+2026-11-18 / publication-v32。再開時は `00_research_plan.md` を先に読む。
+証明は `papers/fricke-geometry.tex` のCayley・Milnor/Picard・G2・braid・対数周期の各節に収める。原稿ソースは `papers/sections/` の `papers/sections/quantum_cubic_cayley_lg.tex`、`papers/sections/quantum_cubic_lg_picard.tex`、`papers/sections/quantum_cubic_g2_braids.tex`、`papers/sections/quantum_cubic_log_periods.tex`。ファイルパスはroot起点とする。本ノートは有効な式・適用範囲・障害を保持し、検証と組版の実施状態は `research/publication_status.md` と `computations/validation.json` を参照する。反標準包絡・H3認識は `papers/nc-cubic-e6.tex`、境界力学・MF・Prymは `papers/cubic-boundary-prym.tex` で扱う。
 
 ## 1. 共通模型と係数の区別
 
@@ -51,7 +51,7 @@ rho=(u,v,w)↦(v,w,u)は境界三本を回す。境界格子BのGramはdiag−1/
 Goldman–Neumannの交叉形式は四外側o_iと中央cの負affine D4。primitive radical delta=o1+o2+o3+o4+2c。基底(c,o1,o2,o3,delta)はunimodularでD4(-1)⊕0へ変換。Picardではc→alpha0、o1..3→alpha1..3、o4→−2alpha0−alpha1−alpha2−alpha3。
 既存コードの指定順反射積M=s_o1 s_o2 s_o3 s_o4 s_cはcharpoly=(xi−1)²(xi+1)³、M²−I=delta*(1,1,1,1,−2)、rank1かつsquare0。任意の消滅路で同じ行列という主張ではない。
 無限遠はmonodromy−IのT² mapping torus、H1=Z⊕(Z/2)²。三次元mapping torusと二次元pillowcaseは別空間。
-重みspectral sequenceでGr2 H²=Q(-1)^4、Gr3=0、Gr4=Q(-2)、E_c=1+4xy+(xy)²、Euler6。MHSは一般に分裂としない。§11で一つの内部周期と有理非分裂fiberを具体化したが、全四周期は未決定。
+重みspectral sequenceでGr2 H²=Q(-1)^4、Gr3=0、Gr4=Q(-2)、E_c=1+4xy+(xy)²、Euler6。MHSは一般に分裂としない。§11は一つの内部周期と有理非分裂fiberを与える。全四周期はFricke原稿 `thm:four-integer-D4-periods` と `research/conic_period_coordinates.md` に記す指定conic標識上で決定されている。
 
 ## 8. G2とD4/A2の共通退化
 
@@ -80,7 +80,7 @@ Hurwitzはomegaを保ち、radicalの符号は非零周期から+と決まるの
 
 ## 11. conic匹配周期、Looijenga period、有理非分裂MHS
 
-証明は `quantum_cubic_log_periods.tex`。d=u²−1、N=(u²+2Au+2h)d+B²+C²+2uBCと置く。v0=(B+uC)/d、w0=(C+uB)/dを引いてV=v−v0、T=w−w0とするとW−h=−(T²−2uVT+V²)/2−N/(2d)。s²=dを選びa=T−(u+s)V、b=T−(u−s)Vを取ればab=−N/d、omega=(du/s)∧dlog a。z=u+s、u=(z+z^-1)/2なのでomega=dlog z∧dlog a。
+証明は `papers/sections/quantum_cubic_log_periods.tex`。d=u²−1、N=(u²+2Au+2h)d+B²+C²+2uBCと置く。v0=(B+uC)/d、w0=(C+uB)/dを引いてV=v−v0、T=w−w0とするとW−h=−(T²−2uVT+V²)/2−N/(2d)。s²=dを選びa=T−(u+s)V、b=T−(u−s)Vを取ればab=−N/d、omega=(du/s)∧dlog a。z=u+s、u=(z+z^-1)/2なのでomega=dlog z∧dlog a。
 Nの二つの単純根u_-、u_+を結ぶ道が±1と他の根を避けるとき、fiber円が二端で縮むmatching球面の周期は2pi i[log(u+s)]_-^+。枝と道に沿う対数、向きを指定する。u=±1ではこの座標が特異なので無条件に延長しない。単純根間の全matchingが整数D4基底になるとはまだ証明していない。
 
 A=B=C=0、h=-r²/2、0<r<1で原点へ消える実球面を
@@ -98,16 +98,16 @@ Pi0とPi_inftyは2h(1+2h)y''+(1+4h)y'=0の二解。基点を実区間に取り�
 h=−1/10ではQ=(3−4i)/5、Q+Q^-1=6/5。根の1ならこの和は有理代数的整数なので整数となり矛盾。したがって非捩れ。
 **点ごとの有理MHSも非分裂：** 0→Q(-1)^4→H²(U,Q)→Q(-2)→0が分裂すれば、F²の一次元直線を境界積分1に規格化した[omega]/(2pi i)²は有理classとなる。すると全整数cycleで規格化積分が有理、Qが根の1になるので上例は矛盾。局所系非分裂とこのMHS非分裂は別の結論。一つのQが捩れでも全四方向のMHSが分裂するとは結論できない。
 
-次の計算では三conic pencilのmatchingを組み合わせ、全四内部periodを整数基底と対応させる。四根の差だけだとrank3に留まる可能性があり、±1を巡るcycleや別pencilの寄与を欠落させない。全rank5接続、一般パラメータの拡大類、非Archimedeanモデルは未構成。
+全四内部periodの整数基底との対応は、conic成分の縮約と境界gluingによりFricke原稿 `thm:four-integer-D4-periods` で構成されている。四根の差だけではrank3に留まるため、第四方向 \(E_3+E_4-F\) のperiod \(z_3z_4\) が必要となる。具体式・一般conic開集合・対称族の別標識は `research/conic_period_coordinates.md` を参照する。任意のmatching経路の選択がそのままこの整数基底となるという主張ではない。全rank5の代数的Gauss--Manin接続と非Archimedeanモデルは未構成である。
 
 ## 12. 一次文献と確認範囲
 
-- R. Friedman, *On the geometry of anticanonical pairs*, arXiv:1502.02560v2 (2016), https://arxiv.org/abs/1502.02560v2 、§3 Proposition3.12（pp.21–23）。指数化積分と線束制限period、MHS拡大との関係を本文と原PDF該当頁画像で確認。正規化は境界積分1である。本稿の新一般理論ではない。
-- M. Gross, P. Hacking, S. Keel, *Moduli of surfaces with an anti-canonical cycle*, Compos. Math.151 (2015),265–291, DOI https://doi.org/10.1112/S0010437X14007611 ; arXiv:1211.6367v5。Definition1.5（代数的period）とTheorem1.8（他のmarking/nef条件を含むTorelli）、原PDF該当頁を確認。periodだけから無条件の全モジュライ同定を輸入しない。
+- R. Friedman, *On the geometry of anticanonical pairs*, arXiv:1502.02560v2 (2016), https://arxiv.org/abs/1502.02560v2 、§3 Proposition3.12（pp.21–23）。指数化積分と線束制限period、MHS拡大との関係を用いる。正規化は境界積分1である。本稿の新一般理論ではない。
+- M. Gross, P. Hacking, S. Keel, *Moduli of surfaces with an anti-canonical cycle*, Compos. Math.151 (2015),265–291, DOI https://doi.org/10.1112/S0010437X14007611 ; arXiv:1211.6367v5。Definition1.5（代数的period）とTheorem1.8（他のmarking/nef条件を含むTorelli）を用いる。periodだけから無条件の全モジュライ同定を輸入しない。
 - J. Lai, Y. Zhou, *Mirror symmetry for log Calabi–Yau surfaces II*, Compos. Math.161 (2025),2025–2090, DOI https://doi.org/10.1112/S0010437X25007080 ; arXiv:2201.12703。§2とTheorem1.8のmirror periodのモジュライ的同定を一次本文で確認。本文§1.2.3もHMSをこの定理から結論していない点に注意。本稿でmirror同値を構成したとはしない。
 - S. Karwa, J. Lai, *Non-archimedean periods for log Calabi–Yau surfaces*, arXiv:2506.01651 (2025), https://arxiv.org/abs/2506.01651 、Introduction eqs.(1)–(2)、Theorem6.14。良い還元と組合せ型の仮定の下で非Archimedean periodが代数的periodに一致することを確認。本稿の曲面にモデルを選んで適用条件を検証したわけではない。
-- P. Boalch, R. Paluba, *Symmetric cubic surfaces and G2 character varieties*, J. Algebraic Geom.25 (2016),607–631, DOI https://doi.org/10.1090/jag/668 ; arXiv:1305.6594。§4.1 base discriminant、§5式(19)・Corollary17、§7 Klein七点・Theorem20を既存原稿で一次本文確認。著者版 https://webusers.imj-prg.fr/~philip.boalch/files/g2.pdf 。以前のweb screenshotはcache miss、数式は既存厳密計算で照合。
-- W. M. Goldman, W. D. Neumann, *Homological action of the modular group on some cubic moduli spaces*, Math. Res. Lett.12 (2005),575–591, DOI https://doi.org/10.4310/MRL.2005.v12.n4.a11 ; arXiv:math/0402039。Theorems1–2、Proposition3、§3のaffine D4・境界を既存入力として保持。今回の全独立再監査ではない。
+- P. Boalch, R. Paluba, *Symmetric cubic surfaces and G2 character varieties*, J. Algebraic Geom.25 (2016),607–631, DOI https://doi.org/10.1090/jag/668 ; arXiv:1305.6594。§4.1 base discriminant、§5式(19)・Corollary17、§7 Klein七点・Theorem20が参照箇所。著者版 https://webusers.imj-prg.fr/~philip.boalch/files/g2.pdf 。数式の規約変換は対応する厳密計算コードで再現する。
+- W. M. Goldman, W. D. Neumann, *Homological action of the modular group on some cubic moduli spaces*, Math. Res. Lett.12 (2005),575–591, DOI https://doi.org/10.4310/MRL.2005.v12.n4.a11 ; arXiv:math/0402039。Theorems1–2、Proposition3、§3のaffine D4・境界を既存入力として保持。本ノートは同論文全体の独立査読を意味しない。
 - P. Deligne, *Théorie de Hodge : II*, Publ. Math. IHÉS40 (1971),5–57, DOI https://doi.org/10.1007/BF02684692、§3.2 Corollary3.2.13。重みのgraded piecesの入力。拡大分裂は仮定しない。
 - S. Cantat, F. Loray, *Dynamics on Character Varieties and Malgrange irreducibility of Painlevé VI equation*, Ann. Inst. Fourier59 (2009),2927–2978, DOI https://doi.org/10.5802/aif.2512、§1.5。Cayleyとmodular作用。arXiv:0711.1579v2は別題 *Holomorphic dynamics, Painlevé VI equation and character varieties*。
 - M. Mikosz, A. Weber, *Triality, characteristic classes, D4 and G2 singularities*, J. Homotopy Relat. Struct.10 (2015),995–1011, DOI https://doi.org/10.1007/s40062-014-0094-3。IntroductionのMilnor格子、Proposition3、§5。
@@ -115,8 +115,8 @@ h=−1/10ではQ=(3−4i)/5、Q+Q^-1=6/5。根の1ならこの和は有理代数
 
 一般理論は既知として扱い、個別の正規化・周期式・非分裂例の既出性の網羅確認は未了。
 
-## 13. 再現と未実行事項
+## 13. 再現と未構成の比較
 
-今回 `computations/verify_logarithmic_periods.py` を実行しPASS。Q上の恒等式と記号的平方根でconic留数、球面の引戻し、PF作用素、指数化の二次式、monodromy行列、非捩れ例の算術を確認。小証明書は `logarithmic_periods_certificate.json`。球面構成・積分・接続・Friedman比較・有理MHSの非分裂は通常の証明であり、有限計算と区別する。
-新節のLuaLaTeX wrapper4頁を組版・全頁画像点検し、内部参照解決、overfullなしを確認。主論文全体の今回の組版、旧26検証器全再実行、全旧定理の独立査読、新規性の網羅調査は未実施。既存コード・小証明書は必要な依存資産として保持する。
-GitHub mainへ保存し、push済み内容をLibraryへ重複保存しない。
+`computations/verify_cayley_lg_connections.py`、`computations/verify_lg_picard_g2.py`、`computations/verify_g2_braids_periods.py`、`computations/verify_logarithmic_periods.py` が、Cayley表示、整数格子、G2底写像、braid置換、conic留数、PF作用素、指数化の二次式、非捩れ例の算術を再現する。対応する小証明書を保持する。現行の全36検証器の実行結果は `computations/validation.json`、数学的点検・組版範囲は `research/publication_status.md` に集約する。
+
+球面構成、積分、Friedman比較、MHS拡大は通常の証明と引用定理を要する。記号計算のPASSをこれらの独立査読と扱わない。残る比較は全rank5の代数的接続、globalな標識monodromy、三成分間の代数的対応、filtered・equivariantな圏的mirror構成である。境界のPell力学・局所特異点に関する結果は境界原稿へ接続するが、LGのh方向の周期とPrym楕円のkappa方向の周期を同一視しない。

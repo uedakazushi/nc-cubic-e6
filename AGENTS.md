@@ -1,24 +1,45 @@
-# Codex研究指示 — nc-cubic-e6
+# 研究継続指示 — nc-cubic-e6
 
-2026-11-18 / e6-connections-v31。最初に `00_research_plan.md` を読む。主論文は `papers/nc-cubic-e6.tex`。境界解析・MF・Prymは `research/boundary_analytic_moduli.md`、Pell・局所化・linkは `research/boundary_pell_dynamics.md`。全periodは `research/conic_period_coordinates.md`、LG/G2は `research/cayley_lg_connections.md`。他の基礎・文献は `research/research_notes.md`, `fricke_daha_comparison.md`, `poisson_order_notes.md`。
+2026-11-18 / publication-v32。最初に 00_research_plan.md を読む。
 
-**最優先は数学的に面白くすること。多様な分野との具体的な接続を優先し、名称や定理数を増やすことを目的にしない。** 意外な同型・共通構造、新しい問い・方法を重視し、正確性を犠牲にしない。八次元成分分類を保持するが、その完成を他分野研究の前提にしない。
-公表価値ある結果は同じ日本語LuaLaTeX主論文へ統合し、既存の価値ある成果・必要証明を削除しない。証明済み、仮定付き、未完成、予想、計算的観察を区別する。一次文献の適用範囲を確認し、原稿の証明、今回の点検、計算実行、独立査読を分ける。誤りは依存する本文・要約・方針へ反映する。
+## 現行の構成
 
-ノートは現行の式・知識・反例・障害・文献比較を保持し、日誌・会話・履歴・重複証明を蓄積しない。現行方針・ノート・論文と最小限の計算資産で自己完結させる。旧ZIP・旧原稿・PDF・ログ・キャッシュ・中間生成物をGitへ入れない。
-GitHub mainが正本。**pushした内容をLibraryへ保存しない。** push失敗で未保存成果の保全が必要な場合のみ緊急退避できる。既存Library資料を明示指示なしに削除しない。約15分または区切りで通常のfast-forward保存。force push、不要なPR・Actionsを使わず、共有変更と競合させない。生成・検証・commit・push・Library保存を分ける。全H3分類は別repo `uedakazushi/nc-cubic-moduli` が正本。
+- 主論文：papers/nc-cubic-e6.tex（正常形・形式変形・AOU比較）。
+- 関連論文：papers/fricke-geometry.tex（中心・Poisson被覆・D4周期・triality）。
+- 関連論文：papers/cubic-boundary-prym.tex（Pell力学・境界特異点・局所圏・Prym）。
+- 共通設定・文献：papers/shared/。各原稿は独立に組版できる。
+- 研究ノートの案内と優先課題：研究方針。検証範囲：research/publication_status.md。
+- 既存H3入力断片は補助資料。三原稿から読み込まない断片の存在を、全依存証明の完成と取り違えない。
 
-**現行の幾何学的到達点。** 重み付き模型F_nk=1の射影Milnor曲線Cは、z=y^b/x^cを保って付随楕円E_kへ写せない。必要な平方類は[x]で、a²=xの連結二次被覆tildeCを取ればz=y^b/a^(2c),eta=y^(b/2)/a^(3c)という次数2bcの写像が得られる。deckがEの逆元に対応するのでEはPrymのisogeny/Hodge因子。任意の別のC→Eの不存在を主張しない。
-全n共通のCiani四次X4+Y4−2kappa X²Y²=Z4へ次数bc/2で写り、Jac(Ciani)~Ei²×D_k。D_k→E_kは(z,eta)=(r²,rT)の2isogeny。Prym内にEi×D_kが入る。楕円周期は(kappa²−1)Pi''+2kappa Pi'+Pi/4=0。これはkappa変動で、固定kappaのMilnor値monodromyやLG level hの周期とは別。
+数学的重要性・新規性・理解・応用・正確性・実現可能性を総合して研究価値を最大化する。
+現在の最優先は三論文の公表準備。分野間の接続を保持し、既存の価値ある結果と必要証明を削らない。
+日本語LuaLaTeX、著者欄は空欄。証明済み、追加仮定付き、未完成、予想、計算的観察を区別する。
+一次資料を確認し、原稿の証明・今回の点検・コードの実行・独立査読・新規性確認を別に記す。
 
-**巡回被覆と整数偏極の新しい到達点。** tildeC→Dは巡回次数bc、tildeC→Eは巡回次数2bc。DのT=0の四点は完全分岐、D→Eは最大非分岐二同種。Jacobian引戻しq*:J(E)→J(tildeC)の核は正確に標識二捩れ[(0,0)-O]で、埋込Dへのtheta制限は次数bc（n=1,2,3で10,348,11830）。Prym全体の偏極型は(1^(b-1),2^(2bc-b-c))。楕円族Eκは極端有理楕円曲面X411でI1,I1,I4*のfiber、j写像は次数6のBelyi（3,3）（2,2,2）（4,1,1）。Miranda--Perssonの既知分類と本研究の新しいPell/Prym接続を分ける。Belyi写像の六枚の置換群$S_4$はbranch cycleを全列挙して証明。以前のPoisson零点の$S_4$との自然な対応は未構成。整数直和分裂、実高重みgermへのPrym移行、MF同値は未構成。
+## 外してはいけない適用範囲
 
-**実germについての新しい確定事項。** mu27,tau24例と主部tau27は、Hua–Keller最終版Thm5.9の通常Z-graded dg特異点圏でHH0次元24対27となりMorita非同値。この結論は一般孤立超曲面の定理の適用であり、flop/NCCRの仮定は使わない。
-二周期MFの相対HH=Jacobianと整数次数付きdg圏の絶対HH0=Tjurinaを入れ替えない。strict二周期MFとZdgの全periodization/忘却比較は未構成。重み付きMFの(n,K)分類を実高重みgermへ無条件に延長しない。
+- 七次元正常形は固定位数三・中央境界・対角非零の範囲。
+- HH²=8、HH³=0は滑らかな中心・反標準楕円分岐と指定局所order模型の下の定理。
+- 八変数形式表示と代数的表示stackを、全intrinsic H3の開性・降下・成分境界の完成と同一視しない。
+- 反標準環から二次包絡を復元できるのは、表示環の飽和性と構造対象を保つexact同値の範囲。
+  AOU §9の無限位数blow-up表示は区別できるが、有限位数を含むAS曲面一般や任意の導来同値を除外していない。
+  q³=1の循環量子平面のpoint schemeはP²全体であり、三角形ではない。
+- Fricke中心、一次元表現、LG値h、Casimir値D、幾何モノドロミーと有限体分解型を区別する。
+- 模型MFの分類を実高重みgermへ延長しない。二周期相対HH=Jacと通常Z-graded dg特異点圏のHH⁰=Tjurinaを区別する。
+- Prymの有理Hodge/isogeny因子を整数直積分解、MF部分圏、HMSと読み替えない。
+  theta線束の次数bcと偏極isogenyの次数(bc)²を区別する。
+- affine Perf entropy=0、射のfiltration率logΛ、proper対象列率2logΛを区別する。
 
-最優先の次の着手は、上の二種類のdg/Hochschild構造の比較、実n1のkappa/h変動でのTjurina跳躍とJacobian積、[f]の役割。Prym楕円因子のpullback kernelとtheta制限次数bcは解決済み。次はb2,c5のPrym補因子の整数偏極、X411のモジュラーmonodromy・level2標識とMFの次数構造を調べる。高重み変形でPrym因子が残るかは別問題とする。isogeny/Hodge因子だけからMF部分圏やHMSを推論しない。
+## 保存と再現
 
-既存の閾値、link、conductor、normalization、局所Weinsteinを保持する。通常affine Perf entropyは零、射filtration率log Lambda、proper閉包対象列率2log Lambdaは別。局所MF・局所Weinstein・大域H3を区別し、mirror比較には特定gとの同変性とfiltration制御が必要。
-AW/Fricke、Poisson9倍、七次元正常形・八次元形式族、N5²M5とS5×S5、Cayley/D4、Milnor–Picard、G2 D4/A2、全四period、triality三成分Hodge比較を保持。全H3開性・降下・全境界は未完成。
+GitHub main が正本。約15分または区切りで通常のfast-forward保存を行う。
+force push、不要なPR・Actionsは使わない。PDF・ZIP・ログ・キャッシュ・組版中間物をGitで追跡しない。
+最新のユーザー指示に従い、研究の区切りで現在の方針・ノート・論文・PDF・再現資産からなる軽量bundleを、
+再確認せず保存する。GitHubへのpush後も研究継続用bundleをLibraryへ保存する許可がある。
+既存Libraryファイルの削除は明示指示なしに行わない。
+生成・検証・commit・push・保存の状態を別々に確認する。
 
-今回の新規実行は `verify_prym_integral_belyi.py`（整数合同・分岐のRH数値・Belyi式）で厳密PASS。局所完全分岐・偏極・Kodaira・Shioda--Tateを計算証明とはしない。旧35検証器全再実行、主論文全体の今回の組版、独立査読、新規性調査は未実施。新節単体の組版状態は研究方針に明記。保存後はmain ref、input、必須ファイル、コード/証明書のblob SHAを確認する。
+検証入口は make sources, make verify, make papers, make bundle。
+新しい引用は各論文末尾の UsePublicationReferences のリストにも追加する。
+数学に関係するコードを変更した場合だけ、その依存計算を再実行する。
+一度確認した検証を、具体的理由なく繰り返さない。全研究継続原則は研究方針§Iにある。

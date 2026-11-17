@@ -1,7 +1,7 @@
 # conic標識・D4周期・triality・三成分のHodge構造
 
-2026-11-17 / e6-connections-v24。再開時は `../00_research_plan.md` を先に読む。
-完全な証明は主論文が直接読む `../papers/sections/quantum_cubic_four_periods.tex` と `quantum_cubic_triality_isogeny.tex`。積分は `quantum_cubic_log_periods.tex`、位相は `quantum_cubic_lg_picard.tex`。本ノートは現在必要な式、適用範囲、障害、先行研究を整理する。全rank五の代数的接続行列の構成や旧非可換分類の独立再監査とは区別する。
+2026-11-18 / publication-v32。再開時は `00_research_plan.md` を先に読む。
+証明は `papers/fricke-geometry.tex` の全四周期・triality節に収める。原稿ソースは `papers/sections/quantum_cubic_four_periods.tex` と `papers/sections/quantum_cubic_triality_isogeny.tex`、積分は `papers/sections/quantum_cubic_log_periods.tex`、位相は `papers/sections/quantum_cubic_lg_picard.tex`。ファイルパスはroot起点とする。境界力学・局所化・Prymは `papers/cubic-boundary-prym.tex`、非可換変形・H3認識は `papers/nc-cubic-e6.tex` を参照する。本ノートは有効な式・適用範囲・障害を保持し、検証と組版の実施状態は `research/publication_status.md` と `computations/validation.json` に集約する。
 
 ## 1. 一般conic標識と全四周期
 
@@ -49,7 +49,7 @@ lambda=(S+2)/4、h=(L+3S+4)/8 と置くと、対称quarticは
 N=(u+1)prod_{t=eta,xi eta,xi eta²}[u+(t+t^-1)/2]。
 六root character≠1、eta,xi eta,xi eta²≠−1の開集合を使う。四根相異なり、対応Uはsmooth。
 
-**従来chartの範囲外を別証明。** 対称族はB=Cなのでu=-1に退化fiberがあり、二成分v+w=−lambda±sqrt(lambda²+2lambda−1−2h)は境界で交わる。両境界zは−1だが、局所curveは別で各々D1を横断する。
+**一般conic chartの範囲外には別の証明が必要。** 対称族はB=Cなのでu=-1に退化fiberがあり、二成分v+w=−lambda±sqrt(lambda²+2lambda−1−2h)は境界で交わる。両境界zは−1だが、局所curveは別で各々D1を横断する。
 
 z=(-xi eta²,-xi eta,-eta,-1)の選択の適合性を、line section
 k=−xi eta²、m=(k+k^-1)/2、ell=−(eta+1)(xi eta+1)/2、v=ku+ell,w=m
@@ -89,23 +89,20 @@ Kleinの四periodは全てepsなので、整数MHS拡大類の位数は正確に
 g=iota_v iota_w iota_u iota_wはH2でI、omegaを保存するため全period不変。対称族ではg=B1² B2^-2。
 参照torusのmodular行列は[[1,-2],[-2,5]]、固有値3±2sqrt2、level2。Cantat–Lorayの既知定理で力学的次数3+2sqrt2、topological entropy log(3+2sqrt2)。
 正entropyとアフィンH2恒等は矛盾しない。固定した射影閉包上では双有理写像で、境界の不定点がある。射影正則自己同型のcohomology spectral radiusとの同一視は不可。
-Kleinの有理MHS分裂でもこの正entropyが存在する。periodの捩れ性やHodge分裂は力学の有限性を意味しない。次は境界の変更列、cluster tropical作用、局所化した圏の不変量が何を検出するかを調べる（`prop:period-invisible-entropy`）。
+Kleinの有理MHS分裂でもこの正entropyが存在する。periodの捩れ性やHodge分裂は力学の有限性を意味しない。この \(g\) の境界Pell次数・付値・局所化の三成長率は `papers/cubic-boundary-prym.tex` に記す。周期が捉えない情報を境界・filtrationで観測する構成であり、圏的mirror同値は未構成である（Fricke原稿 `prop:period-invisible-entropy`）。
 
 ## 8. 一次文献と確認範囲
 
-- W. M. Goldman, W. D. Neumann, *Homological action of the modular group on some cubic moduli spaces*, Math. Res. Lett.12 (2005),575–591、DOI https://doi.org/10.4310/MRL.2005.v12.n4.a11 。Theorems1–2、Proposition3、§2のhomology作用を著者PDF https://www.math.columbia.edu/department/neumann/preprints/wmgwdn2.pdf の本文で確認。有限ホモロジー像とVietaの−Iは既知入力。web screenshotはcache missで取得できなかった。
-- P. Boalch, R. Paluba, *Symmetric cubic surfaces and G2 character varieties*, J. Algebraic Geom.25 (2016),607–631、DOI https://doi.org/10.1090/jag/668 ; arXiv:1305.6594。Lemma6、式(12)、Corollary11、Proposition18、Remark19、§7を原論文本文で確認。三成分・G2表現・Klein有限軌道は既知。今回のperiod torusとの等式・Hodge比較を区別する。web PDF screenshotは取得エラー。
-- S. Cantat, F. Loray, *Dynamics on Character Varieties and Malgrange irreducibility of Painlevé VI equation*, Ann. Inst. Fourier59 (2009),2927–2978、DOI https://doi.org/10.5802/aif.2512 。著者preprint arXiv:0711.1579v2 TheoremB、Theorems4.7–4.8で力学的次数・entropy=spectral radiusのlogを確認。新しい一般entropy定理ではなく指定wordへの適用。web screenshotはcache missで未取得。
-- R. Friedman, *On the geometry of anticanonical pairs*, arXiv:1502.02560v2 (2016)、§3 Proposition3.12、pp.21–23。既存の積分period・線束制限・MHS比較を使う。境界period1へomega/(2pi i)²で合わせる。前回本文・頁画像を確認済み、今回は全論文を再監査していない。
-- N. Schock, *The W(E6)-invariant birational geometry of the moduli space of marked cubic surfaces*, Math. Nachr.297 (2024),2639–2666、DOI https://doi.org/10.1002/mana.202300459、§2。Naruki–LooijengaのD4 period torus/root hypertorusの既知構造。出版社全文取得403の制約があり、同論文全体の独立再監査ではない。
+- W. M. Goldman, W. D. Neumann, *Homological action of the modular group on some cubic moduli spaces*, Math. Res. Lett.12 (2005),575–591、DOI https://doi.org/10.4310/MRL.2005.v12.n4.a11 。Theorems1–2、Proposition3、§2のhomology作用を著者PDF https://www.math.columbia.edu/department/neumann/preprints/wmgwdn2.pdf の本文で確認。有限ホモロジー像とVietaの−Iは既知入力。
+- P. Boalch, R. Paluba, *Symmetric cubic surfaces and G2 character varieties*, J. Algebraic Geom.25 (2016),607–631、DOI https://doi.org/10.1090/jag/668 ; arXiv:1305.6594。Lemma6、式(12)、Corollary11、Proposition18、Remark19、§7を原論文本文で確認。三成分・G2表現・Klein有限軌道は既知。本稿のperiod torusとの等式・Hodge比較と区別する。
+- S. Cantat, F. Loray, *Dynamics on Character Varieties and Malgrange irreducibility of Painlevé VI equation*, Ann. Inst. Fourier59 (2009),2927–2978、DOI https://doi.org/10.5802/aif.2512 。著者preprint arXiv:0711.1579v2 TheoremB、Theorems4.7–4.8で力学的次数・entropy=spectral radiusのlogを確認。新しい一般entropy定理ではなく指定wordへの適用。
+- R. Friedman, *On the geometry of anticanonical pairs*, arXiv:1502.02560v2 (2016)、§3 Proposition3.12、pp.21–23。既存の積分period・線束制限・MHS比較を使う。境界period1へomega/(2pi i)²で合わせる。全論文の独立査読を本ノートの確認範囲とはしない。
+- N. Schock, *The W(E6)-invariant birational geometry of the moduli space of marked cubic surfaces*, Math. Nachr.297 (2024),2639–2666、DOI https://doi.org/10.1002/mana.202300459、§2。Naruki–LooijengaのD4 period torus/root hypertorusの既知構造。同論文全体の独立査読と、本稿で用いる格子・period構造の引用を区別する。
 
 既知の有限ホモロジー像、folding、G2底写像、entropyと、本稿の具体的periodによる接続・7/21算術を分ける。後者の文献上の既出性は網羅的には未確認。
 
 ## 9. 再現・検証と次の着手
 
-新しい `computations/verify_triality_period_isogeny.py` を実行してPASS。整数行列、Q-Laurent恒等式、Q(zeta21)の厳密演算のみ。小証明書は `triality_period_isogeny_certificate.json`。
-対称quartic分解とline section非交叉、実際のperiod、Weyl不変量、mu3、三Klein成分、力学行列を確認した。ホモロジー・縮約・線束period・MHS拡大・entropyは通常証明と引用定理に依存し、計算がその全てを形式検証したのではない。
-新節のLuaLaTeX wrapperは5頁、内部参照・overfullなし・画像点検を確認。主論文全体の今回の組版、旧28検証器の全再実行、旧理論の独立査読、新規性の網羅調査は未実施。
+`computations/verify_conic_period_coordinates.py` と `computations/verify_triality_period_isogeny.py` は整数行列、有理Laurent恒等式、円分体の厳密演算で、対称quartic分解、line sectionの非交叉、period式、Weyl不変量、mu3核、三Klein成分、力学行列を再現する。対応する小証明書を保持する。全36検証器の現行実行結果は `computations/validation.json`、数学的点検と組版の範囲は `research/publication_status.md` を参照する。ホモロジー、縮約、線束period、MHS拡大、entropyの定理全体を計算で形式検証したという意味ではない。
 
-次は三成分の3捩れ差を境界線束・代数的対応・有限被覆として実現できるかを調べる。Klein7/21が整数比較の障害になる。他方でH2に見えないgの境界blow-up/downとcluster tropical作用を求め、圏的entropyへの入口を探す。何も構成せずに有理Hodge同型から導来同値を推論しない。一般period基底での代数的Gauss–Manin接続、global標識monodromyも残る。
-GitHub mainを正本に保存し、push済み内容はLibraryに保存しない。
+次は三成分の3捩れ差を境界線束・代数的対応・有限被覆として実現できるかを調べる。Kleinの整数拡大類7/21が整数比較の障害になる。指定 \(g\) の境界力学と局所化による成長率は境界原稿にあるため、その明示構成とperiod比較の両方に適合する対応・filtrationを探す。有理Hodge同型から導来同値を推論しない。一般period基底での代数的Gauss--Manin接続、globalな標識monodromyも残る。
