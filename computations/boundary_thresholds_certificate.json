@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-17",
+  "version": "e6-connections-v28",
+  "status": "PASS",
+  "arithmetic": "Q-polynomial identities, integer matrices and rational numbers",
+  "inverse_word": "iota_w iota_u iota_w iota_v (right to left)",
+  "parameter_conditions": "U smooth; kappa^2!=1; projective conic determinant!=0",
+  "initial_inverse_Laurent_terms": ["16*z^2*t^-5", "2*z*t^-2", "64*z^3*t^-7"],
+  "general_branch_terms": ["x=2^-b*z^-a*t^b*(1+O(t))", "y=2^-c*z^-b*t^c*(1+O(t))"],
+  "face": "y^(2b)-2*kappa*x^c*y^b+x^(2c)",
+  "tested_matrix_indices": [1,24],
+  "small_n_semigroups_and_eigenvalue_multisets": [1,2,3],
+  "examples": [
+    {"n":1,"b":2,"c":5,"link":[4,10],"delta_each":2,"intersection":10,"delta_total":14,"Milnor_number":27,"Milnor_fiber_genus":13,"corner_blowups":4,"log_canonical_threshold":"7/20"},
+    {"n":2,"b":12,"c":29,"link":[24,58],"delta_each":154,"intersection":348,"delta_total":656,"Milnor_number":1311,"Milnor_fiber_genus":655,"corner_blowups":8,"log_canonical_threshold":"41/696"},
+    {"n":3,"b":70,"c":169,"link":[140,338],"delta_each":5796,"intersection":11830,"delta_total":23422,"Milnor_number":46843,"Milnor_fiber_genus":23421,"corner_blowups":12,"log_canonical_threshold":"239/23660"},
+    {"n":4,"b":408,"c":985,"link":[816,1970],"delta_each":200244,"intersection":401880,"delta_total":802368,"Milnor_number":1604735,"Milnor_fiber_genus":802367,"corner_blowups":16,"log_canonical_threshold":"1393/803760"},
+    {"n":5,"b":2378,"c":5741,"link":[4756,11482],"delta_each":6821990,"intersection":13652098,"delta_total":27296078,"Milnor_number":54592155,"Milnor_fiber_genus":27296077,"corner_blowups":20,"log_canonical_threshold":"8119/27304196"}
+  ],
+  "first_monodromy_polynomial": "T**27 - T**26 + T**23 - T**22 + T**19 - T**18 + T**17 - T**16 + T**15 - T**14 + T**13 - T**12 + T**11 - T**10 + T**9 - T**8 + T**5 - T**4 + T - 1",
+  "separate_proof_inputs": ["all-n Laurent induction and compactification","Newton-Puiseux and nondegenerate equisingularity","torus link identification and Milnor fibration","toric log resolution and multiplier ideals","normalization exact sequence and localization","Dyckerhoff Corollary 6.5 and Morita invariance (not computer verified)"],
+  "not_claimed": ["analytic equivalence to a weighted homogeneous germ","global Milnor fibration of U or iteration map","repeated tests prove all-n geometric conclusions","newness of general torus-link or Newton formulas","full main-paper compilation or rerun of previous 32 scripts","GitHub push"]
+}
