@@ -97,6 +97,8 @@
       1
     ]
   },
+  "belyi_monodromy": "S4, faithful degree-six coset action on S4/C4",
+  "compatible_transitive_branch_triples_fixed_infinity": 4,
   "ordinary_inputs_not_computationally_certified": [
     "cyclic covering function fields and local ramification indices",
     "totally ramified pullback on Jacobians is injective",
