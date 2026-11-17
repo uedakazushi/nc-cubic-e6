@@ -1,0 +1,284 @@
+\section{五重被覆の内側に現れるCayley曲面、$D_4$特異点、実凸幾何}
+\label{sec:cayley-lg-connections}
+本節は、一次元表現の五重被覆を異なる理論の共通の具体例として読む。
+対応の出発点は、正規化した係数と一次元表現
+\[
+ (A,B,C)=(1-q)(a,b,c),\qquad (u,v,w)=(1-q)(x,y,z)
+\]
+に関する一つの写像である：
+\begin{equation}\label{eq:cayley-gradient-map}
+ \Phi(u,v,w)=(vw-u,wu-v,uv-w)=\nabla H,
+ \qquad H=uvw-\frac12(u^2+v^2+w^2).
+\end{equation}
+本節の$A,B,C$はこの\emph{正規化した低次係数}であり、
+第\ref{sec:daha-character}節のFricke三係数とは異なる。
+また$u,v,w$は中心生成元$X,Y,Z$ではない。
+以下で扱う三つの空間を区別する：
+一次元表現の総空間$\AA^3_{u,v,w}$、係数底$\AA^3_{A,B,C}$、
+および元の非可換代数の三次中心。
+
+\subsection{Landau--GinzburgポテンシャルとLagrangian射影}
+\begin{proposition}[一次元表現は五つの臨界点を与える]
+\label{prop:lg-character-potential}
+\[
+ W_{A,B,C}(u,v,w)=H(u,v,w)-Au-Bv-Cw
+\]
+と置く。一次元表現の相対スキームは、この多項式族の相対臨界スキームであり、
+\[
+ \operatorname{Jac}(W)=
+ k[A,B,C,u,v,w]/(vw-u-A,wu-v-B,uv-w-C)
+\]
+は底上有限平坦rank $5$である。
+また$T^*\AA^3_{u,v,w}$内の$\operatorname{graph}(dH)$はexact Lagrangianで、
+余接座標$(A,B,C)$への射影が$\Phi$に一致する。
+\end{proposition}
+\begin{proof}
+偏微分を取ると三つの一次元表現方程式がそのまま出る。
+rank $5$の有限平坦性は定理\ref{thm:relative-critical-flat}による。
+Liouville形式$\lambda=A\,du+B\,dv+C\,dw$のgraphへの制限は$dH$であり、
+従って$d\lambda$の制限は零である。graphの次元は半次元の$3$なので結論を得る。
+\end{proof}
+
+\subsection{分岐源はトーラスの指標多様体そのものである}
+\begin{theorem}[Cayley曲面とトーラス商]
+\label{thm:ramification-cayley-torus}
+$\Phi$のramification divisorは
+\begin{equation}\label{eq:cayley-ramification}
+ \mathcal R=\{R=0\},\qquad
+ R=u^2+v^2+w^2+2uvw-1.
+\end{equation}
+$x=-2u,y=-2v,z=-2w$により、これはCayley三次曲面
+\[
+ x^2+y^2+z^2-xyz-4=0
+\]
+となり、粗指標多様体
+$\operatorname{Hom}(\mathbb Z^2,\mathrm{SL}_2)\mathbin{/\!/}\mathrm{SL}_2$
+と同型である。具体的には
+\begin{equation}\label{eq:cayley-torus-cover}
+ (r,t)\longmapsto
+ \left(-\frac{r+r^{-1}}2,-\frac{t+t^{-1}}2,
+ -\frac{rt+(rt)^{-1}}2\right)
+\end{equation}
+が
+\[
+ (\mathbb G_m)^2/\langle(r,t)\mapsto(r^{-1},t^{-1})\rangle
+ \xrightarrow{\sim}\mathcal R
+\]
+を与える。$\mathcal R$の四つの特異点は
+$\sigma_i\in\{\pm1\}$、$\sigma_1\sigma_2\sigma_3=-1$の点で、全て$A_1$である。
+\end{theorem}
+\begin{proof}
+\[
+ J=\operatorname{Hess}H=
+ \begin{pmatrix}-1&w&v\\w&-1&u\\v&u&-1\end{pmatrix},\qquad \det J=R
+\]
+から分岐源の式を得る。変数変換によるCayley方程式は直接展開で確かめられる。
+トーラス上の同時反転不変環は
+$r+r^{-1},t+t^{-1},rt+(rt)^{-1}$で生成される。
+実際、対称Laurent単項式
+$L_{m,n}=r^mt^n+r^{-m}t^{-n}$に対して
+$L_{1,0}L_{m,n}=L_{m+1,n}+L_{m-1,n}$と巡回的な漸化式を使い、
+$L_{1,-1}=L_{1,0}L_{0,1}-L_{1,1}$から全てを生成できる。
+唯一の関係は表示した三次式である。
+可換な半単純$\mathrm{SL}_2$表現を対角化すると、残余Weyl作用が同時反転となる。
+従ってこの粗商が閉トーラスの指標多様体である。
+同時反転の固定点$(r,t)\in\{\pm1\}^2$の局所商は
+$\AA^2/(\pm1)$なので四つの$A_1$を与える。
+それ以外では商写像は\'{e}taleである。
+\end{proof}
+
+このCayley曲面のトーラス商表示とmodular力学自体は既知である
+\cite[\S1.5]{CantatLorayCayley}。
+本稿での接続は、\emph{非可換三次曲面の一次元表現を添字付ける
+五重被覆の分岐源に、この別の指標多様体が現れる}という点にある。
+$\mathcal R$と、その像であるbranch locus
+$\mathcal B=\Phi(\mathcal R)\subset\AA^3_{A,B,C}$を同一視しない。
+
+\begin{proposition}[対数Poisson構造とmodular対称性]
+\label{prop:ramification-log-poisson}
+トーラスに$\{r,t\}=rt$を入れると、式\eqref{eq:cayley-torus-cover}の座標は
+\[
+ \{u,v\}=-\frac12 R_w,\qquad
+ \{v,w\}=-\frac12 R_u,\qquad
+ \{w,u\}=-\frac12 R_v
+\]
+を満たす。$\mathrm{GL}_2(\mathbb Z)$の単項式作用は同時反転と可換し、
+$\mathrm{PGL}_2(\mathbb Z)$の作用として$\mathcal R$に降りる。
+行列式$1$の元はPoisson、行列式$-1$の元は反Poissonである。
+\end{proposition}
+\begin{proof}
+例えば$\{u,v\}=(r-r^{-1})(t-t^{-1})/4$であり、
+$R_w=2w+2uv=-(r-r^{-1})(t-t^{-1})/2$となる。
+他の二式も直接計算による。単項式変換の対数Jacobianはその整数行列なので、
+$d\log r\wedge d\log t$は行列式倍される。
+$-I$は同時反転そのものであるから商への作用は$\mathrm{PGL}_2$を経由する。
+\end{proof}
+ここでの括弧は\emph{分岐源}上のもので、元の量子代数の\emph{中心}上の
+root-of-unity括弧の係数$9$とは異なる空間・規約である。
+またこのmodular作用が五重被覆全体と係数底への作用へ延長するとは主張しない。
+
+\subsection{四枚の衝突は$D_4$ミニバーサル変形である}
+\begin{theorem}[四つの$D_4$点と一つの非分岐sheet]
+\label{thm:character-D4-unfolding}
+$\mathcal R$の四特異点$\sigma$の像は$\Phi(\sigma)=-2\sigma$である。
+各fiber $\Phi^{-1}(-2\sigma)$は、$\sigma$に支持された長さ$4$の局所スキームと、
+点$-2\sigma$に支持された一つの単純点からなる。
+前者で$W_{A,B,C}$は$D_4$型の孤立臨界点を持ち、三つの係数変形は
+加法定数を除いたミニバーサル変形を与える。
+加法定数も独立に加えれば、通常の四変数ミニバーサル底を得る。
+\end{theorem}
+\begin{proof}
+二符号変更により、$\sigma=(-1,-1,-1)$、$(A,B,C)=(2,2,2)$の場合で十分である。
+$u=-1+x,v=-1+y,w=-1+\ell-x-y$、
+$A=2+\alpha,B=2+\beta,C=2+\gamma$と置く。
+さらに$L=\ell-xy+\gamma$とすると、\emph{正確な多項式恒等式}
+\begin{align}\label{eq:D4-exact-splitting}
+ W={}&-\frac12L^2-xy(x+y)+\frac12x^2y^2
+       -\gamma xy-(\alpha-\gamma)x-(\beta-\gamma)y\notag\\
+    &+\frac72+\alpha+\beta+\gamma+\frac12\gamma^2
+\end{align}
+を得る。
+残った二変数germ $g=-xy(x+y)+x^2y^2/2$の三次部分は
+相異なる三直線の積である。Morseの分離補題と$D_4$の標準的分類により、
+これは$D_4$の一変数suspensionである。
+例えば三次部分のJacobi環では
+$x^2=y^2=-2xy$、$x^2y=xy^2=0$で、基底は$1,x,y,xy$となる。
+四次項を含む$g$の原点局所Jacobi環でも同じ基底と関係が成立する。
+この事実は二偏微分の式から求めることも、他の臨界点を除いた
+局所化により直接計算することもできる。
+従ってMilnor数は$4$であり、$D_4$の$3$-決定性により四次項は右同値で除ける。
+
+式\eqref{eq:D4-exact-splitting}の係数微分は、定数を除いて
+$-x,-y,x+y-xy$となり、局所Jacobi環の$\langle x,y,xy\rangle$を張る。
+無限小versal性判定から、三係数は加法定数を除くミニバーサル変形となる。
+この判定と$D_4$の標準的変形については
+\cite[Proposition 3, \S5]{MikoszWeberTriality}も参照されたい。
+
+同fiberの別の点$(2,2,2)$では$\det J=27\ne0$で、長さ1の単純点である。
+既存の全域次数5の有限平坦性と$4+1=5$から、他の点は存在しない。
+他の三つの$\sigma$は二符号変更で得る。
+\end{proof}
+
+\begin{corollary}[trialityの具体的な入口]
+\label{cor:gradient-local-triality}
+$u,v,w$の巡回置換は、$(A,B,C)=(2,2,2)$の$D_4$ germを保存する。
+Hessian核$\ell=0$上では
+\[
+ (x,y)\longmapsto(y,-x-y)
+\]
+として作用し、三次接錐の三枝を巡回する。この作用は位数3である。
+\end{corollary}
+\begin{proof}
+$H$および係数対角上の$Au+Bv+Cw$は巡回置換不変である。
+核平面の座標は$(x,y,-x-y)$なので表示した線型作用を得る。
+$-xy(x+y)$を保存し三枝を巡回することは直接確かめられる。
+\end{proof}
+これは$D_4$ trialityとその$G_2$型折り畳みを調べる明示的な足掛かりであり、
+その一般理論は\cite{MikoszWeberTriality}にある。
+ただし本稿で以前得た三次曲面のPicard格子内の$D_4$と、
+この局所Milnor格子との\emph{標準的な同定}はまだ構成していない。
+Lie群、vanishing cycle、非可換圏の作用を名称の一致から同一視しない。
+
+\subsection{Jacobi代数、留数対、判別式を読む際の区別}
+\begin{proposition}[原点のFrobenius代数と非分岐な値の衝突]
+\label{prop:jacobi-residue-maxwell}
+係数原点では$\Phi^{-1}(0)$は
+$0$と$\eta_i\in\{\pm1\}$、$\eta_1\eta_2\eta_3=1$の五点からなる。
+このJacobi代数に
+\[
+ \tau(h)=-h(0)+\frac14\sum_\eta h(\eta),\qquad
+ (h_1,h_2)=\tau(h_1h_2)
+\]
+を入れると、対称非退化なFrobenius代数となる。
+これは非退化臨界点における$1/\det\operatorname{Hess}W$重みの留数対である。
+一方、同じ原点では五重被覆は\'{e}taleであるにもかかわらず、
+Casimir normは$N_5(D)=D(D-2f/3)^4$となる。
+従って$\operatorname{Disc}_D N_5=0$を被覆$\Phi$の分岐条件と同一視できない。
+\end{proposition}
+\begin{proof}
+五点でHessian行列式は$-1,4,4,4,4$である。
+Jacobi代数は五点上の関数環$k^5$なので、全て非零の重みを持つ上の対は非退化。
+基底$1,u,v,w,uvw$では対の行列式は$-1$となる。
+Casimirの五点での値は$0,-2f/3,-2f/3,-2f/3,-2f/3$であり、後半も従う。
+\end{proof}
+
+この差は二つの判別式を比較する際に重要である。
+一般に有限局所自由代数$B/R$の基底$e_1,\ldots,e_n$と元$\omega$を取り、
+$(1,\omega,\ldots,\omega^{n-1})=(e_1,\ldots,e_n)T$と書けば、
+trace pairingの行列式について
+\[
+ \operatorname{Disc}(1,\omega,\ldots,\omega^{n-1})
+     =(\det T)^2\operatorname{Disc}(e_1,\ldots,e_n)
+\]
+が成り立つ。これは行列$T^{\mathsf t}GT$の行列式を取った恒等式である。
+Casimirという一つの観測量がsheetを区別しなくなる因子$\det T=0$は、
+被覆自体の分岐とは別に現れる。
+Landau--Ginzburgの臨界値が衝突するMaxwell locusとの比較も有望だが、
+本稿のCasimir値は一般には$W$の臨界値ではない。
+実際、臨界点上では
+\[
+ W_{A,B,C}=-2uvw+\frac12(u^2+v^2+w^2),\qquad
+ \Omega_{\mathcal E}=\frac f3(uvw-u^2-v^2-w^2)
+\]
+であり、同じ関数として扱えない。
+Frobenius\emph{代数}の構成だけから、primitive form、Frobenius\emph{多様体}、
+またはFukaya--Seidel圏との同値を結論しない。
+
+\subsection{実型はelliptopeとpillowcaseを結ぶ}
+正規化した実多項式$\Phi:\mathbb R^3\to\mathbb R^3$を考える。
+これは$q$自体が実であるという意味ではない。
+\begin{proposition}[相関行列の凸領域と一意な実sheet]
+\label{prop:elliptope-gradient-injective}
+\[
+ \mathcal E_3^-=
+ \left\{(u,v,w)\in\mathbb R^3:
+ C(u,v,w)=\begin{pmatrix}1&-w&-v\\-w&1&-u\\-v&-u&1\end{pmatrix}\succeq0\right\}
+\]
+と置く。これは符号・座標順を変えた$3$-elliptopeで、
+\[
+ \det C=-R,\qquad
+ \partial\mathcal E_3^-=\mathcal R(\mathbb R)\cap[-1,1]^3.
+\]
+その境界はトーラス表示\eqref{eq:cayley-torus-cover}に
+$|r|=|t|=1$を入れた像であり、
+$\mathrm{SU}(2)$トーラス指標多様体のpillowcaseとなる。
+$\mathcal E_3^-$の内部では$\Phi$は単射である。
+従って任意の実係数に対し、この領域内の実一次元表現は高々一つである。
+\end{proposition}
+\begin{proof}
+半正定値行列の凸性から$\mathcal E_3^-$は凸である。
+主小行列式条件は$|u|,|v|,|w|\le1$と$-R\ge0$に等しい。
+正定値行列が内部であり、その境界はdeterminant零だから表示を得る。
+境界点は三つの単位ベクトルの階数$2$以下のGram行列である。
+それらを平面上に配置し、角度を$0,\theta+\varphi,\varphi$と取ると
+$(u,v,w)=(-\cos\theta,-\cos\varphi,-\cos(\theta+\varphi))$となる。
+逆も明らかで、$(S^1)^2$の同時反転商がこの境界に一致する。
+
+内部では$\operatorname{Hess}H=-C$が負定値である。
+異なる二点$p,q$を結ぶ線分も内部にあり、
+\[
+ (\Phi(p)-\Phi(q))\cdot(p-q)
+ =\int_0^1(p-q)^{\mathsf t}\operatorname{Hess}H(q+t(p-q))(p-q)\,dt<0.
+\]
+従って$\Phi(p)\ne\Phi(q)$となる。
+\end{proof}
+
+このelliptopeとCayley曲面は相関行列・半正定値最適化の基本例であり、
+Dixon \cite[Lemma 3.5]{DixonElliptope}は同じ凸体を
+nearly K\"ahler $S^3\times S^3$のmulti-moment mapの像として同定している。
+ここで得た共通の凸体の同定は、非可換曲面とnearly K\"ahler多様体の
+圏同値やmetric degenerationの構成ではない。
+一方、実sheetの一意性という具体的帰結を与え、
+実表現・安定性・pillowcaseの幾何を比較する入口にはなる。
+
+\begin{remark}[確立した接続と研究の射程]
+Cayley曲面のトーラス商、$D_4$の標準変形、elliptopeと
+multi-moment像の関係は、それぞれの分野で既知である。
+本節はそれらを\emph{同一の一次元表現被覆の具体式}を介して結び付け、
+$D_4$の四sheet衝突・係数のversal性・実sheet一意性を証明した。
+各個別式の文献上の新規性は未確認である。
+既存の$S_5\times S_5$定理やH3分類を、新しい曲面・特異点との
+同型だけから強化するものではない。
+次に構成すべき対象は、局所vanishing cycleとPicard格子の比較、
+trialityの圏的実現、留数対の変形、および分岐とCasimir値衝突の分離である。
+\end{remark}
