@@ -22,14 +22,14 @@ checks = [
     'verify_root_poisson.py', 'verify_poisson_cut_obstruction.py',
     'verify_casimir_poisson_leaves.py', 'verify_relative_poisson_cover.py',
     'verify_companion_s5.py', 'verify_cayley_lg_connections.py',
-    'verify_lg_picard_g2.py',
+    'verify_lg_picard_g2.py', 'verify_g2_braids_periods.py',
 ]
 completed = []
 for name in checks:
     subprocess.run([sys.executable, str(root / name)], check=True, cwd=root)
     completed.append({'script': name, 'status': 'PASS'})
 result = {
-    'date': '2026-11-17', 'version': 'e6-connections-v20', 'status': 'PASS',
+    'date': '2026-11-17', 'version': 'e6-connections-v21', 'status': 'PASS',
     'python': platform.python_version(), 'sympy': sympy.__version__,
     'networkx': networkx.__version__, 'completed': completed,
     'separate_mathematical_inputs': [
@@ -50,7 +50,9 @@ result = {
         'ADE Milnor lattice, unimodular gluing, outer triality',
         'Goldman--Neumann topology and boundary plumbing',
         'Deligne weight spectral sequence',
-        'Boalch--Paluba Corollary 11 and Remark 12',
+        'Boalch--Paluba component and Hurwitz formulas and Klein orbit',
+        'configuration spaces and the braid fundamental group',
+        'primitive boundary torus and analytic Cauchy residue integral',
     ],
     'not_certified_by_this_run': [
         'global H3 algebraic-stack construction',
@@ -63,7 +65,7 @@ result = {
         'choice-independent global Milnor-Picard splitting',
         'mirror or Fukaya-Seidel equivalence',
         'G2 quantum algebra comparison',
-        'splitting of the mixed Hodge extension',
+        'full Gauss-Manin connection or mixed-Hodge extension splitting',
         'categorical relation to nearly Kahler geometry',
         'independent peer review', 'novelty', 'GitHub or Library saving',
     ],
