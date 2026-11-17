@@ -1,6 +1,6 @@
 # Fricke・Askey–Wilson・DAHAとの比較
 
-2026-11-17 / e6-connections-v16 / 現在有効な文献比較。研究方針はリポジトリrootの `00_research_plan.md`、成分原稿は `papers/nc-cubic-e6.tex`。
+2026-11-17 / e6-connections-v17 / 現在有効な文献比較。研究方針はリポジトリrootの `00_research_plan.md`、成分原稿は `papers/nc-cubic-e6.tex`。
 
 ## Askey–Wilson代数との厳密な表示同型・Casimir
 
@@ -84,6 +84,19 @@ Terwilligerの $\mathrm{PSL}_2(\mathbb Z)$ 作用の生成元は $a\leftrightarr
 \]
 
 原関係、Casimir不変、中心元のVieta式を `verify_daha_braid.py` で独立にPBW厳密再現した。$F=u^2+v^2+w^2+uvw+Au+Bv+Cw+T$ におけるJacobian括弧 $\{u,v\}=\partial_wF$（巡回）はGoldmanのトレースPoisson形式と符号・スカラーを除いて一致する。この量子的Vieta生成元はPoisson同型である。主論文 `thm:aw-braid-vieta`, `prop:fricke-poisson-logcy`。braid群、mapping class group、Dehn twistとの作用の正確なfaithfulness・relationは先行研究と今後詳細照合する。
+
+## 相対Poisson臨界被覆・S5対称群と二重五次判別式
+
+本研究では固定量子so3の三低次係数(a,b,c)に関して、Casimir切断の臨界点schemeを全域有限平坦次数15と証明した。一次元表現は全域有限平坦次数5で、二つは局所的に「5節点の二重厚み(10)+滑らかな5臨界点」として分かれる。従って臨界値判別式は `Delta15(D)=N5(D)^2 M5(D)`、N5は1次元表現のCasimir normで既約、Galois/幾何monodromyはS5。残りM5の既約性・モノドロミーは未解決。主論文 `sec:relative-poisson-cover` に通常の証明と明示式、`verify_relative_poisson_cover.py` に小さい厳密検証コードを置いた。
+
+幾何学的に最も有効なのは
+[
+ (u,v,w)longmapsto(vw-u,wu-v,uv-w),qquad
+ Omega_{mathcal E}=rac f3(uvw-u^2-v^2-w^2)
+]
+の組である。第一式は次数5のgradient mapで、底(A,B,C)=(-1/4,-1/4,-1/4)にsimple fold（他の三点は非分岐）を持つ。総空間が既約・次数5が素数なのでモノドロミーS5。第二式は各sheetのCasimirを与え、genericに五値を区別する。
+
+**古典Painlevé VIとの先行研究比較:** M. Inaba, K. Iwasaki, M.-H. Saito, *Dynamics of the sixth Painlevé equation*, *Séminaires & Congrès* **14** (2006), 103–167, §9.1 Definition 9.1、[原テキスト](https://emis.de/ft/47232) は、Fricke cubic判別式の境界モノドロミーtraceパラメータへの引戻しに二乗因子が生じることを記載している。今回のN5²M5は**別の係数写像**であり、因数の一致や新規性を主張しない。形式の類似は四穴球面のRiemann–Hilbert、Riccati成分と非可換の1次元characterとの関連を調べる動機になるが、両者を同定する写像は未構成。
 
 ## Poisson零点、表現論、Casimir切断のH3二類型
 
