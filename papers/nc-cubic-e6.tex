@@ -27,7 +27,7 @@
 \newcommand{\PP}{\mathbb P}
 \title{非可換三次曲面を結ぶ幾何学\\\large 楕円 $E_6$ 量子化・指標多様体・消滅サイクルと例外群 $G_2$}
 \author{}
-\date{2026年11月17日\quad e6-connections-v23}
+\date{2026年11月17日\quad e6-connections-v24}
 \begin{document}\maketitle
 \begin{abstract}
 原始三乗根の量子 $\mathfrak{so}_3$ 包絡とその中心三次切断を、
@@ -59,6 +59,11 @@ conic matching周期の対数表示とMorse球面のarcsine周期から、Looije
 $(z_1/z_2,z_2/z_3,z_3/z_4,z_3z_4)$と同時に表示する。
 指定conic開集合では有理混合Hodge分裂と全$z_i$の捩れ性が同値となり、
 有理数係数の滑らかな分裂例・非分裂例をともに与える。
+対称族ではtrialityの不変・余不変格子の指数3が周期torusの$\mu_3$ isogenyを与え、
+そのWeyl商は既知の$G_2$三成分写像と一致する。
+共通の明示開集合上で三成分の有理混合Hodge構造を比較し、
+Klein成分とそのコンパニオンの整数拡大類の位数$7,21,21$を得る。
+最後に先行力学定理を適用し、全ホモロジーと周期へ自明に作用しながら正のentropyを持つ例を明示する。
 これらの明示的接続、既知理論の適用、未構成の圏的対応を区別して記述する。
 \end{abstract}
 \tableofcontents
@@ -119,6 +124,17 @@ conic成分の縮約から整数$D_4$基底を明示し、全四periodを四根�
 有理数係数の円分的分裂例と非分裂例を与える。
 Naruki--Looijengaのperiod torusとFriedman--CarlsonのHodge解釈は既知であり、
 本稿では本LG座標での再構成と具体例として位置付ける。
+
+第\ref{sec:triality-period-isogeny}節では、Goldman--Neumannの有限ホモロジー像を用いて
+対称族の周期を二変数へまとめ、不変格子と余不変格子の指数3を保持する。
+明示的sectionにより、従来の$B^2\ne C^2$ chartの外にある対称族でも
+適合したconic標識と周期$(\eta,\xi,\eta,\eta)$を構成する。
+周期isogenyのWeyl商がBoalch--Palubaの三成分写像となることから、
+共通の明示開集合上で三成分の有理Hodge構造を同定する。
+Kleinの例では整数拡大類は$7,21,21$という異なる位数を持ち、
+有理構造で失われる違いを検出する。
+有限ホモロジー像、triality、既知の$G_2$底写像、Cantat--Lorayのentropy定理自体は
+新規とせず、それらを実際のperiodへ接続した帰結と区別する。
 全rank五の代数的Gauss--Manin接続行列、mirror/Fukaya同値、
 $G_2$型量子代数との同型、nearly K\"ahler幾何との圏的対応は未構成である。
 
@@ -140,8 +156,9 @@ Casimir特異中心の二類型&Poisson零点は総中心の五節点と五滑�
 Cayley・$D_4$・実凸幾何&トーラス指標多様体、四sheet衝突のミニバーサル性、留数対、elliptope内部の単射性。第\ref{sec:cayley-lg-connections}節。\\
 Milnor・Picard・$G_2$&指定退化での整数$D_4$比較、外部triality、重みの$4+1$、既知$G_2$退化を通じた$D_4$と$A_2$の接続。第\ref{sec:lg-picard-g2}節。\\
 二種類のbraidと周期&成分ラベルは$A_2$三次根被覆、Hurwitz作用は成分を保存。Chebyshev反復、Klein軌道上の$S_7$、境界周期$(2\pi i)^2$。第\ref{sec:g2-braids-periods}節。\\
-対数periodとHodge拡大&matching周期、Morse球面のarcsine周期、Picard--Fuchs、代数的指数化periodと有理非分裂例。第\ref{sec:logarithmic-periods}節。\\
+対数periodとHodge拡大&matching周期の対数表示、Morse球面のarcsine周期、Picard--Fuchs、代数的指数化periodと有理非分裂例。第\ref{sec:logarithmic-periods}節。\\
 全四periodと円分性&conic開集合上の整数$D_4$基底、四period、root型判別式、有理Hodge分裂の必要十分条件と両種の有理係数例。第\ref{sec:four-D4-periods}節。\\
+trialityと三成分比較&指数3のperiod isogenyのWeyl商が$G_2$底写像。明示開集合で有理Hodge同型、Klein例の整数位数$7,21,21$。第\ref{sec:triality-period-isogeny}節。\\
 \bottomrule
 \end{longtable}
 
@@ -593,6 +610,7 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_g2_braids.tex}
 \input{papers/sections/quantum_cubic_log_periods.tex}
 \input{papers/sections/quantum_cubic_four_periods.tex}
+\input{papers/sections/quantum_cubic_triality_isogeny.tex}
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
@@ -625,14 +643,15 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_lg_picard_g2.py}&整数格子・triality・affine $D_4$・$G_2$係数：既存PASS\\
 \path{verify_g2_braids_periods.py}&成分三次式・Hurwitz・Chebyshev・七点$S_7$・境界留数：既存PASS\\
 \path{verify_logarithmic_periods.py}&conic留数・Morse球面・Picard--Fuchs・monodromy・非捩れ例：既存PASS\\
-\path{verify_conic_period_coordinates.py}&整数$D_4$・四period・Jacobian・円分分裂例と非分裂例：今回PASS\\\bottomrule
+\path{verify_conic_period_coordinates.py}&整数$D_4$・四period・Jacobian・円分分裂例と非分裂例：既存PASS\\
+\path{verify_triality_period_isogeny.py}&指数3格子・Laurent式・Kleinの$7/21$・力学行列：今回PASS\\\bottomrule
 \end{longtable}
-今回実行したのは最後の検証器で、有理数体・整数格子・Laurent恒等式の厳密計算である。
-小証明書は\path{computations/conic_period_coordinates_certificate.json}。
-conic成分の幾何学的選択と縮約、境界gluing、Friedmanのperiod比較、Hodge分裂判定は
-本文の通常の証明・一次資料への依存であり、計算のみの形式検証とは区別する。
-旧27検証器は今回全再実行していない。
-新しい四周期節を独立wrapperでLuaLaTeX組版（4頁）し、全頁を画像点検した。
+今回実行したのは最後の検証器で、整数格子、有理Laurent恒等式、円分体$\mathbb Q(\zeta_{21})$を用いた厳密計算である。
+小証明書は\path{computations/triality_period_isogeny_certificate.json}。
+ホモロジー作用、conic標識と線束period比較、Weyl商、Hodge拡大、entropyは
+本文の通常の証明・一次文献への依存であり、有限計算だけの形式検証とは区別する。
+旧28検証器は今回全再実行していない。
+新しいtriality・周期isogeny節を独立wrapperでLuaLaTeX組版（5頁）し、頁を画像点検した。
 新節内部の参照は解決済みで、overfull boxはない。
 これは主論文全体の今回の組版ではない。全旧証明の独立再監査、
 Lean形式化、全rank五の代数的Gauss--Manin接続行列、mirror/Fukaya同値、
