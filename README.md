@@ -1,6 +1,6 @@
 # 非可換三次曲面を結ぶ幾何学 — nc-cubic-e6
 
-2026-11-18 / e6-connections-v30。
+2026-11-18 / e6-connections-v31。
 **数学的に面白くすることを最優先し、多様な分野との具体的な接続を探す。** 量子so3・中心三次切断・一次元表現から、指標多様体、Poisson、LG、特異点、周期、境界力学、局所圏へ進む。八次元E6成分の分類は保持するが、その完成を他分野研究の前提にしない。
 
 再開時は [研究方針](00_research_plan.md) を最初に読む。主論文は日本語LuaLaTeXの [nc-cubic-e6.tex](papers/nc-cubic-e6.tex)。関連分野の公表価値ある成果も同じ論文に統合する。
@@ -12,6 +12,14 @@
 
 全Pell指数に共通するgenus3のCiani四次 X4+Y4−2kappa X²Y²=Z4 が中間に入り、JacobianはEi²×D_kにisogenous（Eiはj1728）。D_k→Eの2isogenyにより、以前のlevel2対応を実際の商写像で実現する。高genusが増大しても同じ可変楕円因子が残り、その周期は (kappa²−1)Pi''+2kappa Pi'+Pi/4=0 を満たす。
 証明は [Prym・Ciani・dg復元の節](papers/sections/quantum_cubic_boundary_prym.tex)。Prym理論、Ciani分解、dg復元の一般定理は既知として引用し、この明示構成と区別する。
+
+## 巡回Prymの整数偏極と極端有理楕円曲面
+
+Milnorの二次Kummer被覆からCianiの楕円$D_κ$への射は**次数$bc$の巡回Galois被覆**、合成して$E_κ$への射は次数$2bc$の巡回Galois被覆。前者の完全分岐と$D_κ→E_κ$の非分岐二同種により、$J(E_κ)→J(\widetilde C)$の核が正確に標識二捩れ$[(0,0)-O]$と分かる。Prym内の楕円因子$D_κ$への標準thetaの制限次数は**$bc=10,348,11830,\dots$**。Prym全体が整数直積として分裂したわけではない。
+
+さらに$E_κ:\eta^2=z^3-2κz^2+z$を$\mathbb P^1_κ$上で動かすと、$I_1,I_1,I_4^*$の三fiberを持つMiranda--Perssonの極端有理楕円曲面**$X_{411}$**となる。Mordell--Weilは$\mathbb Z/2$で、$j=64(4κ^2-3)^3/(κ^2-1)$は次数6、分岐型$(3,3),(2,2,2),(4,1,1)$のBelyi写像。古典的な楕円曲面の分類そのものは既知で、今回はPell--Prym系との具体的接続として同定した。
+
+[整数偏極・Belyiの新節](papers/sections/quantum_cubic_prym_polarization.tex) ／ [再現コード](computations/verify_prym_integral_belyi.py) ／ [現行研究ノート](research/boundary_analytic_moduli.md)。
 
 ## 位相・模型・実germ・圏の区別
 
@@ -33,12 +41,11 @@
 
 ```sh
 python3 -m pip install -r computations/requirements.txt
-python3 computations/verify_boundary_prym.py
-python3 computations/verify_all.py  # 全35検証器。今回は全実行していない
+python3 computations/verify_prym_integral_belyi.py
+python3 computations/verify_all.py  # 全36検証器。今回は全実行していない
 latexmk -lualatex papers/nc-cubic-e6.tex
 ```
 
-新検証器を厳密演算で実行してPASS。Kummer/Ciani式、指標分解、楕円j・2isogeny、PF完全微分、整数種数と、元Vietaからのmu27/tau24を確認した。被覆・norm・Hodge・dg復元は通常の証明と一次文献の入力であり、有限計算のみの結論ではない。
-新節単体LuaLaTeX4頁と全頁画像、内部参照、overfullなしを確認。主論文全体の今回の再組版、旧34検証器全再実行、独立査読、新規性の網羅調査は未実施。主論文差分で既存証明本文・入力節・文献表を保持した。
+今回の巡回Prym検証器は整数合同式、Pell分岐数、楕円Weierstrass不変量、Belyi分岐を厳密計算してPASS。完全分岐からのJacobian単射、norm・偏極、Kodaira/Shioda--Tateは通常の証明と一次資料の入力。旧35検証器の全再実行、主論文全体の今回の組版、独立査読、新規性網羅調査は未実施。新節単体の組版状態は研究方針に明記する。既存の証明本文・入力節を保持。
 
 GitHub mainが正本。**push済み内容をLibraryへ保存しない。** PDF・ZIP・ログ・組版中間物はGitで追跡しない。全H3分類は [nc-cubic-moduli](https://github.com/uedakazushi/nc-cubic-moduli)、関連研究は [nc-cubic-ambient](https://github.com/uedakazushi/nc-cubic-ambient) と [nc-cubic-non-as](https://github.com/uedakazushi/nc-cubic-non-as) を参照する。
