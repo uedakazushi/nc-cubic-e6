@@ -27,7 +27,7 @@
 \newcommand{\PP}{\mathbb P}
 \title{楕円 $E_6$ 量子化成分の幾何学に向けて\\\large 七次元正常形・八次元形式変形・Fricke--DAHA幾何}
 \author{研究原稿：H3開性・全大域境界の分類は未完成}
-\date{2026年11月17日\quad triangle-component-v15}
+\date{2026年11月17日\quad triangle-component-v16}
 \begin{document}\maketitle
 \begin{abstract}
 原始三乗根の量子 $\mathfrak{so}_3$ 包絡の中心三次切断から得られる四次元族は、
@@ -53,6 +53,8 @@ Braid作用を量子的Vieta変換として明示し、Goldman型Poisson括弧�
 一方、$\Omega$ 係数が非零の中心三次切断のうち、この指定変形の平坦商に一次で持ち上がるのはCasimir切断だけである。
 量子的Vieta作用も、固定した反標準コンパクト化の構造対象付きH3心には延長しない。
 これらの障害は抽象的な圏変形や導来対応を否定せず、同時Sklyanin変形と心の変更を必要な比較対象として分離する。
+固定量子包絡のCasimir pencilではPoisson零点が総中心の五節点と五つの滑らかな臨界点に分かれ、
+特異な四中心値の$A_1$曲面のうち、前者から生じる二値のみが強いH3となる。
 この部分族は楕円境界を持つ一般の八次元族と区別する。
 全fiberのH3開性、全intrinsic族の降下、成分の大域閉包と全境界はなお未完成である。
 \end{abstract}
@@ -80,7 +82,8 @@ Artin--Zhang豊富性、三次曲面の反標準Hilbert値を満たし、
 結節中心因子&固定包絡では五つの正規交叉因子・商で二成分。七次元族では連結な五重被覆を用いて既約な六次元因子。第\ref{sec:nodal-centers}節。\\
 DAHAとcharacter variety&Askey--Wilson Casimirを規約まで同定し、Fricke係数dominance・量子的Vietaを証明。第\ref{sec:daha-character}節。\\
 量子化由来のPoisson構造&$Q=q\exp(\hbar)$ に対してGoldman型Jacobian括弧の9倍。Brown--Gordonによる中心fiberの比較。第\ref{sec:root-poisson-orders}節。\\
-二つの延長障害&非Casimir切断は指定した純粋 $q$ 変形の平坦商に持ち上がらず、Vietaは固定pointed H3心へ延長しない。抽象変形・導来対応の非存在ではない。\\\bottomrule
+二つの延長障害&非Casimir切断は指定した純粋 $q$ 変形の平坦商に持ち上がらず、Vietaは固定pointed H3心へ延長しない。抽象変形・導来対応の非存在ではない。\\
+Casimir特異中心の二類型&Poisson零点は総中心の五節点と五滑らか臨界点。四つの特異値は全て$A_1$だが、既存のH3判定では二値ずつ可否が分かれる。第\ref{sec:casimir-poisson-leaves}節。\\\bottomrule
 \end{longtable}\end{center}
 
 ポテンシャルPBW変形と中心元の存在はEtingof--Ginzburg \cite{EG} の既知結果を使う。
@@ -524,6 +527,7 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_nodal_centers.tex}
 \input{papers/sections/quantum_cubic_daha_character.tex}
 \input{papers/sections/quantum_cubic_poisson_orders.tex}
+\input{papers/sections/quantum_cubic_casimir_leaves.tex}
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
@@ -548,12 +552,15 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_daha_braid.py}&量子的Vieta・Casimir：今回再実行PASS\\
 \path{verify_d4_lattice.py}&三角形の直交D4格子：今回再実行PASS\\
 \path{verify_root_poisson.py}&全係数交換子微分・正確な係数9：今回PASS\\
-\path{verify_poisson_cut_obstruction.py}&切断の三障害・Vieta次数：今回PASS\\\bottomrule
+\path{verify_poisson_cut_obstruction.py}&切断の三障害・Vieta次数：既存PASS\\
+\path{verify_casimir_poisson_leaves.py}&十Poisson零点・四特異値・Hessian・一次元表現：今回PASS\\\bottomrule
 \end{longtable}\end{center}
 有限体の標本による外挿はしていない。
-今回の実行範囲は最後の五検証器で、\path{computations/connections_validation.json}に記録する。
-残る15検証器のPASSは既存証明書に基づき、今回の再実行を意味しない。
-新しいPoisson節と既存DAHA節を一時的な組版用wrapperでLuaLaTeX組版し、該当頁を点検した。
+今回新規に実行したのは\path{verify_casimir_poisson_leaves.py}で、\path{casimir_poisson_leaves_certificate.json}に厳密計算結果を保持する。
+関連分野の既存五検証器は前回の実行証明書\path{computations/connections_validation.json}に記録されている。
+その他15検証器と既存五検証器を今回再実行したとは主張しない。
+新しいCasimir零点節は独立wrapperでLuaLaTeX組版（2頁）し、両頁を点検した。
+Poisson節とDAHA節の前回の独立wrapperによる組版も保存済みの確認結果である。
 このwrapperは別の公表論文ではなく、主論文の今回の全体再組版を代用するものでもない。
 H3開性・相対圏の再構成・局所order認識・平坦イデアルの障害・H3心の再構成は、
 計算証明書と通常の数学的証明を区別して記載した。
