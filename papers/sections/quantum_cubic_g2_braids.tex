@@ -1,0 +1,250 @@
+\section{二種類のbraid群、$A_2$被覆、有限軌道と境界周期}
+\label{sec:g2-braids-periods}
+本節では対称LG族
+\[
+ W_\lambda=uvw-\tfrac12(u^2+v^2+w^2)-\lambda(u+v+w),
+ \qquad U_{\lambda,h}=\{W_\lambda=h\}
+\]
+を用いる。Boalch--Palubaの$G_2$実現で現れる三つの成分を
+\emph{底を動かして交換する作用}と、各成分の\emph{内部のHurwitz作用}を区別する。
+両方に三本のbraid群$B_3$が現れるが、二つの作用は同じではない。
+先行研究の基点はBoalch--Paluba\footnote{
+P. Boalch, R. Paluba, \emph{Symmetric cubic surfaces and $G_2$ character varieties},
+J. Algebraic Geom. 25 (2016), 607--631,
+\href{https://doi.org/10.1090/jag/668}{doi:10.1090/jag/668},
+\S4.1, \S5, Corollary 17, \S7, Theorem 20;
+\href{https://arxiv.org/abs/1305.6594}{arXiv:1305.6594}.}
+の明示的な底写像とbraid同変性である。
+以下では既知公式の本稿への適用と、そこから得られる具体的帰結を分ける。
+
+\subsection{三つの成分の被覆は$A_2$の普遍三次根被覆}
+\begin{theorem}[成分ラベルの$S_3$と二つの異なる分岐条件]
+\label{thm:g2-component-A2}
+対称Fricke係数$(b,c)=(-4\lambda,8h)$から$G_2$の底への写像
+\[
+ \alpha=c+2+3b,\qquad
+ \beta=-b^3+3b^2+3bc+3b-2
+\]
+は、次の座標変換によって普遍三次式の根を一つ選ぶ写像となる：
+\[
+ z=b+2,\quad P=\alpha+3,\quad Q=\beta+6\alpha+12,
+ \qquad z^3-3Pz+Q=0.
+\]
+従ってそのGalois閉包の群は$S_3=W(A_2)$であり、
+三つの成分ラベルの幾何学的monodromyも$S_3$である。
+底のbranch curveは$4P^3-Q^2=0$で、その補集合の基本群は$B_3$となる。
+
+$\mathfrak d=4(\alpha+3)^3-(\beta+6\alpha+12)^2$と置くと、引戻しは
+\begin{equation}\label{eq:g2-branch-pullback}
+ \mathfrak d|_{b,c}
+ =-(b^2+b-c-1)^2(b^2-8b-4c-16).
+\end{equation}
+写像自体のramification divisorは$b^2+b-c-1=0$である。
+一方、$b^2-8b-4c-16=0$はbranch curveの上に乗る
+\emph{一般には非分岐な第三のsheet}を記述する。
+\end{theorem}
+\begin{proof}
+$c$を消去すると
+\[
+ b^3+6b^2+3(1-\alpha)b+\beta+2=0
+\]
+となり、上記変換で減次三次式を得る。
+$t_1+t_2+t_3=0$の平面を$\mathfrak h$とすると、これは
+$\mathfrak h/\langle(23)\rangle\to\mathfrak h/S_3$であり、
+$P=-(t_1t_2+t_2t_3+t_3t_1)/3$、$Q=-t_1t_2t_3$、$z=t_1$に対応する。
+相異なる三根のunordered configurationから重心を除いた空間が
+$\{4P^3-Q^2\ne0\}$なので、基本群は三本braid群である。
+$G_2$のregular locusへさらに制限しても、一般関数体のGalois群は変わらない。
+
+三次式の判別式は$27\mathfrak d$であり、底写像のJacobianは
+$3(b^2+b-c-1)$となる。代入と因数分解により
+式\eqref{eq:g2-branch-pullback}を得る。
+これは先行論文\S4.1の判別式の、減次三次式による解釈でもある。
+第三sheetが非分岐となるという主張は、二因子の交点を除いた一般点についてのもの。
+\end{proof}
+
+\begin{corollary}[三重成分と$3A_1$曲面]
+\label{cor:g2-cusp-three-nodes}
+成分被覆のcuspは$(\alpha,\beta)=(-3,6)$であり、
+その上の唯一の係数は$(b,c)=(-2,1)$、すなわち
+$(\lambda,h)=(1/2,1/8)$である。このLG等位面には
+$(1/2,-1,-1)$の三順列に、ちょうど三つの$A_1$特異点がある。
+\end{corollary}
+\begin{proof}
+cuspで三次式は$(b+2)^3$となる。
+対称LGの臨界方程式の差は、例えば$(v-u)(w+1)=0$。
+したがって臨界点は対角上か、$(-1,-1,1-\lambda)$の順列に限る。
+$\lambda=1/2$で後三点の臨界値は$1/8$、Hessian行列式は$9/4$。
+対角点は$t^2-t=1/2$を満たし、その臨界値は$-3t/2-1/4$なので$1/8$ではない。
+射影閉包は無限遠で滑らかだから、これで全特異点を尽くす。
+\end{proof}
+
+前節の$(\alpha,\beta)=(6,6)$では三次式は$(b+8)(b-1)^2$であった。
+$D_4$成分$(b,c)=(-8,28)$ではramification因子の値は$27\ne0$、
+$A_2$成分$(1,1)$ではそれが零となる。
+したがって$D_4/A_2$という\emph{曲面特異点の型}と、
+非分岐/二重という\emph{成分被覆の分岐}は異なる情報を担う。
+cuspでの三重被覆も、曲面が一つの$A_2$になるという意味ではなく、上の$3A_1$を生じる。
+
+\subsection{Hurwitz作用は成分を動かさず、LGとPoisson構造を保つ}
+\begin{proposition}[LG座標での二生成元]
+\label{prop:lg-hurwitz-explicit}
+\begin{align*}
+ B_1(u,v,w)&=(u,\,2uv-w-2\lambda,\,v),\\
+ B_2(u,v,w)&=(w,\,v,\,2vw-u-2\lambda)
+\end{align*}
+は多項式自己同型であり、$W_\lambda$と体積形式$du\wedge dv\wedge dw$を保つ。
+合成を右から作用させる規約で
+\[
+ B_1B_2B_1=B_2B_1B_2,\qquad B_1B_2(u,v,w)=(w,u,v),
+ \qquad(B_1B_2)^3=1.
+\]
+従って$B_3$の中心は自明に作用し、作用は$\mathrm{PSL}_2(\mathbb Z)$を経由する。
+Jacobian Poisson括弧$\{u,v\}=\partial_w W_\lambda$（巡回）と、
+滑らかな等位面のPoincar\'e留数形式も保存される。
+\end{proposition}
+\begin{proof}
+逆写像はそれぞれ
+$(u,w,2uw-v-2\lambda)$、$(2uv-w-2\lambda,v,u)$。
+代入すると$W_\lambda\circ B_i=W_\lambda$、$\det dB_i=1$とbraid関係を得る。
+Jacobian括弧は$W$と体積形式から定義されるので保存され、留数の自然性から後半も従う。
+この公式はBoalch--Paluba式(19)に$(x,y,z)=(-2u,-2v,-2w)$、$b=-4\lambda$を入れたもの。
+同論文Corollary 17により$G_2$実現ともbraid同変である。
+\end{proof}
+
+これらの$B_i$は$b,c$を固定するため、固定$(\alpha,\beta)$の三成分を
+\emph{一つずつ保存する}。一方、定理\ref{thm:g2-component-A2}の$B_3$は
+底のloopから生じ、成分ラベルに$S_3$を作用させる。
+抽象群が同じでも、Hurwitz操作と成分ラベルの解析接続を同一視しない。
+また$B_i$の非線型性から、一般に固定した射影三次コンパクト化への正則延長は存在しない。
+これは元の非可換H3心のVieta延長障害とも整合するが、圏的対応の構成ではない。
+
+\begin{proposition}[一生成元の反復はChebyshev多項式で線型化される]
+\label{prop:lg-twist-chebyshev}
+$u\ne1$で$v_*=w_*=\lambda/(u-1)$と置くと、$B_1$は
+\[
+ \binom{v-v_*}{w-w_*}\longmapsto
+ M_u\binom{v-v_*}{w-w_*},\qquad
+ M_u=\begin{pmatrix}2u&-1\\1&0\end{pmatrix}
+\]
+となる。第二種Chebyshev多項式$U_n$を用い、任意の$n\ge1$について
+\[
+ M_u^n=U_{n-1}(u)M_u-U_{n-2}(u)I,
+ \qquad U_{-1}=0
+\]
+が成り立つ。$u^2\ne1$なら固有値は$\xi,\xi^{-1}$、$u=(\xi+\xi^{-1})/2$であり、
+$\xi$が$n$乗根なら$B_1^n$はこの平面上で恒等となる。
+\end{proposition}
+\begin{proof}
+平行移動後の公式を展開し、$M_u^2-2uM_u+I=0$に帰着する。
+この漸化式は$U_n=2uU_{n-1}-U_{n-2}$と一致するので帰納法で結論する。
+固有値が相異なる範囲では対角化できる。
+\end{proof}
+これは$u$を固定したconic pencil上の一生成元の線型化であり、
+二生成元を同時に線型化したという主張ではない。
+実数$|u|<1$では固有値が単位円に乗り、非退化な実conicが存在する場合は
+その上の回転として読める。$u=\pm1$の退化と、複数生成元による有限軌道は別に調べる必要がある。
+
+\subsection{七点軌道は$S_7$を持つが、位数6048の群ではない}
+\begin{proposition}[Klein軌道上の完全対称群]
+\label{prop:klein-seven-S7}
+$(\lambda,h)=(1/4,0)$、すなわちFricke係数$(b,c)=(-1,0)$を考える。
+Fricke座標で順序付き七点集合
+\[
+ \mathcal O=((0,0,0),(0,0,1),(0,1,0),(1,0,0),
+              (1,1,0),(1,0,1),(0,1,1))
+\]
+は一つのHurwitz軌道であり、二生成元の置換表示は
+\[
+ p=(1\,3\,7\,2)(4\,5\,6),\qquad
+ q=(1\,2\,6\,4)(3\,7\,5).
+\]
+その像は$S_7$全体である。LG座標では七点の各座標を$-1/2$倍する。
+\end{proposition}
+\begin{proof}
+七点はいずれも$xyz+x^2+y^2+z^2-x-y-z=0$を満たす。
+既知のHurwitz公式へ代入して表示した置換を得、作用は推移的である。
+右から合成する規約で直接計算すると
+\[
+ q^{-1}p q^{-2}p q^{-1}p^3=(5\,7).
+\]
+推移的次数7の群は素数次数なのでprimitiveである。
+この互換の共役を辺とするグラフが非連結ならその成分は非自明なblock系となるので、
+グラフは連結。連結グラフの辺の互換は全対称群を生成し、結論を得る。
+小検証器は二置換から生じる$5040$個も全列挙する。
+\end{proof}
+
+この七点軌道自体はBoalch--Paluba\S7の既知軌道である。
+同論文Theorem 20は、Fano平面の一点を通る三直線から得られる八元数を用い、
+\emph{一つの表現の像}を$G_2(2)'\cong U_3(3)$、位数6048の有限単純群として実現する。
+これは\emph{七つの表現同値類をbraidが置換する群}$S_7$（位数5040）とは別物である。
+同じ軌道に現れるKleinの位数168の群とも区別する。
+ここで得た置換表示を、これらの有限群の新たな同型と解釈してはならない。
+
+この例の$G_2$底は$(\alpha,\beta)=(-1,-1)$で、成分ラベル三次式は
+\[
+ (b+1)(b^2+5b+1)=0.
+\]
+従ってKlein成分のほかに$\mathbb Q(\sqrt{21})$上の二つの共役成分がある。
+底判別式は$\mathfrak d=7$、他方の$G_2$判別式は$\alpha^2-4\beta-12=-7$なので、
+この例はregular semisimple範囲内である。
+これは単一の$G_2$fiberの成分構造を記述しており、他二成分にも同じ七点軌道があるとは主張しない。
+
+\subsection{境界周期は固定される}
+\begin{theorem}[原始境界cycleの正規化周期]
+\label{thm:boundary-residue-period}
+一般係数$A,B,C$の滑らかな等位面$U=\{W_{A,B,C}=h\}$上で
+\[
+ \omega=\operatorname{Res}_{U}
+ \frac{du\wedge dv\wedge dw}{W_{A,B,C}-h}
+       =\frac{du\wedge dv}{uv-w-C}
+\]
+と正規化する。境界三角形の節点を囲む小さい実二次元トーラス$T$
+の向きを適切に選べば、その類は原始radicalの生成元$\delta_\infty$であり、
+\begin{equation}\label{eq:constant-boundary-period}
+ \int_{\delta_\infty}\omega=(2\pi i)^2
+\end{equation}
+となる。対称族のHurwitz作用はこの形式と$\delta_\infty$を固定する。
+\end{theorem}
+\begin{proof}
+射影閉包の$u_{\rm hom}=1$というchartで局所座標を$(V,Z,t)$とすると
+\[
+ F=VZ-\tfrac12t(1+V^2+Z^2)-t^2(A+BV+CZ)-ht^3.
+\]
+境界節点で$F_t=-1/2$なので$t=\tau(V,Z)$と解ける。
+$V=0$または$Z=0$で$t=0$だから$\tau=VZ\,a(V,Z)$、$a(0,0)=2$である。
+アフィン座標$(u,v,w)=(1/t,V/t,Z/t)$へ戻して留数形式を計算すると
+\[
+ \omega=-\frac{dV\wedge dZ}{\tau(V,Z)F_t(V,Z,\tau(V,Z))}
+       =g(V,Z)\frac{dV}{V}\wedge\frac{dZ}{Z},\qquad g(0,0)=1.
+\]
+二変数Cauchy積分公式から小トーラス上の積分は$(2\pi i)^2$。
+
+この小トーラスの類は、境界三角形のdual graphの一周に対応する。
+境界の三つの節点のトーラスに対するMayer--Vietoris関係は
+向きを揃えると$[T_{12}]=[T_{23}]=[T_{31}]$であり、
+これらが対$(S,D)$の完全列の$H^1(D,\mathbb Z)$からの像を生成する。
+従って前節の整数完全列の原始生成元$\delta_\infty$を与える。
+
+対称族の$B_i$は$W$と体積形式を保つので$\omega$を保つ。
+また$U$の向きを保つ自己同型は交叉形式と原始radicalを保つため、
+$B_{i*}\delta_\infty=\pm\delta_\infty$。
+式\eqref{eq:constant-boundary-period}が非零なので符号は$+$である。
+\end{proof}
+
+従ってbraid作用は$H_2(U,\mathbb Z)/\mathbb Z\delta_\infty\cong D_4(-1)$へ降りる。
+ただしこの事実は四つの内部周期が定数であることを意味せず、
+混合Hodge構造の拡大の分裂や全Gauss--Manin系の計算でもない。
+境界周期が一つ明示的に正規化されたので、次に調べるべき未知量は
+内部の四周期と、境界方向を含む拡大の変化に絞られる。
+
+\begin{remark}[既知性と検証範囲]
+成分底写像・Hurwitz公式・Klein七点軌道・八元数による有限群の実現は先行研究にある。
+本節はそれらの正規化、二種類のbraid作用の分離、三次根被覆の$A_2$解釈、
+七点上の置換群、境界周期を一つのLG模型で整理する。
+個別結果の文献上の新規性は未確定である。
+恒等式、Chebyshev漸化式の有限次数検算、七点の置換群、境界の二重留数は
+\texttt{computations/verify\_g2\_braids\_periods.py}で厳密に再現できる。
+全次数の漸化式、configuration spaceの位相、境界トーラスの原始性と積分は
+本文の通常の証明であり、計算証明書がそれらを形式検証したとはしない。
+\end{remark}
