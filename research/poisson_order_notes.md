@@ -1,6 +1,6 @@
 # Poisson量子化・中心切断・心の変更：現行研究ノート
 
-2026-11-17 / e6-connections-v15。最初に `../00_research_plan.md` を読む。
+2026-11-17 / e6-connections-v16。最初に `../00_research_plan.md` を読む。
 この主題の完全な証明は `../papers/sections/quantum_cubic_poisson_orders.tex` にあり、主論文 `../papers/nc-cubic-e6.tex` から読み込まれる。本ノートは証明を重複せず、規約・障害・次の構成に必要な知識を保持する。基本変形理論は `research_notes.md`、広い関連分野の比較は `fricke_daha_comparison.md` を参照する。これらの旧版にある「Poisson orderとの比較が未解決」という課題は、以下の限定された範囲では解決した。
 
 ## 1. 量子化からの括弧と規約
@@ -60,8 +60,25 @@ Casimirコンパクト化の両側が強いH3なら、pointed exact同値は反�
 
 **肯定的に構成すべき対象：** affine局所化の圏における作用、境界のblow-up/downを介した非可換対応、導来圏の心の変更。未構成の導来同値を結論しない。固定された構造対象を外せば上の再構成障害はそのままでは適用できず、その範囲も未判定である。
 
-## 5. 一次文献と未確認点
+## 5. 十Poisson零点・Casimir pencilのH3二類型
 
+固定包絡a=b=c=0の総中心P=Omega³+f Omega²-XYZ+e(X²+Y²+Z²)、e³=-f³/27。
+Poisson零点はP_X=P_Y=P_Z=0、従って
+(1) X=Y=Z=0、Omega=0または-f（2点）；
+(2) (X,Y,Z)=2e(eta1,eta2,eta3)、eta_i=±1,積+1、Omega=-2f/3またはf/3（8点）。
+合計10点。前者のOmega=0と符号点Omega=-2f/3の5点は総中心のA1節点で、残る5点は総中心上は滑らかなOmegaの臨界点。前5点だけがVの1次元表現の中心character。
+
+Casimir切断Omega=-Dの特異値は正確にD=0,2f/3,f,-f/3、A1個数はそれぞれ1,4,1,4。既存の固定包絡H3判定に依存して、前二値はH3、後二値は非H3。この範囲で「切断のPoisson零点が全て総中心の特異点（零点なしも許容）」とH3性は同値。判定に中心のADE型だけを用いない。
+
+さらに空間三変数の非退化Hessianと形式Morse補題から、局所A1平滑化パラメータは原点組で D²(f-D)、四符号組で -(D+f/3)(D-2f/3)²。**H3節点のCasimir方向は二次接触、非H3節点は一次横断**。これらは通常の証明で、因数分解と10点のHessianは `computations/verify_casimir_poisson_leaves.py` で厳密再現済み。
+
+固定包絡のgraded A4対称性と非可換Vieta sigmaは、p0,r0を固定して二つの符号四点集合それぞれにS4を生成する。sigmaは符号三つ組eta1,eta2を交換し、A4の偶符号変更と巡回置換を加えてS4となる。検証器は四点上の置換群の位数24も確かめる。この有限作用をmodular群そのものの有限性と混同しない。証明は主論文 `thm:ten-poisson-points`, `thm:casimir-four-values`, `prop:casimir-smoothing-orders`, `cor:poisson-ten-s4`。
+
+次の問題は一般a,b,cでPoisson零点の有限scheme/モノドロミーを求め、既存一次元表現五重被覆や七次元の結節因子と関連付けること。さらにsmooth総中心のPoisson零点の中心fiber代数と非H3の局所orderを比較する。全Casimir値でのM3やMorita型は未検証。
+
+## 6. 一次文献と未確認点
+
+- M. Havlíček, S. Pošta, *Center of quantum algebra U'_q(so_3)*, J. Math. Phys. 52 (2011), 043521, DOI https://doi.org/10.1063/1.3579992 。三乗根の中心生成元と関係式に関する既知研究。今回公表要旨を確認したが、規約の完全照合と新規性調査は未完了。
 - S. Baseilhac, P. Roche, *Unrestricted Quantum Moduli Algebras. I. The Case of Punctured Spheres*, SIGMA 18 (2022), 025, 78 pp. DOI https://doi.org/10.3842/SIGMA.2022.025 ; arXiv:1912.02440。Theorems7.17,7.19、Corollary7.20(3)を原PDFで確認。Frobenius中心の有限被覆とGoldmanの比較を既知の一般機構として使う。本稿の全特殊化を同論文のgraph algebraと同定したわけではない。
 - K. A. Brown, I. Gordon, *Poisson orders, symplectic reflection algebras and representation theory*, J. Reine Angew. Math. 559 (2003), 193–216; arXiv:math/0201042; 著者PDF https://www.maths.ed.ac.uk/~igordon/pubs/poisord.pdf 。§§2.1–2.2（定義・量子化）およびTheorem4.2（同一symplectic core上の有限fiber代数同型）を原PDFで確認。導分持上げの内部導分の曖昧さを消したことにはしない。
 - H.-W. Huang, *Center of the universal Askey–Wilson algebra at roots of unity*, Nuclear Phys. B 909 (2016), 260–296. DOI https://doi.org/10.1016/j.nuclphysb.2016.05.006 ; arXiv:1509.08719。中心の一般表示は既知。今回の個別規約と全ての中心生成元の完全な比較は未了。
@@ -69,7 +86,7 @@ Casimirコンパクト化の両側が強いH3なら、pointed exact同値は反�
 
 今回の独立計算は規約の確定と障害の明示を保証する。個々の式・障害定理の文献上の既出性を網羅的に確認したとはしない。
 
-## 6. 実行・組版・保存
+## 7. 実行・組版・保存
 
-2026-11-17に新規2検証器と既存DAHA/Fricke・Braid・D4の3検証器を厳密再実行し、5件全PASS。`computations/connections_validation.json` に対象を明記する。残る15検証器、全旧証明の再監査、全主論文の組版は今回未実施。
-新節と既存DAHA節の一時的wrapperによるLuaLaTeX組版は成功（11頁）、新節の主要頁を画像で点検した。wrapperは別論文ではなくGitには含めない。コード・小証明書・主論文・方針・本ノートはGitHub mainに保存する。push済み内容はLibraryへ保存しない。
+関連分野の旧五検証器のPASSは `connections_validation.json` に記録されている。今回は十Poisson零点・H3四値・S4対称性の検証器を独立実行しPASS。今回の小証明書は `computations/casimir_poisson_leaves_certificate.json`。他の20検証器の今回の全再実行、全旧証明の再監査、全主論文の組版は未実施。
+新Casimir節は独立wrapperでLuaLaTeX組版（3頁）し、初期版の主要頁を画像点検した。既存DAHA/Poisson二節のwrapper組版は前回確認済み。wrapperは別論文ではなくGitには含めない。コード・小証明書・主論文・方針・本ノートはGitHub mainに保存する。push済み内容はLibraryへ保存しない。
