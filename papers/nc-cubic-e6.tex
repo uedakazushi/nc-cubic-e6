@@ -548,10 +548,10 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_nodal_cuts.py}&固定包絡の五つの結節中心例：既存PASS\\
 \path{verify_character_node_cover.py}&中心特異点恒等式・一次元表現：既存PASS\\
 \path{verify_boundary_graph.py}&右graph・generic非三周期性：既存PASS\\
-\path{verify_daha_character.py}&AW規約・Fricke係数・Poisson：今回再実行PASS\\
-\path{verify_daha_braid.py}&量子的Vieta・Casimir：今回再実行PASS\\
-\path{verify_d4_lattice.py}&三角形の直交D4格子：今回再実行PASS\\
-\path{verify_root_poisson.py}&全係数交換子微分・正確な係数9：今回PASS\\
+\path{verify_daha_character.py}&AW規約・Fricke係数・Poisson：既存PASS\\
+\path{verify_daha_braid.py}&量子的Vieta・Casimir：既存PASS\\
+\path{verify_d4_lattice.py}&三角形の直交D4格子：既存PASS\\
+\path{verify_root_poisson.py}&全係数交換子微分・正確な係数9：既存PASS\\
 \path{verify_poisson_cut_obstruction.py}&切断の三障害・Vieta次数：既存PASS\\
 \path{verify_casimir_poisson_leaves.py}&十Poisson零点・四特異値・Hessian・一次元表現：今回PASS\\\bottomrule
 \end{longtable}\end{center}
@@ -559,7 +559,7 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 今回新規に実行したのは\path{verify_casimir_poisson_leaves.py}で、\path{casimir_poisson_leaves_certificate.json}に厳密計算結果を保持する。
 関連分野の既存五検証器は前回の実行証明書\path{computations/connections_validation.json}に記録されている。
 その他15検証器と既存五検証器を今回再実行したとは主張しない。
-新しいCasimir零点節は独立wrapperでLuaLaTeX組版（2頁）し、両頁を点検した。
+新しいCasimir零点節は独立wrapperでLuaLaTeX組版（3頁）に成功した。初期二頁を画像点検し、三頁版は組版成功まで確認した。
 Poisson節とDAHA節の前回の独立wrapperによる組版も保存済みの確認結果である。
 このwrapperは別の公表論文ではなく、主論文の今回の全体再組版を代用するものでもない。
 H3開性・相対圏の再構成・局所order認識・平坦イデアルの障害・H3心の再構成は、
