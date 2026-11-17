@@ -1,6 +1,6 @@
 # 楕円 E6 量子化成分 — nc-cubic-e6
 
-2026-11-17 / triangle-component-v15。
+2026-11-17 / triangle-component-v16。
 内在的非可換三次曲面H3の、量子so3・Fricke cubic・Askey–Wilson部分族を含む8次元候補成分と、関連分野への具体的な接続を研究する。
 
 **最初に [研究方針](00_research_plan.md) を読む。** 現行日本語LuaLaTeX原稿は [nc-cubic-e6.tex](papers/nc-cubic-e6.tex)。基本知識は [研究ノート](research/research_notes.md)、関連分野は [Fricke/DAHA比較](research/fricke_daha_comparison.md) と [Poisson量子化・延長障害ノート](research/poisson_order_notes.md) を参照する。公表価値のある関連分野研究も同じ主論文へ統合する。
@@ -11,6 +11,8 @@
 
 **量子化からのPoisson構造と二つの障害** を主論文に統合した（`papers/sections/quantum_cubic_poisson_orders.tex`）。Q=q exp(h) の交換子微分はFrickeのJacobian括弧の正確に9倍であり、Brown–Gordonにより同一smooth locus上の中心fiber代数を比較できる。一方、Omega係数が非零の非Casimir切断は指定した純粋q変形の平坦商に一次で持ち上がらず、Vieta作用は固定pointed H3心に延長しない。これは抽象変形・導来同値の非存在ではなく、同時Sklyanin変形と心を動かす対応を研究するための障害である。
 
+**固定包絡のCasimir pencilに十個のPoisson零点を完全列挙**し、総中心の五節点と五滑らか臨界点を区別した。中心曲面の特異値は4つで全てA1型だが、二つの値だけが既存判定によりH3となる。平滑化の二次接触／一次横断、一次元表現の中心character、VietaとA4による符号四点のS4作用も証明した（`papers/sections/quantum_cubic_casimir_leaves.tex`）。
+
 主原稿で読み込む証明節は `papers/sections/quantum_cubic_*.tex`。固定位数3の一般H3認識・三角境界の関連証明も必要な範囲で保持する。**全intrinsic H3成分の大域閉包・全境界と一般相対AS4認識は未完成**。全Casimir値でのAzumaya性や導来Vieta対応も未解決。
 
 ## 再現と今回の検証範囲
@@ -18,10 +20,10 @@
 python3 -m pip install -r computations/requirements.txt
 python3 computations/verify_root_poisson.py
 python3 computations/verify_poisson_cut_obstruction.py
-python3 computations/verify_all.py  # 全20検証器
+python3 computations/verify_all.py  # 全21検証器
 latexmk -lualatex papers/nc-cubic-e6.tex
 ```
-今回再実行した五検証器は `computations/connections_validation.json` に明記する。残る15検証器は今回未実行。DAHA節と新Poisson節の一時的wrapperによるLuaLaTeX組版・該当頁点検は成功したが、主論文全体の今回の再組版ではない。
+今回新規実行したCasimir零点検証器の証明書は `computations/casimir_poisson_leaves_certificate.json`。他の20検証器の今回の全再実行は未実施。前回の五検証器の結果は `computations/connections_validation.json` に記録。DAHA節と新Poisson節の一時的wrapperによるLuaLaTeX組版・該当頁点検は成功したが、主論文全体の今回の再組版ではない。
 
 GitHub mainが正本。**GitHubへpush済みの内容はLibraryに重複保存しない。** PDF・ZIP・組版中間物はGitで追跡しない。他の研究は [分類](https://github.com/uedakazushi/nc-cubic-moduli)、[ambient比較](https://github.com/uedakazushi/nc-cubic-ambient-moduli)、[非AS短報](https://github.com/uedakazushi/nc-cubic-non-as) を参照。
 移行元の資料は [固定source commit](https://github.com/uedakazushi/nc-cubic-moduli/tree/c5fd8a8301f6b1c283a6f0510cde80ae6a006e80) を基準に抽出した。旧bundleは不要。
