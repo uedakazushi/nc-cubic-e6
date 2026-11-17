@@ -1,0 +1,75 @@
+# Poisson量子化・中心切断・心の変更：現行研究ノート
+
+2026-11-17 / e6-connections-v15。最初に `../00_research_plan.md` を読む。
+この主題の完全な証明は `../papers/sections/quantum_cubic_poisson_orders.tex` にあり、主論文 `../papers/nc-cubic-e6.tex` から読み込まれる。本ノートは証明を重複せず、規約・障害・次の構成に必要な知識を保持する。基本変形理論は `research_notes.md`、広い関連分野の比較は `fricke_daha_comparison.md` を参照する。これらの旧版にある「Poisson orderとの比較が未解決」という課題は、以下の限定された範囲では解決した。
+
+## 1. 量子化からの括弧と規約
+
+V=V_{a,b,c} の三関係は yz-qzy=x+a（巡回）、q²+q+1=0。a,b,cを固定して Q=q exp(h) とする。PBW係数環は Q(Q)[a,b,c]、唯一のoverlapはzyx。一般Qの厳密Casimirは
+
+```
+Omega_Q=xyz+(x²+Q²y²+z²)/(Q²−1)+(ax+Qby+cz)/(Q−1).
+```
+
+Q=qで既存Omegaと一致する。X=x³+q²x等の持上げをx³+Q²x等とすると、中心の括弧は
+
+```
+{X,Y}_rt = 9(XY−2eZ+cOmega−ell_c) = −9 P_Z, cyclic;
+{Omega,-}_rt=0.
+```
+
+この等式は全a,b,cに対する厳密なPBW係数恒等式である。`verify_root_poisson.py` はまず一般QのCasimir三交換子、次に特殊値の中心九交換子、最後に三つの Q d/dQ 微分を確認する。各微分のPBW正規形は13非零係数。浮動小数点、有限体標本、補間は使わない。
+
+Omega=-D、u=-X/e等のFricke座標では `{u,v}_rt=9 F_w`（巡回）。これは本稿で選んだJacobian規約に対する係数9であって、Goldman規約全般に無条件に同じ数値を主張するものではない。Q=q+hを使うと9q^{-1}になる。括弧の中心上の値は持上げ非依存だが、V全体への導分の持上げは内部導分の曖昧さを持つ。
+
+## 2. 表現論へ使える正確な範囲
+
+Vはk[X,Y,Z]上27語 x^i y^j z^k (0≤i,j,k<3) で自由で、全中心上のgeneric rankは9。Brown–Gordonの元の意味でPoisson orderとなる。Casimir切断A_Dには中心部分環 Z(V)/(Omega+D) が単射する（Vが整域で中心元の割算を用いる）。**任意Dで商の全中心がこの部分環に一致するという追加主張はしていない。**
+
+Fricke cubicは全係数で既約かつ無限遠三角形に沿って滑らか、特異点は有限である。そのsmooth locusは一つのsymplectic leaf、各特異点は零次元leaf。Brown–Gordon Theorem4.2から、固定したa,b,c,Dでsmooth locus上の中心fiber代数は全て同型。
+
+従って**一点のfiberがM3なら全smooth locusでM3**。この一点の存在を全Dについて証明したとはしない。generic rank9だけで全特殊DのAzumaya性やglobaldimを結論するのは不可。次の着手は、固定Dでの9次元fiberの行列表現と中心characterの列挙である。Frickeのsmooth locusが空でないことは幾何学的に分かるが、Vのgeneric Azumaya開集合がそのsliceと交わることとは別である。
+
+## 3. 純粋q変形の障害
+
+主張の範囲はOmega係数が非零のchart、すなわち
+
+```
+G=Omega+beta X+gamma Y+delta Z+epsilon.
+```
+
+中心でGを消去するとP_Gの次数は3で、最高部は −(beta X+gamma Y+delta Z)^3−XYZ。次数≤2の関係はない。`{G,X}/9, {G,Y}/9, {G,Z}/9` の最高二次部は
+
+```
+X(delta Z−gamma Y), Y(beta X−delta Z), Z(gamma Y−beta X).
+```
+
+よって(G)がPoissonイデアルとなるのはbeta=gamma=delta=0だけ。指定したambient変形V_hの平坦両側商が存在すれば、中心における特殊イデアルはPoissonでなければならない。これは I_h∩h A_h=h I_h から従い、双対数底にも有効。Casimirの場合はOmega_Q+epsilonが全次数の平坦持上げを与える。したがって必要十分である。
+
+本稿の滑らかな楕円H3選択点 G0=2Omega+X+2Y+3Z+5 では障害の最高部は9X(3Z−2Y)。a,b,cの一次変更では消せない。Q=qで中心交換子が全a,b,cについて零なので、これらの方向の微分は零だからである。
+
+**回避すべき誤推論：** これは特定のambient変形の内部での障害であり、一般H3/dg変形や中央切断を含むSklyanin同時変形を妨げない。既存の八変数族はそのような追加方向を持つ。明示例 Phi_u=(1+2u)xyz−qxzy+u(x³+8y³+27z³)−(x²+y²+z²)/2 をpotentialスカラーで規格化すると、Q=q/(1+2u)というq方向と三つの純三次方向が同時に現れる。この組合せの中央持上げは既存 `eq:explicit-integral` で構成されている。次に、各成分が一次中心方程式に与える項を分離すれば、障害の相殺を明示できる見込みがある。この分離計算自体は未実施。
+
+## 4. modular作用と固定したH3心の違い
+
+sigmaはaffine代数に対して x↔y、z→(q²−q)xy−q²z+qc。Casimirを保ち、中心ではZ→(XY+cOmega−ell_c)/e−Z。sigma²=1とrho³=1のPSL2Z作用と、それを覆うbraid群の作用を区別する。
+
+Casimirコンパクト化の両側が強いH3なら、pointed exact同値は反標準graded環と二次包絡を復元し、中心一次直線ktを保存するためPBWのF1を保つ。一方sigma(z)は正確に次数2。中心上でもsigma(Z)は次数6でZの次数3を保たない。したがって局所化後に内部自己同型を合成してもsigmaを誘導できない。これは `prop:vieta-not-pointed-heart` の結論。
+
+古典中心でも、滑らかな射影三次曲面の同型は反標準埋込みで線型になり、無限遠三角形を保存すればspan(1,u,v,w)を保つ。しかしsigma(w)=−uv−C−wは二次であり、正則延長しない。これはCantat–Lorayの双有理幾何と整合する。
+
+**肯定的に構成すべき対象：** affine局所化の圏における作用、境界のblow-up/downを介した非可換対応、導来圏の心の変更。未構成の導来同値を結論しない。固定された構造対象を外せば上の再構成障害はそのままでは適用できず、その範囲も未判定である。
+
+## 5. 一次文献と未確認点
+
+- S. Baseilhac, P. Roche, *Unrestricted Quantum Moduli Algebras. I. The Case of Punctured Spheres*, SIGMA 18 (2022), 025, 78 pp. DOI https://doi.org/10.3842/SIGMA.2022.025 ; arXiv:1912.02440。Theorems7.17,7.19、Corollary7.20(3)を原PDFで確認。Frobenius中心の有限被覆とGoldmanの比較を既知の一般機構として使う。本稿の全特殊化を同論文のgraph algebraと同定したわけではない。
+- K. A. Brown, I. Gordon, *Poisson orders, symplectic reflection algebras and representation theory*, J. Reine Angew. Math. 559 (2003), 193–216; arXiv:math/0201042; 著者PDF https://www.maths.ed.ac.uk/~igordon/pubs/poisord.pdf 。§§2.1–2.2（定義・量子化）およびTheorem4.2（同一symplectic core上の有限fiber代数同型）を原PDFで確認。導分持上げの内部導分の曖昧さを消したことにはしない。
+- H.-W. Huang, *Center of the universal Askey–Wilson algebra at roots of unity*, Nuclear Phys. B 909 (2016), 260–296. DOI https://doi.org/10.1016/j.nuclphysb.2016.05.006 ; arXiv:1509.08719。中心の一般表示は既知。今回の個別規約と全ての中心生成元の完全な比較は未了。
+- S. Cantat, F. Loray, *Dynamics on Character Varieties and Malgrange irreducibility of Painlevé VI equation*, Ann. Inst. Fourier 59 (2009), 2927–2978. DOI https://doi.org/10.5802/aif.2512 ; arXiv:0711.1579。§3.1（無限遠三角形とVieta双有理変換）、Theorem3.1を一次PDFで確認。古典的な非線型対称性の存在を本研究の新規発見としない。
+
+今回の独立計算は規約の確定と障害の明示を保証する。個々の式・障害定理の文献上の既出性を網羅的に確認したとはしない。
+
+## 6. 実行・組版・保存
+
+2026-11-17に新規2検証器と既存DAHA/Fricke・Braid・D4の3検証器を厳密再実行し、5件全PASS。`computations/connections_validation.json` に対象を明記する。残る15検証器、全旧証明の再監査、全主論文の組版は今回未実施。
+新節と既存DAHA節の一時的wrapperによるLuaLaTeX組版は成功（11頁）、新節の主要頁を画像で点検した。wrapperは別論文ではなくGitには含めない。コード・小証明書・主論文・方針・本ノートはGitHub mainに保存する。push済み内容はLibraryへ保存しない。
