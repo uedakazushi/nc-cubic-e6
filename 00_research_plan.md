@@ -53,12 +53,12 @@
 
 8. **結節中心H3因子の七次元族への結合。** 固定包絡の許容四次元切断空間では五つの独立な節点条件が単純正規交叉因子をなし、A4商では二つの既約因子となる。相異なる5つのA1中心H3例を厳密Jacobi基底で確認した。さらにa,b,cを動かすと一次元表現が係数原点のZariski近傍で連結な有限etale五重被覆を与え、五節点条件のincidenceは既約六次元因子になる。七次元H3許容開集合との交わりも既約である。証明は主論文`thm:nodal-divisors`, `prop:five-nodal-witnesses`, `thm:seven-nodal-irreducible`。厳密計算は`computations/verify_nodal_cuts.py`, `computations/verify_character_node_cover.py`。全八次元intrinsic成分への延長は未証明。
 
-9. **DAHA--character varietyの厳密な接続。** 三乗根での普遍Askey--Wilson代数の中央特殊化と量子so3包絡の同型、Casimir規約 `Omega_AW=3(q+2)Omega`、Casimir切断中心からFricke係数空間への4次元優越写像を証明した。Goldmanの四穴球面トレース係数とも一般有限分離底変更で比較できる。Artin braid生成元がFricke--Vieta変換 `(u,v,w)->(v,u,-uv-C-w)` を非可換持上げし、Goldman型Jacobian Poisson構造を保つ。切断の三角形反標準境界はLooijenga pair。証明は主論文 `sec:daha-character`；独立厳密再生は `computations/verify_daha_character.py`, `verify_daha_braid.py`。これらの個別式の既出性・直接spherical DAHA同型・一般楕円E6全域への延長は未確認。
+9. **DAHA--character varietyの厳密な接続。** 三乗根での普遍Askey--Wilson代数の中央特殊化と量子so3包絡の同型、Casimir規約 `Omega_AW=3(q+2)Omega`、Casimir切断中心からFricke係数空間への4次元優越写像を証明した。Goldmanの四穴球面トレース係数とも一般有限分離底変更で比較できる。Goldman--Toledoによる任意の適切なtritangent三次曲面のcharacter variety実現は既知であり、新規性を主張しない。Artin braid生成元がFricke--Vieta変換 `(u,v,w)->(v,u,-uv-C-w)` を非可換持上げし、Goldman型Jacobian Poisson構造を保つ。切断の三角形反標準境界はLooijenga pairで、Picard格子のD_i直交補はD4(-1)、K直交補はE6(-1)（既知幾何を明示的単純根で計算）。証明は主論文 `sec:daha-character`；独立厳密再生は `computations/verify_daha_character.py`, `verify_daha_braid.py`, `verify_d4_lattice.py`。これらの個別式の既出性・直接spherical DAHA同型・一般楕円E6全域への延長は未確認。
 
 ## IV. 次の課題と具体的な着手
 
 **第一優先：DAHA--character varietyから楕円E6成分への幾何学的橋渡し。**
-量子的Fricke--Vieta変換の対応をskein代数の半Dehn twistと一次文献の定理単位で比較し、Casimir切断（反標準三角境界）と楕円境界H3族を中央三次切断・平行移動の変形を介してつなぐ。Askey--Wilsonの三乗根特殊化とspherical DAHAの中心・Morita locusを区別して明示する。構成可能なら有限位数でのPoisson orderとGoldman括弧の定数を計算し、character varietyのcluster/mirrorとの比較を新しい独立定理へ昇格する。比較の未確認点は `research/fricke_daha_comparison.md` を参照。
+量子的Fricke--Vieta変換の対応をskein代数の半Dehn twistと一次文献の定理単位で比較し、Casimir切断（反標準三角境界）と楕円境界H3族を中央三次切断・平行移動の変形を介してつなぐ。Askey--Wilsonの三乗根特殊化とspherical DAHAの中心・Morita locusを区別して明示する。D4根格子を固定する境界三角形の周期写像・W(D4)作用と、境界を動かすE6格子/W(E6)作用の相違を調べる。構成可能なら有限位数でのPoisson orderとGoldman括弧の定数を計算し、character varietyのcluster/mirrorとの比較を新しい独立定理へ昇格する。比較の未確認点は `research/fricke_daha_comparison.md` を参照。
 
 **第二優先：有限型表示stack内の全H3 admissibility。**
 選んだ点の全Artin形式近傍は8変数族で分類済み。明示族は有限型底へ延び、相対THCR境界・全fiberの整域性・幾何学的一般点H3を認識した。さらにsmooth DM八次元表示stack [Z'/Gamma]とetale atlasを構成し、H3対象間の全幾何学的矢を決定した。
@@ -82,6 +82,6 @@ latexmk -lualatex papers/nc-cubic-e6.tex
 ```
 コードと小証明書は同じ専用ディレクトリに置き、統合結果はその `validation.json` に再生成する。
 通常の証明であるArtin再構成を計算PASSと同一視しない。既存13検証器の厳密計算PASSは旧証明書に記録されている。新規`verify_nodal_cuts.py`と`verify_character_node_cover.py`は今回厳密再実行した。
-今回のDAHA新規節単体（四頁）をLuaLaTeX組版し、同節の二検証器をSymPy厳密演算で実行した。主論文全体の組版は未実施。巨大な既存H3原稿全体の再組版・網羅再検証・独立査読は対象外。
+今回のDAHA節の独立LuaLaTeX組版（六頁）を確認し、DAHA二検証器およびD4格子検証器を厳密演算で実行した。主論文全体の組版は未実施。巨大な既存H3原稿全体の再組版・網羅再検証・独立査読は対象外。
 Git追跡対象は現行TeX・Markdown・Python・小JSONのみ。PDF・ZIP・中間物・cacheは含めない。
 生成・検証結果はコードと文書に、GitHub refの到達確認は保存時の応答に分けて記載する。
