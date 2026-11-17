@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-17",
+  "version": "e6-connections-v27",
+  "status": "PASS",
+  "field": "Q and Z; exact symbolic arithmetic",
+  "new_curve_condition": "kappa^2!=1 and N_v(kappa)!=0; smooth ambient cubic",
+  "inverse_first_leading": [
+    {"pole": 5, "coefficient": "16*r**2"},
+    {"pole": 2, "coefficient": "2*r"},
+    {"pole": 7, "coefficient": "64*r**3"}
+  ],
+  "all_n_boundary_orders": "(b_n,c_n), gcd=1; inverse poles=(c_n,b_n,b_n+c_n)",
+  "leading_ratio": "y^b_n/x^c_n = r, r+r^-1=2*kappa",
+  "weighted_initial": "y^(2b)-2*kappa*x^c*y^b+x^(2c)",
+  "link": "T(2b_n,2c_n), two T(b_n,c_n) components, linking b_n*c_n",
+  "checked_integer_iterations": 24,
+  "examples": [
+    {"n":1,"a":1,"b":2,"c":5,"degree":14,"branch_delta":2,"branch_intersection":10,"delta":14,"Milnor_number":27,"Milnor_fiber_genus":13,"homological_monodromy_order":20,"conductor_each":14,"Chebyshev_nodes":14,"Chebyshev_other_critical_points":13},
+    {"n":2,"a":5,"b":12,"c":29,"degree":82,"branch_delta":154,"branch_intersection":348,"delta":656,"Milnor_number":1311,"Milnor_fiber_genus":655,"homological_monodromy_order":696,"conductor_each":656,"Chebyshev_nodes":656,"Chebyshev_other_critical_points":655},
+    {"n":3,"a":29,"b":70,"c":169,"degree":478,"branch_delta":5796,"branch_intersection":11830,"delta":23422,"Milnor_number":46843,"Milnor_fiber_genus":23421,"homological_monodromy_order":23660,"conductor_each":23422,"Chebyshev_nodes":23422,"Chebyshev_other_critical_points":23421},
+    {"n":4,"a":169,"b":408,"c":985,"degree":2786,"branch_delta":200244,"branch_intersection":401880,"delta":802368,"Milnor_number":1604735,"Milnor_fiber_genus":802367,"homological_monodromy_order":803760,"conductor_each":802368,"Chebyshev_nodes":802368,"Chebyshev_other_critical_points":802367}
+  ],
+  "n1_Jacobi_dimension":27,
+  "n1_conductor_truncated_normalization_dimension":28,
+  "n1_conductor_quotient_dimension":14,
+  "n1_monodromy_charpoly":"T**27 - T**26 + T**23 - T**22 + T**19 - T**18 + T**17 - T**16 + T**15 - T**14 + T**13 - T**12 + T**11 - T**10 + T**9 - T**8 + T**5 - T**4 + T - 1",
+  "Chebyshev_critical_value_resultants":[
+    {"degree":10,"resultant_monic":"zeta**9 + zeta**8 - 4*zeta**7 - 4*zeta**6 + 6*zeta**5 + 6*zeta**4 - 4*zeta**3 - 4*zeta**2 + zeta + 1"},
+    {"degree":4,"resultant_monic":"zeta**3 + zeta**2 - zeta - 1"}
+  ],
+  "ordinary_proof_inputs":["normalization and local Puiseux topology","plane-curve conductor formula and Milnor monodromy","all-n leading-term induction","DHKK smooth proper comparison","Casals Theorem 1.1 real-morsification construction"],
+  "not_computer_certified":["analytic equivalence to the weighted homogeneous model","global wrapped equivalence or equivariant mirror construction","categorical entropy of a new endofunctor","full old verification suite","novelty"]
+}
