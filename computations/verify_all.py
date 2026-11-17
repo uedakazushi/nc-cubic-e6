@@ -22,13 +22,14 @@ checks = [
     'verify_root_poisson.py', 'verify_poisson_cut_obstruction.py',
     'verify_casimir_poisson_leaves.py',
     'verify_relative_poisson_cover.py',
+    'verify_companion_s5.py',
 ]
 completed = []
 for name in checks:
     subprocess.run([sys.executable, str(root / name)], check=True, cwd=root)
     completed.append({'script': name, 'status': 'PASS'})
 result = {
-    'date': '2026-11-17', 'version': 'triangle-component-v17', 'status': 'PASS',
+    'date': '2026-11-17', 'version': 'triangle-component-v18', 'status': 'PASS',
     'python': platform.python_version(), 'sympy': sympy.__version__,
     'networkx': networkx.__version__, 'completed': completed,
     'separate_mathematical_inputs': [
@@ -50,7 +51,7 @@ result = {
         'all-Casimir-value Azumaya or finite global dimension',
         'derived Vieta extension or heart mutation',
         'H3 status of Casimir slices without the existing fixed-envelope criterion',
-        'independent peer review', 'novelty', 'GitHub or Library saving',
+        'full branch divisor classification', 'independent peer review', 'novelty', 'GitHub or Library saving',
     ],
 }
 (root / 'validation.json').write_text(json.dumps(result, indent=2) + '\n')
