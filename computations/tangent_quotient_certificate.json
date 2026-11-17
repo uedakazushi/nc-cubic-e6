@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-17",
+  "version": "triangle-component-v2",
+  "status": "PASS",
+  "field": "Q(q), q^2+q+1=0",
+  "base_constants": [
+    0,
+    0,
+    0
+  ],
+  "cut": [
+    2,
+    1,
+    2,
+    3,
+    5
+  ],
+  "incidence_matrix_shape": [
+    105,
+    40
+  ],
+  "incidence_rank": 18,
+  "incidence_kernel_dimension": 22,
+  "gauge_columns": 14,
+  "gauge_rank": 14,
+  "kernel_contains_gauge": true,
+  "known_family_plus_gauge_rank": 21,
+  "known_family_mod_gauge_dimension": 7,
+  "with_transverse_rank": 22,
+  "incidence_mod_gauge_dimension": 8,
+  "span_is_entire_kernel": true,
+  "explicit_delta_Phi": "x^3+2y^3+3z^3+2xyz",
+  "explicit_delta_G": {
+    "z": "18*q + 18",
+    "y": "5*q + 9",
+    "x": "22*q + 6",
+    "zz": "-4*q/3 - 4/3",
+    "yz": "18",
+    "yy": "-4*q/3 - 16/3",
+    "xz": "9*q",
+    "xy": "6",
+    "xx": "-4*q/3 - 4/3"
+  },
+  "not_claimed": [
+    "global irreducible-component classification",
+    "all intrinsic H3 deformation functors identified with this incidence"
+  ]
+}

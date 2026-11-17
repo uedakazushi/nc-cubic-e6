@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "coefficient_ring": "Q(q)[e_1,...,e_20], q^2+q+1=0; no truncation",
+  "exact_universal_syzygies": 4,
+  "base_cubic_relation_matrix_shape": [
+    64,
+    48
+  ],
+  "base_cubic_relation_rank": 44,
+  "base_syzygy_matrix_shape": [
+    48,
+    4
+  ],
+  "base_syzygy_rank": 4,
+  "all_four_syzygies_hold_identically": true,
+  "conclusion": "all four cubic syzygies lift over every Artin cyclic-potential deformation of this point; cubic envelope piece is free rank20",
+  "not_claimed": [
+    "all intrinsic deformations are cyclic-potential deformations",
+    "higher-degree flatness from this certificate alone",
+    "complete component classification"
+  ]
+}

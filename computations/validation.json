@@ -1,0 +1,76 @@
+{
+  "date": "2026-11-17",
+  "version": "triangle-component-v11",
+  "status": "PASS",
+  "python": "3.12.14",
+  "sympy": "1.14.0",
+  "networkx": "3.7",
+  "completed": [
+    {
+      "script": "verify_envelope_family.py",
+      "status": "PASS"
+    },
+    {
+      "script": "verify_normal_form.py",
+      "status": "PASS"
+    },
+    {
+      "script": "verify_smooth_witness.py",
+      "status": "PASS"
+    },
+    {
+      "script": "verify_tangent_quotient.py",
+      "status": "PASS"
+    },
+    {
+      "script": "verify_integrated_lift.py",
+      "status": "PASS"
+    },
+    {
+      "script": "verify_cubic_obstruction.py",
+      "status": "PASS"
+    },
+    {
+      "script": "verify_universal_cubic_syzygies.py",
+      "status": "PASS"
+    },
+    {
+      "script": "verify_second_order_incidence.py",
+      "status": "PASS"
+    },
+    {
+      "script": "verify_rains_central_formula.py",
+      "status": "PASS"
+    },
+    {
+      "script": "verify_central_multivariate_lift.py",
+      "status": "PASS"
+    },
+    {
+      "script": "verify_potential_recovery.py",
+      "status": "PASS"
+    },
+    {
+      "script": "verify_algebraic_boundary.py",
+      "status": "PASS"
+    },
+    {
+      "script": "verify_boundary_graph.py",
+      "status": "PASS"
+    }
+  ],
+  "separate_mathematical_inputs": [
+    "fixed-finite-order H3 recognition/openness",
+    "Sklyanin boundary and CY/PBW theorems",
+    "Hochschild local-to-global and categorical obstruction theory",
+    "De Deken--Lowen Theorem 4.5 and perfect-object lifting for Artin injectivity"
+  ],
+  "not_certified_by_this_run": [
+    "global H3 algebraic-stack construction",
+    "all-boundary component classification",
+    "relative quadratic-envelope AS4 recognition",
+    "independent peer review",
+    "novelty",
+    "GitHub or Library saving"
+  ]
+}

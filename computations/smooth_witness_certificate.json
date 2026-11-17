@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-17",
+  "version": "triangle-component-v2",
+  "status": "PASS",
+  "field": "Q(q), q^2+q+1=0",
+  "base_constants": [
+    0,
+    0,
+    0
+  ],
+  "cut": [
+    2,
+    1,
+    2,
+    3,
+    5
+  ],
+  "Delta": 170,
+  "beta_gamma_delta": 6,
+  "affine_singularity_ideal_groebner_basis": [
+    "1"
+  ],
+  "center": "smooth affine center and smooth projective boundary by existing boundary lemma",
+  "H3": "by fixed-envelope recognition, not inferred merely from a finite-degree rank"
+}

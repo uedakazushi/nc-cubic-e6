@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-17",
+  "version": "triangle-component-v2",
+  "status": "PASS",
+  "field": "Q(q)(u), q^2+q+1=0",
+  "parameter_sampling": false,
+  "central_commutators_in_original_relations": 3,
+  "max_exact_rewrite_block": 12,
+  "regular_limit": "2 Omega + X + 8Y + 27Z + 5",
+  "potential": "(1+2u)xyz-qxzy+u(x^3+8y^3+27z^3)-(x^2+y^2+z^2)/2",
+  "proved_algebraically": "genuine rational all-order central-cubic lift, regular at u=0",
+  "not_claimed": [
+    "H3 openness when translation order varies",
+    "global component equality"
+  ]
+}
