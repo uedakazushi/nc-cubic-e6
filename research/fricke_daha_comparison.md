@@ -77,13 +77,13 @@ A=-(r_1r_2+r_3r_4),\quad B=-(r_2r_3+r_1r_4),\quad C=-(r_1r_3+r_2r_4),\quad T=\su
 
 ## Braid / mapping class・量子的Vieta・Poisson
 
-Terwilligerの $`\mathrm{PSL}_2(\mathbb Z)`$ 作用の生成元は $a\leftrightarrow b$, $x\leftrightarrow y$, $z\mapsto(q^2-q)xy-q^2z+qc$。三元の中心変換は $X\leftrightarrow Y$, $Z\mapsto (XY+c\Omega-\ell_c)/e-Z$ であり、Fricke座標では
+Terwilligerの $\mathrm{PSL}_2(\mathbb Z)$ 作用の生成元は $a\leftrightarrow b$, $x\leftrightarrow y$, $z\mapsto(q^2-q)xy-q^2z+qc$。三元の中心変換は $X\leftrightarrow Y$, $Z\mapsto (XY+c\Omega-\ell_c)/e-Z$ であり、Fricke座標では
 
 \[
 \boxed{(u,v,w;A,B,C,T)\mapsto(v,u,-uv-C-w;B,A,C,T)}.
 \]
 
-原関係、Casimir不変、中心元のVieta式を `verify_daha_braid.py` で独立にPBW厳密再現した。$F=u^2+v^2+w^2+uvw+Au+Bv+Cw+T$ におけるJacob-ian括弧 $\{u,v\}=\partial_wF$（巡回）はGoldmanのトレースPoisson形式と符号・スカラーを除いて一致する。この量子的Vieta生成元はPoisson同型である。主論文 `thm:aw-braid-vieta`, `prop:fricke-poisson-logcy`。braid群、mapping class group、Dehn twistとの作用の正確なfaithfulness・relationは先行研究と今後詳細照合する。
+原関係、Casimir不変、中心元のVieta式を `verify_daha_braid.py` で独立にPBW厳密再現した。$F=u^2+v^2+w^2+uvw+Au+Bv+Cw+T$ におけるJacobian括弧 $\{u,v\}=\partial_wF$（巡回）はGoldmanのトレースPoisson形式と符号・スカラーを除いて一致する。この量子的Vieta生成元はPoisson同型である。主論文 `thm:aw-braid-vieta`, `prop:fricke-poisson-logcy`。braid群、mapping class group、Dehn twistとの作用の正確なfaithfulness・relationは先行研究と今後詳細照合する。
 
 ## なぜD4とE6が同時に現れるか：三角形付き三次曲面のPicard格子
 
@@ -96,7 +96,7 @@ Goldman--Toledo, [arXiv:1006.3838](https://arxiv.org/abs/1006.3838) は、無限
 | 話題 | 確立した接点／一次文献 | 本研究で残る同定 |
 |---|---|---|
 | 四穴球面 skein algebra | Crampéほか、[AW avatars](https://doi.org/10.1088/1751-8121/abd783) は普遍AWをKauffman bracket skein代数に同定し、半Dehn twistをbraid作用で説明 | 本稿の $q^3=1$ 特殊化が各同型の分母・中心/周辺トレースと適合するか定理単位で調べる |
-| rank-one DAHA $(C_1^\\vee,C_1)$ | Terwilliger [SIGMA 2013](https://doi.org/10.3842/SIGMA.2013.047) の普遍AWから普遍DAHAへの単射；Oblomkov [IMRN 2004](https://arxiv.org/abs/math/0306393) のFricke/DAHA | 同時中央特殊化後の単射、spherical idempotent のfullness、Morita範囲、中心を計算する |
+| rank-one DAHA $(C_1^\vee,C_1)$ | Terwilliger [SIGMA 2013](https://doi.org/10.3842/SIGMA.2013.047) の普遍AWから普遍DAHAへの単射；Oblomkov [IMRN 2004](https://arxiv.org/abs/math/0306393) のFricke/DAHA | 同時中央特殊化後の単射、spherical idempotent のfullness、Morita範囲、中心を計算する |
 | $U_q(\mathfrak{sl}_2)$ とRacah | [AW avatars](https://doi.org/10.1088/1751-8121/abd783) が3重テンソル積の中間Casimir・R行列を記述 | 三乗根でのrestricted/unrestricted量子群と中心・braid actionの適用範囲 |
 | Goldman/character stack | Goldman [trace](https://doi.org/10.4171/055-1/16) により本稿の中心は一般Fricke cubic；Hikami [SIGMA 2019](https://doi.org/10.3842/SIGMA.2019.003) でclusterへの橋 | derived/stacky character varietyと本研究の内在的H3圏の間にcanonical functorがあるか |
 | log Calabi--Yau, mirror | Casimir中心の射影閉包は滑らかな場合三角形反標準cycleを持つLooijenga pair。Bousseau [CMP 2023](https://doi.org/10.1007/s00220-022-04512-9) は四穴球面skeinを三次曲面のmirrorで実現 | theta/bracelet basisと本稿のPBW・中心三次切断の関係、量子化のcluster atlas |
