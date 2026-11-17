@@ -1,87 +1,67 @@
-# 研究方針：楕円E6量子化成分の完全決定
+# 研究方針：楕円E6成分とDAHA・character varietyの幾何学
 
-2026-11-17 / triangle-component-v14 / 独立リポジトリ。**再開時は本書を最初に読む。**
-この一式は `nc-cubic-e6` の成分研究に必要な現行成果を集約したもので、旧bundleを必要としない。
-パスはリポジトリrootからの相対パスで記す。本体は `papers/nc-cubic-e6.tex`、補足は `research/research_notes.md`。
+2026-11-17 / triangle-component-v15。**再開時は本書を最初に読む。**
+GitHub mainの現行ファイルだけで再開する。主論文は `papers/nc-cubic-e6.tex`。基本ノートは `research/research_notes.md`、関連分野の現行比較は `research/fricke_daha_comparison.md`、Poisson量子化と延長障害の要点は `research/poisson_order_notes.md`。これらは主題別の現行知識であって更新履歴ではない。
 
 ## I. 恒常的な研究原則と保存許可
 
-数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して研究価値を最大化する。
+数学的重要性、新規性、面白さ、理解の深化、応用可能性、正確性、実現可能性を総合して研究価値を最大化する。関連分野との接続は名称の類似で済ませず、正確な準同型、変形、圏的対応、障害として定式化する。
 重要な方針変更では現在の理由と元の目標の達成部分・残存部分を明記し、時系列の変更履歴を蓄積しない。
-証明済み、追加仮定付き、未完成、予想、計算的観察を区別し、主要主張の仮定・依存結果・証明箇所・未解決部分を明記する。
-原稿に証明があること、今回の点検、計算の実行、独立査読を混同しない。誤りは依存する要約・本文・方針にも反映する。
-先行研究は一次資料で確認し、適用範囲を比較する。未確認の文献内容・書誌・新規性を推測で埋めない。
-原稿は日本語LuaLaTeXを原則とし、現在の成果を論理順に構成する。公表価値のある結果と必要な証明を削除して軽量化しない。
-ノートは有用な補題、着想、障害、反例、文献比較、再取得困難な情報を保持し、日誌や重複証明にしない。
-最新の方針・ノート・論文と必要最小限のコード・証明書だけで再開できるようにする。旧ZIP、旧原稿、ログ、キャッシュ、バックアップを含めない。
-研究区切りでの承諾不要Library保存は一般に許可されているが、**GitHubにpushした内容はLibraryへ重複保存しない**。本研究ではGitHub mainを正本とし、push成功を確認した成果はGitHubのみで管理する。GitHubへの保存に失敗し、未pushの成果を保全する必要がある場合に限りLibraryを緊急退避先として利用できる。既存Libraryファイルは明示指示なしに削除しない。
-日付・版番号を付け、生成・検証・commit・push・Library保存を別状態として報告する。通常のfast-forward main保存のみを使い、force push、不要なPR、GitHub Actionsは使わない。
+証明済み、追加仮定付き、未完成、予想、計算的観察を区別し、主要主張の仮定・依存結果・証明箇所・未解決部分を明記する。原稿に証明があること、今回点検したこと、計算を実行したこと、独立査読を混同しない。誤りは依存する本文・要約・方針にも反映する。
+先行研究は一次資料で確認し、適用範囲を具体的に比較する。未確認の文献内容・書誌・新規性を推測で埋めない。文献のPDFや検索結果を大量収録しない。
+原稿は日本語LuaLaTeXを原則とする。関連分野で得た公表価値のある結果も**同じ主論文の適切な位置に統合する**。分割は数学的なまとまりと公表上の利点が明確な場合にのみ再検討する。価値ある既存成果と必要証明を軽量化のために削除しない。
+研究ノートは有用な補題、着想、障害、反例、文献比較、再取得困難な情報を保持し、日誌や論文と重複する全文証明にしない。主張の状態・記法・参照を現行文書間で整合させる。
+再開用の一式は現行方針・ノート・論文と、必要最小限のコード・入力・証明書・再現手順で自己完結させる。旧ZIP、旧原稿、バックアップ、更新記録、ログ、キャッシュ、コンパイル中間物は含めない。
+研究区切りでの承諾不要Library保存は一般に許可されているが、**GitHubにpushした内容はLibraryへ重複保存しない**。GitHub mainを正本とし、push成功を確認した成果はGitHubのみで管理する。pushに失敗して未保存成果を保全する必要がある場合に限りLibraryを緊急退避先にできる。既存Libraryファイルは明示指示なしに削除しない。
+日付・版番号を付け、生成・検証・commit・push・Library保存を別状態として報告する。約15分または数学的区切りでmainへ通常のfast-forward保存を行い、force push、不要なPR、GitHub Actionsは使わない。PDF・ZIPをGitで追跡しない。
 
 ## II. 現在の目標と達成基準
 
-**上位目標は、非可換三次曲面の楕円E6量子化成分の幾何学的理解と公表価値を最大化すること。**
-中心課題は既知の7次元H3族を含む既約成分の完全決定だが、それと並行して四穴球面character variety、Askey--Wilson/DAHA、skein・Goldman Poisson・cluster/mirrorとの厳密な相互関係を定式化する。
-従来の目標について、七次元族・八次元形式近傍・表示stack・結節中心因子までは解決したが、全intrinsic族の代数化と全境界の分類は未解決。
-対象は構造対象付きexact同値を射とするintrinsic H3であり、単なる導来同値類ではない。
-達成基準は、成分の存在と一意性、次元・一般点、全対象の被覆、全矢・慣性、境界・交叉、相対再構成・降下を揃えること。
-元の固定包絡4次元族の成分性は否定済み。7次元族は3-torsion中央境界の開正常形であり、最終的な成分と決め打ちしない。
-現在の有力候補は一般のEtingof--Ginzburg型中央三次商を含む8次元成分である。
-全H3分類の他の枝の進捗をこの限定研究から置き換えない。
+**上位目標は、非可換三次曲面の幾何学的理解・面白さ・公表価値の最大化である。**
+既知の七次元H3族を含む楕円E6成分の完全決定を中心課題として保持し、DAHA/Askey--Wilson・四穴球面character variety・Goldman Poisson・skein・cluster/mirrorとの関係を具体的な結果へ発展させる。
 
-## III. 到達点と確実性
+成分分類の対象は構造対象付きexact同値によるintrinsic H3であり、任意の導来同値による商ではない。完全決定には成分の存在・一意性、次元・一般点、全対象の被覆、全矢・慣性、境界・交叉、相対再構成・降下が必要である。七次元族・八次元形式近傍・表示stack・結節中心因子は現在の到達点だが、全intrinsic族の代数化と全境界は未解決。
 
-1. **七次元族の構成と全同型。** 包絡 `yz-qzy=tx+a t^2`（巡回）、q^2+q+1=0。
-   全係数PBW/CY AS4、五つの中心三次、全中心の三次式を保持。
-   楕円境界開集合で既存の有限位数H3開性を使い `[V/A4]` を得る。
-   4次元固定包絡族はa=b=c=0の余次元3部分。原稿§2。
-2. **固定位数3の正常形。** 全対称PBW行列Aの非対角を一意の平行移動で消去し、対角3係数が非零の開集合を正規化する。
-   7次元族はこの範囲の全正常形である。原稿定理3.1。全係数恒等式を実行済み。
-3. **三捩れを離れる積分。** Hesse曲線Eを固定し平行移動点を動かす。
-   低次中心が定数だけであることから9×9の単元minorを使い、指定中心三次の持上げを全次数で構成する。
-   Rees包絡・商は平坦、一般中心値は中心局所化によって有限大域次元、従ってH3となる。原稿§4。
-   任意の固定数値DでのH3性や、有限位数を横断する一様H3開性は主張しない。
-4. **一般点のHochschild cohomology。** 中心が滑らかな三次曲面C、分岐が滑らかなD=-K_C、局所orderがroot模型の場合、
-   HH^0=k, HH^1=0, dim HH^2=8, HH^{>=3}=0。
-   内訳はH^1(T_C(-logD))の7方向とH^0(O_C)の1方向。圏の形式変形は無障害。原稿定理5.3。
-   全H3変形の相対再構成をこの定理に混入しない。
-5. **厳密な接空間と有理積分の証明書。** 一つの滑らかなH3点で105×40行列rank18、核22、座標方向rank14、商8。
-   既知7方向と明示横断方向が核を張る。別の明示的有理族の中央三次持上げを原関係で全係数検証。原稿§6。
-6. **成分の8次元性は比較仮定を明示。** 相対H3モジュライの代数性、無限小変形の忠実な圏比較、8次元表示族の相対実現の下で、
-   7次元族一般点を通る成分は唯一の8次元成分になる。原稿定理7.1。
-   適合したenhanced Abel変形に対する圏比較の単射性は、下記の全Artin定理で解決した。相対代数性・H3族の実現と全大域境界は未完成であり、「完全分類済み」としない。
-7. **全Artin底の相対再構成。** AS-Cohen--MacaulayなH3反標準列の正方向Ext消滅からDe Deken--Lowen Theorem4.5を適用し、適合したenhanced Abel変形からdg圏変形への同型類上の単射性を証明した。全dg変形にheartが存在するとは主張しない。相対Serre作用が底変更に適合するsmooth proper dg変形では反標準環は次数別有限自由・左右noetherianで、四生成元・六二次関係・一三次関係の表示を持つ。二次包絡のAS4性と三次の正則正規性は別の未解決条件。証明は原稿第8節（`thm:artin-injective`, `thm:artin-section-ring`）。
+**現在の研究選択の理由。** root-of-unity交換子とGoldman括弧の関係は本稿の規約で確定した。一方、非Casimir切断は指定した純粋なq変形の平坦商に一次から持ち上がらず、Vieta作用も固定pointed H3心へは延長しない。したがって「qだけを動かす」「同じ心の自己同値を作る」をそのまま追い続けず、同時Sklyanin変形・境界の双有理変更・心を動かす導来対応を優先する。この障害は既存の八次元無障害変形と矛盾しない。
+全H3分類の他の枝を本限定研究で置き換えない。
 
-8. **結節中心H3因子の七次元族への結合。** 固定包絡の許容四次元切断空間では五つの独立な節点条件が単純正規交叉因子をなし、A4商では二つの既約因子となる。相異なる5つのA1中心H3例を厳密Jacobi基底で確認した。さらにa,b,cを動かすと一次元表現が係数原点のZariski近傍で連結な有限etale五重被覆を与え、五節点条件のincidenceは既約六次元因子になる。七次元H3許容開集合との交わりも既約である。証明は主論文`thm:nodal-divisors`, `prop:five-nodal-witnesses`, `thm:seven-nodal-irreducible`。厳密計算は`computations/verify_nodal_cuts.py`, `computations/verify_character_node_cover.py`。全八次元intrinsic成分への延長は未証明。
+## III. 主要な到達点と確実性
 
-9. **DAHA--character varietyの厳密な接続。** 三乗根での普遍Askey--Wilson代数の中央特殊化と量子so3包絡の同型、Casimir規約 `Omega_AW=3(q+2)Omega`、Casimir切断中心からFricke係数空間への4次元優越写像を証明した。Goldmanの四穴球面トレース係数とも一般有限分離底変更で比較できる。Goldman--Toledoによる任意の適切なtritangent三次曲面のcharacter variety実現は既知であり、新規性を主張しない。Artin braid生成元がFricke--Vieta変換 `(u,v,w)->(v,u,-uv-C-w)` を非可換持上げし、Goldman型Jacobian Poisson構造を保つ。切断の三角形反標準境界はLooijenga pairで、Picard格子のD_i直交補はD4(-1)、K直交補はE6(-1)（既知幾何を明示的単純根で計算）。証明は主論文 `sec:daha-character`；独立厳密再生は `computations/verify_daha_character.py`, `verify_daha_braid.py`, `verify_d4_lattice.py`。これらの個別式の既出性・直接spherical DAHA同型・一般楕円E6全域への延長は未確認。
+1. **七次元正常形。** q²+q+1=0、包絡 `yz-qzy=tx+a t²`（巡回）。PBW/CY AS4、五つの中心三次、全中心式を保持。対称PBW行列の非対角成分は一意に平行移動で消え、対角非零部分は正常化される。楕円境界のH3開部分と全同型は `[V/A4]`。固定包絡四次元族は余次元3で成分ではない。主論文 `prop:pbw`, `thm:normal`, §2–3。
+2. **三捩れからの横断積分。** Hesse曲線と平行移動点を使い、低次中心の消滅から9×9単元minorで指定中央三次を全次数に持ち上げる。Rees包絡・商は平坦。独立な超越的中心値では局所化からH3を得る。任意の数値Dや全パラメータでの開性は未証明。`lem:central-lift`, `prop:formal-integral`, `lem:generic-D`。
+3. **八次元Hochschild変形。** 滑らかな三次中心C・反標準楕円境界D・記載した局所root order模型の下でHH⁰=k, HH¹=0, dim HH²=8, HHⁿ=0 (n≥3)。7方向の対数接束H¹と1方向のH⁰(O_C)。仮定とBrauer捩れを混同しない。`thm:HH8`。
+4. **厳密な表示接空間と全Artin族。** 105×40行列rank18、核22、gauge rank14、商8。全Artin potential包絡の平坦性、中央三次同時持上げ、適合enhancement、逆Serre=次数シフトにより選んだ点の全Artin pointed Abel変形を認識する。`thm:artin-potential-envelope`, `thm:intrinsic-formal-eight`。一般Artin再構成だけから相対AS4性を先取りしない。
+5. **代数的表示stackと成分。** 明示八変数族からsmooth DM表示stackを構成し、H3幾何学的対象間の全矢を回復する。一般非被約有限型底のintrinsic降下・全H3 locusの開性は別問題。八次元成分の一意性は `thm:conditional-component` の相対比較仮定付きであり、完全分類済みとはしない。
+6. **結節中心因子。** 固定包絡では五つの独立な超平面条件がSNC因子、A4商で二成分。五つの孤立A1中心H3例を厳密に確認。a,b,cを動かすと一次元表現の連結有限étale五重被覆から既約六次元因子を得る。中心の特異性をH3境界と同一視しない。`thm:nodal-divisors`, `prop:five-nodal-witnesses`, `thm:seven-nodal-irreducible`。
+7. **DAHA・Fricke・D4⊂E6。** AW中央特殊化とCasimir規約Omega_AW=3(q+2)Omega、Fricke係数への優越写像、量子的Vieta、Goldman型Jacobian括弧、三角形の直交D4根格子を明示。Goldman--Toledo、Naruki--Looijenga等の古典的内容は既知。一般楕円E6族を四穴球面DAHAそのものと同一視しない。`sec:daha-character`。
+8. **量子化由来のPoisson order（証明・厳密実行）。** Q=q exp(h) と動かすと `{X,Y}=-9 P_Z`（巡回）、OmegaはCasimir。Fricke座標ではJacobian括弧の正確に9倍。Brown--Gordon Theorem4.2から同一Fricke切断のsmooth locusで有限次元中心fiber代数は同型。全DでM3となることは別途未確認。`thm:root-poisson-goldman`, `cor:root-poisson-fibers`。
+9. **二つの延長障害（通常の証明と補助検算）。** G=Omega+beta X+gamma Y+delta Z+epsilon のPoisson主イデアル性、指定純粋q変形の一次平坦両側商への持上げ、beta=gamma=delta=0は同値。選択点G0で障害は9X(3Z−2Y)。Vietaのsigma(z)はPBW次数2、sigma(Z)は次数6なので固定pointed H3心へ延長しない。抽象変形・導来同値・心の変更は否定しない。`thm:poisson-cut-obstruction`, `prop:vieta-not-pointed-heart`。
 
-## IV. 次の課題と具体的な着手
+## IV. 優先課題と具体的な着手
 
-**第一優先：DAHA--character varietyから楕円E6成分への幾何学的橋渡し。**
-量子的Fricke--Vieta変換の対応をskein代数の半Dehn twistと一次文献の定理単位で比較し、Casimir切断（反標準三角境界）と楕円境界H3族を中央三次切断・平行移動の変形を介してつなぐ。Askey--Wilsonの三乗根特殊化とspherical DAHAの中心・Morita locusを区別して明示する。D4根格子を固定する境界三角形の周期写像・W(D4)作用と、境界を動かすE6格子/W(E6)作用の相違を調べる。構成可能なら有限位数でのPoisson orderとGoldman括弧の定数を計算し、character varietyのcluster/mirrorとの比較を新しい独立定理へ昇格する。比較の未確認点は `research/fricke_daha_comparison.md` を参照。
+**第一優先：障害を回避する幾何学的・圏的対応。**
+純粋q方向と既存八変数Sklyanin族の一次potentialを同じ正規形で比較する。中心切断に対するPoisson障害が追加の三次potential方向でどう打ち消されるかを、既存中央持上げと接空間行列から抽出する。並行して、FrickeのVieta変換を境界のblow-up/downまたは導来圏の心の変更で実現する。まずアフィン局所化との可換図式、構造対象の像、K群・Euler形式を計算する。未構成の導来同値を既知のaffine同型から推論しない。
 
-**第二優先：有限型表示stack内の全H3 admissibility。**
-選んだ点の全Artin形式近傍は8変数族で分類済み。明示族は有限型底へ延び、相対THCR境界・全fiberの整域性・幾何学的一般点H3を認識した。さらにsmooth DM八次元表示stack [Z'/Gamma]とetale atlasを構成し、H3対象間の全幾何学的矢を決定した。
-固定包絡・七次元族では結節中心であってもH3の内部に入ることが確定したため、中心の特異判別式をH3境界と同一視しない。七次元族の既約結節因子が八次元表示stackでどのように延長されるかを追跡する。次は一般中心値に限らない有限globaldimの全値判定を行う。悪い中心値、有限表示、局所Morita型を調べ、H3 locusのconstructibility/Zariski開性を証明するか反例を得る。形式smooth性だけから開性を推論しない。Rainsの次数3全被覆を未証明のまま使わない。
+**第二優先：Poisson orderから表現論・H3許容条件へ。**
+Fricke sliceのsmooth locusで中心fiberが一定という帰結を使い、各Dで一つの9次元中心fiberを具体的行列代数として認識できる範囲を求める。例外的D、一次元表現・特異leaf、Azumaya locusを区別する。Brown--Gordonはfiberの同型を与えるが、有限globaldimやH3のZariski開性を自動的に与えない。一般楕円切断には今回の括弧が降りない点を必ず尊重する。
 
-**第三優先：全intrinsic族の相対再構成と降下。**
-幾何学的矢と全Artin形式分類は得たが、一般非被約有限型底のSerre作用・反標準環・二次包絡の底変更とfpqc降下はまだ別問題である。表示stackのH3部分が実際のintrinsic族を全て被覆する範囲を証明し、有限慣性・分離性を決定する。
+**第三優先：skein・DAHA・cluster/mirrorとの正確な比較。**
+Baseilhac--RocheのFrobenius/Goldman比較、Huangのroot-of-unity中心、Terwilligerの普遍DAHA埋込みと本稿の表示を定理単位で照合する。中央特殊化後の単射性、spherical idempotentのfullness、Morita範囲を個別に確認する。Bousseauのmirror/theta構成と三角境界のPBW基底を比較し、D4周期・W(D4)作用と楕円E6・W(E6)作用を区別する。個々の式の文献上の既出性は未確定。
 
-**第四優先：全成分の閉包・境界。**
-一般像の閉包に含まれるH3を、境界のsmooth/nodal/reducible型、PI位数、低次中心、Nakayama型で層別化する。
-固定位数3の対角係数零、滑らかな楕円境界の欠落、他の表示chartへの移行を漏らさない。
-RainsのE6/Weyl表示と比較するが、次数3・全パラメータ被覆を同文献の未証明部分から輸入しない。
+**第四優先：全intrinsic族の降下・成分閉包。**
+表示stack内の全H3 admissibility、一般非被約底でのSerre作用・反標準環・二次包絡の底変更とfpqc降下を証明する。境界のsmooth/nodal/reducible型、PI位数、低次中心、Nakayama型、対角係数零、他chartへの移行を漏らさない。形式smooth性だけから開性を導かず、Rainsの次数3全被覆の未証明部分を輸入しない。
 
 ## V. 再現と検証範囲
 
-リポジトリrootで次を実行する。
+リポジトリrootで実行する。
 ```sh
 python3 -m pip install -r computations/requirements.txt
+python3 computations/verify_root_poisson.py
+python3 computations/verify_poisson_cut_obstruction.py
+# 全20検証器（今回の実行範囲とは区別）
 python3 computations/verify_all.py
 latexmk -lualatex papers/nc-cubic-e6.tex
 ```
-コードと小証明書は同じ専用ディレクトリに置き、統合結果はその `validation.json` に再生成する。
-通常の証明であるArtin再構成を計算PASSと同一視しない。既存13検証器の厳密計算PASSは旧証明書に記録されている。新規`verify_nodal_cuts.py`と`verify_character_node_cover.py`は今回厳密再実行した。
-今回のDAHA節の独立LuaLaTeX組版（六頁）を確認し、DAHA二検証器およびD4格子検証器を厳密演算で実行した。主論文全体の組版は未実施。巨大な既存H3原稿全体の再組版・網羅再検証・独立査読は対象外。
-Git追跡対象は現行TeX・Markdown・Python・小JSONのみ。PDF・ZIP・中間物・cacheは含めない。
-生成・検証結果はコードと文書に、GitHub refの到達確認は保存時の応答に分けて記載する。
+今回実行したのはDAHA/Fricke、Braid、D4格子、root Poisson、切断障害の五検証器で、全て厳密演算PASS。`computations/connections_validation.json` に実行範囲を記す。他の15検証器のPASSは既存証明書に基づき、今回の再実行ではない。
+新Poisson節と既存DAHA節を一時的wrapperでLuaLaTeX組版し、該当頁を視覚点検した。これは主論文全体の今回の組版でも、独立した公表論文でもない。組版用wrapper・PDF・ログはGitに入れない。
+今回の理論的証明の点検、有限恒等式の実行、文献の一次資料照合を区別する。全旧証明の独立再監査・新規性の網羅調査・全主論文の再組版は未実施。GitHub ref到達の確認は保存時に行う。Libraryには重複保存しない。
