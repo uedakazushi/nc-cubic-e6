@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Run all exact certificates; geometric and categorical arguments are separate.
+"""Run all exact certificates; geometric and categorical proofs are separate.
 
-validation.json is written only after all checks succeed. Updating this
-runner is not a run. Individual certificates state their verified scope.
+validation.json is written only after every check succeeds. Updating this
+runner is not a run. Individual certificates state their executed scope.
 """
 from pathlib import Path
 import subprocess, sys, json, platform
@@ -24,13 +24,14 @@ checks = [
     'verify_companion_s5.py', 'verify_cayley_lg_connections.py',
     'verify_lg_picard_g2.py', 'verify_g2_braids_periods.py',
     'verify_logarithmic_periods.py', 'verify_conic_period_coordinates.py',
+    'verify_triality_period_isogeny.py',
 ]
 completed = []
 for name in checks:
     subprocess.run([sys.executable, str(root / name)], check=True, cwd=root)
     completed.append({'script': name, 'status': 'PASS'})
 result = {
-    'date': '2026-11-17', 'version': 'e6-connections-v23', 'status': 'PASS',
+    'date': '2026-11-17', 'version': 'e6-connections-v24', 'status': 'PASS',
     'python': platform.python_version(), 'sympy': sympy.__version__,
     'networkx': networkx.__version__, 'completed': completed,
     'separate_mathematical_inputs': [
@@ -49,15 +50,18 @@ result = {
         'strict concavity on the real elliptope',
         'cohomology exact sequence and Poincare duality',
         'ADE Milnor lattice, unimodular gluing, outer triality',
-        'Goldman--Neumann topology and boundary plumbing',
+        'Goldman--Neumann topology, homology action and boundary plumbing',
         'Deligne weight spectral sequence',
-        'Boalch--Paluba component and Hurwitz formulas and Klein orbit',
+        'Boalch--Paluba component, triality and Hurwitz formulas and Klein orbit',
         'configuration spaces and the braid fundamental group',
         'primitive boundary torus and analytic Cauchy residue integral',
         'conic matching sphere construction and analytic period continuation',
         'Friedman Proposition 3.12 and Looijenga algebraic period comparison',
         'compatible conic component contraction to F1',
         'boundary line-bundle gluing and rational MHS splitting criterion',
+        'integer Hodge extension classification and rational companion comparison',
+        'Weyl invariant ring of the triality fixed period torus',
+        'Cantat--Loray entropy and dynamical-degree theorem',
     ],
     'not_certified_by_this_run': [
         'global H3 algebraic-stack construction',
@@ -69,11 +73,13 @@ result = {
         'full branch divisor classification',
         'choice-independent global Milnor-Picard splitting',
         'mirror or Fukaya-Seidel equivalence',
-        'G2 quantum algebra comparison',
+        'G2 quantum algebra or group-level isogeny comparison',
         'full rank-five algebraic Gauss-Manin connection matrices',
-        'extending the conic chart splitting criterion to all degenerations',
+        'unmarked global companion variation of Hodge structures',
+        'algebraic or categorical equivalence of companion surfaces',
         'non-archimedean SYZ model or good-reduction verification',
         'categorical relation to nearly Kahler geometry',
+        'categorical entropy',
         'independent peer review', 'novelty', 'GitHub or Library saving',
     ],
 }
