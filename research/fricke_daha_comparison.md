@@ -85,6 +85,12 @@ Terwilligerの $`\mathrm{PSL}_2(\mathbb Z)`$ 作用の生成元は $a\leftrighta
 
 原関係、Casimir不変、中心元のVieta式を `verify_daha_braid.py` で独立にPBW厳密再現した。$F=u^2+v^2+w^2+uvw+Au+Bv+Cw+T$ におけるJacob-ian括弧 $\{u,v\}=\partial_wF$（巡回）はGoldmanのトレースPoisson形式と符号・スカラーを除いて一致する。この量子的Vieta生成元はPoisson同型である。主論文 `thm:aw-braid-vieta`, `prop:fricke-poisson-logcy`。braid群、mapping class group、Dehn twistとの作用の正確なfaithfulness・relationは先行研究と今後詳細照合する。
 
+## なぜD4とE6が同時に現れるか：三角形付き三次曲面のPicard格子
+
+滑らかなFricke cubicの射影閉包 \(\bar C\) は三角形 \(D_1+D_2+D_3\in|-K|\) を持つ三次del Pezzo。Picard格子には \(K^\perp\cong E_6(-1)\) があり、三角形の各成分にも直交する格子は既知の \(D_4(-1)\)（[N. Schock, *Math. Nachr.* 297 (2024), §2](https://doi.org/10.1002/mana.202300459) はNaruki--Looijengaを参照）。六点blow-up markingでは \(D_i=H-E_{2i-1}-E_{2i}\) で、\(H-E_1-E_3-E_5,E_1-E_2,E_3-E_4,E_5-E_6\) が具体的な\(D_4\) 単純根。新規の格子同定ではなく、本稿で選んだFricke座標に対する幾何学的説明である。証明は主論文 `prop:d4-inside-e6`、独立交叉計算は `verify_d4_lattice.py`。
+
+Goldman--Toledo, [arXiv:1006.3838](https://arxiv.org/abs/1006.3838) は、無限遠で非退化tritangent planeを持つ任意のaffine三次曲面が四穴球面の相対SL2 character varietyから得られることを証明する。従って「中心がFricke cubicになる」自体の既出性を再確認し、独自の新規性候補を**三乗根でのPBW・Casimir・Braidの厳密な量子化とH3理論との接合**に絞る。
+
 ## Skein・量子群・cluster・mirror・E6への関係図
 
 | 話題 | 確立した接点／一次文献 | 本研究で残る同定 |
