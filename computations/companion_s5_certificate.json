@@ -1,0 +1,95 @@
+{
+  "date": "2026-11-17",
+  "version": "e6-relative-poisson-v18",
+  "status": "PASS",
+  "number_field": "Q(q), q^2+q+1=0",
+  "specialized_parameters": [
+    30,
+    19,
+    29
+  ],
+  "finite_field_certificates": [
+    {
+      "p": 1009,
+      "q": 374,
+      "parameters": [
+        30,
+        19,
+        29
+      ],
+      "critical_algebra_rank": 15,
+      "character_algebra_rank": 5,
+      "N5": "D**5 - 446*D**4 + 438*D**3 - 351*D**2 - 52*D + 98",
+      "N5_irreducible": true,
+      "N5_cycle_type": [
+        5
+      ],
+      "M5": "D**5 - 404*D**4 - 215*D**3 + 279*D**2 + 226*D + 42",
+      "M5_cycle_type": [
+        5
+      ],
+      "M5_factors": [
+        {
+          "degree": 5,
+          "multiplicity": 1,
+          "polynomial": "D**5 - 404*D**4 - 215*D**3 + 279*D**2 + 226*D + 42"
+        }
+      ],
+      "Delta15_equals_N5sq_M5": "PASS",
+      "N5_M5_coprime_and_squarefree": "PASS"
+    },
+    {
+      "p": 1069,
+      "q": 86,
+      "parameters": [
+        30,
+        19,
+        29
+      ],
+      "critical_algebra_rank": 15,
+      "character_algebra_rank": 5,
+      "N5": "D**5 - 100*D**4 - 59*D**3 - 17*D**2 + 487*D + 534",
+      "N5_irreducible": true,
+      "N5_cycle_type": [
+        5
+      ],
+      "M5": "D**5 + 303*D**4 - 196*D**3 + 70*D**2 - 349*D + 38",
+      "M5_cycle_type": [
+        2,
+        3
+      ],
+      "M5_factors": [
+        {
+          "degree": 2,
+          "multiplicity": 1,
+          "polynomial": "D**2 + 248*D + 337"
+        },
+        {
+          "degree": 3,
+          "multiplicity": 1,
+          "polynomial": "D**3 + 55*D**2 - 276*D - 260"
+        }
+      ],
+      "Delta15_equals_N5sq_M5": "PASS",
+      "N5_M5_coprime_and_squarefree": "PASS"
+    }
+  ],
+  "arithmetic_Galois_M5": "S5 from Frobenius types (5) and (2,3)",
+  "arithmetic_joint_Galois": "S5xS5 by Goursat and mismatched signs at p=1069",
+  "geometric_joint_Galois": "S5xS5 via common rational totally split etale fiber at a=b=c=0",
+  "ordinary_proof_inputs": [
+    "global finite flat degree15 critical and degree5 character schemes",
+    "Delta15=N5^2*M5 monic factorization",
+    "residual finite etale degree5 cover near coefficient origin",
+    "five distinct Q(q)-rational residual points and five character points above origin",
+    "Frobenius factorization at good split primes",
+    "Stacks Project Tag 0BTX and rational-point section",
+    "Goursat lemma and normal subgroups of S5"
+  ],
+  "not_certified_by_computation": [
+    "geometric etale pi1 argument",
+    "newness of arithmetic/geometric results",
+    "global H3 admissibility",
+    "spherical DAHA Morita comparison"
+  ]
+}
