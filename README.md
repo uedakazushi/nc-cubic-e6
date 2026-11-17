@@ -6,7 +6,7 @@
 
 固定包絡の結節中心H3切断五例を厳密計算で認識し、許容四次元族では五つの正規交叉因子・A4商で二既約成分を得た。七次元族では1次元表現の連結五重被覆から、この結節中心軌跡が一つの既約六次元因子になる（主論文`thm:nodal-divisors`, `thm:seven-nodal-irreducible`）。
 
-新たに **普遍Askey–Wilson代数・Casimir規約との完全同型、四穴球面Fricke係数への優越写像、量子的Fricke–Vieta生成元、Goldman型Poisson・log Calabi–Yau三角境界** を証明した（`papers/sections/quantum_cubic_daha_character.tex`）。三角境界は一般E6の楕円境界とは区別する。関連文献・未解決比較は `research/fricke_daha_comparison.md` に整理した。
+新たに **普遍Askey–Wilson代数・Casimir規約との完全同型、四穴球面Fricke係数への優越写像、量子的Fricke–Vieta生成元、Goldman型Poisson・log Calabi–Yau三角境界・PicardのD4⊂E6格子** を証明した（`papers/sections/quantum_cubic_daha_character.tex`）。三角境界は一般E6の楕円境界とは区別する。関連文献・未解決比較は `research/fricke_daha_comparison.md` に整理した。
 
 主原稿で読み込む証明節は `papers/sections/quantum_cubic_*.tex`。固定位数3の一般H3認識・三角境界の関連証明は必要な範囲で別途保持する。**全intrinsic H3成分の大域閉包・全境界と相対AS4認識は未完成**。
 
