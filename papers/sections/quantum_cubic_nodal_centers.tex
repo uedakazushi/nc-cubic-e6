@@ -108,9 +108,83 @@ $\Delta=2^3+27\cdot1\cdot2\cdot3=170\ne0$ である。
 異なる $D=\varepsilon$ の切断は同型にならない。
 \end{proof}
 
+\subsection{七次元族における五節点の結合}
+\begin{theorem}[既約な六次元の結節中心軌跡]
+\label{thm:seven-nodal-irreducible}
+係数原点 $\mathbf a=0$ を含む $\AA^3_{a,b,c}$ のZariski開近傍 $A'$ が存在し、
+$B_{\mathbf a}$ の射影中心三様体は、全ての $\mathbf a\in A'$ について
+ちょうど五つの通常二重点を持つ。
+この五点は $A'$ 上の\emph{連結な}有限\'{e}tale五重被覆
+$E\to A'$ によって添字付けられる。
+
+$A'\times\PP^4$ のうち、中心三次切断が少なくとも一つの二重点を通る軌跡は
+既約な六次元因子 $\mathcal I$ である。
+その固定包絡fiber $\mathbf a=0$ は定理\ref{thm:nodal-divisors}の五超平面の和である。
+$\mathcal I$ と七次元のH3許容開集合 $\mathcal V$ の交わりは非空で既約であり、
+その一般点の中心三次曲面はただ一つの $A_1$ を持つ。
+有限群商 $[\mathcal V/\mathfrak A_4]$ においても、この軌跡の像は既約な因子である。
+
+従って固定包絡で四元交代群商に二つ現れた結節中心因子は、
+七次元の固定三捩れPBW族では同一の既約因子に結合する。
+全intrinsic H3の八次元成分の既約因子であることはまだ主張しない。
+\end{theorem}
+\begin{proof}
+$V_{a,b,c}=B_{\mathbf a}/(t-1)$ の一次元表現のスカラーを $(x,y,z)$ と書く。
+関係式よりそのパラメータへの射は
+\begin{equation}\label{eq:character-cover}
+ (x,y,z)\longmapsto(a,b,c)
+  =((1-q)yz-x,\ (1-q)zx-y,\ (1-q)xy-z).
+\end{equation}
+$\mathbf a=0$ のfiberは原点と
+\[
+ (x,y,z)=(\eta_1,\eta_2,\eta_3)/(1-q),
+ \quad\eta_i=\pm1,\quad\eta_1\eta_2\eta_3=1
+\]
+の計五点に限る。そのJacobian行列式は原点で $-1$、残り四点で $4$ である。
+射\eqref{eq:character-cover}の三二次方程式を $[x:y:z:w]\in\PP^3$ へ斉次化すると
+\[
+ (1-q)yz-xw-aw^2=0,\quad
+ (1-q)zx-yw-bw^2=0,\quad
+ (1-q)xy-zw-cw^2=0.
+\]
+無限遠 $w=0$ では三座標頂点だけが解となり、各点で三方程式のJacobianは非退化である。
+原点fiberの八点は従って全て被約であり、三二次式の完全交叉である。
+射影的相対零点schemeは、$\mathbf a=0$ の近傍を縮めれば有限\'{e}tale次数8となる。
+三つの定数無限遠sectionを除くと、式\eqref{eq:character-cover}の五重被覆 $E\to A'$ を得る。
+$E$ は $\AA^3_{x,y,z}$ の非空開部分だから既約、従って連結である。
+
+各一次元表現の上で四つの三次中心元 $X,Y,Z,\Omega$ を評価すると、
+全中心関係式\eqref{eq:center} と、その
+$X,Y,Z,\Omega$ に関する四つの偏微分は\emph{恒等的に零}となる。
+これは式\eqref{eq:character-cover}と中心元の明示式を代入し
+$q^2+q+1$ で剰余を取る多項式恒等式であり、
+\texttt{computations/verify\_character\_node\_cover.py} が五つ全てを厳密検証する。
+係数原点では既存の中心三様体の五つの通常二重点をちょうど得る。
+そのHessianは非退化で、無限遠に特異点はない。
+射影相対特異点schemeのproper性と二重点での形式陰関数定理を用いて $A'$ を縮めれば、
+この五点以外の特異点は生じず、各二重点の非退化性も保持される。
+
+$E\times_{A'}(A'\times\PP^4)$ の中で、超平面 $G_{\mathbf a,u}$ が対応する
+中心二重点を通る条件は、$u$ に関する非自明な線型方程式である
+（$t^3$ の係数が $1$）。
+従ってその零集合 $\widetilde{\mathcal I}$ は $E$ 上の $\PP^3$ 束であり、
+既約、次元 $3+3=6$ である。
+有限写像 $E\to A'$ に沿う像 $\mathcal I$ は閉で既約、
+一つの一般切断が二つ以上の二重点を同時に通ることはないので次元は6である。
+特殊fiberは五つの相異なる超平面となる。
+
+$\mathcal V$ は既存の固定位数三相対H3開性により開である。
+命題\ref{prop:five-nodal-witnesses}の五つの切断が
+$\mathcal I\cap\mathcal V$ に入るため、この交わりは非空の既約開部分となる。
+さらにそれらの明示例で他の特異点が存在しないことから、
+一般点でも中心曲面はただ一つの非退化節点のみを持つ。
+最後に有限群作用は一次元表現と切断条件を保つから、像の既約性も従う。
+\end{proof}
+
 \begin{remark}[変形と境界の解釈]
 結節中心の五因子は許容H3開集合\emph{の内部}にある。
 従って中心三次曲面の判別式をそのままH3成分の境界方程式とするのは誤りである。
-一般の八次元表示stackでこの二つの因子がどのように延長・交叉し、
+七次元PBW族でこれらが一つの既約因子へ結合することは上で証明した。
+一般の八次元表示stackでこの因子がどのように延長・交叉し、
 他の表示chartにどう現れるかは未解決である。
 \end{remark}
