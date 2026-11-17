@@ -1,0 +1,143 @@
+\section{Casimir pencilの十個のPoisson零点とH3の二種類の$A_1$特異性}
+\label{sec:casimir-poisson-leaves}
+三乗根の固定包絡 $V_{0,0,0}$ では、総中心三様体の五つの節点と
+Poisson括弧の零点は一致しない。この差は、同じ$A_1$特異点を持つ
+三次中心切断のうちH3になるものとならないものを幾何学的に区別する。
+以下のH3判定のみ、既存の固定包絡全切断分類
+（\texttt{papers/sections/cubic\_quantum\_triangle\_full\_cuts.tex} の
+\texttt{thm:quantum-triangle-full-H3}）に依存する。
+Poisson零点とHessianの計算はその判定とは独立である。
+
+\begin{theorem}[十個のPoisson零点と二つの五点集合]
+\label{thm:ten-poisson-points}
+$k$ を標数零の代数閉体、$q^2+q+1=0$、
+$f=(1-q)/3$、$e=-(2q+1)/9$ とする。
+$V=V_{0,0,0}$ の中心三様体は
+\[
+ \mathcal Y=\operatorname{Spec}
+ k[X,Y,Z,\Omega]/(P),\qquad
+ P=\Omega^3+f\Omega^2-XYZ+e(X^2+Y^2+Z^2).
+\]
+第\ref{sec:root-poisson-orders}節のPoisson括弧は
+$\{X,Y\}=-9P_Z$（巡回）、$\{\Omega,-\}=0$ である。
+この括弧が零となる幾何学的点の集合は、正確に次の十点である。
+\begin{align*}
+ p_0&=(0,0,0,0),&
+ r_0&=(0,0,0,-f),\\
+ p_\eta&=(2e\eta_1,2e\eta_2,2e\eta_3,-2f/3),&
+ r_\eta&=(2e\eta_1,2e\eta_2,2e\eta_3,f/3),
+\end{align*}
+ただし$\eta_i\in\{\pm1\}$、$\eta_1\eta_2\eta_3=1$ とし、
+座標順は $(X,Y,Z,\Omega)$ とする。
+$p_0,p_\eta$ の五点は$\mathcal Y$の通常二重点であり、
+$r_0,r_\eta$ の五点は$\mathcal Y$の\emph{滑らかな}点である。
+後五点でもPoisson括弧は零であり、$\Omega:\mathcal Y^{\rm sm}\to\AA^1$
+の臨界点となる。これら以外の$\mathcal Y^{\rm sm}$ではPoisson rankは2である。
+ここで零点集合は幾何学的supportを意味し、零schemeの被約性は主張しない。
+\end{theorem}
+\begin{proof}
+零点条件は$P_X=P_Y=P_Z=0$、すなわち
+\[
+ YZ=2eX,\qquad ZX=2eY,\qquad XY=2eZ.
+\]
+$e\ne0$ なので、一座標が零なら三座標とも零である。
+この場合$P=\Omega^2(\Omega+f)=0$ となり、$p_0,r_0$ を得る。
+三座標が非零なら三式を掛けて$XYZ=(2e)^3$、各式を用いて
+$X^2=Y^2=Z^2=(2e)^2$ を得る。従って
+$(X,Y,Z)=2e(\eta_1,\eta_2,\eta_3)$、$\eta_1\eta_2\eta_3=1$。
+$q^2+q+1=0$ から$e^3=-f^3/27$ なので、この点で
+\[
+ P=\Omega^3+f\Omega^2+4e^3
+   =(\Omega-f/3)(\Omega+2f/3)^2.
+\]
+これより残る八点を得、他に零点はない。
+$P_\Omega=\Omega(3\Omega+2f)$ は$p_0,p_\eta$で零、
+$r_0,r_\eta$で$f^2\ne0$ となる。
+従って後五点は三様体の滑らかな点であり、前五点は特異点である。
+前五点で$P$の四変数Hessian行列式はそれぞれ
+$16fe^3$、$64fe^3$（各符号点で同じ）で非零である。
+従って総中心の特異点は通常二重点である。
+\end{proof}
+
+\begin{theorem}[Casimir pencilにおける四つの特異中心値とH3判定]
+\label{thm:casimir-four-values}
+中心切断$C_D=\mathcal Y\cap\{\Omega=-D\}$を取る。
+中心曲面が特異となるのは正確に
+\[
+ D\in\{0,\ 2f/3,\ f,\ -f/3\}
+\]
+であり、特異点はすべて$A_1$型で、個数とH3性は以下の通りである。
+\begin{center}
+\begin{tabular}{cclc}
+\toprule
+$D$&$A_1$の個数&総中心$\mathcal Y$上の位置&強いH3\\
+\midrule
+$0$&1&総中心の節点&可\\
+$2f/3$&4&総中心の節点&可\\
+$f$&1&総中心の滑らかな臨界点&不可\\
+$-f/3$&4&総中心の滑らかな臨界点&不可\\
+\bottomrule
+\end{tabular}
+\end{center}
+最後の列は既存の固定包絡H3判定定理の適用であり、
+中心のHessian計算だけで有限大域次元を結論したものではない。
+特にこのCasimir pencil内では、
+\emph{切断のPoisson零点が全て総中心$\mathcal Y$の特異点であること}
+（零点が存在しない場合を含む）が強いH3性と同値である。
+\end{theorem}
+\begin{proof}
+$C_D$の特異点は$P=P_X=P_Y=P_Z=0$、$\Omega=-D$ によって
+与えられるから、前定理で列挙した十点のみが候補となる。
+$X,Y,Z$でのHessianは
+\[
+ \begin{pmatrix}
+ 2e&-Z&-Y\\-Z&2e&-X\\-Y&-X&2e
+ \end{pmatrix}.
+\]
+原点三座標では行列式は$8e^3\ne0$、四符号座標では
+行列式は$-32e^3\ne0$ である。
+従って各切断の特異点は孤立した通常二重点で、表の個数が従う。
+
+H3の判定に用いるのは前掲の既存分類
+$\Delta\ne0$かつ切断超平面$H\notin\mathcal Y^*$である。
+Casimir切断では$\alpha=1,\beta=\gamma=\delta=0$、従って
+$\Delta=1$ である。$r_0,r_\eta$ を通る二つの値では
+$P_\Omega=f^2\ne0$ だから$H$は総中心の滑らかな点に接し、
+H3ではない。
+一方$p_0,p_\eta$ を通る二値では、全切断特異点は
+総中心の節点に限られ、その二次切断は上記Hessianで非退化である。
+従って節点での極限接超平面にも属さない。
+他の滑らかな総中心点で接していれば切断に別の特異点が生じるが、
+前定理によりそのような点はない。
+従って$H\notin\mathcal Y^*$ であり、二つの切断は強いH3となる。
+他の$D$では$C_D$は滑らかで、同様にH3判定を満たす。
+\end{proof}
+
+\begin{corollary}[一次元表現が検出する五つのPoisson零点]
+\label{cor:one-dim-five-of-ten}
+$V_{0,0,0}$ の一次元表現は正確に五つあり、
+その中心characterは$p_0,p_\eta$ の五点である。
+従って総中心の滑らかなPoisson零点$r_0,r_\eta$ は
+一次元表現からは生じない。これはこれらの点上の
+全ての高次元単純加群やAzumaya性を分類したという主張ではない。
+\end{corollary}
+\begin{proof}
+一次元表現では$x,y,z$をスカラーとみなし、三関係から
+$(1-q)yz=x$ と巡回二式を得る。
+その全解は $(0,0,0)$ および
+$(x,y,z)=(\eta_1,\eta_2,\eta_3)/(1-q)$
+（$\eta_1\eta_2\eta_3=1$）である。
+$X=x^3+q^2x$等と式\eqref{eq:Omega}に代入すると、中心値は
+それぞれ$p_0$と$p_\eta$になる。
+\end{proof}
+
+\begin{remark}[同じADE型と異なる非可換正則性]
+同じ$A_1$型の中心曲面でも、総中心の節点を切る場合は
+非可換H3であり、総中心の滑らかな点に接して節点を作る場合は
+H3にならない。この差は単に曲面の特異点のADE型では検出できず、
+Poisson leafの総空間への埋め込み、一次元表現、局所orderを合わせて理解する必要がある。
+さらに非可換表現の全fiber代数についてはBrown--Gordon型の比較が有効だが、
+定理\ref{thm:casimir-four-values}だけからMorita同値・Azumaya性を
+推論しない。総中心の一般係数$(a,b,c)$に対するPoisson零点の
+有限被覆とそのモノドロミー、七次元の結節中心因子との関係は今後の優先課題である。
+\end{remark}
