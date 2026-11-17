@@ -1,0 +1,111 @@
+\subsection{Newton閾値と境界matrix factorizationの非同値性}
+\label{subsec:boundary-thresholds-mf}
+前の定理で得た二枝のNewton面を、乗数イデアルと局所特異点圏に適用する。
+$n\ge1$、$b=b_n,c=c_n$、$\Lambda=3+2\sqrt2$と略記し、
+式\eqref{eq:boundary-conic-condition}を仮定する。
+定理\ref{thm:two-boundary-Puiseux}より、唯一の境界特異点は$p_w$であり、
+局所被約方程式$f_n$は重み$(b,c)$の最低部分
+\[
+ (y^b-\rho_+x^c)(y^b-\rho_-x^c)
+ =y^{2b}-2\kappa x^cy^b+x^{2c}
+\]
+を持つ。$\rho_+\ne\rho_-$、$\rho_+\rho_-=1$なのでNewton非退化である。
+ここでの不変量は\emph{閉包曲線の境界特異点}のものであり、
+曲面$U$そのものや元の非可換H3圏の不変量ではない。
+
+\begin{theorem}[局所対数標準閾値と乗数イデアル]
+\label{thm:boundary-lct}
+$0<\tau<1$について、$p_w$での乗数イデアルは
+\[
+ \mathcal J(S,\tau\overline C_n)_{p_w}
+ =\left\langle x^iy^j:
+ b(i+1)+c(j+1)>2bc\tau\right\rangle
+ \subset\mathcal O_{S,p_w}^{\rm an}.
+\]
+特に
+\begin{equation}\label{eq:pell-lct}
+ \boxed{\operatorname{lct}_{p_w}(S;\overline C_n)
+ =\frac{b+c}{2bc}},\qquad
+ \lim_{n\to\infty}-\frac1n\log\operatorname{lct}_{p_w}(S;\overline C_n)
+ =\log(3+2\sqrt2).
+\end{equation}
+ここでは境界$D$に係数1を与えておらず、対$(S,D)$に対する相対閾値ではない。
+\end{theorem}
+\begin{proof}
+Newton非退化性により、前の二枝のNewton面に適合するトーリック解消は$f_n$のlog resolutionでもある。
+正の原始ray$(r,s)$に対応する例外曲線では、log discrepancyは$r+s$、
+$f_n$の位数は$\min(2cr,2bs)$である。
+$\tau<1$ではstrict transformは乗数イデアルへ条件を加えず、
+各単項式の条件は全rayについて
+$(i+1)r+(j+1)s>\tau\min(2cr,2bs)$となる。
+Newton多面体の唯一のコンパクト面に対応する$(r,s)=(b,c)$の条件が
+他の条件を含意し、表示式を得る。
+これは非退化主部に対するHowaldのトーリック計算法の局所版を直接適用したものでもある。\footnote{
+J. Howald, \emph{Multiplier Ideals of Sufficiently General Polynomials},
+\href{https://arxiv.org/abs/math/0303203}{arXiv:math/0303203}, Theorems 11--12 and Corollary 13.
+本稿の局所冪級数では、上記のNewton面と明示的トーリック解消を使って計算している。}
+定数$1$が初めて乗数イデアルから外れる値が$(b+c)/(2bc)$である。
+$b_n,c_n$はともに正定数倍の$(3+2\sqrt2)^n$に漸近するので極限式も従う。
+\end{proof}
+
+\begin{corollary}[境界matrix factorizationのHochschild次元]
+\label{cor:boundary-mf-growth}
+$\mathcal M_n=\operatorname{MF}(\mathbb C[[x,y]],f_n)$を
+上で選んだ局所被約方程式の$\mathbb Z/2$-graded dg圏とする。
+このとき
+\[
+ \mathrm{HH}^{\bar0}(\mathcal M_n)
+ \cong\frac{\mathbb C[[x,y]]}{(\partial_x f_n,\partial_y f_n)},
+ \qquad\mathrm{HH}^{\bar1}(\mathcal M_n)=0,
+\]
+\[
+ \dim\mathrm{HH}^{\bar0}(\mathcal M_n)
+ =(2b_n-1)(2c_n-1),\qquad
+ \lim_{n\to\infty}\frac1n\log\dim\mathrm{HH}^{\bar0}(\mathcal M_n)
+ =2\log(3+2\sqrt2).
+\]
+特に異なる$n\ge1$の$\mathcal M_n$は$\mathbb Z/2$-graded dg Morita同値ではない。
+\end{corollary}
+\begin{proof}
+$f_n$は孤立した臨界点を持ち、形式二変数環はregularである。
+従ってDyckerhoffの既知の計算\footnote{
+T. Dyckerhoff, \emph{Compact generators in categories of matrix factorizations},
+\href{https://arxiv.org/abs/0904.4713v5}{arXiv:0904.4713v5},
+Corollary 6.5（有限rankの二周期dg圏）。
+Theorem 6.6はhomology側の対応であり、ここではcohomology側を使用する。}
+を適用できる。そのJacobian環の次元は局所Milnor数なので、定理\ref{thm:boundary-torus-link}から上の公式を得る。
+$b_n,c_n$はともに真に増大し、Hochschild cohomologyはdg Morita不変だから
+異なる$n$の同値は存在しない。
+\end{proof}
+
+ここで$\mathcal M_n$は\emph{閉包曲線の境界特異点}に付随する圏である。
+これを$\operatorname{Perf}(U)$、元の非可換H3圏、あるいは
+$\operatorname{Perf}(S)\to\operatorname{Perf}(U)$の核と同一視したわけではない。
+同じ曲線のアフィン部分は全て$\mathbb G_m$である一方、
+境界の特異点圏はHochschild次元だけでも相異なる。
+この圏の\emph{列}の次元成長も、単一の自己関手のentropyではない。
+
+\begin{remark}[同じアフィン曲線と異なる境界の圏]
+最初の三例では
+\[
+\begin{array}{c|c|c|c}
+ n&(b_n,c_n)&\dim\mathrm{HH}^{\bar0}(\mathcal M_n)&\operatorname{lct}\\ \hline
+ 1&(2,5)&27&7/20\\
+ 2&(12,29)&1311&41/696\\
+ 3&(70,169)&46843&239/23660
+\end{array}
+\]
+となる。アフィン部分$C_n$は全て$\mathbb G_m$で、
+通常のアフィン対象複雑度は有界であるにもかかわらず、
+境界のMF圏はHochschild次元だけで互いに区別できる。
+一方、局所Milnor monodromyは各$n$で有限位数である。
+これらの異なる意味の成長を単一の自己関手のentropyにまとめない。
+
+HowaldとDyckerhoffの一般理論は既知である。
+本稿では指定したPell反復族に適用し、閾値の減衰率$\log\Lambda$と
+局所圏の次元増大率$2\log\Lambda$を得た。
+\texttt{verify\_boundary\_thresholds.py}はLaurent帰納指数、整数行列、
+半群・固有値多重集合と有限範囲の数値を厳密に再現する。
+全$n$の理論とMF定理を有限実験だけで証明したとはせず、
+個別の適用の新規性も網羅的には確認していない。
+\end{remark}
