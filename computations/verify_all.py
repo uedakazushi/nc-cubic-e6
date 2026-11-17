@@ -20,13 +20,14 @@ checks = [
     'verify_character_node_cover.py', 'verify_daha_character.py',
     'verify_daha_braid.py', 'verify_d4_lattice.py',
     'verify_root_poisson.py', 'verify_poisson_cut_obstruction.py',
+    'verify_casimir_poisson_leaves.py',
 ]
 completed = []
 for name in checks:
     subprocess.run([sys.executable, str(root / name)], check=True, cwd=root)
     completed.append({'script': name, 'status': 'PASS'})
 result = {
-    'date': '2026-11-17', 'version': 'triangle-component-v15', 'status': 'PASS',
+    'date': '2026-11-17', 'version': 'triangle-component-v16', 'status': 'PASS',
     'python': platform.python_version(), 'sympy': sympy.__version__,
     'networkx': networkx.__version__, 'completed': completed,
     'separate_mathematical_inputs': [
@@ -47,6 +48,7 @@ result = {
         'relative quadratic-envelope AS4 recognition',
         'all-Casimir-value Azumaya or finite global dimension',
         'derived Vieta extension or heart mutation',
+        'H3 status of Casimir slices without the existing fixed-envelope criterion',
         'independent peer review', 'novelty', 'GitHub or Library saving',
     ],
 }
