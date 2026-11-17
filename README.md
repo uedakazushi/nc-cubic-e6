@@ -17,7 +17,7 @@
 
 Milnorの二次Kummer被覆からCianiの楕円$D_κ$への射は**次数$bc$の巡回Galois被覆**、合成して$E_κ$への射は次数$2bc$の巡回Galois被覆。前者の完全分岐と$D_κ→E_κ$の非分岐二同種により、$J(E_κ)→J(\widetilde C)$の核が正確に標識二捩れ$[(0,0)-O]$と分かる。Prym内の楕円因子$D_κ$への標準thetaの制限次数は**$bc=10,348,11830,\dots$**。Prym全体が整数直積として分裂したわけではない。
 
-さらに$E_κ:\eta^2=z^3-2κz^2+z$を$\mathbb P^1_κ$上で動かすと、$I_1,I_1,I_4^*$の三fiberを持つMiranda--Perssonの極端有理楕円曲面**$X_{411}$**となる。Mordell--Weilは$\mathbb Z/2$で、$j=64(4κ^2-3)^3/(κ^2-1)$は次数6、分岐型$(3,3),(2,2,2),(4,1,1)$のBelyi写像。古典的な楕円曲面の分類そのものは既知で、今回はPell--Prym系との具体的接続として同定した。
+さらに$E_κ:\eta^2=z^3-2κz^2+z$を$\mathbb P^1_κ$上で動かすと、$I_1,I_1,I_4^*$の三fiberを持つMiranda--Perssonの極端有理楕円曲面**$X_{411}$**となる。Mordell--Weilは$\mathbb Z/2$で、$j=64(4κ^2-3)^3/(κ^2-1)$は次数6、分岐型$(3,3),(2,2,2),(4,1,1)$のBelyi写像。六枚の幾何学的置換群は$S_4$（$S_4/C_4$の六剰余類への忠実な作用）で、厳密なbranch cycle計算を再現可能にした。Poisson零点にも現れる$S_4$との標準同定は未構成。古典的な楕円曲面の分類そのものは既知で、今回はPell--Prym系との具体的接続として同定した。
 
 [整数偏極・Belyiの新節](papers/sections/quantum_cubic_prym_polarization.tex) ／ [再現コード](computations/verify_prym_integral_belyi.py) ／ [現行研究ノート](research/boundary_analytic_moduli.md)。
 
