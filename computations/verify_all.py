@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Run all exact certificates. Geometric/categorical arguments are separate proofs.
 
-validation.json is written only after every script succeeds. The smaller
-connections_validation.json records the independently executed five-check run.
+validation.json is written only after every script succeeds. Individual
+certificates record their own scope; updating this runner is not a full run.
 """
 from pathlib import Path
 import subprocess, sys, json, platform
@@ -23,13 +23,14 @@ checks = [
     'verify_casimir_poisson_leaves.py',
     'verify_relative_poisson_cover.py',
     'verify_companion_s5.py',
+    'verify_cayley_lg_connections.py',
 ]
 completed = []
 for name in checks:
     subprocess.run([sys.executable, str(root / name)], check=True, cwd=root)
     completed.append({'script': name, 'status': 'PASS'})
 result = {
-    'date': '2026-11-17', 'version': 'triangle-component-v18', 'status': 'PASS',
+    'date': '2026-11-17', 'version': 'e6-connections-v19', 'status': 'PASS',
     'python': platform.python_version(), 'sympy': sympy.__version__,
     'networkx': networkx.__version__, 'completed': completed,
     'separate_mathematical_inputs': [
@@ -43,6 +44,9 @@ result = {
         'De Deken--Lowen Theorem 4.5 and perfect-object lifting for Artin injectivity',
         'Brown--Gordon Poisson orders and Theorem 4.2',
         'flat-ideal intersection lemma and pointed H3 reconstruction',
+        'Cayley invariant-ring identification with torus characters',
+        'D4 analytic right-equivalence and infinitesimal versality criterion',
+        'strict concavity on the real elliptope',
     ],
     'not_certified_by_this_run': [
         'global H3 algebraic-stack construction',
@@ -51,7 +55,11 @@ result = {
         'all-Casimir-value Azumaya or finite global dimension',
         'derived Vieta extension or heart mutation',
         'H3 status of Casimir slices without the existing fixed-envelope criterion',
-        'full branch divisor classification', 'independent peer review', 'novelty', 'GitHub or Library saving',
+        'full branch divisor classification',
+        'canonical identification of Picard D4 and local Milnor D4',
+        'mirror or Fukaya-Seidel equivalence',
+        'categorical relation to nearly Kahler geometry',
+        'independent peer review', 'novelty', 'GitHub or Library saving',
     ],
 }
 (root / 'validation.json').write_text(json.dumps(result, indent=2) + '\n')
