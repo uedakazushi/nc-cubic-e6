@@ -1,6 +1,6 @@
 # 成分研究ノート
 
-2026-11-17 / triangle-component-v12。方針はルートの `00_research_plan.md`、証明は `papers/nc-cubic-e6.tex`（rootからのパス）。
+2026-11-17 / triangle-component-v13。方針はルートの `00_research_plan.md`、証明は `papers/nc-cubic-e6.tex`（rootからのパス）。
 このノートは履歴ではなく、現在の入力・障害・再開のための知識を記す。
 
 ## 1. 記法と既存入力
@@ -216,4 +216,6 @@ H3幾何学的対象間の全pointed exact矢は、canonicalRのgraded回復→�
 
 検証可能な非空性witness：a=b=c=0、G_D=2Omega+X+2Y+3Z+D、D∈{0}∪{4f/3−2e(eta1+2eta2+3eta3): eta1eta2eta3=1}。いずれも境界Delta=170で、各DのJacobi idealは対応p_iの極大イデアル、三変数Hessian detは非零。従って中心は孤立A1一つ。既存固定包絡H3 criterionを適用すると五例ともH3かつpointed exactで互いに非同型。`computations/verify_nodal_cuts.py`をSymPy/Q(sqrt(-3))で実行し`nodal_cuts_certificate.json`を生成。通常の数学的入力である固定包絡H3 criterionそのものの有限globaldim証明はこのプログラムの検証対象外。
 
-意味：中心の特異判別式はH3モジュライの境界とは一致しない。次の問題はこれら二因子を八次元の表示stack・intrinsic H3族へ追跡することであり、全大域成分の既約閉包とH3開性は未解決。古典的な結節三次三様体の文献との新規性比較は未完了。
+七次元PBW族での結合：一次元表現から(a,b,c)=((1-q)yz-x,(1-q)zx-y,(1-q)xy-z)を得る。原点fiberは(x,y,z)=0と4つの符号解(eta1,eta2,eta3)/(1-q)、Jacobian detは-1,4,4,4,4。三二次式のP3斉次化では無限遠に3つの定数座標頂点があり、原点fiberの全8点は単純。有限etale次数8の射影解schemeから無限遠の3 sectionを除いて次数5のE→A'を得る。EはA3_xyzの開部分なので既約・連結。中心P_a及びそのX,Y,Z,Omega偏微分はこのE上で全係数恒等的に零（`verify_character_node_cover.py`で厳密確認）。中心三様体の五ODPの相対持上げとなる。節点を通るcutを添字付けるP3束はE上既約次元6、有限像はA'×P4の既約因子。固定位数3 H3開集合との交わりも非空既約、七次元族の結節中心因子はA4商で一つになる。主論文`thm:seven-nodal-irreducible`に幾何学的証明を記す。これはH3全体の特異中心軌跡の記述でも、八次元intrinsic成分の大域因子でもない。
+
+意味：中心の特異判別式はH3モジュライの境界とは一致しない。次の問題はこの既約因子を八次元の表示stack・intrinsic H3族へ追跡することであり、全大域成分の既約閉包とH3開性は未解決。古典的な結節三次三様体の文献との新規性比較は未完了。
