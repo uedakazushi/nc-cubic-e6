@@ -1,0 +1,238 @@
+\section{巡回Milnor被覆の整数偏極と極端楕円曲面}
+\label{sec:prym-integral-polarization}
+前節で得た$C,\widetilde C,D_\kappa,E_\kappa$と写像を、
+有限Galois被覆および整数偏極の観点から精密化する。
+$b=b_n=2m,\ c=c_n$はPell列の互いに素な正整数とし、
+$n\ge1$、$c$は奇数、$\kappa^2\ne1$とする。
+$K=\kappa^2$と書く。前節の方程式を再掲すると
+\[
+ \widetilde C:\quad y^{4m}-2\kappa a^{2c}y^{2m}+a^{4c}=1,
+ \qquad
+ D_\kappa:\quad T^2=r^4-2\kappa r^2+1,
+\]
+\[
+ E_\kappa:\quad \eta^2=z(z^2-2\kappa z+1)
+\]
+である。曲線はすべて滑らかな射影模型を意味する。
+\begin{equation}\label{eq:cyclic-prym-factorization}
+ \widetilde C\xrightarrow{\,q'\,}D_\kappa
+ \xrightarrow{\,\psi\,}E_\kappa,\qquad
+ q'(a,y)=\left(\frac{y^m}{a^c},\,\frac1{a^{2c}}\right),
+ \quad \psi(r,T)=(r^2,rT)
+\end{equation}
+とおく。合成は前節の$ q:\widetilde C\to E_\kappa$である。
+
+\begin{theorem}[巡回分岐と最大非分岐商]
+\label{thm:prym-cyclic-inertia}
+$q'$は次数$bc$の巡回Galois被覆、$q$は次数$2bc$の
+巡回Galois被覆である。
+$q'$の分岐は正確に次の三種類で記述される。
+\[
+\begin{array}{c|c|c|c}
+ D_\kappa\text{上の点}&\text{底の点数}&
+ q'\text{の各fiberの点数}&\text{分岐指数}\\ \hline
+ T=0&4&1&bc\\
+ r=0&2&2c&m=b/2\\
+ r=\infty&2&b&c
+\end{array}
+\]
+各行の分岐指数が$1$なら、その行は実際には分岐しない。
+とくに$T=0$の四点は完全分岐である。
+$q$の最大非分岐Galois中間被覆は
+$D_\kappa\to E_\kappa$であり、その次数は$2$である。
+\end{theorem}
+\begin{proof}
+$\gcd(m,c)=1$である。
+$\zeta_{2c},\zeta_{2m}$を原始根とすると
+\[
+ (a,y)\longmapsto(\zeta_{2c}a,\zeta_{2m}y)
+\]
+は$\widetilde C$の方程式を保ち、$r=y^m/a^c$と$T=a^{-2c}$を固定する。
+位数は$\mathrm{lcm}(2c,2m)=2cm=bc$で、既に証明した$q'$の次数と一致する。
+
+さらに$\zeta$を原始$4c$乗根とし、
+$j\equiv3\pmod4$かつ$\gcd(j,4m)=1$となる整数$j$を選ぶ。
+$\xi=\exp(2\pi i j/(4m))$とすると
+\[
+ (a,y)\longmapsto(\zeta a,\xi y),\qquad
+ \xi^m=\zeta^{3c},
+\]
+は$z=y^{2m}/a^{2c}$と$\eta=y^m/a^{3c}$を固定する。
+その位数は$\mathrm{lcm}(4c,4m)=4cm=2bc$で、
+$q$も巡回Galois被覆となる。
+
+$q'$の分岐点は方程式から直接求まる。
+$r=0,T=\pm1$では$y=0$、$a^{2c}=1/T$で、
+各点の逆像は$2c$点、局所的に$r\sim y^m$なので指数$m$。
+$r=\infty$の二点では$a=0$、各点に$y^{2m}=\pm1$の
+$b=2m$個の逆像があり、指数$c$。
+$T=0$の四点では$a,y$が極を持つ。
+前節の$z=y^b/x^c$のKummer表示によって
+各点の逆像はただ一つ、局所次数は$bc$となる。
+これで表の全分岐が得られる。整合性の検算は
+\[
+ 4(bc-1)+2(bc-2c)+2(bc-b)
+   =2g(\widetilde C)-2
+\]
+というRiemann--Hurwitz式である。
+
+$q$は巡回次数$2bc$であり、その中間の
+$q'$は$T=0$上で完全分岐である。
+したがって$q$の慣性部分群の生成する部分群は
+ちょうど位数$bc$で、最大非分岐商はその指数$2$の商
+$D_\kappa\to E_\kappa$である。
+\end{proof}
+
+\begin{theorem}[楕円因子の核と誘導偏極]
+\label{thm:prym-elliptic-theta-degree}
+$q^*:J(E_\kappa)\to J(\widetilde C)$の核は正確に
+\[
+ \boxed{\ker q^*
+ =\bigl\{0,\,[\,(0,0)-O\,]\bigr\}
+ \cong\mathbb Z/2\mathbb Z.}
+\]
+$q'^*:J(D_\kappa)\to J(\widetilde C)$は単射で、その像は
+$\operatorname{Prym}(\widetilde C/C)$内の楕円部分多様体である。
+$J(\widetilde C)$の標準theta偏極をこの楕円部分多様体へ
+制限した偏極の次数は、正確に
+\begin{equation}\label{eq:prym-exact-theta-degree}
+ \boxed{\deg\bigl(\Theta_{J(\widetilde C)}|_{q'^*J(D_\kappa)}\bigr)=bc.}
+\end{equation}
+また、$C$のgenusを$g=2bc-b-c$とすれば、
+$\operatorname{Prym}(\widetilde C/C)$へのtheta制限の
+偏極型は$(1^{b-1},2^g)$である。
+\end{theorem}
+\begin{proof}
+一般に、有限被覆$f:X\to Y$が完全分岐するfiberを持てば、
+$f^*:J(Y)\to J(X)$は単射である。
+実際、核の元$L$は$f_*f^*=[\deg f]$からtorsionとなる。
+$L$が非自明なら、その有限位数に対応する連結な非自明
+非分岐巡回被覆$Y'\to Y$を$f$が経由する。
+しかし完全分岐fiberは一点しか持たず、
+非分岐被覆の各fiberは複数点なので矛盾する。
+定理\ref{thm:prym-cyclic-inertia}を$q'$に適用して単射を得る。
+
+$E_\kappa$上の関数$z$のdivisorは
+$2(0,0)-2O$なので、$D_\kappa$は
+$\sqrt z$を添加した非自明な非分岐二重被覆である。
+従って$\psi^*$の核は標識二捩れ類$[(0,0)-O]$が生成する群である。
+$q^*=q'^*\psi^*$と$q'^*$の単射性から、最初の式が従う。
+
+$\psi$は$D_\kappa$の非零二捩れに対応する平行移動の商なので、
+$\psi^*$の像は$J(D_\kappa)$全体である。
+前節で示したdeck involutionの反変性から、
+$q'^*J(D_\kappa)=q^*J(E_\kappa)$はPrymに入る。
+曲線間の次数$bc$の写像$q'$について
+$q'_*q'^*=[bc]$が成立し、Jacobianの主偏極を用いて
+$q'^*$のtheta引戻しは$bc$倍の楕円主偏極になる。
+$q'^*$は単射なので、その像へのtheta制限の次数が$bc$となる。
+なお$E_\kappa$上で直接引き戻すthetaの次数は$2bc$であり、
+同じ数と混同しない。
+
+最後に$\widetilde C\to C$は$2b$点で分岐する二重被覆である。
+Mumfordのramified Prym偏極の標準公式
+（前節の文献参照）を使うと、偏極型は$(1^{b-1},2^g)$となる。
+これは楕円因子上の次数$bc$と区別すべき、Prym全体の偏極型である。
+\end{proof}
+
+\begin{corollary}[Pell力学がPrymの整数偏極に現れる]
+\label{cor:prym-pell-theta-growth}
+最初の三反復では
+\[
+ (b,c)=(2,5),(12,29),(70,169)
+ \quad\Longrightarrow\quad
+ \deg(\Theta|_{D_\kappa})=10,348,11830
+\]
+である。$\Lambda=3+2\sqrt2$とすれば
+\[
+ \lim_{n\to\infty}\frac1n
+   \log\deg(\Theta|_{D_\kappa})=2\log\Lambda.
+\]
+同じ$E_\kappa$がPrymの有理Hodge因子として繰り返し現れても、
+それが埋め込まれる際の整数偏極はPell指数とともに増大する。
+\end{corollary}
+\begin{proof}
+式\eqref{eq:prym-exact-theta-degree}と
+$b_n,c_n$のPell漸近式から直ちに従う。
+\end{proof}
+
+\subsection{Prymの楕円族は極端有理楕円曲面を与える}
+\begin{proposition}[Miranda--Perssonの$X_{411}$とBelyi写像]
+\label{prop:prym-extremal-X411}
+$\kappa$を変数とする楕円族
+\[
+ \mathscr E:\quad \eta^2=z^3-2\kappa z^2+z
+\]
+の$\mathbb P^1_\kappa$上の相対的極小正則模型は、
+特異fiber型$I_1,I_1,I_4^*$を持つ極端有理楕円曲面である。
+Miranda--Perssonの記法では$X_{411}$に一致し、
+Mordell--Weil群は$\mathbb Z/2\mathbb Z$で、その生成元は
+$T=(0,0)$である。
+$j$写像
+\begin{equation}\label{eq:prym-belyi-j}
+ j(\kappa)=\frac{64(4\kappa^2-3)^3}{\kappa^2-1}
+\end{equation}
+は次数$6$のBelyi写像であり、
+$j=0,1728,\infty$上の分岐型はそれぞれ
+\[
+ (3,3),\qquad(2,2,2),\qquad(4,1,1)
+\]
+である。
+\end{proposition}
+\begin{proof}
+Weierstrass不変量を直接計算すると
+\[
+ \Delta=64(\kappa^2-1),\qquad
+ c_4=16(4\kappa^2-3),\qquad j=c_4^3/\Delta.
+\]
+$\kappa=\pm1$では$\Delta$が単純零点、$c_4\ne0$なので
+両fiberは$I_1$である。
+無限遠では$s=1/\kappa$、$z=s^{-2}Z$、$\eta=s^{-3}Y$とすると
+\[
+ Y^2=Z^3-2sZ^2+s^4Z,\qquad
+ \Delta_\infty=64s^{10}(1-s^2),\quad
+ c_{4,\infty}=16s^2(4-3s^2).
+\]
+特性零のKodaira--Tate表からこれは$I_4^*$である。
+この方程式は基本束$\mathcal O_{\mathbb P^1}(1)$を持つ
+最小Weierstrass模型なので、零sectionを持つ有理楕円曲面となる。
+$I_4^*$のroot latticeは$D_8$でrank $8$だから、
+Shioda--Tateと$\rho=10$によりMordell--Weil rankは$0$。
+そのtorsionはMiranda--Perssonの分類と、
+$T=(0,0)$の存在から正確に$\mathbb Z/2\mathbb Z$である。
+
+最後に
+\[
+ j-1728=
+ \frac{64\kappa^2(8\kappa^2-9)^2}{\kappa^2-1}
+\]
+である。$j=0$では$\kappa=\pm\sqrt3/2$が各三重、
+$j=1728$では$\kappa=0,\pm\sqrt{9/8}$が各二重、
+$j=\infty$では$\kappa=\infty$が四重、
+$\kappa=\pm1$が各単純極となる。
+従って分岐は三値だけで、表示した分岐型を得る。
+
+この楕円曲面の分類とBelyi型は既知である。
+Miranda--Persson,
+\emph{On extremal rational elliptic surfaces},
+Math.\ Z.\ \textbf{193} (1986), 537--558,
+\href{https://doi.org/10.1007/BF01160474}{doi:10.1007/BF01160474},
+Table~5.2（$X_{411}$）を一次資料で確認した。
+本稿での役割は、この既知曲面がPell境界からの
+Prym因子の変動として現れることの明示的な説明である。
+\end{proof}
+
+\begin{remark}[同じレベル二構造、異なる三つの幾何]
+\label{rem:prym-three-levels}
+標識二捩れ$T=(0,0)$は、単に四点配置に選んだ補助標識ではなく、
+定理\ref{thm:prym-elliptic-theta-degree}の自然な
+$J(E_\kappa)\to J(\widetilde C)$の核そのものとして回復される。
+同じパラメータ$K=\kappa^2$は、
+重み付きMF模型の解析的modulus、
+楕円曲線の$Y_0(2)$標識、
+Prymの二同種核を同時に記録する。
+ただしMFの同値を楕円isogenyから得たわけではない。
+さらに$\kappa$を動かすモジュラー楕円曲面のmonodromy、
+固定$\kappa$におけるMilnorのmonodromy、
+元のLG等位面の$h$に沿う周期は、互いに別の作用である。
+\end{remark}
