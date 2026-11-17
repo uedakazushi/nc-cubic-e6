@@ -27,7 +27,7 @@
 \newcommand{\PP}{\mathbb P}
 \title{非可換三次曲面を結ぶ幾何学\\\large 楕円 $E_6$ 量子化・指標多様体・消滅サイクルと例外群 $G_2$}
 \author{}
-\date{2026年11月17日\quad e6-connections-v20}
+\date{2026年11月17日\quad e6-connections-v21}
 \begin{document}\maketitle
 \begin{abstract}
 原始三乗根の量子 $\mathfrak{so}_3$ 包絡とその中心三次切断を、
@@ -55,6 +55,9 @@ ramification divisorはトーラスの$\mathrm{SL}_2$指標多様体であるCay
 境界の一次元radical、affine $D_4$、混合Hodge構造の四方向と一方向を分離する。
 Boalch--Palubaの既知定理を適用すると、対称LG等位面は$G_2$指標多様体の連結成分となり、
 $D_4$衝突とsimple foldに対応する$A_2$衝突が同じ$G_2$退化の二成分として現れる。
+三成分のラベル被覆を$A_2$の三次根被覆と同定し、底のbraid monodromyと
+各成分を保つHurwitz作用を区別する。LG座標でのHurwitz作用、Chebyshev反復、
+既知のKlein七点軌道上の置換群$S_7$を明示し、境界周期を$(2\pi i)^2$に正規化する。
 これらの明示的接続、既知理論の適用、未構成の圏的対応を区別して記述する。
 \end{abstract}
 \tableofcontents
@@ -95,6 +98,14 @@ Goldman--NeumannのFricke曲面の位相とDeligneの重み理論に照らして
 またBoalch--Palubaの$G_2$実現とunipotent退化の記述を本稿の座標に適用すると、
 四sheetの$D_4$衝突と二sheetの$A_2$衝突が同じ例外群の退化で結ばれる。
 これらの先行定理の書誌と適用箇所は同節に記す。
+
+第\ref{sec:g2-braids-periods}節は、成分を選ぶ三次根被覆の$B_3$と、
+成分内部で作用するHurwitzの$B_3$を分離する。
+Boalch--Palubaの公式をLG座標へ移し、成分被覆のcuspが$3A_1$曲面を与えること、
+一生成元のChebyshev線型化、Klein七点集合上の完全対称群を直接確認する。
+七点軌道の存在およびFano平面・八元数に由来する位数6048の表現像は既知であり、
+その群と七点を置換する$S_7$を同一視しない。
+境界の原始cycle上の留数周期を明示するが、内部周期や混合Hodge拡大は未計算である。
 mirror/Fukaya同値、$G_2$型量子代数との同型、nearly K\"ahler幾何との圏的対応は未構成である。
 
 現時点で得た結果と仮定付きの帰結を次のように区別する。
@@ -114,6 +125,7 @@ Casimir特異中心の二類型&Poisson零点は総中心の五節点と五滑�
 相対Poisson被覆と二五次式&臨界スキーム有限平坦次数15、一次元表現次数5。$\Delta_{15}=N_5^2M_5$、二つの五次因子の同時幾何monodromyは$S_5\times S_5$。第\ref{sec:relative-poisson-cover}節。\\
 Cayley・$D_4$・実凸幾何&トーラス指標多様体、四sheet衝突のミニバーサル性、留数対、elliptope内部の単射性。第\ref{sec:cayley-lg-connections}節。\\
 Milnor・Picard・$G_2$&指定退化での整数$D_4$比較、外部triality、重みの$4+1$、既知$G_2$退化を通じた$D_4$と$A_2$の接続。第\ref{sec:lg-picard-g2}節。\\
+二種類のbraidと周期&成分ラベルは$A_2$三次根被覆、Hurwitz作用は成分を保存。Chebyshev反復、Klein軌道上の$S_7$、境界周期$(2\pi i)^2$。第\ref{sec:g2-braids-periods}節。\\
 \bottomrule
 \end{longtable}
 
@@ -491,7 +503,7 @@ $\mathbb Q(q)$ 上で $(F,F_X,F_Y,F_Z)$ のGr\"obner基底は $(1)$ である。
 \dot G={}&(22q+6)x+(5q+9)y+(18q+18)z\\
 &-\tfrac43(q+1)(x^2+z^2)-\tfrac43(q+4)y^2+6xy+9q\,xz+18yz.
 \end{align*}
-従って\emph{このポテンシャル・中央三次incidence}の接空間間商は正確に八次元である。
+従って\emph{このポテンシャル・中央三次incidence}の接空間商は正確に八次元である。
 これは全H3変形の被覆を行列の階数だけから推論したものではない。
 
 全次数の明示例として、別の許容候補切断
@@ -562,6 +574,7 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_relative_poisson.tex}
 \input{papers/sections/quantum_cubic_cayley_lg.tex}
 \input{papers/sections/quantum_cubic_lg_picard.tex}
+\input{papers/sections/quantum_cubic_g2_braids.tex}
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
@@ -591,17 +604,18 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_relative_poisson_cover.py}&次数15のGr\"obner環・二五次因子・単純fold：既存PASS\\
 \path{verify_companion_s5.py}&二素数での$N_5,M_5$ Frobenius分解型：既存PASS\\
 \path{verify_cayley_lg_connections.py}&Cayley・対数Poisson・$D_4$局所環・versal方向・留数対：既存PASS\\
-\path{verify_lg_picard_g2.py}&整数格子・triality・affine $D_4$・$G_2$係数：今回PASS\\\bottomrule
+\path{verify_lg_picard_g2.py}&整数格子・triality・affine $D_4$・$G_2$係数：既存PASS\\
+\path{verify_g2_braids_periods.py}&成分三次式・Hurwitz・Chebyshev・七点$S_7$・境界留数：今回PASS\\\bottomrule
 \end{longtable}
-今回実行したのは最後の検証器で、有理数体・整数行列上の厳密計算である。
-小証明書は\path{computations/lg_picard_g2_certificate.json}。
-比較完全列、ADE Milnor格子、格子のgluing、混合Hodge構造、$G_2$指標多様体の同定は
-通常の証明および明記した先行定理への依存であり、有限計算の検証とは区別する。
-旧24検証器は今回全再実行していない。
-新LG--Picard--$G_2$節を独立wrapperでLuaLaTeX組版（4頁）し、頁を画像点検した。
-新節内部の参照は解決済みで、overfull boxを修正した。
+今回実行したのは最後の検証器で、有理数体上の恒等式と有限置換群を厳密に確認した。
+小証明書は\path{computations/g2_braids_periods_certificate.json}。
+configuration spaceの基本群、全次数Chebyshev漸化式、原始境界トーラスの同定と積分は
+本文の通常の証明であり、有限計算の検証とは区別する。
+旧25検証器は今回全再実行していない。
+新しいbraid・成分被覆・周期の節を独立wrapperでLuaLaTeX組版（4頁）し、4頁を画像点検した。
+新節内部の参照は解決済みで、overfull boxはない。
 これは主論文全体の今回の組版ではない。全旧証明の独立再監査、
-Lean形式化、mirror/Fukaya同値の構成、新規性の網羅調査は未実施である。
+Lean形式化、mirror/Fukaya同値、全Gauss--Manin系、新規性の網羅調査は未実施である。
 
 \begin{thebibliography}{99}
 \bibitem{DeDekenLowen} O. De Deken, W. Lowen,
