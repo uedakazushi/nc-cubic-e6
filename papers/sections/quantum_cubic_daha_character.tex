@@ -1,0 +1,247 @@
+\section{DAHA・四穴球面character variety・Goldman幾何への厳密な接続}
+\label{sec:daha-character}
+本節では三捩れの量子 $\mathfrak{so}_3$ 包絡の\emph{特別な}
+Casimir切断を扱う。一般の中央三次切断全体や、楕円境界を動かす八次元の
+量子化族を同一のcharacter varietyと同定する主張ではない。
+基礎体は標数零で原始三乗根 $q$ を含むとし、
+$V_{a,b,c}=B_{\mathbf a}/(t-1)$、$\Omega=\Omega_{\mathbf a,h}|_{t=1}$ とする。
+
+\begin{theorem}[普遍Askey--Wilson代数とCasimirの完全な対応]
+\label{thm:aw-casimir-exact}
+Terwilligerの普遍Askey--Wilson代数 $\Delta_q$ の生成元を
+$A_{\rm AW},B_{\rm AW},C_{\rm AW}$、その三つの中心パラメータを
+$\alpha_{\rm AW},\beta_{\rm AW},\gamma_{\rm AW}$ と書く。
+\cite[Definitions 2.1, 2.2, 2.6]{TerwilligerDAHA} の規約を使うと
+\[
+ V_{a,b,c}\cong\Delta_q/
+ (\alpha_{\rm AW}-(1-q)a,\,
+ \beta_{\rm AW}-(1-q)b,\,
+ \gamma_{\rm AW}-(1-q)c),
+ \qquad (A_{\rm AW},B_{\rm AW},C_{\rm AW})=(1-q)(x,y,z).
+\]
+この同型の下でCasimir元は\emph{厳密に}
+\begin{equation}\label{eq:aw-casimir-scale}
+ \Omega_{\rm AW}=q(1-q)^3\Omega=3(q+2)\Omega
+\end{equation}
+となる。従って任意の $D\in k$ について
+\[
+ V_{a,b,c}/(\Omega+D)\cong
+ \Delta_q/(\alpha_{\rm AW}-(1-q)a,\,
+ \beta_{\rm AW}-(1-q)b,\,
+ \gamma_{\rm AW}-(1-q)c,\,
+ \Omega_{\rm AW}+3(q+2)D).
+\]
+これらは代数の表示同型であり、spherical DAHAとのMorita同値は含まない。
+\end{theorem}
+\begin{proof}
+Terwilligerの三つの中心関係は $q^3=1$ のとき
+$B_{\rm AW}C_{\rm AW}-qC_{\rm AW}B_{\rm AW}
+ =(1-q)(A_{\rm AW}+\alpha_{\rm AW})$ とその巡回式になる。
+表示を比較すれば最初の同型を得る。
+Casimirの原式は
+\[
+ \Omega_{\rm AW}=q^{-1}A_{\rm AW}C_{\rm AW}B_{\rm AW}
+ +q^{-2}A_{\rm AW}^2+q^{-2}B_{\rm AW}^2+q^2C_{\rm AW}^2
+ -q^{-1}A_{\rm AW}\alpha_{\rm AW}
+ -q^{-1}B_{\rm AW}\beta_{\rm AW}-qC_{\rm AW}\gamma_{\rm AW}.
+\]
+これに各元のスケールを代入し、$zy=q^2yz-q^2(x+a)$ によって
+$xzy$ をPBW順に直すと
+\[
+ \Omega_{\rm AW}=(1-q)^2
+ \bigl(q(1-q)xyz+q^2(x^2+z^2)+qy^2
+      -qax-q^2by-qcz\bigr).
+\]
+$q^2+q+1=0$ を使うと右辺は
+$q(1-q)^3[xyz+(q-1)(x^2+z^2)/3+(q+2)y^2/3
+ -(q+2)(ax+qby+cz)/3]$ に一致する。
+これは式\eqref{eq:Omega}の非斉次化である。
+最後に $q(1-q)^3=3(q+2)$ が従う。
+式は \texttt{verify\_daha\_character.py} で独立に厳密検算する。
+\end{proof}
+
+\subsection{Fricke三次曲面と四穴球面のトレース}
+\begin{theorem}[character variety係数空間への優越写像]
+\label{thm:fricke-trace-dominant}
+$f=(1-q)/3$、$e=-(2q+1)/9$ とし、式\eqref{eq:center}の
+$\ell_a,\ell_b,\ell_c,K,L$ を用いる。
+$\Omega=-D$ とおき、中心の残りの生成元を
+$u=-X/e,\ v=-Y/e,\ w=-Z/e$ と置くと、中心は
+\begin{equation}\label{eq:fricke-e6}
+ F=u^2+v^2+w^2+uvw+A u+B v+C w+T=0
+\end{equation}
+で与えられる。ただし
+\begin{align}\label{eq:fricke-e6-parameters}
+ A&=-\frac{Da+\ell_a}{e^2},&
+ B&=-\frac{Db+\ell_b}{e^2},&
+ C&=-\frac{Dc+\ell_c}{e^2},\\
+ T&=-\frac{D^3-fD^2+DK-L}{e^3}.\notag
+\end{align}
+係数写像 $\Psi:\AA^4_{a,b,c,D}\to\AA^4_{A,B,C,T}$ はdominantかつ
+generically finiteであり、$a=b=c=0$ におけるJacobianは
+\begin{equation}\label{eq:fricke-jacobian}
+ \det(d\Psi)=\frac{3}{e^9}\,D\bigl(D-2f/3\bigr)^4.
+\end{equation}
+
+四穴球面 $\Sigma_{0,4}$ の境界monodromyのトレースを
+$r_1,r_2,r_3,r_4$ とすれば、その相対 $\mathrm{SL}_2$ character varietyの
+Fricke三次式は\eqref{eq:fricke-e6}で、係数は
+\begin{equation}\label{eq:fricke-trace-map}
+\begin{split}
+ A&=-(r_1r_2+r_3r_4),\qquad
+ B=-(r_2r_3+r_1r_4),\\
+ C&=-(r_1r_3+r_2r_4),\qquad
+ T=\sum_{i=1}^{4}r_i^2+r_1r_2r_3r_4-4.
+\end{split}
+\end{equation}
+このトレース係数写像もdominantかつgenerically finiteである。
+従って適切な稠密開集合上で有限分離拡大（または有限\'{e}tale底変更）を
+行えば、$V_{a,b,c}/(\Omega+D)$ の中心を
+$\Sigma_{0,4}$ の相対character varietyとして同定できる。
+これは中心の同型であり、元の非可換代数が
+character stackそのものになるという主張ではない。
+\end{theorem}
+\begin{proof}
+中心関係\eqref{eq:center}に $\Omega=-D$ を代入して符号を反転すると
+\[
+ XYZ-e(X^2+Y^2+Z^2)
+ -(Da+\ell_a)X-(Db+\ell_b)Y-(Dc+\ell_c)Z
+ +D^3-fD^2+DK-L=0.
+\]
+$X=-eu,Y=-ev,Z=-ew$ を代入して $-e^3$ で割れば
+\eqref{eq:fricke-e6}--\eqref{eq:fricke-e6-parameters} が出る。
+$\partial\ell_a/\partial a|_{\mathbf a=0}=2(q-1)/9=-2f/3$ で、
+$K,L$ は $(a,b,c)$ に一次項を持たない。
+従ってこの点でJacobianは対角で、対角項は
+$-(D-2f/3)/e^2$ が三回と $-3D(D-2f/3)/e^3$ が一回である。
+式\eqref{eq:fricke-jacobian} が従い、右辺は零多項式でない。
+等式\eqref{eq:fricke-trace-map} は
+Goldman \cite[\S5.2.1, equation (5.2.1.2)]{GoldmanTrace} の四穴球面
+トレース関係である。
+その四変数Jacobian行列式を $(r_1,r_2,r_3,r_4)=(1,2,3,4)$ で評価すると
+$-200$ となり、こちらもdominantかつgenerically finiteである。
+両写像の一般の整次元零次fiberは有限分離であるから、
+有限\'{e}tale開部分上のbase changeで同型の記述を得る。
+\end{proof}
+
+\subsection{Braid作用はFricke--Vieta変換を持ち上げる}
+\begin{theorem}[三乗根での量子的Vieta変換]
+\label{thm:aw-braid-vieta}
+$a,b,c$ を可変の中央パラメータとみなした $V_{a,b,c}$ の全族には
+Terwilligerの $\mathrm{PSL}_2(\mathbb Z)$ 作用
+\cite[Lemmas 2.3, 2.5, 2.8]{TerwilligerDAHA} がある。
+その生成元の一つ $\sigma$ は
+\[
+ \sigma(a,b,c)=(b,a,c),\qquad
+ \sigma(x)=y,\quad\sigma(y)=x,\quad
+ \sigma(z)=(q^2-q)xy-q^2z+qc
+\]
+で与えられ、Casimir $\Omega$ と中心切断値 $D$ を固定する。
+中心の作用は
+\begin{equation}\label{eq:vieta-center}
+ \sigma(X)=Y,\quad \sigma(Y)=X,\quad
+ \sigma(Z)=\frac{XY+c\Omega-\ell_c}{e}-Z.
+\end{equation}
+特にFricke座標と係数の上では
+\begin{equation}\label{eq:vieta-fricke}
+ (u,v,w;A,B,C,T)\longmapsto
+ (v,u,-uv-C-w;B,A,C,T)
+\end{equation}
+となる。もう一つの生成元 $\rho$ は両方の三つ組を巡回置換し、$T$ を固定する。
+これは中心上の通常のFricke--Vieta型変換の\emph{非可換持上げ}である。
+一般の楕円境界型への同じ作用の延長は示していない。
+\end{theorem}
+\begin{proof}
+Terwilligerの作用は $A_{\rm AW}\leftrightarrow B_{\rm AW}$、
+$C_{\rm AW}\mapsto C_{\rm AW}+(A_{\rm AW}B_{\rm AW}-B_{\rm AW}A_{\rm AW})/(q-q^{-1})$
+であり、三中心パラメータの前二つを交換しCasimirを固定する。
+この式を $x,y,z$ へ移し、
+$yx=q^2xy-q^2(z+c)$ を用いると、上の $\sigma(z)$ が得られる。
+元の三関係が保たれることもPBW還元で直接確認できる。
+
+$P$ を式\eqref{eq:center}の中心三次方程式とすると、
+$a,b$ と $X,Y$ の同時交換で $P$ は不変であり、
+$Z$ に関して
+\[
+ P=eZ^2+(-XY-c\Omega+\ell_c)Z+P_0(X,Y,\Omega)
+\]
+の形である。$\sigma(Z)$ も同じ二次式の根だから、整域性により
+$\sigma(Z)=Z$ または式\eqref{eq:vieta-center}の第二根となる。
+ところがPBW次数で $\sigma(z)$ の最高記号は $(q^2-q)xy$、
+$\operatorname{gr}\sigma(Z)$ の最高記号は
+$(q^2-q)^3x^3y^3=e^{-1}x^3y^3$ で次数6を持つ。
+よって次数3の $Z$ とは異なり、後者の根が選ばれる。
+さらに \texttt{verify\_daha\_braid.py} では、三つの変換後関係と
+Casimir不変性および式\eqref{eq:vieta-center}を、
+元のPBW規則で全係数検証する。
+$u=-X/e$ 等を代入すれば式\eqref{eq:vieta-fricke}となる。
+\end{proof}
+
+\begin{proposition}[Goldman型Poisson構造と対数Calabi--Yauコンパクト化]
+\label{prop:fricke-poisson-logcy}
+各係数 $(A,B,C,T)$ に対する\eqref{eq:fricke-e6}の中心には
+Jacobian Poisson括弧
+\[
+ \{u,v\}=\frac{\partial F}{\partial w}=2w+uv+C,\quad
+ \{v,w\}=2u+vw+A,\quad
+ \{w,u\}=2v+uw+B
+\]
+がある。これはGoldman括弧と符号・非零の全体定数の規約を除いて一致する
+\cite{GoldmanTrace,HikamiCluster}。
+式\eqref{eq:vieta-fricke}および巡回作用は係数も同時に変換する全族のPoisson同型である。
+
+さらに射影閉包
+\[
+ \bar C=\{t(u^2+v^2+w^2)+uvw+t^2(Au+Bv+Cw)+Tt^3=0\}\subset\PP^3
+\]
+は無限遠 $t=0$ に三角形 $D_\infty=\{uvw=0\}$ を持ち、
+$\bar C$ はこの境界に沿って常に滑らかである。
+従ってaffine中心が滑らかなら $\bar C$ は滑らかな三次曲面で、
+$D_\infty\in|-K_{\bar C}|$ は三本の直線からなる反標準cycleである。
+$(\bar C,D_\infty)$ はLooijenga pairとなり、
+\[
+ \omega=\operatorname{Res}_{F=0}\frac{du\wedge dv\wedge dw}{F}
+\]
+はそのlog symplectic形を与える。
+この形とPoisson括弧の比較は古典的な三次曲面の内容であり、
+本研究の量子代数でのBrown--Gordon Poisson orderが
+同じ正規化を持つことまでは本命題では証明しない。
+\end{proposition}
+\begin{proof}
+$\nabla F$ を使って定める三変数のJacobian括弧はJacobi恒等式を満たし
+$F$ をCasimirとするので、曲面に降りる。
+Vieta置換 $w\mapsto-uv-C-w$ は $F$ を保存しJacobian determinantが $-1$ だから
+反Poissonである。$u,v$ の交換も反Poissonなので、両者の合成
+\eqref{eq:vieta-fricke}はPoissonとなる。
+巡回置換はdeterminant $+1$ である。
+Goldman括弧との照合は四穴球面のトレース座標の既知公式を用いる。
+
+$t=0$ で射影方程式は $uvw=0$ となる。
+その辺上で $u,v$ など二座標が非零なら残りの座標による偏微分が非零であり、
+三頂点のそれぞれでは $t$ による偏微分が一つの座標の平方となり非零である。
+ゆえに無限遠全体で滑らかである。
+$K_{\bar C}=\OO_{\bar C}(-1)$ はadjunctionによるから、
+超平面切断 $D_\infty$ は反標準であり、上のresidueが
+$K_{\bar C}(D_\infty)\simeq\OO_{\bar C}$ を自明化する。
+\end{proof}
+
+\begin{remark}[先行研究との区別と次の比較]
+四穴球面skein代数と普遍Askey--Wilson代数の同定、rank-one DAHAへの写像、
+$\mathcal U_q(\mathfrak{sl}_2)$ のRacah問題、Braid作用は
+\cite{TerwilligerDAHA,AWAvatars,CookeLacabanne} で研究されている。
+また四穴球面のcluster座標・Painlev\'{e} confluenceは \cite{HikamiCluster,CMR}、
+三角境界のlog Calabi--Yau三次曲面のmirrorとskein代数は \cite{BousseauSkein} に現れる。
+本稿の新しい計算は、\emph{指定した}三乗根・PBW規約の下での
+Casimirスケール、Fricke係数写像、量子的Vietaの正規形を
+明示し同一のH3族と接続することである。
+これらの個別式の文献上の既出性は未確認であり、新規発見と断定しない。
+
+特に、$\Omega=-D$ は $\beta=\gamma=\delta=0$ の三角境界切断であり、
+一般の滑らかな楕円境界の七次元正常形全体ではない。
+$\widetilde D_4$ 型の四穴球面DAHAと、楕円 $\widetilde E_6$ 特異点からの
+Etingof--Ginzburg量子化 \cite{EG}、GDAHAの $\widetilde E_6$ 枝 \cite{EOR}
+を同一の代数的構成と混同してはならない。
+今後は有限位数でのskein--DAHA同型の基底変更の正確な適用範囲、
+Frobenius中心とPoisson order、Vieta--Braid作用の相対H3心への延長、
+七・八次元の楕円境界への変形とcluster/mirror座標を比較する。
+\end{remark}
