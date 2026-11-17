@@ -1,6 +1,6 @@
 # 成分研究ノート
 
-2026-11-17 / triangle-component-v17。方針はルートの `00_research_plan.md`、証明は `papers/nc-cubic-e6.tex`（rootからのパス）。
+2026-11-17 / triangle-component-v18。方針はルートの `00_research_plan.md`、証明は `papers/nc-cubic-e6.tex`（rootからのパス）。
 このノートは履歴ではなく、現在の入力・障害・再開のための知識を記す。
 
 ## 1. 記法と既存入力
@@ -236,7 +236,7 @@ Goldman--Toledo (arXiv:1006.3838) は無限遠が一般tritangent planeである
 
 ## 相対Poisson臨界被覆と$S_5$の現在有効な定理
 
-一般a,b,cに対するPoisson臨界schemeの全域有限平坦次数15、一次元表現schemeの次数5、臨界値多項式の恒等式Delta15=N5²M5、N5の既約性とGalois/幾何monodromy S5を主論文 `papers/sections/quantum_cubic_relative_poisson.tex` に証明した。元のPoisson括弧と全中心は `papers/sections/quantum_cubic_poisson_orders.tex` を参照する。研究再開用の具体式・H3適用限界・未解決のM5は `research/poisson_order_notes.md` §6を参照する。重要：一般a,b,cでの全H3判定、一般8次元楕円境界での中心の形成、M5のmonodromyは未解決。再現コード `computations/verify_relative_poisson_cover.py` と小証明書 `relative_poisson_cover_certificate.json` を保持。Library重複保存は禁止。
+一般a,b,cに対するPoisson臨界schemeの全域有限平坦次数15、一次元表現schemeの次数5、臨界値多項式の恒等式Delta15=N5²M5、N5の既約性とGalois/幾何monodromy S5を主論文 `papers/sections/quantum_cubic_relative_poisson.tex` に証明した。元のPoisson括弧と全中心は `papers/sections/quantum_cubic_poisson_orders.tex` を参照する。研究再開用の具体式・H3適用限界・未解決のM5は `research/poisson_order_notes.md` §6を参照する。重要：M5のモノドロミーは現在の主論文 `thm:paired-quintic-S5` で幾何学的S5と決定し、N5との同時群はS5×S5。一般a,b,cでの全H3判定と一般8次元楕円境界での中心形成は未解決。再現コード `computations/verify_relative_poisson_cover.py` と小証明書 `relative_poisson_cover_certificate.json` を保持。Library重複保存は禁止。
 
 ## 現行のCasimir Poisson葉とH3判定への接続
 
