@@ -1,6 +1,6 @@
 # Poisson量子化・中心切断・心の変更：現行研究ノート
 
-2026-11-17 / e6-connections-v16。最初に `../00_research_plan.md` を読む。
+2026-11-17 / e6-connections-v17。最初に `../00_research_plan.md` を読む。
 この主題の完全な証明は `../papers/sections/quantum_cubic_poisson_orders.tex` にあり、主論文 `../papers/nc-cubic-e6.tex` から読み込まれる。本ノートは証明を重複せず、規約・障害・次の構成に必要な知識を保持する。基本変形理論は `research_notes.md`、広い関連分野の比較は `fricke_daha_comparison.md` を参照する。これらの旧版にある「Poisson orderとの比較が未解決」という課題は、以下の限定された範囲では解決した。
 
 ## 1. 量子化からの括弧と規約
@@ -74,10 +74,27 @@ Casimir切断Omega=-Dの特異値は正確にD=0,2f/3,f,-f/3、A1個数はそれ
 
 固定包絡のgraded A4対称性と非可換Vieta sigmaは、p0,r0を固定して二つの符号四点集合それぞれにS4を生成する。sigmaは符号三つ組eta1,eta2を交換し、A4の偶符号変更と巡回置換を加えてS4となる。検証器は四点上の置換群の位数24も確かめる。この有限作用をmodular群そのものの有限性と混同しない。証明は主論文 `thm:ten-poisson-points`, `thm:casimir-four-values`, `prop:casimir-smoothing-orders`, `cor:poisson-ten-s4`。
 
-次の問題は一般a,b,cでPoisson零点の有限scheme/モノドロミーを求め、既存一次元表現五重被覆や七次元の結節因子と関連付けること。さらにsmooth総中心のPoisson零点の中心fiber代数と非H3の局所orderを比較する。全Casimir値でのM3やMorita型は未検証。
+一般a,b,cでのPoisson臨界schemeの有限平坦性と一次元表現被覆のmonodromyは次節で解決した。残る問題はコンパニオン五次の幾何、smooth総中心のPoisson零点の中心fiber代数、非H3の局所order、全Casimir値でのM3やMorita型である。
 
-## 6. 一次文献と未確認点
+## 6. 相対Poisson臨界schemeと五次因子
 
+主論文 `papers/sections/quantum_cubic_relative_poisson.tex`（`thm:relative-critical-flat`, `thm:critical-discriminant-quintics`, `thm:character-cover-S5`）に通常の証明を収めた。
+
+全係数底A=k[a,b,c]上、臨界scheme K=(P,P_X,P_Y,P_Z) は有限平坦rank15。証明の鍵は通常斉次化した四式がP4上の(3,2,2,2)完全交叉（degree24）で、無限遠に三つの座標頂点がそれぞれ長さ3の厚みとして残ること。無限遠X=1でP_X,P_Y,P_Zの(T,Z,Y) Jacobianは2eの単元、完備化ではT=Y=Z=0、P=Omega³。従って affine component はdegree24−9=15。非被約な底変更でも有限自由である。
+
+一次元表現 E=( (1-q)yz−x−a, (1-q)zx−y−b, (1-q)xy−z−c ) は有限平坦rank5。P3の三二次完全交叉（degree8）から無限遠の三単純sectionを引く。総空間はA3_{x,y,z}なので既約。原点fiber5点はétaleであり、全係数恒等式 P=P_X=P_Y=P_Z=P_Omega=0 により中心の五節点としてKに入る。原点の十支持点の(X,Y,Z) Hessianは全て非退化。五節点側ではP_Omega=0、P_OmegaOmega=±2fで、臨界環が二重；他の五点ではP_Omega=f²でétale。原点のZariski開近傍でKは節点Eの相対一次厚み（rank10）と smooth residual E'（rank5, etale）に分解する。E'の既約性とmonodromyはまだ不明。
+
+全域のCasimir臨界値多項式 Δ15(D)=det(D+Omega|K) は N5(D)² M5(D) に分解する。N5(D)=Norm_{E/A}(D+Omega|E) はmonic degree5、M5はmonic degree5。原点で N5=D(D−2f/3)^4、M5=(D−f)(D+f/3)^4。全域への延長は稠密開の分解とmonic除算による。小証明書 `computations/relative_poisson_cover_certificate.json` は原点の15次元Groebner商、15×15の乗法行列、三無限遠Jacobianを厳密チェックした（全域平坦性は通常の証明）。
+
+変数u=(1-q)x,v=(1-q)y,w=(1-q)z、底A'=(1-q)a等を使うと、E→A3は多項式写像(A',B',C')=(vw−u,wu−v,uv−w)。これは potential H=uvw−(u²+v²+w²)/2 の勾配写像。Jacobianは u²+v²+w²+2uvw−1。底A'=B'=C'=−1/4で、(u,v,w)=(1/2,1/2,1/2)が単純fold、その他の三点は(5/4,−1,−1)の順列で非分岐（Jacobian=81/16）。E既約・次数5素数・局所慣性に互換があるためmonodromy=S5。
+
+一次元表現のCasimirは正確にOmega_E=f(uvw−u²−v²−w²)/3。原点の四符号sheetの一次微分は −f/3(eta1 dA'+eta2 dB'+eta3 dC')、互いに異なるのでOmegaはgeneric五sheetを分離する。従ってN5は既約五次・Galois群S5。この式とfoldを `computations/verify_relative_poisson_cover.py` で厳密検算した。
+
+**新しい数学的問い：** companion M5の係数を効率的に求め、そのGalois群、branch、smooth五重被覆との関係を決定する。M5の既約性を現時点で主張しない。既存のH3可否は固定包絡の特定Casimir値だけに使える。任意a,b,cや一般楕円E6成分のH3開性には未解決条件がある。
+
+## 7. 一次文献と未確認点
+
+- M. Inaba, K. Iwasaki, M.-H. Saito, *Dynamics of the sixth Painlevé equation*, Séminaires & Congrès **14** (2006), 103–167, §9.1 Definition 9.1, https://emis.de/ft/47232 。Fricke判別式を境界トレースに引き戻した際の二乗因子が既知。本稿の別の係数写像による N5² M5 との具体的な同一性は未検証。PDFテキストを一次資料として確認したがweb screenshot取得はキャッシュエラーのため未成功。
 - M. Havlíček, S. Pošta, *Center of quantum algebra U'_q(so_3)*, J. Math. Phys. 52 (2011), 043521, DOI https://doi.org/10.1063/1.3579992 。三乗根の中心生成元と関係式に関する既知研究。今回公表要旨を確認したが、規約の完全照合と新規性調査は未完了。
 - S. Baseilhac, P. Roche, *Unrestricted Quantum Moduli Algebras. I. The Case of Punctured Spheres*, SIGMA 18 (2022), 025, 78 pp. DOI https://doi.org/10.3842/SIGMA.2022.025 ; arXiv:1912.02440。Theorems7.17,7.19、Corollary7.20(3)を原PDFで確認。Frobenius中心の有限被覆とGoldmanの比較を既知の一般機構として使う。本稿の全特殊化を同論文のgraph algebraと同定したわけではない。
 - K. A. Brown, I. Gordon, *Poisson orders, symplectic reflection algebras and representation theory*, J. Reine Angew. Math. 559 (2003), 193–216; arXiv:math/0201042; 著者PDF https://www.maths.ed.ac.uk/~igordon/pubs/poisord.pdf 。§§2.1–2.2（定義・量子化）およびTheorem4.2（同一symplectic core上の有限fiber代数同型）を原PDFで確認。導分持上げの内部導分の曖昧さを消したことにはしない。
@@ -86,7 +103,7 @@ Casimir切断Omega=-Dの特異値は正確にD=0,2f/3,f,-f/3、A1個数はそれ
 
 今回の独立計算は規約の確定と障害の明示を保証する。個々の式・障害定理の文献上の既出性を網羅的に確認したとはしない。
 
-## 7. 実行・組版・保存
+## 8. 実行・組版・保存
 
 関連分野の旧五検証器のPASSは `connections_validation.json` に記録されている。今回は十Poisson零点・H3四値・S4対称性の検証器を独立実行しPASS。今回の小証明書は `computations/casimir_poisson_leaves_certificate.json`。他の20検証器の今回の全再実行、全旧証明の再監査、全主論文の組版は未実施。
-新Casimir節は独立wrapperでLuaLaTeX組版（3頁）し、初期版の主要頁を画像点検した。既存DAHA/Poisson二節のwrapper組版は前回確認済み。wrapperは別論文ではなくGitには含めない。コード・小証明書・主論文・方針・本ノートはGitHub mainに保存する。push済み内容はLibraryへ保存しない。
+新しい相対Poisson節はLuaLaTeX wrapperで4頁の組版に成功し、レンダリング画像を点検した。旧DAHA/PoissonとCasimir節の組版は以前の確認結果。wrapperは別論文ではなくGitには含めない。コード・小証明書・主論文・方針・本ノートはGitHub mainに保存する。push済み内容はLibraryへ保存しない。
