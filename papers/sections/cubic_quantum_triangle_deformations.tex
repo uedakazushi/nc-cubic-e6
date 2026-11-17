@@ -1,0 +1,268 @@
+\subsection{固定三乗根包絡の四次元族は既約成分ではない}
+\label{subsec:quantum-triangle-noncomponent}
+本節では、固定包絡の四次元族を含む七次元の既約H3表示族を構成する。
+したがって、四次元族の閉包は全intrinsic H3モジュライの既約成分にはならない。
+ここでintrinsicとは構造対象を保つexact同値を意味し、導来同値だけによる商ではない。
+全H3モジュライの代数性自体は仮定せず、成分に関する結論の正確な意味は
+定理\ref{thm:triangle-not-component}で述べる。
+
+\paragraph{既知の入力と新しい主張の区別.}
+PBWポテンシャル変形は既知の構成であり、
+\cite[Proposition 7.3.1(ii)]{EGdelpezzo}を参照する。
+三乗根の中心元はAskey--Wilson代数の中心に関する既存研究
+\cite{HuangAWCentre}とも関係するが、以下で必要な式は規約を固定して元の関係から直接証明する。
+H3の相対開性には本稿の定理\ref{thm:finite-order-relative-H3-open}を使用する。
+今回の新しい帰結は、低次三係数を動かす族にその定理を適用し、全同型の計算と組み合わせて、
+固定包絡四次元族の成分性を否定することである。網羅的な新規性の確認は未了である。
+
+\paragraph{三つの包絡変形.}
+$q^2+q+1=0$ を固定する。$\boldsymbol a=(a,b,c)\in\mathbb A^3$ に対し
+\begin{equation}\label{eq:triangle-three-envelope-parameters}
+ B_{\boldsymbol a}=
+ \frac{k\langle t,x,y,z\rangle}
+ {(yz-qzy-tx-at^2,\ zx-qxz-ty-bt^2,\ xy-qyx-tz-ct^2,
+ [t,x],[t,y],[t,z])}
+\end{equation}
+と置く。$B_{\boldsymbol0}$ は前節までの固定包絡である。
+以後の係数環は $k[a,b,c]$ であり、パラメータの一般性を仮定しない。
+
+\begin{lemma}[全係数PBWとCY包絡]\label{lem:triangle-deform-PBW}
+$B_{\boldsymbol a}$ は $k[a,b,c]$ 上PBW基底
+$t^\ell x^iy^jz^k$ を持つ。
+各幾何学的fiberはnoetherian quadratic Koszul CY AS4型14641の整域である。
+\end{lemma}
+\begin{proof}
+$t=1$ とした環を $V_{\boldsymbol a}$ とする。$x<y<z$ に対する書換えは
+\[
+ yx=q^2xy-q^2z-q^2c,\quad zx=qxz+y+b,\quad
+ zy=q^2yz-q^2x-q^2a.
+\]
+唯一の三次重なり $zyx$ の二還元は恒等的に一致する。
+次数と逆転数を用いた順序に関して書換えは停止するので、Diamond lemmaにより
+$x^iy^jz^k$ は全係数で基底となる。
+従って $B_{\boldsymbol a}$ はこの濾過環のRees環であり、上記の斉次PBW基底を持つ。
+活動変数の次数による先頭環は $k[t]\otimes S$、ただし
+$S=k\langle x,y,z\rangle/(yz-qzy,zx-qxz,xy-qyx)$ である。
+これから整域性とnoetherian性が従う。二次Gr\"obner基底によりKoszulであり、
+中央正則一次元 $t$ とAS3商 $S$ の正則中央拡大定理\cite{LBS}からAS4となる。
+Hilbert級数は $(1-s)^{-4}$ なので解消型は14641である。
+
+CY性を確認する。$S$ のNakayama自己同型は恒等である。
+中央正則元の公式\cite[Lemma 1.5]{RRZ}により
+$\mu_B(t)=t$、$\mu_B\bmod t=1$ であり、
+$\mu_B(x_i)=x_i+v_it$ と書ける。
+第一関係へ代入して元の関係を引くと
+\[
+ (1-q)t(v_yz+v_zy)+((1-q)v_yv_z-v_x)t^2=0.
+\]
+PBW独立性と $q\ne1$ から $v_y=v_z=v_x=0$。
+よって $\mu_B=1$ である。
+なお非斉次化のポテンシャルは
+$xyz-qxzy-(x^2+y^2+z^2)/2-ax-by-cz$ であり、
+既知のポテンシャルPBW理論とも整合する。
+\end{proof}
+
+\begin{lemma}[五つの中心三次元の全係数持上げ]
+\label{lem:triangle-deform-center}
+$d=-(q+2)/3=(q-1)^{-1}$ と置く。
+\[
+ X_h=x^3+q^2t^2x,\quad Y_h=y^3+q^2t^2y,\quad Z_h=z^3+q^2t^2z.
+\]
+\begin{align*}
+ \Omega_{\boldsymbol a,h}
+ &=xyz+\frac{q-1}{3}t(x^2+z^2)+\frac{q+2}{3}ty^2\\
+ &\qquad+dt^2(ax+qby+cz).
+\end{align*}
+これらは全係数で中心元であり、任意の幾何学的fiberで
+\[
+ Z(B_{\boldsymbol a})_1=kt,\qquad
+ Z(B_{\boldsymbol a})_3=
+ k\Omega_{\boldsymbol a,h}\oplus kX_h\oplus kY_h\oplus kZ_h\oplus kt^3.
+\]
+この低次数中心の記述は任意の底変更と可換する。
+\end{lemma}
+\begin{proof}
+$t=1$ における四元と $x,y,z$ の十二交換子を前補題の書換えで計算するとすべて零となる。
+係数は $\mathbb Q[q,a,b,c]/(q^2+q+1)$ の多項式恒等式であり、パラメータによる除算はない。
+Rees斉次化により表示した中心元を得る。
+$S$ のPBW単項式が中心である条件は $i\equiv j\equiv k\pmod3$。
+従って活動次数1、2には非定数中心がなく、活動次数3の中心は
+$x^3,y^3,z^3,xyz$ で張られる。
+中心元の最高記号を引く帰納法により、これ以外の低次数中心はない。
+この議論で非中央の係数に掛かる $1-q$ と $1-q^2$ は底上の単元である。
+したがって非被約底を含め同じ係数比較が有効である。
+\end{proof}
+
+\paragraph{全中心の式.}
+検証可能性と今後の局所解析のため、非斉次化の全中心も記す。
+$X=X_h|_{t=1}$、$Y,Z,\Omega$ も同様とし、$f=(1-q)/3$、$e=-(2q+1)/9$ と置く。
+\[
+ \ell_a=\frac{(2q+1)a^3+2(q-1)a+3qbc}{9},
+ \qquad \ell_b,\ell_c\text{ は巡回置換},
+\]
+\begin{align*}
+ K&=\frac{(q+1)(a^2+b^2+c^2)+(q+2)abc}{3},\\
+ L&=\frac{(1-q)(a^2b^2+a^2c^2+b^2c^2)+(q+2)(a^2+b^2+c^2)}9.
+\end{align*}
+このとき
+\begin{equation}\label{eq:triangle-deform-full-center}
+\begin{split}
+ Z(V_{\boldsymbol a})=k[X,Y,Z,\Omega]/(F_{\boldsymbol a}),\qquad
+ F_{\boldsymbol a}={}&\Omega^3+f\Omega^2-XYZ+e(X^2+Y^2+Z^2)\\
+ &-(aX+bY+cZ)\Omega+\ell_aX+\ell_bY+\ell_cZ+K\Omega+L.
+\end{split}
+\end{equation}
+式の消滅はPBW還元で恒等的に確かめられる。
+先頭中心の四生成元がすべて持ち上がるので中心を生成し、
+$\Omega$ に関するmonic三次式で割った剰余の最高記号
+$X^iY^jZ^k\Omega^r$、$0\le r<3$ は相異なるPBW単項式である。
+よって他の関係はない。さらに $V_{\boldsymbol a}$ は $k[X,Y,Z]$ 上階数27の自由加群であり、
+全中心上のgeneric階数は9、PI次数は3である。
+
+\paragraph{切断と滑らかな楕円境界.}
+$u=[\alpha:\beta:\gamma:\delta:\varepsilon]\in\mathbb P^4$ に対し、
+\[
+ G_{\boldsymbol a,u}=\alpha\Omega_{\boldsymbol a,h}
+       +\beta X_h+\gamma Y_h+\delta Z_h+\varepsilon t^3,
+ \qquad R_{\boldsymbol a,u}=B_{\boldsymbol a}/(G_{\boldsymbol a,u})
+\]
+と置く。$\Delta=\alpha^3+27\beta\gamma\delta$、
+\[
+ T_{\mathrm{ell}}=\{\beta\gamma\delta\Delta\ne0\}\subset\mathbb P^4
+\]
+とする。境界環は $\boldsymbol a$ に依存せず
+\[
+ R_{\boldsymbol a,u}/(t)=S/(\alpha xyz+\beta x^3+\gamma y^3+\delta z^3)
+\]
+である。これは平面三次
+\[
+ E_u:\quad\beta x^3+\gamma y^3+\delta z^3+\alpha q^2xyz=0
+\]
+の、$\phi=\operatorname{diag}(1,q,q^2)$ によるZhang twistである。
+$T_{\mathrm{ell}}$ 上では $E_u$ は滑らかで、$\phi$ の固定点である三座標頂点を避ける。
+従って $\phi|_{E_u}$ は非零の正確な位数3の平行移動である。
+
+\begin{proposition}[七次元の既約H3表示族]
+\label{prop:triangle-seven-H3}
+$\mathcal U\subset\mathbb P^4$ を定理\ref{thm:quantum-triangle-full-H3}の固定包絡H3開集合とし、
+$\mathcal U_{\mathrm{ell}}=\mathcal U\cap T_{\mathrm{ell}}$ と置く。
+ある非空なZariski開集合
+\[
+ \mathcal V\subset\mathbb A^3_{a,b,c}\times T_{\mathrm{ell}}
+\]
+が存在し、$R_{\boldsymbol a,u}$ がH3であることと $(\boldsymbol a,u)\in\mathcal V$ は同値である。
+また
+\[
+ \mathcal V\cap(\{0\}\times T_{\mathrm{ell}})=\{0\}\times\mathcal U_{\mathrm{ell}}.
+\]
+特に $\mathcal V$ は滑らかな七次元既約schemeである。
+\end{proposition}
+\begin{proof}
+中央元の最高記号 $g_u=\alpha xyz+\beta x^3+\gamma y^3+\delta z^3$ は $S$ 上正則である。
+従って $G$ によるfiltered商の先頭環は正確に $S/(g_u)$ であり、
+$R_{\boldsymbol a,u}$ はそのRees環となる。境界は整域なので商自体も整域である。
+次数別の乗法写像 $B_{n-3}\to B_n$ は全fiberで単射であり、
+その余核は局所自由である。従ってこの族は全次数で平坦で、
+Hilbert級数は $(1-s^3)/(1-s)^4$ である。
+中央商によりAS Gorenstein indexは1、Nakayama自己同型は恒等である。
+
+底は被約有限型、PBW平坦性があり、中央一次境界は正確な位数3の滑らかな楕円族である。
+これは定理\ref{thm:finite-order-relative-H3-open}の仮定をすべて満たす。
+同定理によってH3条件はZariski開であり、任意底変更と表示族のfpqc降下に適合する。
+零切片での等式は $B_{\boldsymbol0}=B$ と固定包絡の全切断定理による。
+$\mathcal U$ は非空開、$T_{\mathrm{ell}}$ も稠密開なので、$\mathcal U_{\mathrm{ell}}\ne\varnothing$。
+従って $\mathcal V$ は非空であり、既約な滑らか七次元schemeの開集合となる。
+この証明は中央三次元の存在だけからH3を推論するものではない。
+\end{proof}
+
+\begin{proposition}[全包絡矢と三係数の非自明性]
+\label{prop:triangle-deform-arrows}
+二つの $B_{\boldsymbol a}$ のgraded同型は、共通次数スカラーを除けば、
+$x,y,z$ の巡回置換と積が1の符号変更だけである。
+これらは $\boldsymbol a$ に同じ符号付き巡回作用を与える。
+従って $B_{\boldsymbol a}\simeq B_{\boldsymbol0}$ ならば $\boldsymbol a=0$ である。
+中心三次直線も含む全幾何学的intrinsic pointed矢の群oidは
+\[
+ \mathcal N=[\mathcal V/\mathfrak A_4]
+\]
+で記述される。graded表示族の同型functorにも追加の無限小矢はない。
+$\mathcal N$ は七次元の滑らかな分離既約DM stackであり、一般慣性は自明である。
+\end{proposition}
+\begin{proof}
+中心一次空間が常に $kt$ なので、同型は $t\mapsto\lambda t$ を満たす。
+$t=0$ で得られる $S$ のpoint graphは $\mathbb P^2$ 上の $\phi$ のgraphである。
+従って誘導される $M\in\operatorname{GL}_3$ は
+$M\phi M^{-1}=r\phi$ を満たす。三固有値が相異なるので、
+$M$ は対角行列と巡回置換の積に限られる。
+巡回置換を除けば $x_i\mapsto u_ix_i+v_it$ と書ける。
+関係の $tx_j$、$j\ne i$ の係数から $(1-q)u_jv_k=0$ となり、全 $v_i=0$。
+残る一次項の係数は
+\[
+ u_yu_z=\lambda u_x,\quad u_zu_x=\lambda u_y,\quad
+ u_xu_y=\lambda u_z.
+\]
+従って $u_i=\lambda\epsilon_i$、$\epsilon_i^2=1$、
+$\epsilon_x\epsilon_y\epsilon_z=1$。
+定数項の比較は二つの $\boldsymbol a$ をこの符号付き巡回作用で結ぶ。
+$\Omega_{\boldsymbol a,h}$ は共変的に $\lambda^3$ 倍され、
+$X_h,Y_h,Z_h$ は $\lambda^3$ 倍と同じ符号付き巡回作用を受ける。
+したがって切断係数 $(\beta,\gamma,\delta)$ にも同じ三次元表現が働き、
+$\alpha,\varepsilon$ は不変である。
+
+以上の係数比較は任意底上でも有効である。
+固有値差と $1-q$ は単元であり、符号群と巡回群は有限\'{e}taleだから、
+非被約底上の追加のgraded同型はない。
+H3では内在的反標準環が復元され、その二次包絡は $Q(R)=B_{\boldsymbol a}$ である。
+従って幾何学的なintrinsic pointed矢は上のgraded矢を越えて対象を同一視しない。
+次数スカラーをrigidifyした表示stackは示した有限群商である。
+原点切片の一般慣性が自明なので、$\mathcal N$ の一般慣性も自明となる。
+全intrinsic圏族の降下をこの計算だけで無条件に証明したという意味ではない。
+\end{proof}
+
+\begin{theorem}[四次元固定包絡族の非成分性]
+\label{thm:triangle-not-component}
+$\mathcal M_B=[\mathcal U/\mathfrak A_4]$ の稠密開部分
+$\mathcal M_B^{\rm ell}=[\mathcal U_{\mathrm{ell}}/\mathfrak A_4]$ は、
+前命題の七次元H3表示stack $\mathcal N$ の余次元3の正則閉部分stackである。
+その法束は $\mathfrak A_4$ の符号付き巡回三次元表現に対応する。
+
+特に、これらの代数的族を受け入れる局所有限型のintrinsic pointed H3モジュライstack
+$\mathfrak M$ が与えられれば、$\mathcal M_B$ の像の閉包は
+$\mathfrak M$ の既約成分ではない。
+全H3 stackの構成が未完の段階でも、固定包絡四次元族が局所的に極大な族でないことは、
+この明示的な七次元族だけで確定する。
+\end{theorem}
+\begin{proof}
+$\mathcal V$ 内の $a=b=c=0$ は、定義から正確に
+$\{0\}\times\mathcal U_{\mathrm{ell}}$ である。
+三座標は正則列をなし、群作用に不変なので、有限群商の後も余次元3の正則閉埋込みとなる。
+法束の記述もこの三座標の作用から従う。
+
+$\mathcal V$ は既約で、$\boldsymbol a\ne0$ の点はすべて固定包絡族の外にある。
+さらに前命題により異なる幾何学的同型類の同一視は有限群だけである。
+したがって $\mathfrak M$ への像は七次元で、その閉包は既約である。
+四次元族の像の閉包は、稠密開部分の像の閉包と等しく、この七次元既約閉包に真に含まれる。
+よって既約成分ではない。
+$\mathfrak M$ の代数性をこの議論から導くことも、
+七次元族自体が既約成分だと結論することもしていない。
+\end{proof}
+
+\paragraph{一次変形の独立な検算.}
+$a=b=c=0$ において $t\mapsto(1+\epsilon r)t$、
+$X\mapsto X+\epsilon(MX+vt)$、$\boldsymbol a\mapsto\epsilon\dot{\boldsymbol a}$ とする。
+二次関係をPBW商で一次化した24行16列行列の、$\mathbb Q(q)$ 上の階数は15である。
+核は共通次数スカラー $M=rI,v=0,\dot{\boldsymbol a}=0$ の一本だけである。
+従って追加三方向は座標変更で消えない。
+これは実際に三パラメータ族へ積分されている方向の確認であり、
+全Hochschild変形の次元を7と主張する計算ではない。
+
+\paragraph{検証と残る課題.}
+\path{computations/verify_quantum_triangle_deformations.py} は
+PBW重なり、十二中心交換子、全中心の次数9恒等式、十二群作用、
+一次変形の階数15をすべて標数0の厳密演算で検証する。
+H3開性と内在的再構成は上に明示した幾何学的入力であり、計算による証明と混同しない。
+残る問題は、七次元族からさらに外へ出る変形、
+位数3を離れる楕円translation変形のH3性、全intrinsic局所変形のversal性、
+およびそれらを含む既約成分の正確な次元である。
+指定 $B_q$ 一パラメータ正常形内での四次元垂直成分は、
+この三つの包絡係数を固定したincidenceの成分にすぎない。

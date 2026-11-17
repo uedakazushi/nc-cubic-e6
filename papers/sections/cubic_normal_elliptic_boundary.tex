@@ -1,0 +1,251 @@
+\subsection{正規一次楕円境界の共役作用は小有限位数に限る}
+\label{subsec:normal-elliptic-boundary}
+\begin{theorem}[正規楕円境界の有限共役作用]
+\label{thm:normal-elliptic-finite-conjugation}
+$B$ をnoetherian quadratic Koszul AS4型14641、$G$ を正則正規三次とし、
+$R=B/(G)$、$\mu_R=1$ と仮定する。
+$R$ に正則正規な一次元 $t$ があり、
+$H=R/(t)=B(E,\mathcal L,\rho)$ が滑らかな楕円曲線上の次数3 THCRであるとする。
+$ta=\theta(a)t$ で定義されるgraded自己同型を $\theta$ とする。
+このとき $\theta$ は有限位数 $m\in\{1,2,3,4,6\}$ を持ち、
+$t^m$ は中心元である。
+さらに $t$ が中心であることは $\rho$ がtranslationであることと同値である。
+従ってこの正規境界部分のうち、境界translationが非translationである場合だけが
+中央楕円境界の既出認識から外れる。
+\end{theorem}
+\begin{proof}
+$R$ はAS Gorensteinで $\mu_R=1$ である。
+正規商公式\cite[Lemma 1.5]{RRZ}により $\mu_H=\overline\theta$ となる。
+楕円THCRのbalanced dualizing bimoduleの計算\cite[Example 7.16]{YeTHCR}から、
+$\mu_H$ は次数スカラー $\xi_\lambda$ であり、
+$\lambda$ は $\rho$ の正則微分形式上の作用の逆数である。
+原点を選び $\rho=t_p\alpha$、$\alpha\in\operatorname{Aut}(E,0)$ と書く。
+標数0で $\alpha$ の位数は $1,2,3,4,6$ のいずれかで、その微分表現は忠実である。
+従って $\lambda$ の位数もこの集合に属し、$\lambda=1$ は正確にtranslationの場合である。
+
+$\theta(t)=t$ であり、$H_1$ の基底の持上げ $x_i$ について
+$\theta(x_i)=\lambda x_i+v_it$ と書ける。
+$\lambda\ne1$ なら $x_i$ を $x_i+v_i(\lambda-1)^{-1}t$ に取り直すと
+$\theta$ は $\operatorname{diag}(1,\lambda,\lambda,\lambda)$ となる。
+従ってその位数は $\lambda$ の位数に等しい。
+
+残る $\lambda=1$ では $\rho$ はtranslationである。
+$S=Q(H)$ をHesse表示
+$r_i=a x_jx_k+b x_kx_j+c x_i^2$ に取る。
+$B=Q(R)$ の関係は $r_i+t\ell_i+\beta_i t^2$ と $t$ の正規関係からなる。
+$\theta$ は $R$ の次数2関係を保存するから $B$ へも持ち上がる。
+また $B/(t)=S$ と両者のHilbert級数から、$t$ は $B$ 上でも正則である。
+この場合 $tx_i\equiv x_it\pmod{t^2}$ である。
+$\theta$ を二次関係に作用させ、元との差を $t^2$ で法として取ると、
+$t$ の正則性から
+\[
+ 2cv_ix_i+(a+b)(v_jx_k+v_kx_j)=0\quad\text{in }H_1
+\]
+を得る。$c\ne0$ または $a+b\ne0$ なら、既出の二つの非零minorにより全 $v_i=0$ となる。
+従って非可換 $S$ では $\theta=1$ である。
+
+例外 $c=0,a+b=0$ は $S$ が可換多項式環で $\rho=1$ の場合である。
+$B\to R$ の三次核の生成元 $G$ を取ると、$G\bmod t=g$ は滑らかな平面三次を定める。
+$\theta$ はこの核直線を保存し、$t=0$ で恒等だから $\theta(G)=G$ である。
+$t^2$ を法としたこの等式は
+$\sum_i v_i\partial g/\partial x_i=0$ を与える。
+非零 $v$ があれば線型座標変換後に $g$ は一変数に依存しなくなり、
+その平面三次は頂点で特異となる。滑らかさに反するので再び $v=0$ である。
+従って $\lambda=1$ でも $\theta=1$ となる。
+最後に $t^ma=\theta^m(a)t^m=at^m$ が中心性を示す。
+\end{proof}
+
+この定理は正規一次境界の存在を証明するものではない。
+また $t^m$ が中心でもその次数は $m$ であり、
+$R/(t^m)$ は非被約境界となる。
+中央一次境界のRees認識や固定translation位数の中心定理を、
+この非被約境界にそのまま適用してはいない。
+非translation部分のaffine局所化と群oid、および正規一次境界を持たない対象の被覆は残る。
+
+\begin{theorem}[正規楕円境界を持つ全正規三次商のaffine認識]
+\label{thm:normal-elliptic-affine-recognition}
+前定理の仮定の下で $U=R[t^{-1}]_0$ と置く。
+$(\operatorname{qgr}R,\pi R)$ が強いH3であることは、$U$ が有限大域次元を持つことと同値である。
+その場合 $\operatorname{gldim}U\le2$ である。
+$\rho$ をtranslationと仮定せず、包絡のCY性や $G$ の中心性も仮定しない。
+\end{theorem}
+\begin{proof}
+正規正則 $t$ と整域 $H=R/(t)$ による $t$-進最高記号を取れば $R$ は整域である。
+$T=R[t^{-1}]$ は強次数付きで、$t$ が次数1の単元だから
+$T=U[t,t^{-1};\psi]$ と書ける。
+$U$ の有限大域次元から $T$ の有限大域次元が従う。
+具体的にはskew Laurent拡大の誘導加群による二項分解を使えば
+$\operatorname{gldim}T\le\operatorname{gldim}U+1$ である。
+
+$R$ の高次syzygy $N$ は $\Ext_R^{>0}(N,R)=0$ を満たす。
+Ore局所化後にもこの消滅が保たれ、$T$ の有限大域次元により $N[t^{-1}]$ は射影的である。
+強次数付き同値によりgraded射影的でもある。
+前定理から $s=t^m$ は中心正則である。
+有限個の分母は $s$ の冪で払えるので、ある $a$ に対する
+$s^a\operatorname{id}_N:N(-ma)\to N$ は有限graded free加群を経由する。
+ここでは $t$ 自体の乗法を右加群射と誤認していない。
+
+$H$ は $R$ 上二項のfree分解を持つ。
+$\mathrm D^b(\operatorname{coh}E)$ は $H(n)$ の像で生成されるから、
+全てのcoherent $t$-torsion加群の像は $\operatorname{thick}\{\pi R(n)\}$ に属する。
+$s$-torsion加群も有限な $t$-冪filtrationを持つので同じである。
+従って中央境界認識の証明と同様、特異商圏で
+$s^a\operatorname{id}_N$ は同型かつ零となる。
+全coherent対象がperfectであり、balanced dualityから
+Serreは $(-1)[2]$、tailsの大域次元は2となる。
+飽和、exceptionality、AZ amplenessはAS Gorenstein parameter1から従う。
+整域の非零斉次元 $a$ に対し $R/aR$ のHilbert成長は次数1以下なので、
+$R$ はGK次元3のcriticalかつuniformな加群である。
+これにより $\pi R$ のGabriel--Krull rank-one torsion-free条件を得る。
+三次商は二次包絡を変えず、全H3条件を満たす。
+
+逆にH3なら $\operatorname{qgr}R$ のExtは次数2より上で消える。
+有限表示の $U$ 加群とYoneda拡大は、有限なgraded $R$ 格子へ分母払いで持ち上がる。
+このとき分母には中心 $s$ の冪を使える。
+Ore局所化と強次数付き同値を通じたExtの直極限により、
+$\operatorname{Ext}_U^{>2}=0$ となり上界を得る。
+\end{proof}
+
+この認識の直接の局所化はskew Laurent環であり、$R$ 自体を通常のRees環とは同一視しない。
+後述の中央化Zhang twistによって $U$ の通常の濾過を構成できるが、
+境界は非translationなので有限translation用のRains中心計算・McKay判定の移植は別問題として残る。
+
+\begin{theorem}[非中央正規楕円境界は位数2または3に限る]
+\label{thm:normal-elliptic-two-three}
+前二定理の仮定の下で切断がH3となり、$t$ が中心でないとする。
+このとき共役位数は $m=2$ または $3$ に限る。
+$\theta(x_i)=\lambda x_i$ に対角化した座標では、$S=Q(H)$ の三二次関係を $r_i$ として、
+次の形に限られる。
+\begin{enumerate}
+\item $m=2$：$tx_i=-x_it$、他の関係は $r_i+\beta_it^2$。
+三次は $G=g+t^2\ell$（$g$ はactive三次、$\ell$ はactive一次）である。
+\item $m=3$：$B=S[t;\xi_\lambda]$、$G=g+Dt^3$、$D\ne0$。
+この場合 $G$ は中心で $B$ はCYとなる。
+\end{enumerate}
+位数2の表示では残る正規incidenceとaffine有限大域次元をさらに課す必要があり、
+この形だけからH3とは結論しない。
+\end{theorem}
+\begin{proof}
+まず $t$ は $B$ 上でも正則である。
+実際 $tb=0$ なら $R$ での正則性から $b=Gc$ であり、
+$tG=\theta(G)t$ と $G$ の正則性から $tc=0$ を得る。
+次数を3ずつ下げる帰納法により $b=0$ である。右側も同様である。
+従って $B/(t)=S$ と $t$-進最高記号は正確に比較できる。
+
+$\theta$ は $B$ 上の自己同型で、$r_i$ の最高記号の固有値は $\lambda^2$ である。
+二次関係の残る項 $t\ell_i,t^2$ の固有値はそれぞれ $\lambda,1$ なので、
+$m\ne2$ なら両者は消え、$m=2$ なら $\beta_i t^2$ のみ残る。
+また $\theta(G)=\lambda^3G$ である。
+三次の低次項 $tQ,t^2\ell,t^3$ の固有値は $\lambda^2,\lambda,1$ だから、
+$m=2$ では $t^2\ell$ のみ、$m=3$ では $Dt^3$ のみ残り、
+$m=4,6$ では低次項は全て消える。
+
+$m=4,6$、または $m=3,D=0$ なら $R=H[t;\xi_\lambda]$ である。
+この場合 $U$ は $H$ の積に次数 $a,b$ ごとの係数 $\lambda^{-ab}$ を付けた環であり、
+次数 $n$ の元を $\lambda^{n(n-1)/2}$ 倍することで $U\simeq H$ となる。
+$H$ のHilbert級数の逆数は $(1-s)^3/(1-s^3)$ で多項式ではないので、
+自明加群の有限graded free分解は存在せず、$\operatorname{gldim}H=\infty$ である。
+affine認識に反するためこれらは除外される。
+
+$m=3,D\ne0$ では $t^3$ が中心で、包絡はactive次数と $t$ 次数の二重次数を持つ。
+$Gv=\sigma_G(v)G$ を $t$ 次数で比較する。
+$\sigma_G(t)=t$ であり、$\sigma_G(x_i)$ の $t$ 成分は $t^4$ 係数から零となる。
+次に $t^3$ 係数を比較すると $\sigma_G(x_i)=x_i$ である。
+従って $G$ は中心で、$\mu_R=1$ とNakayama商公式から
+$\mu_B$ は $R$ 上恒等である。
+$B_1\to R_1$ は同型なので $\mu_B=1$ となる。
+\end{proof}
+
+\begin{example}[位数3の非中央楕円境界は実在する]
+\label{ex:normal-elliptic-order3}
+$\omega^2+\omega+1=0$ とし、量子多項式包絡を
+\[
+ tx=\omega xt,\quad ty=\omega yt,\quad tz=\omega zt,\quad
+ xy=yx,\quad xz=\omega zx,\quad yz=\omega zy
+\]
+で定める。$G=x^3+y^3+z^3+Dt^3$、$D\ne0$ の商はH3である。
+包絡はCY、$G$ は中心だが、境界 $t$ は中心でない。
+境界はFermat曲線上の $(x:y:z)\mapsto(x:y:\omega z)$ で、
+三つの固定点を持つ位数3自己同型である。
+
+実際、$S=B/(t)$ は可換多項式環の
+$\operatorname{diag}(1,1,\omega)$ によるZhang twistであり、
+$H=S/(x^3+y^3+z^3)$ はFermat楕円THCRである。
+$H$ は整域で、$t$ は $R$ 上正則なので $R$ も整域となる。
+全ての交換係数は三乗根で、四つの三乗は
+$(\mathbb Z/3)^4$ 次数0である。
+従って $R$ は滑らかな可換Fermat三次曲面の有限群cocycle twistである。
+定理\ref{thm:noncy-sign-cubic}と同じ同変化・Reynolds作用素の議論でtailsの大域次元は2となる。
+Nakayamaの四行積は全て1なので、整域性、parameter1とこの滑らかさから全H3条件を得る。
+この例は既存のskew包絡分類に含まれ、新しい全包絡成分を主張するものではない。
+\end{example}
+
+\begin{proposition}[中央化twistと位数2の具体的affine表示]
+\label{prop:normal-boundary-centralizing-twist}
+上記の正規境界について $R'=R^{\theta^{-1}}$ を右Zhang twistとする。
+このとき $t$ は $R'$ で中心となり、
+\[
+ R'[t^{-1}]_0\simeq U,\qquad
+ \operatorname{gr}U\simeq H
+\]
+となる通常のRees濾過を与える。
+ただし $\mu_{R'}=\theta$ であり、非中央の場合 $R'$ をintrinsic反標準環と取り違えてはいけない。
+位数2の構造表示では、$y_i=x_it^{-1}$ を生成元として
+\[
+ U=k\langle y_1,y_2,y_3\rangle/
+ (r_i(y)-\beta_i,\ g(y)-\ell(y))
+\]
+となる。
+\end{proposition}
+\begin{proof}
+斉次元 $a$ に対し $t*a=t\theta^{-1}(a)=at=a*t$ である。
+Ore局所化後の次数0積はZhang twistで変わらないので、affine環は $U$ のままである。
+境界は $H^{\xi_{\lambda^{-1}}}$ となるが、次数 $n$ を
+$\lambda^{n(n-1)/2}$ 倍することで $H$ と同型になる。
+従って通常の中央Rees環から主張する濾過を得る。
+正規元 $t$ に対するhomological determinant公式では
+$\operatorname{hdet}_R\theta=\operatorname{hdet}_H\xi_\lambda=1$ である。
+最後の等号は $H$ のAS indexが0であることによる。
+右twistのNakayama公式と $R$ のindex1から $\mu_{R'}=\theta$ となる。
+位数2では $y_iy_j=-x_ix_jt^{-2}$、
+$y_iy_jy_k=-x_ix_jx_kt^{-3}$ を代入すれば表示した関係を得る。
+逆写像は局所化の次数0部分を生成するので、この表示は全関係を与える。
+\end{proof}
+
+\begin{theorem}[位数3の正規非中央楕円境界の全admissibility]
+\label{thm:normal-order3-admissibility}
+非中央共役位数3の構造表示
+$B=S[t;\xi_\lambda]$、$G=g+Dt^3$ を考える。
+$S$ はnoetherian quadratic Koszul AS3で、$g$ は正則中心三次、
+$S/(g)$ は滑らかな次数3楕円THCRとする。
+さらに $\mu_S=\xi_\lambda$、$\lambda$ は原始三乗根とする。
+このとき $B$ はCY AS4で、切断が強いH3である必要十分条件は $D\ne0$ である。
+これは前定理の位数3部分を全て扱う。
+\end{theorem}
+\begin{proof}
+Ore拡大のNakayama公式で
+$\mu_B|_S=\mu_S\xi_{\lambda^{-1}}=1$、
+$\mu_B(t)=\operatorname{hdet}_S\xi_\lambda\,t=\lambda^3t=t$ となる。
+$G$ は正則中心で、$R$ は $\mu_R=1$ を持つ。
+前命題のaffine生成元では $\lambda^3=1$ により
+$U\simeq S/(g+D)$ である。
+$D=0$ は既に楕円錐として除外した。
+
+$D\ne0$ の有限大域次元を証明する。
+次数スカラーで $g=1$ の場合に帰着できる。
+$A=S[g^{-1}]$ はAS3の中心局所化なので有限大域次元である。
+中心変数 $z$ を $z^3=g$ により添加した環
+$\widetilde A=A[z]/(z^3-g)$ は、$3z^2$ が単元だから
+中心上有限\'{e}tale、従ってseparableな有限自由拡大である。
+$\widetilde A$ 加群は $A$ からの誘導加群の直和因子であるため、
+$\operatorname{gldim}\widetilde A\le\operatorname{gldim}A$ となる。
+一方 $a_n\mapsto\overline a_n z^n$ と逆方向の斉次代入により
+\[
+ \widetilde A\simeq(S/(g-1))[z,z^{-1}]
+\]
+である。従って $S/(g-1)$ も有限大域次元となる。
+正規楕円境界のaffine認識を適用してH3を得る。
+逆に、前構造定理で抽出した位数3の $S$ は、split Ore環 $B$ の有限大域次元から
+有限大域次元を持ち、正規線型商のAS Gorenstein性とHilbert級数からAS3となる。
+$\mu_B=1$ のOre公式により $\mu_S=\xi_\lambda$ であり、ここでの仮定を満たす。
+\end{proof}

@@ -1,0 +1,143 @@
+\subsection{固定有限位数の被約表示族：相対中心とH3開性}
+\label{subsec:finite-order-relative}
+以下は、指定表示族の内部での相対結果である。
+有限位数条件を外れる無限小変形や、全intrinsic family stackを扱うものではない。
+
+\begin{theorem}[被約底上の相対中心と任意底変更]
+\label{thm:finite-order-relative-center}
+$T$ を標数0の体上の被約有限型schemeとする。
+前定理の包絡・中心切断・中央一次境界の表示族を $T$ 上で与え、
+各次数のPBW平坦性と、滑らかな楕円境界族上の平行移動 $\rho$ が全幾何学的fiberで
+正確に同じ有限位数 $N$ を持つことを仮定する。
+$\mathcal U$ をアフィン切断族とする。
+このとき濾過各次数の中心は局所自由で、その形成は任意の $T'\to T$ と可換する。
+$T'$ は非被約でもよい。
+底を局所的に取り直すと、相対中心は三つの次数 $N$ の元と一本の三次関係で表示され、
+二つの中心座標上で $\mathcal U$ は階数 $3N^2$ の自由加群となる。
+\end{theorem}
+\begin{proof}
+$F_n\mathcal U$ と $F_{n+1}\mathcal U$ は有限局所自由である。
+三つの活動生成元との交換子写像を $M_n$ とすると、濾過中心は $\ker M_n$ である。
+前定理とRainsの定理により、その全幾何学的fiberの次元は一定で、
+商楕円曲線の次数3切断環の次数 $\lfloor n/N\rfloor$ 以下の次元に等しい。
+従って $M_n$ の階数は全点で一定である。
+その階数より大きい全minorは全幾何学的点で零となり、底が被約なので恒等的に零である。
+階数を実現するminorを可逆にして行基本変形すれば $M_n$ は恒等ブロックと零ブロックになる。
+よって核は局所自由で、その形成は非被約底を含む任意底変更と可換する。
+ここで被約性を省けばminorが非零nilpotentとなる可能性があり、同じ証明は使えない。
+例えば $A=k[\epsilon]/(\epsilon^2)$ 上の写像 $[\epsilon]:A\to A$ は
+全幾何学的fiberで階数0だが、核 $(\epsilon)$ の底変更からfiberの核 $k$ への写像は零である。
+
+最高記号写像は各fiberで中心切断環へ全射なので、
+$F_NZ(\mathcal U)/\mathcal O_T$ は次数3線型束の切断の階数3束となる。
+局所的に三つの基底を持ち上げ、最高記号を引く帰納法で中心全体を生成する。
+同じ帰納法で唯一の三次関係を得る。
+適切な座標を選べば一つの純三乗係数は単元で、monic三次表示を取れる。
+楕円族の有限\'{e}tale商と正次数線型束のcohomology-and-base-changeにより、
+先頭中心も任意底変更と可換する。
+二つの中心元で割った先頭環のHilbert分布は前定理と同じである。
+各fiberの正則列と次数別平坦性から、その商は底上局所自由となる。
+次数別基底を持ち上げれば、二変数中心多項式環上の階数 $3N^2$ の自由性を得る。
+全ての結論は局所的に構成されるが、中心自体は交換子核という標準的定義で貼り合う。
+\end{proof}
+
+\begin{lemma}[射影中心の無限遠での一様な正則局所模型]
+\label{lem:finite-order-boundary-order}
+前定理の相対中心を同次化し、$t$ の重みを1、三中心元の重みを $N$ とする。
+$T_0=t^N$ と書けば、重み付き中心の粗射影空間は
+$\mathbb P^3_T$ 内の相対三次曲面 $X$ となり、$T_0=0$ は滑らかな楕円境界である。
+$\mathcal R^{(N)}$ のsheafificationを $\mathcal A$ とする。
+その境界点での幾何学的完備局所模型は
+\[
+ k[[s,w]]\rtimes\mu_N,\qquad
+ \zeta(s,w)=(s,\zeta w)
+\]
+とMorita同値で、その幾何学的fiberの対角の局所射影次元は2である。
+\end{lemma}
+\begin{proof}
+相対中心の同次化は $\mathcal O_T[t,Z_1,Z_2,Z_3]$ 内の重み $3N$ の一本の関係であり、
+各項の $t$ 指数は $N$ の倍数となる。従って $T_0,Z_1,Z_2,Z_3$ の通常の三次式となる。
+$N$ 次Veroneseの中心もこの環である。
+実際、$t$ を逆にすれば $\mathcal R[t^{-1}]=\mathcal U[t,t^{-1}]$ であり、
+Veroneseの中心元はそこで全体と可換する。$t$ の正則性で元の環へ戻せる。
+
+重み付き中心coneの頂点を除き、$t=0$ の近くを見る。
+その中心は底上滑らかで、各fiberで $\mathcal R$ は極大Cohen--Macaulayである。
+$t=0$ のfiberは、楕円THCRの中心puncture上の $N\times N$ Azumaya代数である。
+従って各fiberの $\mathcal R$ はこの近くで中心上自由となり、
+底上平坦性と有限加群の局所平坦性判定から相対的にも局所自由となる。
+左右乗法のAzumaya写像は境界で同型なので、その近傍で同型である。
+
+重み付き射影stackはこの境界で $N$ 乗根stackであり、慣性は $\mu_N$。
+その行列環fiber上の慣性作用は、全 $N$ 指標が各一度現れる表現による共役である。
+実際、不変部分は $H^{(N)}$ から来る有限\'{e}tale可換代数 $k^N$ である。
+行列次数 $N$ の表現多重度を $r_i$ とすれば、不変部分は $\prod_i\operatorname{Mat}_{r_i}(k)$ なので、
+可換性と次元から全 $r_i=1$ を得る。
+従って粗空間上のorderは、正則二次元環上で全慣性指標を含むequivariant生成元のEnd代数となり、
+表示したskew-group代数とMorita同値である。
+群の位数は可逆なので、二変数Koszul分解から幾何学的fiberの対角の長さ2の射影分解を得る。
+ここでは $\mu_N$ は擬反射を持つ。分岐因子上で
+$\operatorname{End}_{k[[s,w^N]]}(k[[s,w]])$ とskew-group代数を同一視してはいない。
+\end{proof}
+
+\begin{theorem}[この有限位数表示族におけるH3の相対開性]
+\label{thm:finite-order-relative-H3-open}
+前二結果の仮定の下で、H3を与える幾何学的fiberの集合は $T$ のZariski開集合 $T^{\mathrm{H3}}$ である。
+この開集合は任意底変更とfpqc降下に適合する。
+その上のアフィン族の対角は相対長さ2以下の有限生成射影分解を持ち、
+この分解の完全性・射影性は任意底変更で保たれる。
+主張はこの表示族のfiber条件についてであり、一般のintrinsic族がこの表示を持つことや
+その圏論的降下を無条件に結論してはいない。
+\end{theorem}
+\begin{proof}
+底をaffineに制限してよい。$X\to T$ は射影的で、$\mathcal A$ は $X$ 上有限の代数であり底上平坦である。
+$Y=X\times_T X$、$\mathcal B=\mathcal A\boxtimes_T\mathcal A^{\mathrm{op}}$、
+$\mathcal M=\Delta_*\mathcal A$ と置く。$\mathcal B,\mathcal M$ は底上平坦である。
+相対ample line束の十分な負twistを使い、有限局所自由 $\mathcal B$ 加群から
+対角の分解の最初の二段を取る：
+\[
+ 0\longrightarrow\mathcal N\longrightarrow\mathcal F_1
+ \longrightarrow\mathcal F_0\longrightarrow\mathcal M\longrightarrow0.
+\]
+全syzygyは底上平坦で、全fiberで列は完全となる。
+
+$\mathcal N$ のfiberがその点で射影的となる条件は、$Y$ 上の開条件である。
+この有限中心代数に対する局所判定を確認しておく。
+中心点で完備化し、底の剰余体上で射影的なfiberを持つ有限生成加群の最小射影被覆を取る。
+底上平坦性によって核も剰余体tensorで完全性を保つ。
+被覆は剰余後も最小なので、fiberの射影性からその核は零となる。
+Nakayama補題により完備化前の核も零である。
+忠実平坦性で射影性を降ろし、有限表示性により近傍へ広げられる。
+従ってその失敗集合 $W$ は $Y$ の閉集合である。
+$Y\to T$ はproperなので $\operatorname{im}(W)$ は閉集合となる。
+
+幾何学的fiberで $\mathcal N$ が全点で射影的となることは、対角の局所射影次元が2以下であることと同値である。
+中心対角外では対角加群は零なのでこの条件は自動的である。
+無限遠境界では前補題が一様にこの条件を与える。
+アフィン部分でH3なら、前定理の局所模型は滑らかな中心上の行列環または
+二変数正則環の有限群skew-group代数とMorita同値であり、対角射影次元は2以下である。
+逆にアフィン対角がその長さの射影分解を持てば、任意の右加群へtensorして
+大域次元2以下を得るため、affine認識でH3となる。
+よって $T^{\mathrm{H3}}=T\setminus\operatorname{im}(W)$ である。
+
+この開集合上では $\mathcal N$ は相対的にも局所射影的である。
+$t\ne0$ の二重アフィンchartへ制限するとline束twistは自明化され、
+対角に長さ2の有限生成射影分解を得る。
+syzygyの底上平坦性により任意底変更後も完全であり、射影性も保たれる。
+開集合への因子化は幾何学的fiberの条件そのものであり、任意底変更とfpqc降下に適合する。
+\end{proof}
+
+\begin{corollary}[積分した全位数4係数への適用]
+\label{cor:integrated-order4-relative-open}
+積分chartの開集合 $V^*$ に $\gamma^4=1+h^3$ を課した係数空間上で、
+H3切断の幾何学的条件はZariski開である。
+相対中心の三生成元・三次関係は局所的に存在し、その中心形成は任意底変更と可換する。
+この開部分上のアフィン切断族は、任意底変更で保たれる相対長さ2の対角射影分解を持つ。
+\end{corollary}
+\begin{proof}
+$h\ne0$ なので方程式 $\gamma^4-1-h^3=0$ の $h$ 偏微分は非零であり、
+この先頭係数曲線と七つの低次・切断係数の空間は滑らか、特に被約である。
+全次数PBW平坦性は既出の積分包絡の定理による。
+楕円境界の位数はこの部分で正確に4なので、前二定理を適用できる。
+切断を表すこの族と全intrinsic family stackを同一視してはいない。
+\end{proof}

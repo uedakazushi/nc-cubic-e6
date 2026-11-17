@@ -1,0 +1,129 @@
+\subsection{三乗根共鳴のincidence交叉と楕円境界の閉包}
+\label{subsec:quantum-triangle-incidence}
+$q$ を可変とし、$q(q-1)(q+1)$ は可逆とする。
+一般の $q$ に対し $C_{3,x}=x^3-3q(q^2-1)^{-2}t^2x$ cyclicと置く。
+
+\begin{proposition}[全基底上の中心三次incidence]
+\label{prop:quantum-triangle-resonance}
+$B_q$ の非零中心三次直線の全incidenceは
+\[
+ \mathcal I=V\bigl((q^2+q+1)\beta,
+ (q^2+q+1)\gamma,(q^2+q+1)\delta\bigr)
+ \subset\{q\ne0,\pm1\}\times\mathbb P^4
+\]
+であり、対応する元は
+$G=\alpha\Omega_{q,h}+\beta C_{3,x}+\gamma C_{3,y}+\delta C_{3,z}+\epsilon t^3$ である。
+この記述は非被約底を含む任意の底上で正確である。
+$\mathcal I$ は被約で、一本の水平二次元成分 $\beta=\gamma=\delta=0$ と、
+二つの三乗根における垂直 $\mathbb P^4$ 成分を持つ。
+水平成分と各垂直成分の交わりは $\mathbb P^1$ である。
+各幾何学的fiberの商が整域となるlocusは正確に
+$\alpha^3+27\beta\gamma\delta\ne0$ である。
+\end{proposition}
+\begin{proof}
+$t=1$ にしてactive変数の最高次数を見る。
+次数3の量子中心の候補は $xyz,x^3,y^3,z^3$ に限られる。
+他の単項式は、少なくとも一つの交換子で $q-1$ または $q^2-1$ という単元係数を持つ。
+純三乗の係数には $q^3-1$ が掛かるので、正確に表示した三条件を得る。
+$\Omega_q$ は全底で中心、$C_{3,x}$ の全交換子は $q^2+q+1$ で割り切れる。
+従ってこれらを引けば、残るactive次数2以下の中心は定数だけである。
+最高単項式が異なるため表示も一意である。
+この証明では非零係数で割らず、明示した単元だけを用いるので全底で有効である。
+
+$(q^2+q+1)(\beta,\gamma,\delta)$ は
+$(q^2+q+1)\cap(\beta,\gamma,\delta)$ に等しく、前者の多項式は平方因子を持たない。
+従って被約性と成分の記述が従う。
+整域locusは水平成分では忠実差分模型、垂直成分では前節の全切断定理から従う。
+\end{proof}
+
+三乗根 $q_0$ と許容Casimir点で $\alpha=1$ とすると、
+局所incidenceは厳密に
+\[
+ \operatorname{Spec}k[u,D,\beta,\gamma,\delta]/
+ (u\beta,u\gamma,u\delta),\qquad u=q-q_0
+\]
+の開集合と同型となる。
+水平二次元成分と垂直四次元成分は一次元の $D$ 曲線で交わり、
+交点でのZariski接空間次元は5である。
+これは\emph{指定した包絡正常形内の}交叉であり、全H3モジュライの成分や接空間の主張ではない。
+
+全矢の商は $[\mathcal I/\mathfrak S_4]$ である。
+偶置換は既述の $\mathfrak A_4$ 作用、奇置換の代表は
+\[
+ (q;\alpha,\beta,\gamma,\delta,\epsilon)
+ \longmapsto(q^{-1};q\alpha,\gamma,\beta,\delta,-q^3\epsilon)
+\]
+となる。
+二つの垂直成分は交換され、その一つを選べば固定包絡の $\mathfrak A_4$ 商に戻る。
+この商の候補成分は、先に得た水平gerbeと垂直 $\mathbb P^4/\mathfrak A_4$ であり、
+H3と証明済みの共通部分は
+$(\mathbb A^1\setminus\{D_+,D_-\})\times B\mathfrak A_4$ である。
+水平成分の非捩れ許容性が未判定であるため、この候補商全体をH3 stackとは呼ばない。
+
+\begin{proposition}[smooth楕円境界の欠落は固定包絡内で境界因子となる]
+\label{prop:quantum-triangle-elliptic-closure}
+固定三乗根の $[\mathcal U/\mathfrak A_4]$ 内で、
+正則正規一次商が滑らかな楕円THCRとなるlocusは正確に $\beta\gamma\delta\ne0$ である。
+その補集合 $\mathcal D$ は既約なnormal-crossing境界因子で、正規化は
+\[
+ [\mathcal U\cap\{\beta=0\}/V_4]
+\]
+となる。
+$I_1,I_2,I_3$ 境界型の次元はそれぞれ3,2,1で、慣性はそれぞれ $1,C_2,\mathfrak A_4$。
+全ての欠落境界点は、この固定包絡内の滑らかな楕円境界H3対象の特殊化である。
+\end{proposition}
+\begin{proof}
+中央一次直線は $kt$ だけで、その境界のsmooth条件は $\beta\gamma\delta\ne0$ である。
+非中央の正規smooth楕円境界なら、既証のCY位数3認識から包絡はskewとなるが、
+$B_q$ は五characterの議論からskewでない。
+従って他の境界による追加locusはない。
+三つの座標超平面は $\mathcal U$ 上simple normal crossingであり、
+$\mathfrak A_4$ は三成分を推移的に置換する。
+一成分の安定化群は $V_4$ なので正規化と既約性を得る。
+各stratumの慣性は前節の全慣性分類から従う。
+$\mathcal U$ は既約開集合なので、三座標の非零開部分は全体に稠密であり、
+各点を通る一般の直線で明示的なH3特殊化も作れる。
+\end{proof}
+
+\begin{proposition}[triangle pencil近傍の粗空間と境界の正規化]
+\label{prop:quantum-triangle-tetrahedral-coarse}
+$\alpha=1$ の垂直chartで
+\[
+ \begin{gathered}
+ P=\beta^2+\gamma^2+\delta^2,\qquad Q=\beta\gamma\delta,\\
+ R=\beta^2\gamma^2+\gamma^2\delta^2+\delta^2\beta^2,\qquad
+ J=(\beta^2-\gamma^2)(\gamma^2-\delta^2)(\delta^2-\beta^2)
+ \end{gathered}
+\]
+と置く。粗商は、許容開条件を除けば $D=\epsilon$ と
+\[
+ J^2=P^2R^2-4R^3-4P^3Q^2-27Q^4+18PRQ^2
+\]
+で与えられる四次元hypersurfaceである。
+$I_2$ では横断粗特異点は $A_1$、smooth楕円の $C_3$ 慣性locusでは $A_2$ となる。
+$I_3$ では上記のtetrahedral三次元商に滑らかな $D$ 方向を加えたものとなる。
+境界粗空間は $Q=0$、すなわち
+\[
+ J^2=R^2(P^2-4R)
+\]
+であり、その正規化は $A=\gamma^2,B=\delta^2$ により
+$P=A+B,R=AB,J=AB(B-A)$ と書ける。
+\end{proposition}
+\begin{proof}
+$V_4$ の不変環は三つの平方と $Q$ で生成され、$Q^2=\beta^2\gamma^2\delta^2$ を満たす。
+残る $C_3$ は三つの平方を巡回するので、対称三式とVandermonde積で生成される。
+三次式 $X^3-PX^2+RX-Q^2$ の判別式が表示関係を与える。
+$C_2$ の横断固有値は $(-1,-1)$、$C_3$ では $(q,q^2)$ なので粗局所型も従う。
+境界の正規化では $V_4$ は $\gamma,\delta$ に独立の符号変更を施すため、
+粗正規化環は $k[A,B]$ である。
+$R\ne0$ なら $A=(P-J/R)/2,B=(P+J/R)/2$ で逆を得るので、
+これは有限birational正規化である。
+\end{proof}
+
+\texttt{verify\_cubic\_quantum\_triangle\_\allowbreak incidence.py} は
+普遍Casimirの全交換子、半共鳴係数の正確な三乗根因子、奇置換輸送、
+tetrahedral四不変式の全12作用と判別式関係を有理式で厳密検算する。
+ここで得た相異なる次元の交叉を、全AS4または全intrinsic H3の成分へ外挿しない。
+固定包絡四次元族の成分性は、次節の三係数包絡変形によって否定される。
+
+\input{papers/sections/cubic_quantum_triangle_deformations.tex}

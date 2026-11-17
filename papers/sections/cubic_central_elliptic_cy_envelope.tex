@@ -1,0 +1,112 @@
+\subsection{中央滑らか楕円境界を持つH3包絡はCYである}
+\label{subsec:central-elliptic-CY-envelope}
+前節の形式的一般化だけで非CY例の存在を主張することはできない。
+実際、H3の正規三次incidenceまで使うと、この境界部分では包絡のCY性を導ける。
+
+\begin{lemma}[平行移動境界の二次包絡]
+\label{lem:translation-elliptic-quadratic-envelope}
+滑らかな平面三次 $E$ 上の次数3THCR $H=B(E,\mathcal L,\rho)$ で
+$\rho$ が平行移動であるとする。
+その二次包絡は、適切な基底で
+\[
+ S=k\langle x,y,z\rangle/(a yz+b zy+c x^2,\ a zx+b xz+c y^2,\ a xy+b yx+c z^2)
+\]
+となる。これはKoszul CY AS3である。可換の場合も含む。
+\end{lemma}
+\begin{proof}
+flexを原点に選び、Hesse標準形\cite[Lemma 1]{ADHesse}
+\[
+ E:\ x^3+y^3+z^3-3\lambda xyz=0,\qquad o=(1:-1:0),\qquad\lambda^3\ne1
+\]
+を取る。$p=\rho(o)=(a:b:c)$ とする。
+表示した三関係のmultilinear行列は
+\[
+ M(P)=\begin{pmatrix}cx&bz&ay\\az&cy&bx\\by&ax&cz\end{pmatrix},\qquad
+ \det M=(a^3+b^3+c^3)xyz-abc(x^3+y^3+z^3).
+\]
+$abc\ne0$ なら行列式は $E$ の式の非零倍であり、滑らかさから $E$ 上の階数は常に2である。
+$M(P)Q=0$ は $M_{b,a,c}(Q)P=0$ と同じなので、この核写像は $E$ の自己同型となる。
+この写像は $o$ を $p$ に移し、座標の巡回置換と
+$\operatorname{diag}(1,\zeta,\zeta^2)$ に可換である。
+これらは $E[3]$ の二つの平行移動を生成する\cite[\S4, (15)]{ADHesse}。
+従って核写像の原点固定部分は $E[3]$ に恒等に作用する。
+非恒等な原点固定楕円自己同型 $\alpha$ では $\deg(\alpha-1)\le4$ であり、
+9個の3-torsion点を全て殺すことはできない。よって核写像は正確に平行移動 $\rho$ である。
+
+$abc=0$ の場合も欠落させない。
+例えば $c=0$ なら $q=-b/a$ は $q^3=1$ を満たし、核写像は
+$(x,y,z)\mapsto(x,qy,q^2z)$ となる。
+$a=0$ では $q=-b/c$ として $(qz,x,q^2y)$、
+$b=0$ では $q=-a/c$ として $(y,qz,q^2x)$ である。
+いずれも同じ平行移動を与える。
+従って三関係はTHCRの二次関係であり、その独立性と次元3から二次関係全体を与える。
+
+少なくとも二係数は非零であり、$a^3=b^3=c^3$ は $E$ の滑らかさと両立しない。
+\cite[Theorem 1.1, Corollary 6.1]{ISSklyanin}の仮定を満たし、Koszul AS3となる。
+また $r_i$ を三関係とすると自由tensor代数で
+$\sum x_i r_i=\sum r_i x_i$ が成り立つ。
+AS3の一次元最高Koszul syzygyの左右係数が一致するので、
+Koszul双対のFrobenius比較からNakayama自己同型は恒等となる。
+\path{verify_cubic_central_elliptic_cy.py} は行列式、反対グラフ、原点の核、
+Heisenberg二生成元への共変性、最高三次tensorの巡回性を厳密に検算する。
+\end{proof}
+
+\begin{theorem}[このintrinsic境界部分での非CY包絡の排除]
+\label{thm:central-elliptic-H3-envelope-CY}
+H3対象の反標準環 $R=B/(G)$ が中央正則一次 $t$ を持ち、
+$R/(t)$ が滑らかな次数3楕円THCRであるとする。
+このとき $B$ はCY、$G$ は中心三次である。
+従って非CY包絡を持つH3対象は、この中央滑らか楕円境界部分には属さない。
+これは全H3に中央楕円境界が存在する、という定理ではない。
+\end{theorem}
+\begin{proof}
+前節により境界自己同型は平行移動である。
+$t$ の持上げは $B$ でも中心であり、$S=B/(t)$ の二次関係は境界THCRと同じなので、
+前補題のCY Sklyanin表示を持つ。
+H3の既出の正規三次incidenceは $\sigma_G=\mu_B^{-1}$ を与える。
+$Gt=tG$ と $G$ の正則性から $\sigma_G(t)=t$、従って $\mu_B(t)=t$。
+中央正則元のNakayama商公式\cite[Lemma 1.5]{RRZ}から
+$\mu_S=\mu_B\bmod t=1$ である。
+従ってある定数 $v_i$ により
+\[
+ \mu_B(x_i)=x_i+v_i t,\qquad\mu_B(t)=t
+\]
+と書ける。
+
+$B$ の残る三二次関係を $r_i+t\ell_i(X)+\beta_i t^2$ と書く。
+この関係へ上の自己同型を適用し、元の関係を引き、$t$ の正則性を使うと、
+一次部分について
+\[
+ 2c v_i X_i+(a+b)(v_jX_k+v_kX_j)=0
+\]
+を得る。$c\ne0$ なら対角三係数から全 $v_i=0$。
+$c=0,a+b\ne0$ なら交差三係数から全 $v_i=0$ となる。
+対応する非零minorは $8c^3$ と $(a+b)^3$ であり、全係数で検算した。
+従ってこれらの場合 $\mu_B=1$、incidenceから $\sigma_G=1$ となる。
+
+例外 $c=0,a+b=0$ は $S$ が可換多項式環の場合である。
+その境界の $\rho$ は恒等で、前節のRains中心持上げにより $R$ も可換となる。
+二次包絡 $B=Q(R)$ も可換多項式環なので、同じ結論を得る。
+以上で全場合を尽くす。
+\end{proof}
+
+\begin{proposition}[非可換境界の全中央PBW持上げに対する制限]
+\label{prop:central-sklyanin-linear-lifts-symmetric}
+前補題の非可換 $S$ を中央一次元で持ち上げる平坦二次包絡の三関係を
+$r_i+t\sum_j A_{ij}X_j+\beta_i t^2$ と書くと、$A$ は対称である。
+逆に任意の対称 $A$ と任意の $\beta$ はPBW条件を満たす。
+ただしH3には、さらに正則中心三次の存在とその切断のadmissibilityが必要である。
+\end{proposition}
+\begin{proof}
+三次の巡回tensor恒等式へ関係を代入すると、$t$ の正則性により
+$\sum_{ij}A_{ij}[X_i,X_j]=0$ を得る。
+$S$ では関係空間と $\bigwedge^2V$ の交わりは零である。
+$c\ne0$ なら二乗係数で、$c=0,a+b\ne0$ なら対称交差係数でこれを確認でき、
+そのminorは $c^3,(a+b)^3$ である。
+従って $A_{ij}=A_{ji}$。
+逆向きはBraverman--GaitsgoryのKoszul PBW判定\cite[Theorem 0.5]{BG}を使う。
+唯一の三次syzygy $\sum X_i\otimes r_i=\sum r_i\otimes X_i$ 上で、
+線型係数の差は $A$ の対称性で零、定数係数の差も
+$\sum\beta_iX_i-\sum X_i\beta_i=0$ で零となる。
+三つのPBW障害条件が全て零となるので十分性を得る。
+\end{proof}

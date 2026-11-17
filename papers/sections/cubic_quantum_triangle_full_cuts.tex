@@ -1,0 +1,200 @@
+\subsection{三乗根の固定量子so3包絡における全中心三次切断}
+\label{subsec:quantum-triangle-full-cuts}
+$q^2+q+1=0$ とし、$B=B_q$ を固定する。
+全中心三次は既証の五次元空間に属し、
+\[
+ G=\alpha\Omega_h+\beta X_h+\gamma Y_h+\delta Z_h+\epsilon t^3,
+ \qquad [\alpha:\beta:\gamma:\delta:\epsilon]\in\mathbb P^4
+\]
+と書ける。Casimir pencilはこの空間の一本の直線にすぎない。
+$f=(1-q)/3,e=-(2q+1)/9$ とする。
+
+\begin{lemma}[全因数分解切断とnorm超曲面]
+\label{lem:quantum-triangle-norm-hypersurface}
+$\Delta=\alpha^3+27\beta\gamma\delta=0$ の全 $G$ は一次式と二次式の積となり、
+$B/(G)$ は整域でない。
+線型元のreduced normの像は正確にこの三次超曲面であり、
+\[
+ \begin{aligned}
+ \operatorname{Nrd}(at+bx+cy+dz)
+  ={}&b^3X_h+c^3Y_h+d^3Z_h-3qbcd\Omega_h\\
+    &+\bigl(a^3+q^2a(b^2+c^2+d^2)\bigr)t^3.
+ \end{aligned}
+\]
+\end{lemma}
+\begin{proof}
+$v=bx+cy+dz$ について
+\[
+ v^3+q^2t^2(b^2+c^2+d^2)v
+   -\bigl(b^3X_h+c^3Y_h+d^3Z_h-3qbcd\Omega_h\bigr)=0
+\]
+をPBW還元で得る。
+genericな $v$ はPI次数3の斜体の非中央元なので、これはreduced characteristic polynomialである。
+$at$ を加えて定数項を取ればnorm式が従う。
+その係数は必ず $\Delta=0$ を満たす。
+逆にこの条件の任意の係数について $b,c,d$ の三乗根を取り、
+一つの根の位相を調整して $\alpha=-3qbcd$ を実現する。
+最後の $a$ の三次方程式は代数閉体上で必ず解を持つ。
+零になる座標がある場合も同じ手順でよい。
+従って像は全超曲面であり、Cayley--Hamilton因数分解から主張を得る。
+\end{proof}
+
+中心の三次Veroneseの射影三様体を有理係数で書くため
+\[
+ S=3\Omega_h/(2f),\quad U=X_h/(2e),\quad V=Y_h/(2e),\quad
+ W=Z_h/(2e),\quad T=t^3
+\]
+と置く。これは以下では通常の射影次数1座標である。
+その全中心三様体は
+\[
+ \mathcal Y=V(F)\subset\mathbb P^4,qquad
+ F=2UVW-T(U^2+V^2+W^2)+3TS^2+2S^3
+\]
+となる。$G$ に対応する超平面を
+\[
+ H:aS+bU+cV+dW+\epsilon T=0,quad
+ a=2f\alpha/3,quad(b,c,d)=2e(\beta,\gamma,\delta)
+\]
+と書く。$\Delta\ne0$ は $a^3-27bcd\ne0$ と同値である。
+$\mathcal Y^*$ は滑らかな点の接超平面の閉包としてのprojective dualを表す。
+
+\begin{theorem}[固定包絡上の全H3切断と全矢]
+\label{thm:quantum-triangle-full-H3}
+上記の全中心三次に対し、
+\[
+ B/(G)\text{ が強いH3}\quad\Longleftrightarrow\quad
+ \Delta\ne0\ \text{かつ}\ H\notin\mathcal Y^*.
+\]
+この許容開集合を $\mathcal U\subset\mathbb P^4$ とする。
+固定包絡の全intrinsic幾何学的群oidと全graded表示族のrigidified stackは
+\[
+ [\mathcal U/\mathfrak A_4]
+\]
+である。作用は $\Omega_h,t^3$ を固定し、$X_h,Y_h,Z_h$ に二符号変更と循環置換を施す。
+これは分離既約DM stack、次元4、一般慣性自明である。
+全H3モジュライの既約成分であるとは主張しない。
+\end{theorem}
+\begin{proof}
+まず $\mathcal Y$ は五つの通常二重点
+\[
+ p_0=(0,0,0,0,1),\qquad
+ p_{\eta}=(-1,\eta_1,\eta_2,\eta_3,1),\quad
+ \eta_i=\pm1,\quad\eta_1\eta_2\eta_3=1
+\]
+だけを持つ。無限遠 $T=0$ では $\partial_SF=6S^2$ と
+$\partial_UF=2VW$ cyclicを使えば、候補は三座標頂点に限られるが、
+そこで $\partial_TF\ne0$ なので特異点はない。
+五点のHessianは非退化で、任意の四点の射影座標行列は階数4である。
+
+$\mathcal Y$ は平面を含まない。
+もし平面を含めば、それに沿う二つの法線二次式の共通零点が長さ4となる。
+通常二重点の非退化Hessianがこの共通零点での横断性を保証するので、四点は相異なり同一平面上にある。
+これは上記の座標階数に反する。
+従って全超平面切断はintegralな三次曲面である。
+
+$\Delta\ne0$ を仮定する。
+$t=0$ 境界は可換Hesse三次
+$\alpha q^2xyz+\beta x^3+\gamma y^3+\delta z^3=0$
+の対角作用 $\phi=(1,q,q^2)$ によるZhang twistである。
+$\beta\gamma\delta\ne0$ なら滑らかな楕円曲線、零係数が一つなら既約node三次、
+二つならlineとsmooth conic、三つならtriangleとなる。
+後三者はいずれも横断nodeだけを持つ。
+各成分は $\phi$ で保たれ、genericには非自明な次数3coverである。
+固定点は座標頂点であり、存在する場合は全てnodeとなる。
+
+中心境界はこの曲線の $\phi$ 商である。
+$\Delta\ne0$ では切断中心は境界全体で滑らかである。
+滑らかな境界点ではtoric三次 $S^3+UVW=0$ の接平面条件が
+$a^3-27bcd=0$ を与えるためであり、座標頂点では $\partial_TF\ne0$ と
+$a\ne0$ を使えば直接確認できる。
+generic境界DVRのorderは既証の主radical計算で指数3のvaluation orderとなる。
+そのresidue coverは上記の曲線coverであり、nodeの両枝では完全分岐指数3を持つ。
+\cite[Theorems 2.7, 2.17]{CHIOrders}により境界orderはterminal、局所大域次元2である。
+非自明なgeneric residueからBrauer indexは3となる。
+
+Affine切断は中心のintegral超平面切断上MCMでgeneric CSA次数3を持つ。
+境界residueからこのCSAは斜体なので、MCM torsion-free性によりaffine代数は整域である。
+$t$ の正則性は $G\bmod t\ne0$ が量子多項式整域で正則であることから従い、
+$B/(G)$ 自体も整域となる。
+
+$H\notin\mathcal Y^*$ なら中心曲面は $\mathcal Y$ の滑らかな部分で滑らかであり、
+通過する $p_0,p_\eta$ でのみ非退化 $A_1$ を持つ。
+Affine中心の正則部分は $V_q$ のAzumaya locusの制限からAzumayaである。
+各 $p_i$ には既証の相異なる五characterのうち一つが存在するので、
+PI3の $A_1$ McKay重複度は $(1,2)$ となる。
+これで全affine点の局所大域次元2を得る。
+境界と合わせて有限大域次元となり、AS Gorenstein・AZ・Serre・rank認識でH3を得る。
+
+逆に $H\in\mathcal Y^*$ なら、滑らかな $\mathcal Y$ への接触、
+またはある $p_i$ の二次接錐に対する等方的な法線が存在する。
+前者はAzumaya上の特異中心商なので無限大域次元である。
+非正規な中心切断なら、その特異曲線のgeneric点は五nodeを避け、Azumaya上の特異中心商として既に除外される。
+後者の孤立正規切断では二次部の階数は2であり、有限大域次元なら対称MCM orderの双対とhomogeneous中心の有理性からDu Valでなければならない。
+Du Valなら $A_2$ 以上である。
+$A_2$ のfull McKayには三つの一次元simpleが必要だが、その中心点にはcharacterが一つしかない。
+他のADE型では全正重複度の最小rankが3を越える。
+従って全て非H3となる。
+nodeと接超平面のこの記述は、通常二重点の非退化二次部を使ったGauss写像の極限から従う。
+$\Delta=0$ は前補題で既に排除済みである。
+
+全矢は二次包絡の復元と $\operatorname{Aut}_{\rm gr}B/\mathbb G_m=\mathfrak A_4$ による。
+$\mathcal U$ は二つの閉集合の補集合であり、Casimir pencilの許容点を含むので非空である。
+有限群商であるためstackの主張が従う。
+\end{proof}
+
+判定を有限方程式として使う場合、$T=1$ とし、
+$F_1=2UVW-U^2-V^2-W^2+3S^2+2S^3$ と置く。
+滑らかな点での接触がない条件は
+\[
+ F_1=0,\quad aS+bU+cV+dW+\epsilon=0,\quad
+ \nabla F_1=\lambda(a,b,c,d),\quad\lambda\ne0
+\]
+に解がないことである。
+これに、$H$ が通る各nodeで
+$(a,b,c,d)\operatorname{Hess}(F_1)^{-1}(a,b,c,d)^t\ne0$ を加えればよい。
+従ってGr\"obner基底による空性判定と五つの明示二次式で全切断を判定できる。
+単なる一般点の条件ではない。
+
+\texttt{verify\_cubic\_quantum\_triangle\_\allowbreak full\_cuts.py} は
+全線型元のnorm恒等式、norm超曲面、五node・全四点階数・逆Hessian式を厳密検算する。
+Casimir pencilに戻すと正則点での接触は $3D/(2f)=3/2,-1/2$ となり、
+既証の二つの非H3値と一致する。
+
+\begin{proposition}[全慣性型と表示族の底変更]
+\label{prop:quantum-triangle-full-inertia}
+$\mathcal U$ 上の慣性は正確に $1,C_2,C_3,\mathfrak A_4$ の四型である。
+$v=(\beta,\gamma,\delta)$ と置けば、$v=0$ で $\mathfrak A_4$、
+非零の座標軸上で $C_2$、四本の直線
+$k(\eta_1,\eta_2,\eta_3)$（$\eta_i=\pm1,\prod\eta_i=1$）上で $C_3$、
+それ以外で自明となる。
+$C_2,C_3$ の各固定平面の許容部分は次元2、$\mathfrak A_4$ 部分は次元1であり、
+異なる固定平面は後者のpencilで交わる。
+
+$\mathcal U$ 上の三次商族は平坦であり、全中心の形成は任意底変更と可換である。
+局所的にこの固定包絡切断として表示される族のfpqc降下は
+$[\mathcal U/\mathfrak A_4]$ で記述される。
+抽象intrinsic圏族の全体をこの表示族で覆ったという主張ではない。
+\end{proposition}
+\begin{proof}
+$\mathfrak A_4$ の標準三次元表現の固定軸は、位数2では三座標軸、位数3では四つの符号軸である。
+$\alpha,\epsilon$ が少なくとも一つ非零なら、射影固定性のスカラーは1なので、これだけを調べればよい。
+両者が零の場合、位数2の負固有空間は一座標が零なので $\Delta=0$ に入る。
+位数3の非自明固有点では $\beta^2+\gamma^2+\delta^2=0$。
+これは $p_0$ で法線が等方的となり $\mathcal Y^*$ に入る。
+従って許容部分には追加の射影慣性はない。
+二つの異なる位数2元を含む固定点は $v=0$ なので、$V_4$ だけを慣性に持つ点もない。
+
+各固定平面は許容pencilを含み、許容条件は開なので次元2の部分が非空である。
+実際、正規化した超平面 $S+U=0$ は $C_2$、$U+V+W=0$ は $C_3$、$S=0$ は $\mathfrak A_4$ の許容例である。
+これらは接触方程式のunit idealと逆Hessian非消滅でも独立に検算している。
+
+三次商の各斉次部分は、固定された $B_{n-3}\to B_n$ の
+fiberごとに単射な乗法行列の余核であり、局所自由となる。
+全中心は、重み $(1,3,3,3)$、一本の次数9関係の正規環である。
+Affineの $A_1$ と、境界nodeに対応する重み付きconeの軸は余次元2なので正規性が従う。
+Generic PI次数3と整性から全中心に一致する。
+従って全fiberで中心の斉次Hilbert値は一定となる。
+被約底 $\mathcal U$ 上の次数別交換子行列は定階数なので局所的に分裂し、
+その核は任意底変更と可換である。
+有限群商による族の降下もこの記述に適合する。
+\end{proof}

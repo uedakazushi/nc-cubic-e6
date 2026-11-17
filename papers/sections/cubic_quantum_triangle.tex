@@ -1,0 +1,225 @@
+\subsection{滑らかな正規楕円境界を持たない三角境界切断}
+\label{subsec:quantum-triangle}
+$q^2+q+1=0$ とし、$f=(1-q)/3$、$e=-(2q+1)/9$ と置く。
+$f^3=e$、$e^2=-1/27$ である。
+中央一次元 $t$ を持つ包絡を
+\[
+ B=k\langle t,x,y,z\rangle/
+ (yz-qzy-tx,\ zx-qxz-ty,\ xy-qyx-tz,\ [t,x],[t,y],[t,z])
+\]
+で定める。
+
+\begin{lemma}[包絡と全中心の明示式]
+\label{lem:quantum-triangle-centre}
+$B$ はnoetherian quadratic Koszul CY AS4である。
+$V=B/(t-1)$ の全中心は
+\[
+ Z(V)=k[X,Y,Z,\Omega]/
+ \bigl(\Omega^3+f\Omega^2-XYZ+e(X^2+Y^2+Z^2)\bigr),
+\]
+\[
+ X=x^3+q^2x,\quad Y=y^3+q^2y,\quad Z=z^3+q^2z,\quad
+ \Omega=xyz+\frac{q-1}{3}(x^2+z^2)+\frac{q+2}{3}y^2.
+\]
+$V$ は $k[X,Y,Z]$ 上自由階数27であり、中心上MCMな対称最大整環である。
+中心の正則部分ではAzumayaとなる。
+\end{lemma}
+\begin{proof}
+先頭環は三変数量子多項式環
+$S=(yz=qzy,zx=qxz,xy=qyx)$ である。
+PBWの唯一の重なり $zyx$ は解消し、cyclic potentialによる対称線型PBW持上げなので
+補題\ref{lem:sklyanin-central-PBW-CY}を適用できる。
+ここで $S$ は滑らかなFermat楕円曲線の非零三捩れtranslationの二次包絡でもあり、
+同補題の対象である。従って $B$ の全次数AS4性とCY性を得る。
+
+表示した四中心元の全交換子と一本の関係はPBW基底で直接零となる。
+先頭環の中心は $x^3,y^3,z^3,xyz$ で生成され、関係は $(xyz)^3=x^3y^3z^3$ だけである。
+全てが持ち上がるから最高項の帰納法で全中心を得る。
+$X,Y,Z$ は各生成元のmonic三次式なので、$x^iy^jz^k$、$0\le i,j,k<3$ が
+$k[X,Y,Z]$ 上の自由基底となる。
+従って $V$ は中心上MCMで、generic階数は9となる。
+
+$V$ は有限大域次元を持ち、dualizing complexは $V[3]$ である。
+これは中央Rees環 $B$ のCY双対を $t=1$ へ移したものである。
+中心は下記のJacobian計算で五つの孤立三次元通常二重点を持つ正規affine hypersurfaceだから、canonical moduleは自明であり、
+有限中心dualizing比較から $\operatorname{Hom}_{Z(V)}(V,Z(V))\simeq V$ となる。
+$S$ はそのtoric中心上MCMで余次元1では量子torusとしてAzumayaであり、最大整環である。
+最大性のfiltered移行により $V$ も最大整環となる。
+対称DVR双対から余次元1の非分岐性が従う。
+中心正則点ではMCM加群が自由となるので、Azumaya写像の行列式を余次元1から比較すれば
+全正則部分でAzumayaとなる。
+\end{proof}
+
+$\Omega_h$ を $\Omega$ の次数3斉次化、$G_D=\Omega_h+Dt^3$、$R_D=B/(G_D)$ とする。
+$t=0$ の境界は $S/(xyz)$、すなわち三角形である。
+$X_h=x^3+q^2t^2x$ cyclic と $T=t^3$ を使い、
+\[
+ C_D=\operatorname{Proj}
+ k[T,X_h,Y_h,Z_h]/
+ \bigl(X_hY_hZ_h-eT(X_h^2+Y_h^2+Z_h^2)+D^2(D-f)T^3\bigr)
+\]
+と置く。ここでは四座標の次数を1に直した。
+
+\begin{lemma}[中心と三角形無限遠のterminal order]
+\label{lem:quantum-triangle-terminal-boundary}
+$R_D^{(3)}$ は上記の中心上有限なMCM整環であり、
+そのsheaf $\Lambda_D$ は $C_D$ 上一般階数9の最大orderとなる。
+三角形 $T=0$ の近傍で $C_D$ は滑らかで、
+$\Lambda_D$ はterminal orderであり全閉局所大域次元は2である。
+全 $D$ でgeneric algebraは次数3の斜体、$R_D$ は整域である。
+\end{lemma}
+\begin{proof}
+$Z(B)$ は前補題の中心のRees環であり、中心関係は
+\[
+ \Omega_h^3+ft^3\Omega_h^2-X_hY_hZ_h
+       +et^3(X_h^2+Y_h^2+Z_h^2)=0
+\]
+である。$B$ は $k[t,X_h,Y_h,Z_h]$ 上自由階数27で、中心上MCMである。
+正則中央 $G_D$ で割れば $R_D$ は対応する中心hypersurface上MCMとなる。
+重み付き中心hypersurfaceの $t=0$ の特異点は三つの座標軸上に限られ、
+$t\ne0$ では下記の孤立surface特異点と $\mathbb G_m$ の積だけである。
+従って全て余次元2以上であり、このhypersurfaceは正規である。
+その三次Veroneseを取ると、$\Lambda_D$ は $C_D$ 上の反射的orderとなる。
+以下のgeneric CSA比較と中心の正規性から、表示した中心が全中心であることも従う。
+
+$t\ne0$ では $U_D=V/(\Omega+D)$ である。
+その候補中心はaffine Fricke cubic
+\[
+ F_D=XYZ-e(X^2+Y^2+Z^2)+D^2(D-f)=0.
+\]
+その特異点は後述する孤立通常二重点だけであり、中心は正規である。
+$Z(V)$ の特異点も孤立するので、$U_D$ は余次元1で前補題のAzumayaを継承する。
+MCM性とgeneric CSA性により、その全中心は $k[F_D=0]$、
+$U_D$ は中心上階数9の対称最大整環となる。
+
+無限遠の座標頂点では $\partial F_D^{\rm hom}/\partial T=-eX_h^2$ cyclic が非零なので
+中心曲面は滑らかである。
+例えば $X_h=0$ の辺の一般点で $Y_h,Z_h$ を逆にする。
+$y^3+q^2t^2y=Y_h$ から $y$ は可逆であり、同様に $z$ も可逆となる。
+$\Omega_h+Dt^3=0$ により $t=0$ では $x=0$ となるから、境界の残りは
+$yz=qzy$ の量子torusである。
+次数0の $v=ty^{-1}$ は正則正規で、対応するradical $J=(v)$ は
+\[
+ v^3=\frac{T}{Y_h}(1+q^2v^2),\qquad J^3=(T)
+\]
+を満たす。generic residueは $u=zy^{-1}$ による
+$k(u)/k(u^3)$、次数3の巡回体拡大である。
+完備化すれば $J$ はJacobson radicalであり、$J^3=(T)$ からその冪の交叉は零である。
+任意の非零元は $v$ の冪と単元の積に書けるので、これは非可換DVR、従ってhereditaryなvaluation最大orderである。
+従って辺の一般DVRでorderは主radicalを持つ巡回valuation最大orderとなり、
+Brauer residueは非自明である。他の二辺も同様である。
+
+このresidue coverは各辺の二つの端点で完全分岐する。
+従って三角形の各頂点で、二枝の指数はともに3、両coverの分岐指数も3である。
+正常orderのterminal ramification判定\cite[Theorem 2.7]{CHIOrders}を適用でき、
+局所模型定理\cite[Theorem 2.17]{CHIOrders}から境界全体の局所大域次元2を得る。
+反射性と各余次元1での最大性により $\Lambda_D$ は最大orderである。
+非自明な次数3 residueからgeneric Brauer indexは3で、generic CSAは斜体となる。
+$U_D$ はその斜体へ単射に入る。
+$R_D[t^{-1}]=U_D[t,t^{-1}]$ と $t$ の正則性により $R_D$ も整域である。
+ここで $t$ の正則性は、先頭の $xyz$ が整域 $S$ で正則であることから全 $D$ で成り立つ。
+\end{proof}
+
+\begin{theorem}[三角境界pencilの全H3切断]
+\label{thm:quantum-triangle-all-cuts}
+上記の $R_D$ が強いH3となる必要十分条件は
+\[
+ (D-f)(3D+f)\ne0
+\]
+である。
+$D=0$ では中心に一つ、$D=2f/3$ では四つの $A_1$ 点を持つが、これらはH3である。
+$D=f$ と $D=-f/3$ だけが非H3となる。
+全ての許容 $R_D$ は、正則正規一次元を商にして滑らかな楕円THCRを得ることができない。
+\end{theorem}
+\begin{proof}
+$\kappa=D^2(D-f)$ と置く。
+中心の臨界条件 $YZ=2eX$ cyclic の解は原点と
+$(X,Y,Z)=2e(\epsilon_1,\epsilon_2,\epsilon_3)$、$\epsilon_1\epsilon_2\epsilon_3=1$ の四点だけである。
+Hessianは全て非退化で、中心特異値は
+\[
+ \kappa=0\iff D=0,f,\qquad
+ \kappa=4e^3\iff (D-2f/3)^2(D+f/3)=0
+\]
+に限る。
+$Z(V)$ の特異点は、原点で $\Omega=0$ と四符号点で $\Omega=-2f/3$ の
+合計五つの三次元通常二重点である。
+従って $D=f,-f/3$ の中心二重点では $V$ はAzumayaであり、
+$U_D$ は特異中心上の行列環となるので大域次元は無限である。
+
+他の二特異値を調べる。
+$V$ のcharacterは、原点と
+$(x,y,z)=(\epsilon_1,\epsilon_2,\epsilon_3)/(1-q)$、$\epsilon_1\epsilon_2\epsilon_3=1$ の五つである。
+前者は $D=0$、後の四つは $D=2f/3$ の四中心点に一つずつ入る。
+$U_D$ は対称・非分岐最大整環でPI次数3だから、既証の二次元McKay判定より
+各 $A_1$ 点の多重度は $(1,2)$ となり、局所大域次元は2である。
+中心の他の正則点ではAzumayaであり、無限遠は前補題で既に有限大域次元である。
+従って全coherent対象はperfectとなり、$R_D$ のAS Gorenstein双対からSerre $(-1)[2]$ を得る。
+整域・中心有限のgeneric斜体からrank-one条件が従い、
+飽和、exceptionality、AZ ampleness、Hilbert値と二次包絡は既出の認識と同じである。
+これで全H3条件と除外値を尽くす。
+
+最後に $Z(B)_1=kt$ である。
+$B$ がskewなら、この一意な中央一次直線を座標に取って三変数量子多項式環の中央一次拡大となる。
+その $t=1$ のcharacter schemeは座標軸を含むが、$V$ のcharacterは五つの被約点だけなので不可能である。
+従って $B$ は非skewである。
+$R_D$ の中央一次直線も $kt$ に限られ、その商は三角形であって滑らかな楕円曲線でない。
+非中央正規楕円境界なら、包絡CYのため位数2ではなく、位数3の量子Fermat包絡に限られる。
+それもskewなので矛盾する。
+従って許容対象は既出の正規一次楕円境界部分の外に実在する。
+\end{proof}
+
+\begin{theorem}[pencilの全intrinsic矢と相対表示stack]
+\label{thm:quantum-triangle-groupoid}
+$q$ を一つ固定する。
+許容な $D,D'$ の間のintrinsic pointed同型は $D=D'$ の場合に限る。
+全ての対象の慣性は
+\[
+ (\mu_2)^2\rtimes C_3\simeq\mathfrak A_4
+\]
+である。従ってこのpencilの幾何学的群oidと、表示族の次数スカラーrigidificationは
+\[
+ \operatorname{Spec}k[D,(D-f)^{-1},(3D+f)^{-1}]\times B\mathfrak A_4
+\]
+となる。任意の非被約底でも追加の同型はなく、H3 fiber条件と全同型functorは基底変更に適合する。
+全intrinsic圏族のstackや、この曲線の大域的成分性は結論しない。
+\end{theorem}
+\begin{proof}
+intrinsic矢は反標準環のgraded同型であり、同じ二次包絡 $B$ の自己同型へ持ち上がる。
+$Z(B)_1=kt$ だから $t\mapsto dt$、$X\mapsto MX+vt$、$d\ne0$ と書ける。
+先頭量子多項式環 $S$ のpoint graphは $\mathbb P^2$ 全体上の
+$\phi=\operatorname{diag}(1,q,q^2)$ である。
+従って $M\phi M^{-1}$ は $\phi$ の次数スカラー倍でなければならず、
+$M$ は対角行列と循環置換の積に限る。
+非対角の $tX$ 係数を比較すると $q\ne1$ により全ての平行移動 $v$ は零となる。
+循環置換を除き $x_i\mapsto a_i x_i$ とすれば、残る係数条件は
+\[
+ a_ya_z=da_x,\quad a_za_x=da_y,\quad a_xa_y=da_z.
+\]
+従って $a_i=d\epsilon_i$、$\epsilon_i^2=1$、$\epsilon_x\epsilon_y\epsilon_z=1$ である。
+全graded自己同型群は $\mathbb G_m\times((\mu_2)^2\rtimes C_3)$ となる。
+表示したCasimirは二符号変更と循環置換で厳密に不変だから、
+$G_D\mapsto d^3G_D$ であり $D$ は不変である。
+共通次数スカラーを除いて主張する群と同型類を得る。
+
+任意の基底でも $1,q,q^2$ の固有値差は単元なので、point graphの同じ係数比較が
+対角・循環置換の分解を与える。
+$\epsilon_i$ は有限\'{e}taleな二乗根、循環置換も有限定数群であり、
+nilpotentな追加矢はない。$D=D'$ も三次係数比較として底上で厳密に成り立つ。
+従って局所的にこの表示を持つ族のrigidify後のstackは表示した積となる。
+$R_D$ は次数ごとに平坦で、H3 fiber条件は二つの因子が単元であることと同値だから、
+任意底変更とfpqc局所性も従う。
+\end{proof}
+
+\begin{proposition}[中心の相対基底変更]
+上記の全 $D$ 直線上で、中心の形成は任意の基底変更に適合する。
+特に $R_D^{(3)}$ の相対全中心は表示したFricke cubicの斉次環である。
+\end{proposition}
+\begin{proof}
+各次数の自由 $k[D]$ 加群間の交換子行列を取る。
+各幾何学的fiberで全中心のHilbert級数は同じcubic級数だから、行列のrankは一定である。
+$k[D]$ は被約なので高すぎるminorは恒等的に零となり、
+最大rankのunit minorで局所化すれば核は直和因子となる。
+従ってその核と、既に構成した中央 $T,X_h,Y_h,Z_h$ の斉次環は一致し、
+非被約底への変更も含めて可換する。
+$R_D$ 自身についても重み $(1,3,3,3)$ の同じ議論を用いる。
+\end{proof}
