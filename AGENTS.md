@@ -11,7 +11,7 @@ GitHub mainが正本。**pushした内容をLibraryへ保存しない。** push�
 **現行の幾何学的到達点。** 重み付き模型F_nk=1の射影Milnor曲線Cは、z=y^b/x^cを保って付随楕円E_kへ写せない。必要な平方類は[x]で、a²=xの連結二次被覆tildeCを取ればz=y^b/a^(2c),eta=y^(b/2)/a^(3c)という次数2bcの写像が得られる。deckがEの逆元に対応するのでEはPrymのisogeny/Hodge因子。任意の別のC→Eの不存在を主張しない。
 全n共通のCiani四次X4+Y4−2kappa X²Y²=Z4へ次数bc/2で写り、Jac(Ciani)~Ei²×D_k。D_k→E_kは(z,eta)=(r²,rT)の2isogeny。Prym内にEi×D_kが入る。楕円周期は(kappa²−1)Pi''+2kappa Pi'+Pi/4=0。これはkappa変動で、固定kappaのMilnor値monodromyやLG level hの周期とは別。
 
-**巡回被覆と整数偏極の新しい到達点。** tildeC→Dは巡回次数bc、tildeC→Eは巡回次数2bc。DのT=0の四点は完全分岐、D→Eは最大非分岐二同種。Jacobian引戻しq*:J(E)→J(tildeC)の核は正確に標識二捩れ[(0,0)-O]で、埋込Dへのtheta制限は次数bc（n=1,2,3で10,348,11830）。Prym全体の偏極型は(1^(b-1),2^(2bc-b-c))。楕円族Eκは極端有理楕円曲面X411でI1,I1,I4*のfiber、j写像は次数6のBelyi（3,3）（2,2,2）（4,1,1）。Miranda--Perssonの既知分類と本研究の新しいPell/Prym接続を分ける。整数直和分裂、実高重みgermへのPrym移行、MF同値は未構成。
+**巡回被覆と整数偏極の新しい到達点。** tildeC→Dは巡回次数bc、tildeC→Eは巡回次数2bc。DのT=0の四点は完全分岐、D→Eは最大非分岐二同種。Jacobian引戻しq*:J(E)→J(tildeC)の核は正確に標識二捩れ[(0,0)-O]で、埋込Dへのtheta制限は次数bc（n=1,2,3で10,348,11830）。Prym全体の偏極型は(1^(b-1),2^(2bc-b-c))。楕円族Eκは極端有理楕円曲面X411でI1,I1,I4*のfiber、j写像は次数6のBelyi（3,3）（2,2,2）（4,1,1）。Miranda--Perssonの既知分類と本研究の新しいPell/Prym接続を分ける。Belyi写像の六枚の置換群$S_4$はbranch cycleを全列挙して証明。以前のPoisson零点の$S_4$との自然な対応は未構成。整数直和分裂、実高重みgermへのPrym移行、MF同値は未構成。
 
 **実germについての新しい確定事項。** mu27,tau24例と主部tau27は、Hua–Keller最終版Thm5.9の通常Z-graded dg特異点圏でHH0次元24対27となりMorita非同値。この結論は一般孤立超曲面の定理の適用であり、flop/NCCRの仮定は使わない。
 二周期MFの相対HH=Jacobianと整数次数付きdg圏の絶対HH0=Tjurinaを入れ替えない。strict二周期MFとZdgの全periodization/忘却比較は未構成。重み付きMFの(n,K)分類を実高重みgermへ無条件に延長しない。
