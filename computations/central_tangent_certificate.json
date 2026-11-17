@@ -1,0 +1,89 @@
+{
+  "field": "Q(q), q^2+q+1=0",
+  "base_constants": [
+    "0",
+    "0",
+    "0"
+  ],
+  "cut": [
+    2,
+    1,
+    2,
+    3,
+    5
+  ],
+  "matrix_shape": [
+    105,
+    40
+  ],
+  "rank": 18,
+  "nullity": 22,
+  "potential_basis": [
+    "x",
+    "y",
+    "z",
+    "xx",
+    "xy",
+    "xz",
+    "yy",
+    "yz",
+    "zz",
+    "xxx",
+    "xxy",
+    "xxz",
+    "xyy",
+    "xyz",
+    "xzy",
+    "xzz",
+    "yyy",
+    "yyz",
+    "yzz",
+    "zzz"
+  ],
+  "central_basis": [
+    "1",
+    "z",
+    "y",
+    "x",
+    "zz",
+    "yz",
+    "yy",
+    "xz",
+    "xy",
+    "xx",
+    "zzz",
+    "yzz",
+    "yyz",
+    "yyy",
+    "xzz",
+    "xyz",
+    "xyy",
+    "xxz",
+    "xxy",
+    "xxx"
+  ],
+  "leading_projection_rank": 8,
+  "extra_potential_directions": [
+    {
+      "x": "3801088/9 - 4784128*CRootOf(Q**2 + Q + 1, 1)/27",
+      "y": "-10092544/9 - 69730304*CRootOf(Q**2 + Q + 1, 1)/27",
+      "z": "3801088/3 - 4784128*CRootOf(Q**2 + Q + 1, 1)/9",
+      "xx": "-27590656/81 - 6619136*CRootOf(Q**2 + Q + 1, 1)/81",
+      "xy": "262144/9 - 1048576*CRootOf(Q**2 + Q + 1, 1)/9",
+      "xz": "524288/3 + 655360*CRootOf(Q**2 + Q + 1, 1)/3",
+      "yy": "23330816/81 + 23658496*CRootOf(Q**2 + Q + 1, 1)/81",
+      "yz": "262144/3 - 1048576*CRootOf(Q**2 + Q + 1, 1)/3",
+      "zz": "-27590656/81 - 6619136*CRootOf(Q**2 + Q + 1, 1)/81",
+      "xxx": "-524288/27 + 262144*CRootOf(Q**2 + Q + 1, 1)/27",
+      "xyz": "-1048576/27 + 524288*CRootOf(Q**2 + Q + 1, 1)/27",
+      "yyy": "-1048576/27 + 524288*CRootOf(Q**2 + Q + 1, 1)/27",
+      "zzz": "-524288/9 + 262144*CRootOf(Q**2 + Q + 1, 1)/9"
+    }
+  ],
+  "first_order_overlap_all_zero": true,
+  "not_claimed": [
+    "full H3 tangent space",
+    "integration of all tangent directions",
+    "component dimension from this rank alone"
+  ]
+}

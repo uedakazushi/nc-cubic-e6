@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-17",
+  "version": "triangle-component-v2",
+  "status": "PASS",
+  "coefficient_ring": "Q(q)[a,b,c], q^2+q+1=0",
+  "parameter_sampling": false,
+  "PBW_overlap": "zyx checked",
+  "central_commutators": 12,
+  "full_degree9_center_relation": true,
+  "scope": "universal algebra identities; H3 recognition and finite-order openness are separate geometric inputs"
+}

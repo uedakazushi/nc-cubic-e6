@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "field": "Q(q), q^2+q+1=0",
+  "homogeneous_variables": [
+    "x",
+    "y",
+    "z",
+    "t"
+  ],
+  "cyclic_directions": 20,
+  "critical_words": [
+    [
+      2,
+      1,
+      0
+    ],
+    [
+      3,
+      1,
+      0
+    ],
+    [
+      3,
+      2,
+      0
+    ],
+    [
+      3,
+      2,
+      1
+    ]
+  ],
+  "exact_first_order_overlap_checks": 80,
+  "cubic_obstruction_matrix_shape": [
+    80,
+    20
+  ],
+  "cubic_obstruction_matrix_is_zero": true,
+  "not_claimed": [
+    "all-order flatness for arbitrary potential parameters",
+    "all intrinsic deformation directions covered",
+    "global component classification"
+  ]
+}

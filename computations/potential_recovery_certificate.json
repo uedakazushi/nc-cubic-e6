@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "field": "Q(q), q^2+q+1=0",
+  "potential_gradient_matrix_shape": [
+    30,
+    20
+  ],
+  "potential_gradient_rank": 19,
+  "gradient_kernel": "span of Phi0=xyz-q*xzy-(x^2+y^2+z^2)/2",
+  "linear_center_matrix_shape": [
+    40,
+    4
+  ],
+  "linear_center_rank": 3,
+  "linear_center_kernel": "span of central t",
+  "scope": "formal Artin potential recovery up to scalar and central line rigidity; proof of categorical recognition is separate"
+}

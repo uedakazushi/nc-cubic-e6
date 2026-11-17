@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "right_projection_determinant": "det(Mright)=3*lambda*F",
+  "right_base_graph": "diag(1,q0^2,q0)",
+  "right_rank_two_projective_patches": 3,
+  "orbit_parameters": {
+    "lambda": "1/2",
+    "kappa": 2,
+    "eta": 1,
+    "zeta": 1
+  },
+  "orbit": [
+    [
+      "0",
+      "1",
+      "-1"
+    ],
+    [
+      "1",
+      "4/3",
+      "-2*q0/3"
+    ],
+    [
+      "1",
+      "37*q0/108",
+      "-35/54"
+    ],
+    [
+      "1",
+      "7136*q0/11667 + 7136/11667",
+      "18791*q0/11667 + 18791/11667"
+    ]
+  ],
+  "all_four_orbit_points_lie_on_F": true,
+  "sigma_cubed_is_not_identity_at_generic_point": true,
+  "scope": "exact rational example disproves generic three-periodicity; global relative graph is proved by properness and rank-two openness, not by sampling"
+}

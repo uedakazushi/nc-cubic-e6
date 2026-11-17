@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "coefficient_ring": "QQ(q,t)[a1,b1,c1,a2,b2,c2]",
+  "parameter_sampling": false,
+  "original_relation_insertions": 102,
+  "central_commutators": 3,
+  "all_normal_form_denominators_are_units_at_q3_t0": true,
+  "correction_to_arxiv_0709_3593_v4_page35": "remove the repeated b2 in q^3*b2 inside the coefficient multiplying b2*y",
+  "source_formula_independently_checked": true,
+  "printed_formula_noncentral_over_full_coefficient_ring": true,
+  "not_claimed": [
+    "all intrinsic deformation coverage",
+    "global component classification"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "all_nonconstant_coefficients_vanish_to_order_two": true,
+  "normalized_limit": "kappa*Omega(a,b,c)+X+eta^3*Y+zeta^3*Z",
+  "formal_parameters": [
+    "lambda",
+    "kappa",
+    "eta",
+    "zeta",
+    "a",
+    "b",
+    "c",
+    "D"
+  ],
+  "potential": "(1+kappa*lambda)*xyz-q0*xzy+lambda*(x^3+eta^3*y^3+zeta^3*z^3)-(x^2+y^2+z^2)/2-a*x-b*y-c*z",
+  "substitution": {
+    "q": "q0/(1+kappa*lambda)",
+    "t": "-3*lambda*eta*zeta/(1+kappa*lambda)",
+    "a1": "-eta*zeta/(1+kappa*lambda)",
+    "b1": "-zeta/(eta*(1+kappa*lambda))",
+    "c1": "-eta/(zeta*(1+kappa*lambda))",
+    "a2": "-eta*zeta*a/(1+kappa*lambda)",
+    "b2": "-zeta*b/(1+kappa*lambda)",
+    "c2": "-eta*c/(1+kappa*lambda)"
+  },
+  "leading_x3_coefficient": "9*eta^2*zeta^2*(1+q0)",
+  "normalized_cut": "(N-N_constant)/N_x3+D, after X=x,Y=eta*y,Z=zeta*z; cancel common lambda^2",
+  "not_claimed": [
+    "all intrinsic deformation coverage",
+    "relative H3 algebraicity",
+    "complete global component classification"
+  ]
+}

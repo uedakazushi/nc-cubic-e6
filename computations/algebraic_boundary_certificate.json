@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "field": "Q(q0), q0^2+q0+1=0",
+  "p": "1+kappa*lambda",
+  "C": "kappa+kappa^2*lambda+(kappa^3/3+9*eta^3*zeta^3)*lambda^2",
+  "boundary": "q0*p*(x^3+eta^3*y^3+zeta^3*z^3)+C*x*y*z=0",
+  "determinant_identity": "det(M)=3*lambda*boundary",
+  "smoothness_discriminant": "C^3+27*p^3*eta^3*zeta^3",
+  "discriminant_at_lambda0": "kappa^3+27*eta^3*zeta^3",
+  "discriminant_at_chosen_base": 170,
+  "base_graph": "(x:y:z) maps to (x:q0*y:q0^2*z)",
+  "rank_two_everywhere_at_base": "three projective-patch Groebner ideals are (1)",
+  "finite_sklyanin_regular_open": "eta*zeta*p*(p^3+1) != 0; parameters (p,-q0,3*lambda*eta*zeta)",
+  "not_claimed": [
+    "all cuts on this open are H3",
+    "uniform H3 openness across translation orders",
+    "complete component boundary classification"
+  ]
+}

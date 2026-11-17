@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-17",
+  "version": "triangle-component-v2",
+  "status": "PASS",
+  "universal_offdiagonal_translation": "v=(A23,A13,A12)/(1-q)",
+  "diagonal_coefficients_unchanged": true,
+  "new_constants": [
+    "(-a12*a13 - a23*h1 + b1*q - b1)/(q - 1)",
+    "(-a12*a23 - a13*h2 + b2*q - b2)/(q - 1)",
+    "(-a12*h3 - a13*a23 + b3*q - b3)/(q - 1)"
+  ],
+  "normalization": "r_i^2=h_j*h_k, r1*r2*r3=h1*h2*h3; four even-sign choices",
+  "local_HH_invariant_generators": [
+    "1",
+    "partial_s",
+    "w partial_w",
+    "w partial_s wedge partial_w"
+  ],
+  "nonidentity_sectors_invariants": "zero because the normal character is nontrivial",
+  "scope": "universal coefficient identities and local characters; geometric theorems are proved in the paper"
+}
