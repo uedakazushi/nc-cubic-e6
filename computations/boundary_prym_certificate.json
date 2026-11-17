@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-18",
+  "version": "e6-connections-v30",
+  "status": "PASS",
+  "arithmetic": "exact rational polynomial identities, rational matrices and integer recurrences",
+  "Pell_cases_checked": [
+    {"n":1,"b":2,"c":5,"genus_original":13,"genus_double_cover":27,"branch_points_double_cover":4,"prym_dimension":14,"degree_to_Ciani":5,"degree_to_attached_elliptic":20},
+    {"n":2,"b":12,"c":29,"genus_original":655,"genus_double_cover":1321,"branch_points_double_cover":24,"prym_dimension":666,"degree_to_Ciani":174,"degree_to_attached_elliptic":696},
+    {"n":3,"b":70,"c":169,"genus_original":23421,"genus_double_cover":46911,"branch_points_double_cover":140,"prym_dimension":23490,"degree_to_Ciani":5915,"degree_to_attached_elliptic":23660},
+    {"n":4,"b":408,"c":985,"genus_original":802367,"genus_double_cover":1605141,"branch_points_double_cover":816,"prym_dimension":802774,"degree_to_Ciani":200940,"degree_to_attached_elliptic":803760},
+    {"n":5,"b":2378,"c":5741,"genus_original":27296077,"genus_double_cover":54594531,"branch_points_double_cover":4756,"prym_dimension":27298454,"degree_to_Ciani":6826049,"degree_to_attached_elliptic":27304196},
+    {"n":6,"b":13860,"c":33461,"genus_original":927491599,"genus_double_cover":1854997057,"branch_points_double_cover":27720,"prym_dimension":927505458,"degree_to_Ciani":231884730,"degree_to_attached_elliptic":927538920},
+    {"n":7,"b":80782,"c":195025,"genus_original":31508743293,"genus_double_cover":63017567367,"branch_points_double_cover":161564,"prym_dimension":31508824074,"degree_to_Ciani":7877254775,"degree_to_attached_elliptic":31509019100},
+    {"n":8,"b":470832,"c":1136689,"genus_original":1070377502975,"genus_double_cover":2140755476781,"branch_points_double_cover":941664,"prym_dimension":1070377973806,"degree_to_Ciani":267594777624,"degree_to_attached_elliptic":1070379110496}
+  ],
+  "Ciani_curve": "X^4+Y^4-2*kappa*X^2*Y^2=1",
+  "Ciani_quotients": ["q^2=1+(kappa^2-1)*Y^4","q^2=1+(kappa^2-1)*X^4","T^2=r^4-2*kappa*r^2+1"],
+  "attached_curve": "eta^2=z*(z^2-2*kappa*z+1)",
+  "Ciani_to_attached": "z=Y^2/X^2, eta=Y/X^3",
+  "Kummer_map": "x=a^2; z=y^b/a^(2c); eta=y^(b/2)/a^(3c)",
+  "quotient_j": "64*(K+3)^3/(K-1)^2",
+  "elliptic_Picard_Fuchs": "(kappa^2-1)Pi_second +2*kappa*Pi_first+Pi/4=0",
+  "exact_differential_numerator": "z^2*(1-z^2)/2",
+  "actual_example_recomputed": {"mu":27,"tau":24,"monomials":45,"Jacobi_rank":18,"Tjurina_rank":21},
+  "ordinary_proofs_required": [
+    "irreducibility and smooth compactification of the affine fibers",
+    "square-class obstruction, degrees and Riemann-Hurwitz",
+    "Jacobian trace-pullback splitting and Prym anti-invariance",
+    "Picard-Fuchs interpretation as Gauss-Manin periods",
+    "Hua--Keller Theorem 5.9, arXiv:1810.00749v6, for Z-graded dg singularity categories"
+  ],
+  "not_claimed": [
+    "a quotient map from the original Milnor curve to E over the prescribed z",
+    "general two-periodic MF reconstruction from tau alone",
+    "application of weighted-Milnor cover to the non-quasihomogeneous actual germ",
+    "HMS, categorical summand, integral or polarized Jacobian product",
+    "novelty"
+  ]
+}
