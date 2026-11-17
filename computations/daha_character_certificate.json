@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-17",
+  "version": "e6-links-v1",
+  "status": "PASS",
+  "q": "q^2+q+1=0, q primitive cubic root",
+  "AW": "Casimir_AW=3(q+2)*Omega_abc, after A=(1-q)x and alpha=(1-q)a, cyclic",
+  "casimir_relation_source": "Terwilliger 2013 Definition 2.6, equation (2.5)",
+  "Fricke_center": "Omega=-D, X=-e*u, Y=-e*v, Z=-e*w gives u^2+v^2+w^2+uvw+A*u+B*v+C*w+T=0",
+  "A": "-(D*a+la)/e^2",
+  "B": "-(D*b+lb)/e^2",
+  "C": "-(D*c+lc)/e^2",
+  "T": "-(D^3-fD^2+D*K-L)/e^3",
+  "Fricke_parameter_Jacobian_at_a_b_c_zero": "3*D*(D-2*f/3)^4/e^9",
+  "trace_parameter_Jacobian_at_1_2_3_4": -200,
+  "Vieta_involutions": [
+    "W -> -U*V-C-W",
+    "U -> -V*W-A-U",
+    "V -> -U*W-B-V"
+  ],
+  "Jacobian_Poisson": "{U,V}=dH/dW and cyclic; each Vieta involution is anti-Poisson",
+  "external_inputs_not_verified_by_code": [
+    "Terwilliger universal Askey-Wilson defining relations and Casimir centrality",
+    "Goldman four-holed sphere trace identity and Goldman bracket normalization",
+    "base H3 recognition and center computation of nc-cubic-e6",
+    "comparison with skein and spherical DAHA at the primitive cubic root",
+    "novelty and full stack-level equivalence"
+  ]
+}
