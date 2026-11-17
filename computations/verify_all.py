@@ -24,14 +24,14 @@ checks = [
     'verify_companion_s5.py', 'verify_cayley_lg_connections.py',
     'verify_lg_picard_g2.py', 'verify_g2_braids_periods.py',
     'verify_logarithmic_periods.py', 'verify_conic_period_coordinates.py',
-    'verify_triality_period_isogeny.py',
+    'verify_triality_period_isogeny.py', 'verify_boundary_pell_dynamics.py',
 ]
 completed = []
 for name in checks:
     subprocess.run([sys.executable, str(root / name)], check=True, cwd=root)
     completed.append({'script': name, 'status': 'PASS'})
 result = {
-    'date': '2026-11-17', 'version': 'e6-connections-v24', 'status': 'PASS',
+    'date': '2026-11-17', 'version': 'e6-connections-v25', 'status': 'PASS',
     'python': platform.python_version(), 'sympy': sympy.__version__,
     'networkx': networkx.__version__, 'completed': completed,
     'separate_mathematical_inputs': [
@@ -62,6 +62,12 @@ result = {
         'integer Hodge extension classification and rational companion comparison',
         'Weyl invariant ring of the triality fixed period torus',
         'Cantat--Loray entropy and dynamical-degree theorem',
+        'Jang general tropical Markov linearization',
+        'boundary monomial valuations and Vieta invariance',
+        'all-n leading-term proof and associated graded minimal degree',
+        'pole-divisor comparison with projective pullback',
+        'irrational eigenrays and finite-boundary-blowup nonregularization',
+        'minimal corner extraction by the Euclidean algorithm',
     ],
     'not_certified_by_this_run': [
         'global H3 algebraic-stack construction',
@@ -78,6 +84,7 @@ result = {
         'unmarked global companion variation of Hodge structures',
         'algebraic or categorical equivalence of companion surfaces',
         'non-archimedean SYZ model or good-reduction verification',
+        'nonregularization on all unrelated compactifications',
         'categorical relation to nearly Kahler geometry',
         'categorical entropy',
         'independent peer review', 'novelty', 'GitHub or Library saving',
