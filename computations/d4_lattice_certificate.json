@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-17",
+  "version": "e6-connections-v14",
+  "status": "PASS",
+  "lattice": "Pic(Bl_6 P2), signature (1,6)",
+  "boundary": "D_i=H-E_(2i-1)-E_(2i), sum D_i=-K",
+  "root_basis": [
+    "H-E1-E3-E5",
+    "E1-E2",
+    "E3-E4",
+    "E5-E6"
+  ],
+  "intersection_matrix": [
+    [
+      -2,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      -2,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      -2,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      -2
+    ]
+  ],
+  "determinant": 4,
+  "claims_not_checked": "Existence of the tritangent-compatible blowup marking is a classical geometric input; applicability of DAHA/skein maps at q^3=1 is separate."
+}
