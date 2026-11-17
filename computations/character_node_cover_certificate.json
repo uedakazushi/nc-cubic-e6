@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-17",
+  "version": "e6-character-cover-v1",
+  "status": "PASS",
+  "field": "Q(q), q^2+q+1=0",
+  "central_critical_identities": [
+    "P",
+    "dP/dX",
+    "dP/dY",
+    "dP/dZ",
+    "dP/dOmega"
+  ],
+  "identities": "all zero after substitution a=(1-q)yz-x and cyclic; direct polynomial reduction",
+  "fiber_at_origin": "five affine points and three transverse coordinate points at infinity",
+  "affine_Jacobian_determinants_at_origin": [
+    "-1",
+    "4",
+    "4",
+    "4",
+    "4"
+  ],
+  "geometric_consequences_not_computer_verified": [
+    "finite etale degree 5 near origin by projective complete intersections",
+    "connectedness by irreducibility of affine character variety",
+    "irreducibility of incidence projective-3 bundle",
+    "H3 recognition by previously proved fixed-order openness"
+  ]
+}
