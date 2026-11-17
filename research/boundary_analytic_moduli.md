@@ -1,6 +1,6 @@
 # 境界の解析modulus・MF・楕円曲線・Milnor被覆のPrym
 
-2026-11-18 / e6-connections-v30。最初に `../00_research_plan.md` を読む。完全な証明は主論文の `quantum_cubic_boundary_thresholds.tex`, `quantum_cubic_boundary_moduli.tex`, `quantum_cubic_boundary_prym.tex`。元の全反復・link・正規化は `research/boundary_pell_dynamics.md` と `sec:boundary-torus-links` にある。本ノートは現行の具体式・区別・文献・次の着手を保持する。
+2026-11-18 / e6-connections-v31。最初に `../00_research_plan.md` を読む。完全な証明は主論文の `quantum_cubic_boundary_thresholds.tex`, `quantum_cubic_boundary_moduli.tex`, `quantum_cubic_boundary_prym.tex`。元の全反復・link・正規化は `research/boundary_pell_dynamics.md` と `sec:boundary-torus-links` にある。本ノートは現行の具体式・区別・文献・次の着手を保持する。
 
 ## 1. 実germと重み付き模型
 
@@ -78,9 +78,33 @@ Eのomega=dz/etaの周期Piは(kappa²−1)Pi''+2kappa Pi'+Pi/4=0。P=zQとし�
 
 一般Prym理論、Ciani分解、超幾何、dg復元は既知。本稿の位置付けは明示写像と入力例の接続。個別帰結の網羅的な新規性調査は未了。
 
-## 10. 次の着手と検証状態
+## 10. 巡回Milnor被覆、Prym偏極とX411の整数構造
+
+主論文 `papers/sections/quantum_cubic_prym_polarization.tex`（`thm:prym-cyclic-inertia`, `thm:prym-elliptic-theta-degree`, `prop:prym-extremal-X411`）に通常の証明を統合した。
+
+前節の `tildeC: y^(4m)-2kappa a^(2c)y^(2m)+a^(4c)=1`（b=2m,c奇数, gcd(m,c)=1）から
+`D:T²=r⁴-2kappa r²+1`, `E:eta²=z(z²-2kappa z+1)` への写像は
+`r=y^m/a^c,T=a^(-2c)`, `z=r²,eta=rT`。
+tildeC→Dはcyclic Galois次数bc。生成元はa↦ζ_(2c)a,y↦ζ_(2m)y。tildeC→Eはcyclic Galois次数2bcで、生成元の位相はaに1/(4c)、yにj/(4m)（j≡3 mod4, gcd(j,4m)=1）を取る。
+
+tildeC→Dのbranch表：T=0の四点に各一点・指数bcの**完全分岐**、r=0の二点に各2c点・指数m、r=∞の二点に各b点・指数c。RH合計は `4(bc-1)+2(bc-2c)+2(bc-b)=2g(tildeC)-2`。従ってD→EはtildeC→Eの最大非分岐中間被覆（次数2）。全分岐からD→J(tildeC)のpullbackはinjective。
+
+E上では `div(z)=2(0,0)-2O`、D=E(sqrt z)のetale二重被覆。したがって`ker[q^*:J(E)→J(tildeC)]=<[(0,0)-O]>`（正確に位数2）。補助二捩れ標識が自然なPrym引戻しの核そのものとして回復される。
+Prym内のembedded elliptic D上のambient Jacobian thetaの制限次数は**bc**。Eをsourceにしたpullbackの次数は2bcなので混同しない。
+Prym全体のtheta制限偏極型は `(1^(b-1),2^(2bc-b-c))`（ramified double coverのMumford公式）。n=1,2,3でD上のtheta次数は10,348,11830。Pell率は2log(3+2sqrt2)。
+
+`E_k:eta²=z³-2kappa z²+z`のdeltaは64(kappa²-1)、c4=16(4kappa²-3)、j=64(4kappa²-3)³/(kappa²-1)。
+kappa=±1でKodaira I1。無限遠s=1/kappaで極小模型 `Y²=X³-2sX²+s⁴X` はdelta=64s^10(1-s²)、c4=16s²(4-3s²)なのでI4*。
+これがMiranda–Perssonの既知の極端有理楕円曲面**X411**（root D8, Mordell–Weil Z/2）。
+j/1728は次数6のBelyi mapでpassport `j=0:(3,3); j=1728:(2,2,2); j=∞:(4,1,1)`。
+Miranda–Persson, *On extremal rational elliptic surfaces*, Math. Z. **193** (1986), 537–558, Table 5.2, DOI https://doi.org/10.1007/BF01160474 。著者原PDFの表を画像でも確認。
+これらのKodaira・Belyi・極端楕円曲面理論は既知で、本稿での貢献はPell/Prym因子との明示的関係。
+
+厳密検証コード `computations/verify_prym_integral_belyi.py` は整数合同・10組のPell分岐数・楕円c4/Delta/j・三分岐値を再生成（PASS）。小証明書は `prym_integral_belyi_certificate.json`。全域のGalois被覆・偏極・Kodaira判定は通常の証明と先行定理に基づく。Prym全体の整数直和分裂、実高重みgermへのPrym移行、MFへの関手は未構成。
+
+## 11. 次の着手と検証状態
 
 実germについてはZdg圏の区別が解決したので、相対二周期HHと絶対Zdg HHの比較、[f]の役割、n1でのkappa/h変動のTjurina跳躍を調べる。未確認の比較を結論に使わない。
-Prym側はb2,c5でq*のkernel・誘導偏極・整数格子を計算し、PFのmonodromyをlevel2標識と比較する。高重みの変形で楕円factorが残るか、stable reduction/極限Hodgeにのみ残るかを別問題にする。同じ有理Hodge因子からMF部分圏/HMSを推論しない。
-今回 `verify_boundary_prym.py` を実行しPASS。Q上の代入・j・指標・完全微分とPell整数式、元Vietaから独立のmu27/tau24計算を含む。証明書は `boundary_prym_certificate.json`。全nの幾何、norm理論、dg復元は通常の証明と文献入力。
-新Prym節は独立LuaLaTeX4頁、全頁画像・内部参照・overfullなしを確認。主論文全体の今回の組版、旧34検証器全再実行、独立査読、新規性の網羅確認は未実施。mainへの統合差分で既存証明・文献を保持。pushした内容はLibraryへ保存しない。
+Prym側ではq*のkernelと埋込楕円偏極次数bcが解決した。次は固定b2,c5のPrym全体の偏極付き補因子の整数格子、楕円因子のmonodromyとMFの次数構造を精査する。高重みの変形で楕円factorが残るか、stable reduction/極限Hodgeにのみ残るかを別問題にする。同じ有理Hodge因子からMF部分圏/HMSを推論しない。
+直近の新規計算は `verify_prym_integral_belyi.py` を実行しPASS。以前の `verify_boundary_prym.py` も証明書にPASS記録がある。Q上の代入・j・指標・完全微分とPell整数式、元Vietaから独立のmu27/tau24計算を含む。証明書は `boundary_prym_certificate.json`。全nの幾何、norm理論、dg復元は通常の証明と文献入力。
+巡回偏極・Belyi節の独立LuaLaTeX組版の確認範囲は研究方針を参照する。以前のPrym節は独立LuaLaTeX4頁、全頁画像・内部参照・overfullなしを確認。主論文全体の今回の組版、他の35検証器全再実行、独立査読、新規性の網羅確認は未実施。mainへの統合差分で既存証明・文献を保持。pushした内容はLibraryへ保存しない。
