@@ -25,9 +25,9 @@
 \newcommand{\OO}{\mathcal O}
 \renewcommand{\AA}{\mathbb A}
 \newcommand{\PP}{\mathbb P}
-\title{非可換三次曲面を結ぶ幾何学\\\large 楕円 $E_6$ 量子化・指標多様体・Cayley曲面と $D_4$ 特異点}
+\title{非可換三次曲面を結ぶ幾何学\\\large 楕円 $E_6$ 量子化・指標多様体・消滅サイクルと例外群 $G_2$}
 \author{}
-\date{2026年11月17日\quad e6-connections-v19}
+\date{2026年11月17日\quad e6-connections-v20}
 \begin{document}\maketitle
 \begin{abstract}
 原始三乗根の量子 $\mathfrak{so}_3$ 包絡とその中心三次切断を、
@@ -46,13 +46,16 @@ Casimir切断は普遍Askey--Wilson代数の中央特殊化に一致し、
 Casimir臨界値多項式は$\Delta_{15}=N_5^2M_5$と分解する。
 二つの五次因子の同時幾何学的monodromyは$S_5\times S_5$である。
 
-さらに一次元表現被覆を一つのLandau--Ginzburgポテンシャルの臨界点族と読むと、
-そのramification divisorはトーラスの$\mathrm{SL}_2$指標多様体であるCayley三次曲面となる。
-四つの特殊fiberでは四枚のsheetが$D_4$型で衝突し、
-三係数は加法定数を除くミニバーサル変形を与える。
-同じ構成にtriality、Jacobi留数対、実pillowcase、相関行列のelliptopeが現れる。
-被覆の分岐とCasimir値の衝突を区別し、elliptope内部で実勾配写像が単射であることを示す。
-これらの明示的な接続と、既知理論の適用・未構成の圏的対応を分けて記述する。
+一次元表現被覆をLandau--Ginzburgポテンシャルの臨界点族と読むと、
+ramification divisorはトーラスの$\mathrm{SL}_2$指標多様体であるCayley三次曲面となる。
+四sheet衝突の$D_4$ミニバーサル変形、triality、Jacobi留数対、
+実pillowcase、elliptope内部での実sheet一意性を明示する。
+さらにLG等位面を三角境界付き三次曲面へコンパクト化し、
+局所Milnor格子と境界に直交するPicard格子の$D_4$を包含による整数同型で結ぶ。
+境界の一次元radical、affine $D_4$、混合Hodge構造の四方向と一方向を分離する。
+Boalch--Palubaの既知定理を適用すると、対称LG等位面は$G_2$指標多様体の連結成分となり、
+$D_4$衝突とsimple foldに対応する$A_2$衝突が同じ$G_2$退化の二成分として現れる。
+これらの明示的接続、既知理論の適用、未構成の圏的対応を区別して記述する。
 \end{abstract}
 \tableofcontents
 
@@ -74,9 +77,8 @@ Artin--Zhang豊富性、三次曲面の反標準Hilbert値を満たし、
 七次元族を含む八次元成分の決定は、この相互関係を組織化する重要な課題として保持するが、
 未解決の大域分類を他分野との比較の前提とはしない。
 
-特に、第\ref{sec:cayley-lg-connections}節の
-$\Phi=(vw-u,wu-v,uv-w)$では、ramification divisorが
-$u^2+v^2+w^2+2uvw-1=0$となる。
+第\ref{sec:cayley-lg-connections}節の$\Phi=(vw-u,wu-v,uv-w)$では、
+ramification divisorが$u^2+v^2+w^2+2uvw-1=0$となる。
 このCayley曲面のトーラス商とmodular作用はCantat--Loray
 \cite[\S1.5]{CantatLorayCayley}の既知の幾何であり、
 $D_4$の変形とtrialityはMikosz--Weber \cite[Proposition 3, \S5]{MikoszWeberTriality}、
@@ -84,8 +86,16 @@ elliptopeのnearly K\"ahler multi-moment像としての出現は
 Dixon \cite[Lemma 3.5]{DixonElliptope}と比較する。
 本稿はこれらの一般理論を新たに発見したと主張せず、指定した表現被覆との正確な同定、
 四sheet衝突のversal性、実sheetの一意性を証明する。
-Picardの$D_4$格子と局所Milnor格子の標準的同定、mirror/Fukaya同値、
-nearly K\"ahler幾何との圏的対応は未構成である。
+
+第\ref{sec:lg-picard-g2}節では、同じLGの近傍等位面内で
+局所Milnor fiberの包含からPicardの$D_4$への整数格子同型を構成する。
+これは退化を指定した比較であり、全パラメータ上で選択に依存しない標準同定ではない。
+Goldman--NeumannのFricke曲面の位相とDeligneの重み理論に照らして境界の一次元方向を分離し、
+判別群への作用から局所とPicardの双方で外部trialityを検出する。
+またBoalch--Palubaの$G_2$実現とunipotent退化の記述を本稿の座標に適用すると、
+四sheetの$D_4$衝突と二sheetの$A_2$衝突が同じ例外群の退化で結ばれる。
+これらの先行定理の書誌と適用箇所は同節に記す。
+mirror/Fukaya同値、$G_2$型量子代数との同型、nearly K\"ahler幾何との圏的対応は未構成である。
 
 現時点で得た結果と仮定付きの帰結を次のように区別する。
 \begin{longtable}{p{.28\textwidth}p{.63\textwidth}}
@@ -102,7 +112,8 @@ DAHAとcharacter variety&Askey--Wilson Casimirを規約まで同定し、Fricke�
 二つの延長障害&非Casimir切断は指定した純粋$q$変形の平坦商に持ち上がらず、Vietaは固定pointed H3心へ延長しない。\\
 Casimir特異中心の二類型&Poisson零点は総中心の五節点と五滑らか臨界点。四特異値は全て$A_1$だが既存H3判定で二値ずつ可否が分かれる。第\ref{sec:casimir-poisson-leaves}節。\\
 相対Poisson被覆と二五次式&臨界スキーム有限平坦次数15、一次元表現次数5。$\Delta_{15}=N_5^2M_5$、二つの五次因子の同時幾何monodromyは$S_5\times S_5$。第\ref{sec:relative-poisson-cover}節。\\
-Cayley・$D_4$・実凸幾何&五重被覆のramification divisorをトーラス指標多様体と同定。四sheet衝突の$D_4$ミニバーサル性、留数対、elliptope内部の単射性。第\ref{sec:cayley-lg-connections}節。\\
+Cayley・$D_4$・実凸幾何&トーラス指標多様体、四sheet衝突のミニバーサル性、留数対、elliptope内部の単射性。第\ref{sec:cayley-lg-connections}節。\\
+Milnor・Picard・$G_2$&指定退化での整数$D_4$比較、外部triality、重みの$4+1$、既知$G_2$退化を通じた$D_4$と$A_2$の接続。第\ref{sec:lg-picard-g2}節。\\
 \bottomrule
 \end{longtable}
 
@@ -480,7 +491,7 @@ $\mathbb Q(q)$ 上で $(F,F_X,F_Y,F_Z)$ のGr\"obner基底は $(1)$ である。
 \dot G={}&(22q+6)x+(5q+9)y+(18q+18)z\\
 &-\tfrac43(q+1)(x^2+z^2)-\tfrac43(q+4)y^2+6xy+9q\,xz+18yz.
 \end{align*}
-従って\emph{このポテンシャル・中央三次incidence}の接空間商は正確に八次元である。
+従って\emph{このポテンシャル・中央三次incidence}の接空間間商は正確に八次元である。
 これは全H3変形の被覆を行列の階数だけから推論したものではない。
 
 全次数の明示例として、別の許容候補切断
@@ -550,6 +561,7 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_casimir_leaves.tex}
 \input{papers/sections/quantum_cubic_relative_poisson.tex}
 \input{papers/sections/quantum_cubic_cayley_lg.tex}
+\input{papers/sections/quantum_cubic_lg_picard.tex}
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
@@ -578,17 +590,18 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_casimir_poisson_leaves.py}&十Poisson零点・四特異値・Hessian・一次元表現：既存PASS\\
 \path{verify_relative_poisson_cover.py}&次数15のGr\"obner環・二五次因子・単純fold：既存PASS\\
 \path{verify_companion_s5.py}&二素数での$N_5,M_5$ Frobenius分解型：既存PASS\\
-\path{verify_cayley_lg_connections.py}&Cayley・対数Poisson・$D_4$局所環・versal方向・留数対：今回PASS\\\bottomrule
+\path{verify_cayley_lg_connections.py}&Cayley・対数Poisson・$D_4$局所環・versal方向・留数対：既存PASS\\
+\path{verify_lg_picard_g2.py}&整数格子・triality・affine $D_4$・$G_2$係数：今回PASS\\\bottomrule
 \end{longtable}
-今回実行したのは最後の検証器であり、全計算は有理数体上の記号計算である。
-新しい小証明書は\path{computations/cayley_lg_connections_certificate.json}。
-不変環の生成、解析的$D_4$右同値、versal性判定、実凸領域での単射性は本文の通常の証明であり、
-計算証明書と区別する。旧23検証器のPASSは既存の保存結果で、今回の再実行ではない。
-新Cayley--Landau--Ginzburg節を一時的な独立wrapperでLuaLaTeX組版した（5頁）。
-この点検用wrapperでは本文外の二つの参照は未解決であり、主論文全体を今回組版したとはしない。
-主論文への入力先と文献キーは保存時に確認する。
-全旧証明の独立再監査、Lean形式化、mirror/Fukaya同値の構成、
-新規性の網羅調査は未実施である。
+今回実行したのは最後の検証器で、有理数体・整数行列上の厳密計算である。
+小証明書は\path{computations/lg_picard_g2_certificate.json}。
+比較完全列、ADE Milnor格子、格子のgluing、混合Hodge構造、$G_2$指標多様体の同定は
+通常の証明および明記した先行定理への依存であり、有限計算の検証とは区別する。
+旧24検証器は今回全再実行していない。
+新LG--Picard--$G_2$節を独立wrapperでLuaLaTeX組版（4頁）し、頁を画像点検した。
+新節内部の参照は解決済みで、overfull boxを修正した。
+これは主論文全体の今回の組版ではない。全旧証明の独立再監査、
+Lean形式化、mirror/Fukaya同値の構成、新規性の網羅調査は未実施である。
 
 \begin{thebibliography}{99}
 \bibitem{DeDekenLowen} O. De Deken, W. Lowen,
