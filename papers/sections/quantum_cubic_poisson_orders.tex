@@ -1,0 +1,278 @@
+\section{三乗根Poisson構造と、楕円切断・H3心への二つの障害}
+\label{sec:root-poisson-orders}
+本節は第\ref{sec:daha-character}節の中心の幾何学を、
+非可換代数そのものの変形と結ぶ。日付は2026年11月17日、内容版はv15である。
+三乗根における量子化からGoldman構造が現れる一般的機構は既知である。
+Baseilhac--Rocheの一次論文\footnote{S. Baseilhac, P. Roche,
+\emph{Unrestricted Quantum Moduli Algebras. I. The Case of Punctured Spheres},
+SIGMA 18 (2022), 025, 78 pp.,
+\href{https://doi.org/10.3842/SIGMA.2022.025}{doi:10.3842/SIGMA.2022.025},
+Theorems 7.17, 7.19 and Corollary 7.20(3).}
+はFrobenius写像を通じたこの関係を証明する。
+本節で独立に証明するのは、本稿のPBW規約での正確な係数、
+中心三次切断をその変形に持ち上げる際の障害、
+および量子的Vieta作用と固定H3心の非両立性である。
+個別の表示式や障害の文献上の新規性は未確定である。
+
+\subsection{量子化パラメータの変形と正確な係数}
+$q^2+q+1=0$ とし、$a,b,c$ は固定する。
+$Q=q\exp(\hbar)$ とおき、$\hbar$-進完備化した代数
+\[
+ \mathcal V_\hbar=k[[\hbar]]\langle x,y,z\rangle/
+ (yz-Qzy-x-a,\ zx-Qxz-y-b,\ xy-Qyx-z-c)
+\]
+を考える。$\hbar$ と斉次化変数 $t$ は異なる。
+ここでの変形は、一般のSklyanin方向を同時に動かす変形ではない。
+
+\begin{lemma}[全係数PBWと持ち上がるCasimir]
+\label{lem:generic-q-casimir}
+$Q$ を不定元としても上の三関係はPBW基底 $x^iy^jz^k$ を与え、
+\begin{equation}\label{eq:generic-q-casimir}
+ \Omega_Q=xyz+\frac{x^2+Q^2y^2+z^2}{Q^2-1}
+       +\frac{ax+Qby+cz}{Q-1}
+\end{equation}
+は中心元である。$Q=q$ で $\Omega_Q$ は本稿の $\Omega$ に一致する。
+任意の $D$ に対し、$\mathcal V_\hbar/(\Omega_Q+D)$ も
+$k[[\hbar]]$ 上平坦である。
+\end{lemma}
+\begin{proof}
+書換え規則は
+\[
+ yx=Q^{-1}xy-Q^{-1}(z+c),\quad
+ zx=Qxz+y+b,\quad
+ zy=Q^{-1}yz-Q^{-1}(x+a).
+\]
+全次数、次いで逆順対を下げる順序で停止し、唯一の重なり $zyx$ の両還元は一致する。
+実際、両方とも
+\[
+ Q^{-1}xyz+Q^{-1}(y^2+by-x^2-ax-z^2-cz)
+\]
+となる。式\eqref{eq:generic-q-casimir}の三交換子に同じ規則を使うと全て零となる。
+これは $\mathbb Q(Q)[a,b,c]$ 上の恒等式であり、有限標本による外挿ではない。
+$q^2-1\ne0$ なので形式底への代入は正則で、特殊値は式\eqref{eq:Omega}となる。
+PBWフィルトレーションの先頭環は三変数量子多項式環であり、
+$\operatorname{gr}(\Omega_Q+D)=xyz$ は正則中心元である。
+従って商の随伴次数環はこの量子多項式環の $(xyz)$ 商である。
+少なくとも一つの指数が零のPBW語が商の基底となり、平坦性を得る。
+形式完備化ではこの基底に対応する位相的自由加群を用いる。
+\end{proof}
+
+\begin{theorem}[root-of-unity括弧はGoldman型括弧の9倍]
+\label{thm:root-poisson-goldman}
+$V=V_{a,b,c}$ とし、その全中心を
+$Z(V)=k[X,Y,Z,\Omega]/(P)$ と書く。$P$ は式\eqref{eq:center}の左辺である。
+中心元 $f,g$ の持上げ $\widetilde f,\widetilde g$ に対し
+\[
+ \{f,g\}_{\rm rt}=\left.\frac{[\widetilde f,\widetilde g]}{\hbar}\right|_{\hbar=0}
+\]
+は持上げによらないPoisson括弧を定める。その値は
+\begin{equation}\label{eq:root-poisson-center}
+ \begin{aligned}
+ \{X,Y\}_{\rm rt}&=-9P_Z=9(XY-2eZ+c\Omega-\ell_c),\\
+ \{Y,Z\}_{\rm rt}&=-9P_X,\qquad
+ \{Z,X\}_{\rm rt}=-9P_Y,\qquad
+ \{\Omega,-\}_{\rm rt}=0.
+ \end{aligned}
+\end{equation}
+$a,b,c$ を変数として扱う場合、これらもPoisson中心に属する。
+特に $\Omega=-D$ の切断上のFricke座標では
+\begin{equation}\label{eq:root-goldman-nine}
+ \{u,v\}_{\rm rt}=9(2w+uv+C),\quad
+ \{v,w\}_{\rm rt}=9(2u+vw+A),\quad
+ \{w,u\}_{\rm rt}=9(2v+uw+B).
+\end{equation}
+従って第\ref{sec:daha-character}節で固定したJacobian規約の
+Goldman型括弧の正確に9倍である。
+\end{theorem}
+\begin{proof}
+PBW平坦性から交換子を $\hbar$ で割れる。
+二つの持上げの差 $\hbar f_1$ を入れたときの差は
+$[f_1,g]$ の特殊値であり、$g$ が中心なので零である。
+Jacobi恒等式により得られる元は中心に入り、Leibniz則とJacobi則も交換子から従う。
+$\Omega_Q$ とパラメータが厳密に中心へ持ち上がることから最後の等式を得る。
+
+正確な係数は次の全係数計算で決まる。
+$\widetilde X=x^3+Q^2x$, $\widetilde Y=y^3+Q^2y$, $\widetilde Z=z^3+Q^2z$ と置き、
+上の三規則で積をPBW正規形 $\operatorname{NF}_Q$ に直すと
+\begin{align*}
+ \left.(Q\partial_Q)\operatorname{NF}_Q
+   [x^3+Q^2x,y^3+Q^2y]\right|_{Q=q}
+  ={}&9\bigl(x^3y^3+q^2x^3y+q^2xy^3+qxy\bigr)\\
+   &-18e(z^3+q^2z)+9c\Omega-9\ell_c.
+\end{align*}
+右辺の最初の括弧は $XY$ であり、求める等式となる。
+残る二つは巡回置換で得る。この等式は
+\texttt{computations/verify\_root\_poisson.py} が
+$\mathbb Q(Q)[a,b,c]$ 上で積を形成し、微分後に
+$\mathbb Q(\sqrt{-3})[a,b,c]$ へ厳密代入して、全PBW係数を零と確認する。
+また同じコードは三つのCasimir交換子と九つの特殊中心交換子も別に確認する。
+$Q\partial_Q$ は選んだ変形 $Q=q\exp(\hbar)$ の一次微分に等しい。
+
+最後に $P|_{\Omega=-D,X=-eu,Y=-ev,Z=-ew}=e^3F$ なので
+$P_Z=-e^2F_w$、$\{u,v\}=e^{-2}\{X,Y\}=9F_w$ である。
+これは括弧を後から便宜上定義したものではなく、元代数の変形からの同定である。
+\end{proof}
+
+\begin{remark}[規約と先行研究]
+変形を $Q=q+\hbar$ と取れば係数は $9q^{-1}$ になる。
+従って数値9を変形パラメータの選択から切り離してはならない。
+Huang\footnote{H.-W. Huang, \emph{Center of the universal Askey--Wilson algebra
+at roots of unity}, Nuclear Phys. B 909 (2016), 260--296,
+\href{https://doi.org/10.1016/j.nuclphysb.2016.05.006}{doi:10.1016/j.nuclphysb.2016.05.006};
+\href{https://arxiv.org/abs/1509.08719}{arXiv:1509.08719}.}
+によるroot-of-unity中心の一般表示と、本稿の三乗根の明示計算は区別する。
+skein/DAHA同型が全ての中央特殊化に保たれることを、本定理の前提にはしていない。
+\end{remark}
+
+\subsection{symplectic leaf上の表現論}
+\begin{corollary}[Fricke切断のPoisson orderと中心fiber]
+\label{cor:root-poisson-fibers}
+$k=\mathbb C$ とする。$V$ は上の中心上のPoisson orderである。
+$A_D=V/(\Omega+D)$ とし、$C_D=\Spec(k[X,Y,Z,\Omega]/(P,\Omega+D))$ と置く。
+この中心部分環は $A_D$ に単射し、$A_D$ はその上有限なPoisson orderとなる。
+$C_D$ のsmooth locusは一つのsymplectic leafであり、各特異点は零次元leafである。
+従って $p,p'\in C_D^{\rm sm}$ について
+\[
+ A_D/\mathfrak m_pA_D\cong A_D/\mathfrak m_{p'}A_D
+\]
+が成り立つ。一点でこの代数が $M_3(\mathbb C)$ なら、smooth locusの全点で同じである。
+この最後の条件を、全 $D$ について追加検証なしに主張しない。
+\end{corollary}
+\begin{proof}
+$x^3=X-q^2x$ と巡回式により、$V$ は $k[X,Y,Z]$ 上
+$0\le i,j,k<3$ の27語で自由である。独立性は最高PBW記号で分かる。
+従って全中心上有限であり、そのgeneric rankは $27/3=9$ である。
+中心元の線型な持上げを選び、同じ交換子微分を $V$ 全体へ作用させると導分を得る。
+選択を変えた際の差は内部導分で、中心上の括弧は変わらない。
+これはBrown--GordonのPoisson orderの定義と量子化構成に一致する。\footnote{
+K. A. Brown, I. Gordon, \emph{Poisson orders, symplectic reflection algebras and
+representation theory}, J. Reine Angew. Math. 559 (2003), 193--216,
+\href{https://arxiv.org/abs/math/0201042}{arXiv:math/0201042},
+\S\S2.1--2.2 and Theorem 4.2. ここでは同原論文の定義を使い、
+中心元を全代数の導分へ送る写像の選択非依存性は主張しない。}
+$\Omega_Q+D$ が厳密に中心なので導分は商へ降りる。
+$V$ は整域であり、$z=(\Omega+D)v$ が中心なら
+$(\Omega+D)[v,a]=0$ から $v$ も中心である。
+よって $Z(V)\cap(\Omega+D)V=(\Omega+D)Z(V)$ であり、中心部分環の単射を得る。
+
+Fricke方程式は全パラメータで既約である。
+もし因数分解すれば、全次数の先頭式 $uvw$ により一次因子の先頭は
+$u,v,w$ のいずれかの倍数である。
+例えば $u-u_0$ を因子に持つとすれば、$u=u_0$ を代入した式の $v^2$ 係数1に矛盾する。
+射影閉包は無限遠の三角形に沿って滑らかである。
+特異曲線があれば射影閉包内で無限遠に交わるため矛盾し、特異点は有限である。
+従ってsmooth locusは連結であり、そこで式\eqref{eq:root-goldman-nine}は非退化、
+特異点では零となる。各leafは局所閉で、これらはsymplectic coreにも一致する。
+Brown--Gordon Theorem 4.2を適用して中心fiberの同型を得る。
+$M_3$ というサイズはgeneric rank 9と整合するが、
+特定のCasimir値がgeneric Azumaya開集合と交わるかは別の確認事項である。
+\end{proof}
+
+\subsection{純粋な量子化パラメータ変形が通れない中心切断}
+\begin{theorem}[非Casimir切断の一次平坦持上げ障害]
+\label{thm:poisson-cut-obstruction}
+$G=\Omega+\beta X+\gamma Y+\delta Z+\varepsilon\in Z(V)$ とする。
+次の条件は同値である。
+\begin{enumerate}
+\item $(G)\subset Z(V)$ が $\{-,-\}_{\rm rt}$ に関するPoissonイデアルである。
+\item $\beta=\gamma=\delta=0$。
+\item $V/(G)$ が、固定した変形 $\mathcal V_\hbar$ の
+$k[[\hbar]]$-平坦な両側イデアル商へ持ち上がる。
+\end{enumerate}
+(3)を $k[\hbar]/(\hbar^2)$ 上の平坦な両側イデアル商と弱めても同値である。
+これは指定したambient変形の内部での障害であり、抽象的な圏変形や
+Sklyanin方向を同時に動かす変形の非存在を意味しない。
+\end{theorem}
+\begin{proof}
+$G=0$ で $\Omega$ を消去する。
+残った中心関係 $P_G\in k[X,Y,Z]$ はちょうど次数3である。
+その最高斉次部は
+$-(\beta X+\gamma Y+\delta Z)^3-XYZ$ であり、恒等的に零とはならない。
+従って次数2以下の多項式が $k[X,Y,Z]/(P_G)$ で零になることと、
+その多項式自身が零であることは同値である。
+式\eqref{eq:root-poisson-center}より、$G=0$ で計算した
+$\{G,X\}/9,\{G,Y\}/9,\{G,Z\}/9$ の二次斉次部はそれぞれ
+\begin{equation}\label{eq:cut-leading-obstructions}
+ X(\delta Z-\gamma Y),\qquad
+ Y(\beta X-\delta Z),\qquad
+ Z(\gamma Y-\beta X).
+\end{equation}
+これらが全て零なら $\beta=\gamma=\delta=0$ である。
+逆は $\Omega$ のCasimir性から明らかで、(1)と(2)を得る。
+
+必要な一般補題を直接示す。
+平坦変形 $\mathcal A_\hbar$ の平坦商 $\mathcal A_\hbar/\mathcal I_\hbar$ があり、
+特殊イデアルを $I$ とする。$f\in I\cap Z(\mathcal A_0)$ と
+$z\in Z(\mathcal A_0)$ の持上げを取ると
+$[\widetilde f,\widetilde z]\in\mathcal I_\hbar\cap\hbar\mathcal A_\hbar$ である。
+商の平坦性からこの交叉は $\hbar\mathcal I_\hbar$ に等しい。
+従って $\{f,z\}_{\rm rt}\in I\cap Z(\mathcal A_0)$ となる。
+同じ議論は双対数底にも有効である。
+$V$ の整域性から $(G)V\cap Z(V)=(G)Z(V)$ なので、(3)は(1)を必要とする。
+(2)なら補題\ref{lem:generic-q-casimir}の商が全次数の持上げを与える。
+\end{proof}
+
+\begin{corollary}[本稿の選択点における具体的障害]
+$a=b=c=0$、$G_0=2\Omega+X+2Y+3Z+5$ の点では、
+$\{G_0,X\}_{\rm rt}\bmod G_0$ の二次斉次部は
+$9X(3Z-2Y)\ne0$ である。
+従ってこの切断は純粋な $Q=q\exp(\hbar)$ 変形の平坦商としては
+一次にも持ち上がらない。$a,b,c$ の一次補正を同時に許しても、この障害は変わらない。
+\end{corollary}
+\begin{proof}
+前定理を $G_0/2$ に適用する。
+さらに中心元同士の交換子は $Q=q$ において全 $a,b,c$ で零なので、
+$a,b,c$ によるその一次微分も零である。
+従って低次係数の変形を加えても中心括弧の障害を消せない。
+\end{proof}
+
+\subsection{affine modular対称性と反標準コンパクト化の相違}
+\begin{proposition}[量子的Vietaは固定pointed H3心へ延長しない]
+\label{prop:vieta-not-pointed-heart}
+Casimir切断 $R_{a,b,c,D}=B_{a,b,c}/(\Omega_h+Dt^3)$ と
+$R_{b,a,c,D}$ が本稿の強いH3であると仮定する。
+第\ref{sec:daha-character}節の $\sigma$ は非斉次化した代数の同型を与えるが、
+その同型を誘導する構造対象付きexact同値
+$\qgr R_{a,b,c,D}\simeq\qgr R_{b,a,c,D}$ は存在しない。
+また両Fricke中心の射影閉包が滑らかなら、中心上の $\sigma$ は
+それらの間の正則同型へ延長しない。
+\end{proposition}
+\begin{proof}
+非斉次化の次数フィルトレーションを $F_\bullet$ とする。
+$\sigma(z)=(q^2-q)xy-q^2z+qc$ は正確に $F_2\setminus F_1$ に属する。
+実際、Casimir関係の最高記号は正則な三次元 $xyz$ なので、
+次数2以下の新しい関係を生じず、$q^2-q\ne0$ である。
+一方、構造対象付きexact同値は、入力\ref{ass:recognition}(4)により
+反標準環と二次包絡を復元する。
+二次包絡の中央一次部分は $kt$ のみであるため、
+誘導されるgraded同型は $t$ の直線を保ち、非斉次化後には $F_1$ を保つ。
+これは上の $\sigma(z)$ と矛盾する。
+さらに中心上でも $\sigma(Z)$ の最高記号は $e^{-1}x^3y^3$ で次数6であり、
+Casimir商の先頭環でも零でない。$Z$ は次数3なので、内部自己同型を
+合成してもこの矛盾は消えない。従って局所化後の自然同型の曖昧さにも依存しない。
+
+滑らかな三次曲面では $\OO(1)=-K$ なので、射影閉包の任意の同型は
+反標準埋込みの線型同型から来る。
+$\sigma$ はaffine開部分間の同型を与えるので、延長があれば境界も保存し、
+$\langle1,u,v,w\rangle$ を保たなければならない。
+しかし $\sigma(w)=-uv-C-w$ はこの空間に属さない。
+Fricke方程式は次数3であるため $uv$ を一次式へ変える関係がないからである。
+\end{proof}
+
+\begin{remark}[今後構成すべきもの]
+$\sigma^2=1$ と $\rho^3=1$ を持つmodular作用と、
+そのbraid群による持上げを区別する。
+上の命題は非可換affine部分の対称性を否定せず、
+導来自己同値や心の変更を伴う対応の非存在も主張しない。
+古典的なVietaの双有理力学はCantat--Loray\footnote{S. Cantat, F. Loray,
+\emph{Dynamics on Character Varieties and Malgrange irreducibility of Painlev\'{e} VI equation},
+Ann. Inst. Fourier 59 (2009), 2927--2978,
+\href{https://doi.org/10.5802/aif.2512}{doi:10.5802/aif.2512}, \S3.1.}
+で詳しく扱われている。
+本研究では、固定心上の作用を目指すのではなく、
+局所化した圏、境界の双有理変更、または導来圏の中の心の変更に
+対応を実現することが次の課題である。
+純粋な $q$ 変形の障害を回避するには、
+指定した純粋な $q$ 変形の外へ出る必要がある。
+第\ref{sec:integrate}節のようにSklyanin方向を同時に動かす方法は、その具体的な候補である。
+\end{remark}
