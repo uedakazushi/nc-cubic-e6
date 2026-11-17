@@ -25,9 +25,9 @@
 \newcommand{\OO}{\mathcal O}
 \renewcommand{\AA}{\mathbb A}
 \newcommand{\PP}{\mathbb P}
-\title{楕円 $E_6$ 量子化成分の幾何学に向けて\\\large 七次元正常形・八次元形式変形・結節中心因子}
+\title{楕円 $E_6$ 量子化成分の幾何学に向けて\\\large 七次元正常形・八次元形式変形・Fricke--DAHA幾何}
 \author{研究原稿：H3開性・全大域境界の分類は未完成}
-\date{2026年11月17日\quad triangle-component-v13}
+\date{2026年11月17日\quad triangle-component-v14}
 \begin{document}\maketitle
 \begin{abstract}
 原始三乗根の量子 $\mathfrak{so}_3$ 包絡の中心三次切断から得られる四次元族は、
@@ -45,6 +45,10 @@
 さらに選んだ点の全Artin形式近傍を八変数で分類し、明示族の相対THCR境界と幾何学的一般点のH3性を認識する。
 指定表示の近傍にはsmooth DMな八次元代数的表示stackを構成する。
 固定包絡では結節中心が五つの正規交叉因子をなし、その商が二成分であることを示す。さらに包絡の三つの係数を動かす七次元族では、五節点の連結\'{e}tale被覆によりこの軌跡が既約な六次元因子となることを証明する。
+さらにCasimir切断のAskey--Wilson代数との完全な表示同型とCasimir規約を与え、
+その中心が四穴球面のFricke character varietyを優越する四次元族を持つことを示す。
+Braid作用を量子的Vieta変換として明示し、Goldman型Poisson括弧と対数Calabi--Yau三角境界を同定する。
+この部分族は楕円境界を持つ一般の八次元族と区別する。
 全fiberのH3開性、全intrinsic族の降下、成分の大域閉包と全境界はなお未完成である。
 \end{abstract}
 \tableofcontents
@@ -67,7 +71,8 @@ Artin--Zhang豊富性、三次曲面の反標準Hilbert値を満たし、
 一般点の圏の変形&滑らかな中心・境界と記載した局所order模型の下で $\HH^2=8,\HH^3=0$。第\ref{sec:hh}節。\\
 選んだ点の全Artin形式近傍&八変数の全同時形式族で分類。第\ref{sec:artin-enhancement}節。\\
 代数的表示stack&smooth DM八次元の近傍を構成。第\ref{sec:presentation-stack}節。H3の開性・全大域境界は未完成。\\
-結節中心因子&固定包絡では五つの正規交叉因子・商で二成分。七次元族では連結な五重被覆を用いて既約な六次元因子。第\ref{sec:nodal-centers}節。\\\bottomrule
+結節中心因子&固定包絡では五つの正規交叉因子・商で二成分。七次元族では連結な五重被覆を用いて既約な六次元因子。第\ref{sec:nodal-centers}節。\\
+DAHAとcharacter variety&Askey--Wilson Casimirを規約まで同定し、Fricke係数dominance・量子的Vietaを証明。第\ref{sec:daha-character}節。\\\bottomrule
 \end{tabular}\end{center}
 
 ポテンシャルPBW変形と中心元の存在はEtingof--Ginzburg \cite{EG} の既知結果を使う。
@@ -505,6 +510,7 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_algebraic_boundary.tex}
 \input{papers/sections/quantum_cubic_presentation_stack.tex}
 \input{papers/sections/quantum_cubic_nodal_centers.tex}
+\input{papers/sections/quantum_cubic_daha_character.tex}
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
@@ -523,15 +529,18 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_potential_recovery.py}&potential rank19、中心直線rank3：PASS\\
 \path{verify_algebraic_boundary.py}&境界行列式・判別式：PASS\\
 \path{verify_nodal_cuts.py}&固定包絡の五つの結節中心例（新規実行）：PASS\\
-\path{verify_character_node_cover.py}&五つの中心特異点恒等式・一次元表現（新規実行）：PASS\\
+\path{verify_character_node_cover.py}&五つの中心特異点恒等式・一次元表現（既存証明書）：PASS\\
+\path{verify_daha_character.py}&Askey--Wilson規約・Fricke係数・Poisson計算（今回PASS）\\
+\path{verify_daha_braid.py}&量子的VietaのPBW関係・Casimir不変（今回PASS）\\
 \path{verify_boundary_graph.py}&右graph・generic非三周期性：PASS\\\bottomrule
 \end{tabular}\end{center}
 有限体の標本による外挿はしていない。
 H3開性・相対圏の再構成・局所order認識は、計算証明書と通常の数学的証明を区別して記載した。
 全原稿の独立査読、Lean形式化、新規性の網羅調査は未実施である。
-今回追加した二つの結節中心関連検証器と追加節単体のLuaLaTeX組版は実行・確認済みである。
-旧13検証器のPASSは既存の保存済み証明書によるもので、この更新時に全再実行したとは主張しない。
-主原稿全体の今回の再組版と既存の全分類成果の独立再監査は未実施である。
+今回、新規のDAHA関連二検証器を厳密演算で再実行し、追加したDAHA節単体（四頁）をLuaLaTeXで組版した。
+それ以前の検証器のPASSは既存証明書に基づき、今回の再実行を意味しない。
+主原稿全体の今回の再組版、量子代数のskein--DAHA対応の完全な圏的同定、
+既存の全分類成果の独立再監査は未実施である。
 
 \begin{thebibliography}{99}
 \bibitem{DeDekenLowen} O. De Deken, W. Lowen,
@@ -568,6 +577,33 @@ Theorem 1.5, Corollary 1.7。Brauer捩れ付きの比較として使用する。
 \emph{Hochschild--Kostant--Rosenberg isomorphism for derived Deligne--Mumford stacks},
 \href{https://arxiv.org/abs/2509.00501v3}{arXiv:2509.00501v3}, 20 January 2026,
 Proposition 6.17。一般root stackの恒等部分への帰着を比較し、$n=2$ に限る後半の式を $n=3$ へ流用しない。
+\bibitem{TerwilligerDAHA} P. Terwilliger,
+\emph{The universal Askey--Wilson algebra and DAHA of type $(C_1^\vee,C_1)$},
+SIGMA 9 (2013), 047, \href{https://doi.org/10.3842/SIGMA.2013.047}{doi:10.3842/SIGMA.2013.047},
+Definitions 2.1, 2.2, 2.6; Lemmas 2.3, 2.5, 2.8.
+\bibitem{GoldmanTrace} W. M. Goldman,
+\emph{Trace coordinates on Fricke spaces of some simple hyperbolic surfaces},
+\href{https://math.umd.edu/~wmg/Fricke.pdf}{available manuscript}, \S5.2.1 (equation (5.2.1.2)).
+\bibitem{HikamiCluster} K. Hikami,
+\emph{Note on character varieties and cluster algebras},
+SIGMA 15 (2019), 003,
+\href{https://doi.org/10.3842/SIGMA.2019.003}{doi:10.3842/SIGMA.2019.003}.
+\bibitem{AWAvatars} N. Cramp\'e et al.,
+\emph{The Askey--Wilson algebra and its avatars},
+J. Phys. A 54 (2021), 063001,
+\href{https://doi.org/10.1088/1751-8121/abd783}{doi:10.1088/1751-8121/abd783}.
+\bibitem{CookeLacabanne} J. Cooke, N. Lacabanne,
+\emph{Higher rank Askey--Wilson algebras as skein algebras},
+Ann. Inst. Fourier 76 (2026), 1055--1117,
+\href{https://doi.org/10.5802/aif.3729}{doi:10.5802/aif.3729}.
+\bibitem{BousseauSkein} P. Bousseau,
+\emph{Strong positivity for the skein algebras of the $4$-punctured sphere and the $1$-punctured torus},
+Comm. Math. Phys. 398 (2023), 1--58,
+\href{https://doi.org/10.1007/s00220-022-04512-9}{doi:10.1007/s00220-022-04512-9}.
+\bibitem{EOR} P. Etingof, A. Oblomkov, E. Rains,
+\emph{Generalized double affine Hecke algebras of rank 1 and quantized del Pezzo surfaces},
+Adv. Math. 212 (2007), 749--796,
+\href{https://doi.org/10.1016/j.aim.2006.11.008}{doi:10.1016/j.aim.2006.11.008}.
 \bibitem{CMR} L. Chekhov, M. Mazzocco, V. Rubtsov,
 \emph{Quantised Painlev\'e monodromy manifolds, Sklyanin and Calabi--Yau algebras},
 Adv. Math. 376 (2021), 107442,
