@@ -75,6 +75,7 @@ witness B: Phi_u=(1+2u)xyz-qxzy+u(x³+8y³+27z³)-(x²+y²+z²)/2。
 
 ## 6. 文献確認と未確認点
 
+- Chekhov--Mazzocco--Rubtsov: Adv. Math. 376 (2021), 107442, DOI 10.1016/j.aim.2020.107442、arXiv:1905.02772。一般化Sklyanin--Painlevé代数・PBW/Koszul・量子del Pezzoの関連を公表要旨で確認した。全文の定理単位の照合、七次元パラメータの厳密な比較、五節点因子の新規性判定は未実施。研究比較は`research/fricke_daha_comparison.md`。
 - Etingof--Ginzburg: arXiv:0709.3593v4, Theorem3.3.2(i),(ii), Appendix9.1。
   一次本文を確認。今回のRains式は規約変換後に原関係でも独立検証した。
 - Negron--Schedler: arXiv:1809.08715, Theorem1.1, AppendixA。
