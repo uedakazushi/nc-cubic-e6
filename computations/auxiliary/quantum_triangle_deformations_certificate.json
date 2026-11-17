@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-17",
+  "version": "triangle-component-v1",
+  "status": "PASS",
+  "coefficient_ring": "QQ[q,a,b,c]/(q^2+q+1)",
+  "sampling": "none; identities hold polynomially in all a,b,c",
+  "PBW_critical_overlap": "zyx: both reductions agree",
+  "central_commutators_checked": 12,
+  "central_hypersurface_identity": "verified in original relations, total filtered degree 9",
+  "finite_group_elements_checked": 12,
+  "infinitesimal_coordinate_matrix_shape": [
+    24,
+    16
+  ],
+  "infinitesimal_coordinate_matrix_rank": 15,
+  "kernel": "one-dimensional: common degree scalar only; da=db=dc=0",
+  "conclusion_of_algebra_checks": "three genuine integrable envelope directions, with five central cubics",
+  "geometric_inputs_not_computer_proofs": [
+    "PBW/CY and central-extension homological theorems",
+    "fixed finite-order elliptic-boundary H3 openness, existing manuscript theorem",
+    "intrinsic anticanonical reconstruction on H3 geometric objects"
+  ],
+  "not_claimed": [
+    "algebraicity of the entire intrinsic H3 stack",
+    "the seven-dimensional chart is an irreducible component",
+    "full versality or exact full tangent dimension",
+    "independent re-audit of all earlier H3 proofs or literature novelty"
+  ]
+}
