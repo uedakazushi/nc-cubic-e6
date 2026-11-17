@@ -1,6 +1,6 @@
 # Fricke・Askey–Wilson・DAHAとの比較
 
-2026-11-17 / e6-connections-v17 / 現在有効な文献比較。研究方針はリポジトリrootの `00_research_plan.md`、成分原稿は `papers/nc-cubic-e6.tex`。
+2026-11-17 / e6-connections-v18 / 現在有効な文献比較。研究方針はリポジトリrootの `00_research_plan.md`、成分原稿は `papers/nc-cubic-e6.tex`。
 
 ## Askey–Wilson代数との厳密な表示同型・Casimir
 
@@ -87,7 +87,7 @@ Terwilligerの $\mathrm{PSL}_2(\mathbb Z)$ 作用の生成元は $a\leftrightarr
 
 ## 相対Poisson臨界被覆・S5対称群と二重五次判別式
 
-本研究では固定量子so3の三低次係数(a,b,c)に関して、Casimir切断の臨界点schemeを全域有限平坦次数15と証明した。一次元表現は全域有限平坦次数5で、二つは局所的に「5節点の二重厚み(10)+滑らかな5臨界点」として分かれる。従って臨界値判別式は `Delta15(D)=N5(D)^2 M5(D)`、N5は1次元表現のCasimir normで既約、Galois/幾何monodromyはS5。残りM5の既約性・モノドロミーは未解決。主論文 `sec:relative-poisson-cover` に通常の証明と明示式、`verify_relative_poisson_cover.py` に小さい厳密検証コードを置いた。
+本研究では固定量子so3の三低次係数(a,b,c)に関して、Casimir切断の臨界点schemeを全域有限平坦次数15と証明した。一次元表現は全域有限平坦次数5で、二つは局所的に「5節点の二重厚み(10)+滑らかな5臨界点」として分かれる。従って臨界値判別式は `Delta15(D)=N5(D)^2 M5(D)`、N5は1次元表現のCasimir normで既約、Galois/幾何monodromyはS5。残りM5も幾何学的に既約・Galois群S5であり、N5との合成分解体のGalois群はS5×S5（線型非交叉）。二素数上の厳密なFrobenius分解型と原点の完全分裂etale被覆による通常の証明は主論文 `thm:paired-quintic-S5` と `verify_companion_s5.py` にある。未解決は分岐divisorとその交叉・一般H3条件。主論文 `sec:relative-poisson-cover` に通常の証明と明示式、`verify_relative_poisson_cover.py` に小さい厳密検証コードを置いた。
 
 幾何学的に最も有効なのは
 [
@@ -97,6 +97,15 @@ Terwilligerの $\mathrm{PSL}_2(\mathbb Z)$ 作用の生成元は $a\leftrightarr
 の組である。第一式は次数5のgradient mapで、底(A,B,C)=(-1/4,-1/4,-1/4)にsimple fold（他の三点は非分岐）を持つ。総空間が既約・次数5が素数なのでモノドロミーS5。第二式は各sheetのCasimirを与え、genericに五値を区別する。
 
 **古典Painlevé VIとの先行研究比較:** M. Inaba, K. Iwasaki, M.-H. Saito, *Dynamics of the sixth Painlevé equation*, *Séminaires & Congrès* **14** (2006), 103–167, §9.1 Definition 9.1、[原テキスト](https://emis.de/ft/47232) は、Fricke cubic判別式の境界モノドロミーtraceパラメータへの引戻しに二乗因子が生じることを記載している。今回のN5²M5は**別の係数写像**であり、因数の一致や新規性を主張しない。形式の類似は四穴球面のRiemann–Hilbert、Riccati成分と非可換の1次元characterとの関連を調べる動機になるが、両者を同定する写像は未構成。
+
+
+### 二つの独立なS5とPainlevéへの課題
+
+N5の5重被覆は一次元表現、M5の5重被覆は総中心が滑らかなPoisson臨界点を添字付ける。両者のGalois閉包は **S5×S5** なので、二つの判別式は独立な平方類を定める。これは同じ総中心・同じCasimir写像から二つの独立なS5が生じるという現象であり、DAHA/四穴球面側の高次対称性との比較対象になる。
+
+厳密検算は(a,b,c)=(30,19,29)の二つのsplit素数で再生成する：p1009,q374におけるM5の既約5次、p1069,q86におけるN5の既約5次とM5の既約2次・3次。p1069の符号の不一致とGoursat補題から同時直積。原点で両方のétale五重被覆がQ(q)-有理5点に完全分裂するため、Stacks Project Tag0BTXの有理基点sectionで幾何学的にも直積となる。
+
+Inaba–Iwasaki–SaitoのPainlevé VIにおけるtraceパラメータへの判別式pullbackと我々の係数写像は異なる。二乗因子の存在だけで両者の同一視はできず、分岐divisorの具体式とH3への適用が次の研究対象となる。
 
 ## Poisson零点、表現論、Casimir切断のH3二類型
 
