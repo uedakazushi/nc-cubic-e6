@@ -1,85 +1,85 @@
 # 研究方針：非可換三次曲面から広がる幾何学
 
-2026-11-17 / e6-connections-v19。**再開時は本書を最初に読む。**
-正本はGitHub main。主論文は `papers/nc-cubic-e6.tex`。基礎的な研究知識は `research/research_notes.md`、DAHA・Fricke比較は `research/fricke_daha_comparison.md`、Poissonと二つの五次被覆は `research/poisson_order_notes.md`、新しいCayley・LG・実幾何の接続は `research/cayley_lg_connections.md` に置く。これらは主題別の現行知識であり、作業履歴の保存ではない。
+2026-11-17 / e6-connections-v20。**再開時は本書を最初に読む。**
+GitHub mainが正本。主論文は `papers/nc-cubic-e6.tex`。基礎知識は `research/research_notes.md`、DAHA・Fricke比較は `research/fricke_daha_comparison.md`、Poissonと二五次被覆は `research/poisson_order_notes.md`、Cayley・LG・格子・G2の接続は `research/cayley_lg_connections.md`。主題別の現行知識として整理し、旧bundleの取得を再開の前提にしない。
 
 ## I. 恒常的な研究原則と保存許可
 
-**最優先目標は、研究と論文を数学的に面白くすること。優先的な研究戦略は、できるだけ多様な話題との関連を発見し、検証可能な数学へ育てることである。** 面白さは、意外な同型・共通構造、概念の見通し、新しい問いや方法を生むこととして評価する。関連の名称を多く列挙することや定理の本数を増やすこと自体は目的にしない。
-正確性はこの優先順位で犠牲にしない。数学的重要性、新規性、理解の深化、応用可能性、実現可能性も総合して全体の価値を最大化する。既定の分類問題を完走することが、より面白い接続より自動的に優先されるわけではない。
-重要な方針変更では、現在の理由、元の目標で解決した部分・残る部分を簡潔に記す。時系列の変更履歴を蓄積しない。
-証明済み、追加仮定付き、未完成、予想、計算的観察を区別する。主要な主張に仮定・依存結果・証明箇所・未解決部分を付す。原稿に証明があること、今回その証明を点検したこと、計算実行、独立査読を混同しない。誤りは依存する本文・要約・方針にも反映する。
-先行研究は一次資料で確認し、適用範囲と本研究の貢献をIntroductionで比較する。未確認の文献内容・書誌・新規性を推測で埋めない。外部PDF・検索結果の大量収録はしない。
-原稿は日本語LuaLaTeXを原則とし、関連分野で得た公表価値ある成果も**同じ主論文へ統合する**。独立論文への分割は数学的まとまりと公表上の利点が明確な場合に検討する。既存の価値ある成果・必要証明を削除して軽量化しない。
-研究ノートには着想、補題、反例、失敗した方法の本質的障害、文献比較、再取得困難な情報を残す。日誌、過去の会話、重複証明、解決済み課題の経緯は不要。主論文に十分な証明があるものは参照する。
-現行方針・ノート・論文と最小限のコード・入力・小証明書・再現手順だけで再開できるようにする。旧版ZIP、旧原稿、バックアップ、更新記録、ログ、キャッシュ、コンパイル中間物は収録しない。軽量化のために数学的内容を損なわない。
-研究区切りの承諾不要Library保存は一般に許可されているが、**GitHubにpushした内容はLibraryに保存しない**。GitHub mainを正本とし、push成功後は重複保存しない。pushに失敗して未保存成果の保全が必要な場合だけLibraryを緊急退避先にできる。既存Libraryファイルは明示指示なしに削除しない。
-主要文書に日付・版番号を付け、生成・検証・commit・push・Library保存を別状態として報告する。約15分または数学的区切りで通常のfast-forward保存を行い、force push、不要なPR、GitHub Actionsは使わない。PDF・ZIPはGitで追跡しない。未実行の検証をPASSと言わない。
+**最優先目標は研究と論文を数学的に面白くすること。優先的な戦略は、多様な話題との具体的な関連を見つけ、検証可能な数学へ育てることである。** 意外な同型・共通構造、見通し、新たな問いや方法を重視する。関連の名称や定理の数を増やすこと自体は目的にしない。
+正確性はこの優先順位で犠牲にしない。数学的重要性、新規性、理解の深化、応用可能性、実現可能性を総合して価値を最大化する。既定の分類の完遂が、より面白い接続より自動的に優先されるわけではない。
+重要な方針変更では現在の理由と元の目標の達成部分・残存部分を簡潔に示し、時系列の履歴を蓄積しない。
+証明済み、仮定付き、未完成、予想、計算的観察を区別する。主要主張の仮定、依存結果、証明の所在、未解決箇所を明記する。原稿に証明があること、今回点検したこと、計算実行、独立査読を混同しない。誤りは依存する本文・要約・方針にも反映する。
+先行研究は一次資料で確認し、適用範囲と本研究の貢献をIntroductionで比較する。未確認の内容・書誌・新規性を推測で埋めない。外部PDF・検索結果を大量収録しない。
+原稿は日本語LuaLaTeXを原則とする。公表価値ある関連分野の成果も同じ主論文へ統合する。分割は数学的まとまりと公表上の利点が明確な場合に検討する。軽量化のために価値ある成果や必要証明を削除しない。
+研究ノートは着想・補題・反例・障害・文献比較・再取得困難な情報を保持し、日誌、会話、更新履歴、重複証明にしない。論文に証明がある事項は参照する。
+現行方針・ノート・論文と最小限のコード・入力・証明書・再現手順で自己完結させる。旧ZIP・旧原稿・バックアップ・ログ・キャッシュ・中間生成物は含めない。数学的内容と検証可能性を損なわず整理する。
+研究区切りの承諾不要Library保存は一般に許可されているが、**GitHubにpushした内容はLibraryへ保存しない**。push失敗で未保存成果の保全が必要な場合だけLibraryを緊急退避先にできる。既存Libraryファイルは明示指示なしに削除しない。
+主要文書に日付・版番号を付け、生成・検証・commit・push・Library保存を区別して報告する。約15分または数学的区切りでmainへ通常のfast-forward保存を行う。force push、不要なPR・Actionsは使わず、PDF・ZIPをGitで追跡しない。未実行をPASSと言わない。
 
-## II. 現在の中心的な問いと達成基準
+## II. 現在の問いと達成基準
 
-中心的な問いは、**同じ非可換三次曲面の具体的な表示から、どれほど多様な幾何が回復され、その相互関係が何を説明するか**である。
+中心的な問いは、**同じ非可換三次曲面の代数から多様な幾何がどう回復され、実際の写像・作用・変形で結ばれるか**である。
+現在の共通例は三乗根の量子so3、中心三次切断、一次元表現の五重被覆。中心は四穴球面のFrickeへ、量子化はPoisson orderへ、一次元表現はLG臨界点族へつながる。分岐源はCayleyで閉トーラスの指標多様体、局所四sheet衝突はD4である。
+今回、このD4のMilnor格子をLG近傍等位面のPicard直交補へ包含で同定できた。さらに対称LG族をBoalch–PalubaのG2実現へ移すと、D4衝突と従来のsimple foldによるA2衝突が同じG2退化の二成分となる。これを軸に局所・大域・例外群・周期の接続を深める。
+元の八次元E6成分の完全決定は保持する。七次元正常形、横断積分、八次元形式近傍・表示stack、結節因子、二つの五次被覆は本文に証明がある。全intrinsic H3の相対代数化・降下・全境界は未完成だが、新しい接続研究の前提にはしない。
+達成基準は、具体的な準同型、変形、局所模型、格子写像、圏的対応、障害のいずれかを正確に与えること。既知の一般理論と本稿での明示的適用、新規性未確認の結果を分ける。型や名称の一致だけで同一視しない。
 
-現在の共通例は三乗根の量子so3包絡、中心三次切断、一次元表現の五重被覆である。中心は四穴球面のFricke幾何へ、root-of-unity変形はPoisson orderへ、一次元表現はLandau–Ginzburgの臨界点族へつながる。さらに五重被覆のramification divisorがCayley曲面となり、トーラス指標多様体、D4の局所変形とtriality、Frobenius代数、pillowcase、相関行列の凸幾何が同じ写像に現れる。
+## III. 主要成果と所在
 
-元の八次元E6成分の完全決定は保持する。七次元正常形、横断積分、八次元形式近傍、代数的表示stack、結節因子、二つの五次被覆までは本文に証明がある。全intrinsic H3の相対代数化・降下・全境界は未解決。これらの完成を、新たな関連分野を研究するための前提にはしない。
+### A. 変形・モジュライの既存成果
 
-接続の達成基準は、具体的な写像・方程式・局所モデル・作用・圏的対応・障害の少なくとも一つを正確に記述すること。既知の構造の新たな出現、独立に確認した公式、本研究の新規性候補を分ける。完全な圏同値を作る前でも、有効な局所モデルや反例は主論文へ組み込む。
+七次元中央PBW正常形、全係数CY AS4、全中心式、固定包絡四次元部分の非成分性（`prop:pbw`, `thm:normal`）を保持。中央境界・対角非零の適用範囲を外さない。
+横断積分は全次数平坦で、独立な超越的中心値でH3（`lem:central-lift`, `prop:formal-integral`, `lem:generic-D`）。任意の数値中心値は別問題。
+滑らかな三次中心・反標準楕円境界・指定局所order模型でHH²=8、HH³=0（`thm:HH8`）。105×40行列rank18、gauge14、商8。全Artin表示族と指定enhancement、smooth DM八次元表示stackを構成。一般非被約底のintrinsic降下・全H3開性・大域境界は未完成で、`thm:conditional-component`の仮定を外さない。
 
-## III. 現在有効な主要成果と所在
+### B. Poisson・DAHA・二五次被覆
 
-### A. 非可換三次曲面と変形・モジュライ
+固定包絡の五結節SNC因子、A4商の二成分、一般低次係数での既約六次元結節因子を保持（`sec:nodal-centers`）。中心特異性とH3境界は同じではない。
+AW中央特殊化、Casimirスケール、Fricke係数写像、量子的Vieta、古典的D4⊂E6（`sec:daha-character`）。Q=q exp(h)の中心交換子は指定Goldman型括弧の9倍、Brown–Gordonによるsmooth locusの中心fiber比較（`sec:root-poisson-orders`）。全DでのM3やMorita同値は未確認。
+非Casimir切断の純粋q変形と固定pointed H3心へのVieta作用には障害。一般変形や心の変更を否定するものではない。
+固定包絡の十Poisson零点は五節点と五滑らか臨界点。四Casimir特異値のA1型、既存判定下でのH3可否、二次接触／一次横断、S4作用を明示。
+相対Poisson臨界環は全域有限平坦次数15、一次元表現環は次数5。Delta15=N5²M5、二五次の同時幾何Galois群S5×S5（`sec:relative-poisson-cover`）。算術有限体検算とGoursat・基本群の通常証明を区別する。今回これら旧定理を独立再監査したとはしない。
 
-七次元の中央PBW正常形、全係数CY AS4、中心の全三次関係、固定包絡四次元部分の非成分性を保持する（主論文 `prop:pbw`, `thm:normal`, §2–3）。中央境界・対角非零の適用範囲を外さない。
-Hesse曲線と平行移動を使う横断変形は全次数平坦で、独立な超越的中心値でH3となる（`lem:central-lift`, `prop:formal-integral`, `lem:generic-D`）。任意の数値中心値のH3性は別問題。
-滑らかな三次中心・反標準楕円境界・指定局所order模型の下でHH²=8、HH³=0（`thm:HH8`）。105×40行列rank18、gauge14、接空間商8を厳密確認。全Artin表示族と指定enhancementの認識、smooth DM八次元表示stackを構成した。一般非被約底のintrinsic降下・H3開性・全大域境界は未完成。`thm:conditional-component` の比較仮定を無断で外さない。
+### C. Cayley・LG・実幾何
 
-### B. 結節中心とPoisson・DAHA
+`sec:cayley-lg-connections`ではPhi=(vw−u,wu−v,uv−w)=grad H、H=uvw−(u²+v²+w²)/2。W=H−Au−Bv−CwのJacobi環はrank5、graph(dH)はexact Lagrangian。
+ramification divisorはCayley曲面で閉トーラスのSL2粗指標多様体。対数Poisson括弧、四sheetのD4ミニバーサル変形、巡回三枝作用を明示。原点Jacobi留数対は非退化。
+原点では五重被覆がetaleでもCasimir値が四重に衝突する。被覆の分岐・Casimir値衝突・Wの臨界値衝突を区別する。
+実elliptopeの境界はSU2トーラスpillowcase、内部の厳密凹性から実sheetは高々一つ。Dixonのnearly Kähler S3×S3のmulti-moment像との共通凸体は既知比較であり、圏同値や計量退化は未構成。
 
-固定包絡では五つの結節中心SNC因子、A4商で二成分。一般低次係数では一次元表現の連結五重被覆から既約六次元因子を得る（`thm:nodal-divisors`, `thm:seven-nodal-irreducible`）。中心特異性とH3境界は同じではない。
-AW中央特殊化、Casimir規約Omega_AW=3(q+2)Omega、Fricke係数写像、量子的Vieta、古典的D4⊂E6を明示（`sec:daha-character`）。Q=q exp(h)の中心交換子微分はGoldman型Jacobian括弧の9倍。Brown–Gordonにより固定Fricke sliceのsmooth locus上の中心fiber代数は同型（`sec:root-poisson-orders`）。全DでM3になることやMorita同値は未確認。
-非Casimir切断は指定した純粋q変形の平坦商へ一次にも持ち上がらず、Vietaは固定pointed H3心へ延長しない。抽象変形・Sklyanin同時変形・心の変更を否定するものではない。
-固定包絡の十Poisson零点は五節点と五滑らかなCasimir臨界点。特異値0,2f/3,f,-f/3は全てA1型で、既存H3判定により前二値だけH3。二次接触／一次横断とS4作用も明示（`sec:casimir-poisson-leaves`）。
+### D. 局所MilnorからPicardへ、さらにG2へ
 
-### C. 二つの独立な五次被覆
+証明は `papers/sections/quantum_cubic_lg_picard.tex`（主論文に直接入力）。
+LG等位面W=hはp=-2u等でFricke係数(-4A,-4B,-4C,8h)となる。非可換Casimir中心との係数底変更も明示し、一次元表現の正規化A=(1-q)aと混同しない。
+滑らかなU=S\Dに整数完全列 0→Z delta_infty→H2(U,Z)→<D_i>^perp→0。右端はD4(-1)、左端は原始radical、H1(U)=0。指定D4退化(A,B,C)=(2,2,2), h≈7/2で、局所Milnor fiberの包含が右端への整数格子同型を与える（`thm:lg-D4-Picard`）。rank4・det4の双方と交叉保存を使う。**選択した退化に対する同型**であり、全域で選択非依存な標準分裂ではない。
+巡回置換は境界の判別群(Z/2)²の三非零元を回し、unimodular gluingを介してPicardと局所Milnorの双方の外部trialityを検出する（`cor:lg-picard-triality`）。
+Goldman–Neumannの既知affine D4形式のprimitive radicalは(1,1,1,1,2)。無限遠はmonodromy −IのT2束、H1はZ⊕(Z/2)²。pillowcase自体とは異なる。
+混合Hodge構造のgraded piecesはGr2=Q(-1)^4, Gr3=0, Gr4=Q(-2)、E_c=1+4xy+(xy)²。拡大の分裂は未主張（`prop:lg-mixed-hodge`）。
+Boalch–Palubaの既知定理を対称LG A=B=C=lambdaへ適用。b=-4lambda,c=8h、alpha=8h+2−12lambda、beta=64lambda³+48lambda²−96lambda h−12lambda−2。regular semisimple範囲でLG等位面はG2指標多様体の三成分の一つ。第四共役類をregular unipotentの閉包にするとalpha=beta=6で、(lambda,h)=(2,7/2)のD4成分と(-1/4,1/8)のA2成分が現れる。後者は従来のS5証明のsimple fold。同論文の定理の再発見ではなく、二つの既存模型を結ぶ適用である。
 
-相対Poisson臨界スキームは全係数で有限平坦次数15、一次元表現は次数5。Casimir臨界値多項式はDelta15=N5²M5。両五次因子は幾何学的に既約で、同時Galois群はS5×S5、分解体は線型非交叉（`sec:relative-poisson-cover`, `thm:paired-quintic-S5`）。原点でDだけの多項式に重根があっても、四中心座標を保った残余被覆はetaleである。
-証明は二素数のFrobenius型、Goursat補題、有理完全分裂fiberと基本群完全列を用いる。有限体計算のPASSと幾何学的証明を区別する。一般係数のH3判定、分岐・値衝突因子の具体式、文献新規性は未解決。
+## IV. 優先課題と具体的着手
 
-### D. Cayley・Landau–Ginzburg・D4・実幾何
+**第一優先：G2という共通実現から局所と大域の作用を比較する。**
+D4とA2を同時に含むG2退化の近傍で、二成分のmonodromy、braid作用、vanishing cycleの配置を記述する。最初にBoalch–Paluba §5の具体的braid式を本稿のLG座標へ移し、今回のPicard/D4作用と比較する。三連結成分のどれを選ぶかと、その交換monodromyを分ける。G2型量子代数や圏同値を既知の古典同型から推論しない。
 
-主論文 `sec:cayley-lg-connections` に統合した。
-正規化一次元表現写像はPhi=(vw−u,wu−v,uv−w)=grad H、H=uvw−(u²+v²+w²)/2。W=H−Au−Bv−CwのJacobi代数はrank5で、graph(dH)はexact Lagrangian。
-ramification divisorはR=u²+v²+w²+2uvw−1=0。これはCayley三次曲面で、(Gm)²の同時反転商、すなわち閉トーラスのSL2粗指標多様体。対数Poisson括弧も具体的に同定（`thm:ramification-cayley-torus`, `prop:ramification-log-poisson`）。元の非可換中心とは別の空間である。
-Rの四節点に対応するfiberは長さ4のD4局所Jacobi環と一つの単純点。三係数は加法定数を除くミニバーサル変形で、巡回置換は三枝を回す位数3作用（`thm:character-D4-unfolding`, `cor:gradient-local-triality`）。局所Milnor格子と既存Picard D4の標準同定は未構成。
-原点のrank5 Jacobi代数に留数対を明示し、非退化性を厳密確認。Casimir値衝突と被覆自体の分岐の違いを例と判別式の基底変換式で示した（`prop:jacobi-residue-maxwell`）。
-実型のelliptopeは負Hessianの半正定値領域で、境界はSU2トーラスのpillowcase。内部の厳密凹性から実sheetが高々一つ（`prop:elliptope-gradient-injective`）。Dixonのnearly Kähler S3×S3 multi-moment像と同じ凸体だが、圏同値・metric degenerationを意味しない。
+**並行して優先：境界方向と周期・mirror。**
+今回のMilnor–Picard同型を使い、H2の四方向と境界radical一方向を基底化する。混合Hodgeの拡大類、log 2-formのperiod、LGのGauss–Manin系を小さい模型から計算する。重みのgraded pieceだけで拡大の分裂やprimitive formを結論しない。局所D4のmatrix factorization/Fukaya比較へ進む場合は対象・写像・構造対象の像を明示する。
 
-## IV. 優先する探索と具体的な着手
+**並行して優先：Cayleyと実安定性。**
+トーラスmodular作用の五重被覆への延長範囲、elliptope内の一意sheetと外部sheetの実壁を調べる。nearly Kählerとの共通凸体は保持し、追加の幾何学的写像・形式・fibrationが実際に構成できた場合にだけ強い接続へ進む。
 
-**第一優先：異なるD4を比較し、trialityと局所圏の接続を作る。**
-今回のD4 germのMilnor fiber、vanishing cycle、局所monodromyを計算し、三次曲面の反標準三角形に直交するPicard D4との比較写像を探す。三枝巡回作用が両側でどの作用になるかを確認する。単なる格子型の一致やG2という名称から圏同値を推論しない。最初の具体課題は4+1 fiberの局所消滅サイクルとパラメータのKodaira–Spencer基底の対応。
-
-**並行して優先：LG・留数代数とmirror/Fukayaの接続。**
-Wの臨界点とCasimir観測量を別々に扱い、臨界値写像、留数対、Gauss–Manin系の最小模型を構成する。rank5 Jacobi代数だけから三次曲面全体のmirrorやFukaya–Seidel同値を主張しない。局所D4模型、matrix factorization、境界局所化のどこに自然な比較があるかを探す。
-
-**並行して優先：トーラス・pillowcase・実安定性。**
-Cayley上の単項式modular作用が五重被覆全体へどの範囲で延びるかを試す。elliptope内部の一意sheetと外側の実sheetの出現、壁・安定性との関係を調べる。nearly Kählerとの共通凸体は既知比較として保持し、追加の写像・形式・fibrationが構成できる場合だけ強い主張へ進む。
-
-**支える課題：判別式、Poisson局所order、八次元成分。**
-N5,M5の分岐因子と観測値衝突因子をtrace判別式と基底変換行列で分離する。Painlevé VIのtrace判別式との係数写像の比較を行う。重い大域消去を反復するより、局所模型・不変量・反例を先に取り、興味深い意味が見えた計算を深める。
-純粋q変形の障害相殺をSklyanin方向で明示し、Vietaの境界双有理変更・導来圏の心の変更を探す。全H3 admissibility、intrinsic降下、全境界は維持するが、これら一枝だけに全作業を固定しない。
-
-探索は複数の入口を持たせるが、各区切りで成果を現在の主論文・ノートへ整理する。着想だけの接続は未構成と明記し、具体的帰結が得られない類似を大きな定理に見せない。
+**支える課題：判別式・H3・八次元成分。**
+N5,M5のbranchと観測値衝突をtrace pairingと基底変換因子で分離する。Painlevé VIの係数写像との比較を行う。重い大域消去を反復するより、構造・局所例・反例を先に取る。純粋qの障害相殺をSklyanin方向で明示し、Vietaの心の変更を探す。全intrinsic降下・H3開性・全境界は維持するが、一枝だけに研究を固定しない。
 
 ## V. 再現・検証・保存
 
 ```sh
 python3 -m pip install -r computations/requirements.txt
-python3 computations/verify_cayley_lg_connections.py
-python3 computations/verify_all.py  # 全24検証器。今回の実行範囲とは別
+python3 computations/verify_lg_picard_g2.py
+python3 computations/verify_all.py  # 全25検証器。今回の実行範囲とは別
 latexmk -lualatex papers/nc-cubic-e6.tex
 ```
-今回実行したのは新しいCayley/LG検証器1本。Cayley・トーラスPoisson恒等式、D4局所化Jacobi環、三versal方向、4+1 fiber、位数3作用、原点留数対を有理数体上の記号演算で確認しPASS。小証明書は `computations/cayley_lg_connections_certificate.json`。不変環生成、解析的右同値、versal性判定、実凹性は本文の通常の証明である。
-新節の一時的LuaLaTeX wrapperは5頁で組版成功。本文外の二つの参照は独立wrapperでは未解決であり、これを主論文全体の組版成功とは報告しない。主論文への入力・文献キーをGitHub保存後に確認する。旧23検証器の今回は全再実行をしていない。
-主論文の題名・要旨・Introduction・結果一覧を、分野間の接続が読める現在の構成へ改稿した。既存の数学的証明と全入力節は保持する。PDF・一時wrapper・画像・ログはGitに含めず、pushした内容をLibraryへ保存しない。
+今回、新しいLG/Picard/G2検証器を実行しPASS。Q上の記号計算・整数格子で、Fricke座標、Gram行列、unimodular基底変換、判別群の巡回、affine D4、境界monodromy、G2係数と二特異値を確認した。小証明書は `computations/lg_picard_g2_certificate.json`。
+整数比較完全列・ADE Milnor格子・gluing・混合Hodge・G2指標多様体同定は通常の証明と一次文献への依存であり、計算だけで検証されたとはしない。旧24検証器の今回の全再実行は未実施。
+新節単体をLuaLaTeX wrapperで組版（4頁）、頁を画像点検し、overfull boxを修正した。新節の内部参照は解決済み。主論文全体の今回の再組版、全旧証明の独立再監査、新規性の網羅調査は未実施。
+既存の数学的証明・入力節を保持し、主論文の要旨・Introduction・結果一覧に今回の接続を統合した。生成物をGitへ入れず、push済み内容をLibraryへ保存しない。
