@@ -1,52 +1,42 @@
 # 非可換三次曲面を結ぶ幾何学 — nc-cubic-e6
 
-2026-11-17 / e6-connections-v23。
-**数学的に面白くすることを最優先とし、多様な分野との具体的接続を探す。** 量子so3・中心三次切断・一次元表現を、非可換幾何、指標多様体、特異点、周期、実幾何の共通模型として研究する。八次元E6成分の分類は保持するが、その完成を他分野との比較の前提にしない。
+2026-11-17 / e6-connections-v24。
+**数学的に面白くすることを最優先とし、多様な話題との具体的接続を探す。** 量子so3・中心三次切断・一次元表現を、非可換幾何、指標多様体、特異点、周期、算術、力学の共通模型として研究する。八次元E6成分の分類は保持するが、その完成を他分野との比較の前提にしない。
 
-再開時は [研究方針](00_research_plan.md) を最初に読む。主論文は日本語LuaLaTeXの [nc-cubic-e6.tex](papers/nc-cubic-e6.tex)。関連分野の成果も同じ主論文へ統合する。
+再開時は [研究方針](00_research_plan.md) を最初に読む。日本語LuaLaTeX主論文は [nc-cubic-e6.tex](papers/nc-cubic-e6.tex)。関連分野の成果も同じ主論文へ統合する。
 
-## 四つの整数D4周期を同時に記述する
+## 周期からG2の三成分を説明する
 
-LG等位面W=uvw−(u²+v²+w²)/2−Au−Bv−Cw=hのconic pencilを使う。適切なsmooth開集合と有限標識被覆上で、退化conicの選択成分E1..E4から境界に直交する整数D4基底
+対称LG等位面のHurwitzホモロジー像は外側三根のS3となり、四つのD4周期は適切な標識で `(eta,xi,eta,eta)` になる。trialityの不変格子と余不変格子の自然写像は指数3。その双対period torusの写像 `(xi,eta)->(xi,eta^3)` はkernel mu3を持ち、Weyl商を取るとBoalch–Palubaの既知のG2三成分写像に正確に一致する。
 
-alpha=(E1−E2, E2−E3, E3−E4, E3+E4−F)
+この一致を形式的な変数操作だけにしないため、対称族のconic成分と交わらないline sectionを明示した。従来の `B^2 != C^2` chartの外にある対称族について別に標識を構成し、上の二変数を実際のLooijenga periodとして実現する。
 
-を構成した。選択成分が境界に会う座標をz_i、conic退化値をu_iとするとz_i+z_i^-1=2u_iであり、四つの指数化周期は
+regularなG2底の三持上げが共通の明示開集合に入る範囲では、三成分のperiodは外側方向で3乗根だけ異なる。したがって有理混合Hodge構造は標識したgraded pieceの下で同型となるが、整数構造の違いは残り得る。Klein三次曲面 `(b,c)=(-1,0)` と二つのコンパニオンでは、整数Hodge拡大類の位数は **7,21,21**。有理化すると全て分裂して同型でも、Kleinとコンパニオンの整数MHSは非同型である。
 
-**P(alpha)=(z1/z2, z2/z3, z3/z4, z3*z4)**
+さらに既知のGoldman–NeumannとCantat–Lorayの定理を適用し、全ホモロジー・periodを固定しながら力学的次数 `3+2sqrt(2)`、正entropyを持つ自己同型を明示する。周期が捉える算術的差と、周期に見えない無限力学を区別する。
 
-となる。線束制限のgluingとFriedmanのperiod比較を通じ、整数サイクルの積分と同定する。局所対数を選べば境界周期(2pi i)²と合わせてH2の全五方向の周期を記述できる。標準的な全域cycle基底や代数的Gauss–Manin接続行列を選択なしに与えるものではない。
+証明は [triality・周期isogenyの節](papers/sections/quantum_cubic_triality_isogeny.tex)、再開用の式・範囲・一次文献は [周期ノート](research/conic_period_coordinates.md)。群自体のG2 isogeny、曲面同型、導来/Fukaya同値を構成したとはしない。個別結果の網羅的新規性確認も未了。
 
-このchartでは **有理混合Hodge分裂 ⇔ 全四periodがroots of unity ⇔ 全z_iがroots of unity**。有理数係数の滑らかな分裂例(A,B,C,h)=(1/4,1/2,1/4,1/8)は9乗根を与え、非分裂例(-65/16,75/16,-65/16,3575/288)はz_iが2,3,4,6の逆数選択となる。整数Hodge拡大の自明性、元の量子q³=1、有限Hurwitz軌道とは別の条件である。
+## 保持する構造と研究上の区別
 
-証明は [四周期と円分分裂の節](papers/sections/quantum_cubic_four_periods.tex)、再開用の式・仮定・一次文献は [conic周期ノート](research/conic_period_coordinates.md)。Naruki–LooijengaのD4 period torusとFriedman–Carlsonの一般理論は既知として引用する。
+LG勾配写像Phi=(vw−u,wu−v,uv−w)のramification divisorはCayley三次曲面で閉トーラスSL2指標多様体。D4ミニバーサル変形、Milnor–Picard整数比較、外部triality、G2のD4/A2共通退化、二種類のbraid、Klein七点上のS7を主論文に保持する。pillowcaseとelliptope、内部実sheetの一意性、nearly Kählerの共通凸体も比較する。
+一般conic chartでは整数D4基底の全四周期を `(z1/z2,z2/z3,z3/z4,z3*z4)` と表示し、有理Hodge分裂を円分性で判定する。有理数係数の分裂・非分裂例、対数matching積分、arcsine周期、非分裂rank二局所系を保存する。被覆の分岐、Casimir値の衝突、LG臨界値の衝突は別現象。
 
-## 共通模型から広がる接続
+七次元PBW正常形、三捩れからの横断積分、仮定付き八次元Hochschild変形、全Artin表示族、smooth DM表示stack、結節中心因子、AW/Fricke比較、root Poisson括弧9倍、Delta15=N5²M5とS5×S5を保持する。旧証明本文と入力節を削除していない。
+全intrinsic H3の相対代数化・降下・大域境界、一般相対AS4認識、全Casimir値でのAzumaya性、全rank五代数的Gauss–Manin接続、圏的entropyは未完成。
 
-一次元表現はPhi=(vw−u,wu−v,uv−w)=grad Hという五重被覆。そのramification divisorはCayley曲面＝閉トーラスSL2指標多様体。四sheet衝突のD4ミニバーサル変形、triality、Jacobi留数対、pillowcase、elliptope内の実sheet一意性を同じ模型で扱う。
-LG近傍等位面の局所Milnor fiberの包含はPicardの境界直交補へ整数D4同型を与える。残るH2の一方向は境界radical。対称LGは既知定理によりG2指標多様体の一成分となり、D4衝突とA2 simple foldが同じG2退化の二成分として現れる。
-底の三成分交換braidと各成分内のHurwitzを区別する。Chebyshev反復、Klein七点軌道の置換群S7、境界周期を明示。conic matching周期は対数に帰着し、係数零のMorse球面は4pi arcsin sqrt(-2h)。h=-1/10は別の有理MHS非分裂例である。
-これらの証明は主論文のCayley・LG、Milnor・Picard・G2、braid、対数周期各節。古典的な一般理論・先行研究の適用と、本稿での正規化・計算を区別する。
-
-## 保持する成果と未解決点
-
-七次元PBW正常形、横断積分、仮定付き八次元Hochschild変形、全Artin表示族、smooth DM表示stack、結節中心因子を保持する。AW中央特殊化、Fricke係数写像、量子的Vieta、指定Goldman型括弧の9倍を明示した。純粋q変形の非Casimir切断と固定pointed H3心へのVietaには障害があるが、一般変形・心の変更は否定しない。
-相対Poisson臨界環は次数15、一次元表現環は次数5で有限平坦。Delta15=N5²M5、二五次の同時幾何Galois群S5×S5。全H3 admissibility・intrinsic降下・全境界・一般相対AS4・全Casimir値でのAzumaya性は未完成。
-**被覆のbranch、Casimir値衝突、LG臨界値衝突は異なる。** 同じFricke式への変換も異なる係数写像を同一視するものではない。mirror/Fukaya同値、G2型量子代数との同型、非Archimedeanモデルは未構成。
-
-基礎は [研究ノート](research/research_notes.md)、DAHA/skein/Painlevé/mirrorは [文献比較](research/fricke_daha_comparison.md)、二五次被覆は [Poissonノート](research/poisson_order_notes.md)、LG・G2・周期の基礎は [接続ノート](research/cayley_lg_connections.md)。全四周期の現行結論は上記conic周期ノートを参照する。
+基礎は [研究ノート](research/research_notes.md)、DAHA/skein/Painlevé/mirrorは [文献比較](research/fricke_daha_comparison.md)、二五次被覆は [Poissonノート](research/poisson_order_notes.md)、LG/G2/braidの基礎は [接続ノート](research/cayley_lg_connections.md) を参照する。
 
 ## 再現と検証範囲
 
 ```sh
 python3 -m pip install -r computations/requirements.txt
-python3 computations/verify_conic_period_coordinates.py
-python3 computations/verify_all.py  # 全28検証器
+python3 computations/verify_triality_period_isogeny.py
+python3 computations/verify_all.py  # 全29検証器
 latexmk -lualatex papers/nc-cubic-e6.tex
 ```
 
-今回の新検証器はQ・整数格子・Laurent恒等式でPASS。証明書は `computations/conic_period_coordinates_certificate.json`。縮約・標識・gluing・period比較・Hodge分裂は本文の通常証明であり、計算だけで形式検証したとはしない。
-新節単体はLuaLaTeX4頁に組版し、全頁画像・内部参照・overfullなしを確認。主論文の更新差分で既存証明を保持したことを確認した。主論文全体の今回の再組版、旧27検証器の全再実行、独立査読、新規性の網羅調査は未実施。
+今回は新検証器をQ-Laurent恒等式・整数格子・Q(zeta21)上で実行しPASS。小証明書は `computations/triality_period_isogeny_certificate.json`。ホモロジー作用、縮約、線束period比較、Hodge拡大、entropyは本文の通常証明と先行定理への依存であり、計算のみの結論ではない。
+新節単体はLuaLaTeXで5頁に組版し、画像・内部参照・overfullなしを確認。主論文全体の今回の組版、旧28検証器の全再実行、独立査読、新規性の網羅調査は未実施。更新差分で旧主論文の保持と新節inputを確認する。
 
-GitHub mainが正本。**push済み内容をLibraryへ保存しない。** PDF・ZIP・ログ・組版中間物はGitで追跡しない。他の研究は [分類](https://github.com/uedakazushi/nc-cubic-moduli)、[ambient比較](https://github.com/uedakazushi/nc-cubic-ambient)、[非AS短報](https://github.com/uedakazushi/nc-cubic-non-as) を参照する。
-移行元の内容は [固定source commit](https://github.com/uedakazushi/nc-cubic-moduli/tree/c5fd8a8301f6b1c283a6f0510cde80ae6a006e80) を基準に抽出済みで、旧bundleの取得は再開の前提ではない。
+GitHub mainが正本。**pushした内容はLibraryに保存しない。** PDF・ZIP・ログ・中間生成物はGitで追跡しない。全分類は [nc-cubic-moduli](https://github.com/uedakazushi/nc-cubic-moduli) を別の正本とする。旧bundleの取得は再開の前提ではない。
