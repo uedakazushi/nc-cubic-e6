@@ -88,7 +88,7 @@ $a,b,c$は$x,y,z$の多項式だから総空間は$\AA^3$。
  \Spec_{\mathcal E}(\OO_{\mathcal E}[\epsilon]/\epsilon^2)
  \sqcup\mathcal E'.
 \]
-$\mathcal E'$の既約性・monodromyは未決定である。
+$\mathcal E'$の幾何学的既約性・monodromyは、後述の定理\ref{thm:paired-quintic-S5}で完全決定する。
 
 二つのmonicな特性多項式
 \[
@@ -191,15 +191,147 @@ $N_5$は既約・分離的、そのGalois群は先ほどの$S_5$である。
 Casimirの式と一次微分を全係数で厳密検算する。
 \end{proof}
 
+\subsection{二つの五次因子の独立な$S_5$モノドロミー}
+\begin{theorem}[コンパニオン五次式の幾何学的$S_5$と独立性]
+\label{thm:paired-quintic-S5}
+式\eqref{eq:relative-discriminant-quintics}の二つの五次因子
+$N_5(D),M_5(D)$について、標数零の任意の代数閉体$k$上で次が成り立つ。
+\begin{enumerate}
+\item $M_5(D)$は$k(a,b,c)[D]$上既約かつ分離的であり、
+その幾何学的Galois群は$S_5$である。
+従って定理\ref{thm:critical-discriminant-quintics}の
+残余有限\'{e}tale五重被覆$\mathcal E'$は幾何学的に連結である。
+\item $N_5,M_5$の分解体をそれぞれ$L_N,L_M$とすると
+\[
+ \operatorname{Gal}(L_NL_M/k(a,b,c))\cong S_5\times S_5.
+\]
+特に両分解体は線型非交叉で、二つの判別式が定める
+$k(a,b,c)^\times/k(a,b,c)^{\times2}$の平方類も独立である。
+\end{enumerate}
+この結果は二つの被覆のGalois幾何を決めるが、
+一般$(a,b,c)$の非可換H3性・全Azumaya locus・局所Morita型を
+それだけで判定するものではない。
+\end{theorem}
+\begin{proof}
+まず$K_0=\mathbb Q(q)$で考える。
+全係数の有限平坦性は$\mathbb Z[q,1/6]$上でも成立し、
+$q^2+q+1=0$を用いた係数表示の分母は$3$の冪なので、
+以下の素数における有限体還元はよく定義される。
+$K_0$-有理な係数$(a,b,c)=(30,19,29)$で特殊化する。
+次の二つの根の選択は、それぞれ$K_0$の素イデアル
+$q\equiv374\pmod{1009}$、$q\equiv86\pmod{1069}$を指定する。
+両方で$q^2+q+1\equiv0$が成立する。
+
+各有限体上で$P,P_X,P_Y,P_Z$のGr\"obner商の長さが15であることを
+確認し、$-\Omega$乗法の$15\times15$行列を構成する。
+これとは独立に、一次元表現の三二次関係のGr\"obner商の長さ5を確認し、
+式\eqref{eq:five-character-casimir}の$-\Omega$乗法行列から
+$N_5(D)$を得る。前者の特性多項式を$N_5(D)^2$で割ると
+余り零、商は$M_5(D)$となる。正確な結果は次の通りである。
+\begin{align*}
+ M_5\bmod(1009,q-374)
+  ={}&D^5-404D^4-215D^3+279D^2+226D+42,\\
+ M_5\bmod(1069,q-86)
+  ={}&(D^2+248D+337)(D^3+55D^2-276D-260).
+\end{align*}
+前者は$\mathbb F_{1009}$上既約、後者の二因子は
+$\mathbb F_{1069}$上それぞれ既約で互いに異なる。
+後者の素数では$N_5$は
+\[
+ D^5-100D^4-59D^3-17D^2+487D+534
+\]
+であり、こちらも$\mathbb F_{1069}$上既約で、$M_5$と互いに素である。
+両素数で多項式の判別式は零でない。
+これらの有限体上の等式、因数分解、既約性は
+\texttt{computations/verify\_companion\_s5.py}で
+元の中心と一次元表現の関係式から正確に再生成できる。
+
+有限体のFrobeniusの分解型はそれぞれ$(5)$と$(2,3)$なので、
+$K_0$上の特殊化$M_5$の算術Galois群には
+位数5の元と型$(2,3)$の元がある。
+後者は奇置換かつ位数6である。
+従って群位数は$30$の倍数で、$S_5$の部分群だから
+$30,60,120$のいずれかである。
+位数60なら指数2の部分群$A_5$となり奇置換を含めない。
+位数30なら$S_5$の指数4の部分群を与えるが、
+四剰余類への推移的作用$S_5\to S_4$は存在しない
+（$S_5$の固有非自明正規部分群は$A_5$のみ）。
+よってGalois群は$S_5$である。
+これを一般係数へ特殊化のGalois群の包含により戻すと、
+$K_0(a,b,c)$上の$M_5$の算術Galois群も$S_5$である。
+
+ここで算術的結論と幾何学的結論を区別する。
+定理\ref{thm:critical-discriminant-quintics}の
+$K_0$上の非空Zariski開集合$S^\circ$は係数原点を含み、
+$\mathcal E'\to S^\circ$は有限\'{e}tale次数5である。
+原点の五点は定理\ref{thm:ten-poisson-points}の
+$r_0,r_\eta$で、すべて$K_0$-有理かつ相異なる。
+従って$\mathcal E'$の原点fiberは$K_0^5$に完全分裂する。
+$S^\circ$は幾何学的に連結であるから、\cite[Lemma 58.14.3]{StacksPi1}
+の算術・幾何基本群完全列
+\[
+ 1\longrightarrow\pi_1(S^\circ_{\overline K_0})
+ \longrightarrow\pi_1(S^\circ)
+ \longrightarrow\operatorname{Gal}(\overline K_0/K_0)\longrightarrow1
+\]
+を使う。原点という$K_0$-有理基点は右側へのsectionを与え、
+$\mathcal E'$の五点fiberが完全分裂しているので
+そのsectionの$S_5$への作用は自明である。
+従って算術的な$S_5$作用は幾何基本群の像そのものであり、
+$M_5$の幾何学的Galois群も$S_5$となる。
+ここで$M_5(D)$自体は原点で四重根を持つが、
+\emph{エタールな被覆は多項式の零点スキームではなく
+$(X,Y,Z,\Omega)$を保持した$\mathcal E'$である}点に注意する。
+これが(1)を示す。
+
+(2)を示す。$N_5$側の算術・幾何群は
+定理\ref{thm:character-cover-S5}により$S_5$であり、
+$M_5$側も上で確定した。合併した算術monodromy
+$G\subset S_5\times S_5$は両射影へ全射である。
+$p=1069$では$N_5$の分解型が$(5)$で偶置換、
+$M_5$の分解型が$(2,3)$で奇置換なので、
+$G$には符号の異なる対が存在する。
+Goursatの補題と$S_5$の正規部分群
+$\{1\},A_5,S_5$から、真のsubdirect productは
+二つの符号が一致する$C_2$上のfiber product、または
+$S_5$の自己同型のグラフに限られる。
+いずれも符号の異なる対を含まないから
+$G=S_5\times S_5$である。
+
+幾何学的同時monodromyについては、同じ有理基点における
+$\mathcal E$の五点も$p_0,p_\eta$として全て$K_0$-有理である。
+よって$\mathcal E\sqcup\mathcal E'$の十点fiberは完全分裂し、
+基本群完全列の有理sectionは$S_5\times S_5$への作用が自明。
+従って算術と幾何の同時monodromyは一致する。
+特に合成分解体は$S_5\times S_5$をGalois群に持ち、
+二分解体は線型非交叉である。
+その二つの符号商$S_5\to C_2$は互いに独立だから、
+判別式の平方類も独立となる。
+$\overline K_0$から任意の標数零代数閉体$k$への拡大でも、
+有限型Galois閉包の幾何学的連結性は保たれる。
+\end{proof}
+
+\begin{remark}[計算の意味と未解決事項]
+二つの$S_5$の独立性は有限体の無作為標本からの外挿ではない。
+全係数で定義したmonic五次式について、二つの指定した良い素数における
+\emph{厳密な}因数分解からFrobeniusの置換型を証明し、
+群論とエタール基本群の完全列を適用したものである。
+これによって残余五次式$M_5$の幾何学的既約性・monodromyは解決した。
+未決定なのは両五次式の具体的な大域係数の簡潔な表示、
+分岐divisorの幾何学、局所order/H3判定との一般係数での関係、
+および楕円$E_6$成分への移行である。
+\end{remark}
+
 \begin{remark}[Painlev\'{e} VIの判別式との区別]
 Inaba--Iwasaki--Saito \cite[\S9.1, Definition 9.1]{IISDiscriminant}は
 Fricke cubicの判別式を境界トレースの係数空間に引き戻すと
 二乗因子が現れることを示す。
 本稿の$N_5^2M_5$は\emph{別のパラメータ写像}の
 次数十五の臨界値多項式であり、両者の因子が等しいとは主張しない。
-特に残りの五次式$M_5$の既約性とmonodromy、
+五次式$M_5$の既約性・幾何学的$S_5$および$N_5$との独立性は
+定理\ref{thm:paired-quintic-S5}で解決した。
 一般$(a,b,c)$でのH3条件、局所order、楕円境界の八次元成分への
-相対中心の延長は未解決である。
+相対中心の延長と分岐divisorの比較は未解決である。
 本稿の計算は既知のPainlev\'{e}判別式の再発見とは区別し、
 個別の新規性は一次文献との詳細照合を待つ。
 \end{remark}
