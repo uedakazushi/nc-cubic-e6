@@ -27,7 +27,7 @@
 \newcommand{\PP}{\mathbb P}
 \title{非可換三次曲面を結ぶ幾何学\\\large 楕円 $E_6$ 量子化・指標多様体・消滅サイクルと例外群 $G_2$}
 \author{}
-\date{2026年11月18日\quad e6-connections-v30}
+\date{2026年11月18日\quad e6-connections-v31}
 \begin{document}\maketitle
 \begin{abstract}
 原始三乗根の量子 $\mathfrak{so}_3$ 包絡とその中心三次切断を、
@@ -85,6 +85,9 @@ $j$や二同種関係だけではこの圏を区別できないことを例示�
 重み付きMilnor曲線の二次Kummer被覆からこの楕円曲線への有限写像を構成し、
 Prymの有理Hodge因子として実現する。全Pell指数に共通のCiani四次曲線を介して
 三楕円分解と二同種写像を比較し、可変因子の超幾何Picard--Fuchs方程式を求める。
+さらにそのMilnor被覆を巡回Galois被覆として記述し、楕円引戻しの核を標識二捩れ、
+誘導theta偏極の次数をPell積$b_nc_n$と決定する。
+可変楕円族は極端有理楕円曲面$X_{411}$を与え、$j$写像は次数6のBelyi写像となる。
 実際の一反復境界には$\mu=27,\tau=24$の例があり、重み付き主部への解析的置換を排除する。
 Hua--Kellerの復元定理を用いると、通常の整数次数付きdg特異点圏も両者を区別する。
 二周期MFの相対Hochschild環と、この絶対的dg不変量を混同しない。
@@ -214,6 +217,12 @@ MumfordのPrym理論とCiani曲線の既知の分解を、本稿の明示写像�
 さらにHua--Kellerの孤立超曲面の復元定理を用い、実germと主部の
 通常の整数次数付きdg特異点圏がHochschild次数零の次元$24,27$で区別されることを示す。
 これは二周期MFの相対的Hochschild公式の無条件な読み替えではない。
+第\ref{sec:prym-integral-polarization}節では、Milnor被覆の巡回Galois構造を解明し、
+完全分岐から楕円因子のpullbackを整数格子上で精密化する。
+元の楕円曲線からJacobianへの引戻しの核は標識二捩れ$[(0,0)-O]$、
+Prym内の楕円部分多様体へのtheta制限次数は$bc$と決定する。
+さらにMiranda--Perssonの極端有理楕円曲面$X_{411}$と三分岐値のBelyi写像を同定する。
+これらの一般楕円曲面分類自体は既知であり、本稿のPell族への明示的出現が接続である。
 Prym因子は重み付き模型についての有理Hodge因子であり、実germへの解析的移行、
 圏の部分圏、整数偏極付きの積分解は未構成である。
 全rank五の代数的Gauss--Manin接続行列、filtered・equivariantなmirror/Fukaya対応、
@@ -247,6 +256,7 @@ trialityと三成分比較&指数3のperiod isogenyのWeyl商が$G_2$底写像�
 境界閾値とMF次元&Newton面から乗数イデアル、閾値、局所MFの次元成長を求める。曲面やH3圏の不変量と混同しない。第\ref{subsec:boundary-thresholds-mf}節。\\
 解析modulusと二捩れ&模型のMorita分類は$(n,\kappa^2)$。四点の楕円曲線は$Y_0(2)$に対応。実germの$\mu=27,\tau=24$が主部への置換を排除。第\ref{sec:boundary-analytic-moduli}節。\\
 Milnor被覆とPrym&二次Kummer被覆、Ciani中間曲線、可変楕円Hodge因子、超幾何周期、整数次数付きdg特異点圏による実germの区別。第\ref{sec:boundary-milnor-prym}節。\\
+整数偏極とモジュラー幾何&巡回被覆、核となる標識二捩れ、theta次数$bc$、極端有理楕円曲面$X_{411}$とBelyi分岐型。第\ref{sec:prym-integral-polarization}節。\\
 \bottomrule
 \end{longtable}
 
@@ -705,6 +715,7 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_boundary_thresholds.tex}
 \input{papers/sections/quantum_cubic_boundary_moduli.tex}
 \input{papers/sections/quantum_cubic_boundary_prym.tex}
+\input{papers/sections/quantum_cubic_prym_polarization.tex}
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
@@ -744,18 +755,20 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_boundary_torus_links.py}&二枝先頭式・Puiseux整数式・conductor・Milnor多項式・Chebyshev：既存PASS\\
 \path{verify_boundary_thresholds.py}&Newton閾値・半群・局所MF次元：既存PASS\\
 \path{verify_boundary_analytic_moduli.py}&模型Jacobian環・二同種式・実germの$\mu=27,\tau=24$：既存PASS\\
-\path{verify_boundary_prym.py}&Kummer/Ciani写像・種数・楕円周期式・実germのTjurina数再計算：今回PASS\\\bottomrule
+\path{verify_boundary_prym.py}&Kummer/Ciani写像・種数・楕円周期式・実germのTjurina数再計算：既存PASS\\
+\path{verify_prym_integral_belyi.py}&巡回位数・分岐数・theta次数・楕円$X_{411}$・Belyi：今回PASS\\\bottomrule
 \end{longtable}
-今回実行したのは最後の検証器であり、有理数体上の恒等式と整数行列を用いた。
-Kummer写像の代入、Cianiの三商と文字分解、二同種写像と$j$、
-Picard--Fuchsの完全微分恒等式、元のVieta式からのresultantと$\mu=27,\tau=24$を確認した。
-小証明書は\path{computations/boundary_prym_certificate.json}。
-被覆の連結性、Riemann--Hurwitz、Jacobianのnorm、Hodge因子、
-Gauss--Maninとの適合性、Hua--Kellerのdg復元は通常の証明と一次資料への依存であり、
-有限計算だけの形式検証ではない。旧34検証器の今回は全再実行をしていない。
-新しいPrym節を独立wrapperでLuaLaTeX組版（4頁）し、全頁を画像点検した。
-内部参照は解決し、overfull boxはない。主論文全体の今回の組版は未実施である。
-旧証明の独立再監査、偏極を保つ整数Prym分解、高重み実germへのPrym比較、
+今回新規に実行したのは最後の巡回被覆・整数偏極・Belyi検証器であり、
+整数の合同式、分岐のRiemann--Hurwitz数値、楕円Weierstrass不変量、
+Belyiの分岐多項式を厳密にPASSと確認した。
+証明書は\path{computations/prym_integral_belyi_certificate.json}。
+完全分岐からのJacobian引戻し単射、二捩れ核、normによるtheta制限次数、
+MumfordのPrym偏極型、Kodaira--Tate・Shioda--Tateは
+原稿の通常の証明または明記した既知定理への依存で、計算のみの検証ではない。
+従来の35検証器を今回すべて再実行していない。
+新しい巡回偏極・Belyi節は独立wrapperでLuaLaTeX組版を確認したが、
+主論文全体の今回の組版と旧証明の独立査読は未実施である。
+偏極を保つPrym全体の整数直和分解、高重み実germへのPrym比較、
 二周期と整数次数付きdg圏の全比較、filtered・equivariantなmirror/Fukaya対応、
 元の非可換H3圏の自己同値、新規性の網羅調査は未実施である。
 
