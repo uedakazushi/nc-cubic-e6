@@ -26,13 +26,14 @@ checks = [
     'verify_logarithmic_periods.py', 'verify_conic_period_coordinates.py',
     'verify_triality_period_isogeny.py', 'verify_boundary_pell_dynamics.py',
     'verify_localization_entropy.py', 'verify_boundary_torus_links.py',
+    'verify_boundary_thresholds.py', 'verify_boundary_analytic_moduli.py',
 ]
 completed = []
 for name in checks:
     subprocess.run([sys.executable, str(root / name)], check=True, cwd=root)
     completed.append({'script': name, 'status': 'PASS'})
 result = {
-    'date': '2026-11-17', 'version': 'e6-connections-v27', 'status': 'PASS',
+    'date': '2026-11-18', 'version': 'e6-connections-v29', 'status': 'PASS',
     'python': platform.python_version(), 'sympy': sympy.__version__,
     'networkx': networkx.__version__, 'completed': completed,
     'separate_mathematical_inputs': [
@@ -77,6 +78,12 @@ result = {
         'conductor formula and Milnor--Orlik monodromy formula',
         'normalization defect and vector-bundle estimates on P1',
         'Casals real-morsification Weinstein construction',
+        'Newton toric log resolution and multiplier ideals',
+        'analytic coordinate comparison of two weighted branches',
+        'Dyckerhoff Hochschild algebra and minimal A-infinity models',
+        'Mather--Yau contact reconstruction for isolated hypersurfaces',
+        'strict filtered Koszul lemma for weighted regular initial sequences',
+        'elliptic curves with a marked nonzero two-torsion point',
     ],
     'not_certified_by_this_run': [
         'global H3 algebraic-stack construction',
@@ -98,7 +105,9 @@ result = {
         'categorical relation to nearly Kahler geometry',
         'noncommutative H3 functor realizing the affine automorphism',
         'a proper exact functor realizing the sequence of curve closures',
-        'analytic right-equivalence of boundary germ to weighted homogeneous model',
+        'general dg Morita classification of actual higher-weight boundary germs',
+        'elliptic attachment as a Milnor-fiber quotient or categorical summand',
+        'elliptic isogeny inducing an MF equivalence',
         'functors or exact cobordisms between different local Weinstein models',
         'independent peer review', 'novelty', 'GitHub or Library saving',
     ],
