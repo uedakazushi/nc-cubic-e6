@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-17",
+  "version": "e6-connections-v19",
+  "status": "PASS",
+  "field": "Q; symbolic exact arithmetic",
+  "gradient_map": "(vw-u,wu-v,uv-w)",
+  "ramification_equation": "u^2+v^2+w^2+2uvw-1=0",
+  "nodes_and_fibers": [
+    {"node": [-1,-1,-1], "parameter": [2,2,2], "other_sheet": [2,2,2]},
+    {"node": [-1,1,1], "parameter": [2,-2,-2], "other_sheet": [2,-2,-2]},
+    {"node": [1,-1,1], "parameter": [-2,2,-2], "other_sheet": [-2,2,-2]},
+    {"node": [1,1,-1], "parameter": [-2,-2,2], "other_sheet": [-2,-2,2]}
+  ],
+  "torus_map": "u=-(r+r^-1)/2, v=-(t+t^-1)/2, w=-(rt+(rt)^-1)/2",
+  "torus_Poisson": "{r,t}=rt gives {u,v}=-(1/2) R_w, cyclic",
+  "D4_residual_germ": "-xy(x+y)+(x^2*y^2)/2",
+  "local_Jacobi_dimension": 4,
+  "D4_unfolding": "-gamma*xy-(alpha-gamma)*x-(beta-gamma)*y, plus constant",
+  "parameter_class_matrix_determinant": "1/2",
+  "reference_fiber_length": 5,
+  "local_triality_tangent_matrix": [[0,1],[-1,-1]],
+  "origin_evaluation_determinant": "16",
+  "origin_residue_pairing_determinant": "-1",
+  "origin_Casimir_values_divided_by_f_over_3": [0,-2,-2,-2,-2],
+  "caveat": "Repeated Casimir values do not imply ramification of the five-sheet cover.",
+  "not_computer_certified": [
+    "invariant ring generation proof", "analytic D4 right-equivalence",
+    "infinitesimal versality criterion", "real strict concavity proof",
+    "global mirror/Fukaya equivalence", "identification of distinct D4 lattices", "novelty"
+  ]
+}
