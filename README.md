@@ -1,32 +1,45 @@
-# 楕円 E6 量子化成分 — nc-cubic-e6
+# 非可換三次曲面を結ぶ幾何学 — nc-cubic-e6
 
-2026-11-17 / triangle-component-v18。
-内在的非可換三次曲面H3の、量子so3・Fricke cubic・Askey–Wilson部分族を含む8次元候補成分と、関連分野への具体的な接続を研究する。
+2026-11-17 / e6-connections-v19。
+**数学的に面白くすることを最優先とし、多様な分野との具体的な接続を優先して探す。** 量子so3とその中心三次切断を、非可換三次曲面・DAHA・指標多様体・特異点論・実幾何の共通の例として研究する。既存の八次元E6成分研究は保持するが、分類の完成を他分野との比較の前提にはしない。
 
-**最初に [研究方針](00_research_plan.md) を読む。** 現行日本語LuaLaTeX原稿は [nc-cubic-e6.tex](papers/nc-cubic-e6.tex)。基本知識は [研究ノート](research/research_notes.md)、関連分野は [Fricke/DAHA比較](research/fricke_daha_comparison.md) と [Poisson量子化・延長障害ノート](research/poisson_order_notes.md) を参照する。公表価値のある関連分野研究も同じ主論文へ統合する。
+再開時は [研究方針](00_research_plan.md) を最初に読む。主論文は日本語LuaLaTeXの [nc-cubic-e6.tex](papers/nc-cubic-e6.tex)。関連分野の成果もこの同じ主論文へ統合する。
 
-固定包絡の結節中心H3切断五例を厳密計算で認識し、許容四次元族では五つの正規交叉因子・A4商で二既約成分を得た。七次元族では1次元表現の連結五重被覆から、この結節中心軌跡が一つの既約六次元因子になる（主論文 `thm:nodal-divisors`, `thm:seven-nodal-irreducible`）。
+## 一つの写像から現れる接続
 
-**普遍Askey–Wilson代数・Casimir規約との表示同型、四穴球面Fricke係数への優越写像、量子的Fricke–Vieta生成元、Goldman型Poisson・log Calabi–Yau三角境界・PicardのD4⊂E6格子** を明示した（`papers/sections/quantum_cubic_daha_character.tex`）。古典的なFricke実現と根格子同定は既知結果であり、新規性と計算の独立確認を区別する。三角境界は一般E6の楕円境界とは異なる。
+正規化した一次元表現の五重被覆は
 
-**量子化からのPoisson構造と二つの障害** を主論文に統合した（`papers/sections/quantum_cubic_poisson_orders.tex`）。Q=q exp(h) の交換子微分はFrickeのJacobian括弧の正確に9倍であり、Brown–Gordonにより同一smooth locus上の中心fiber代数を比較できる。一方、Omega係数が非零の非Casimir切断は指定した純粋q変形の平坦商に一次で持ち上がらず、Vieta作用は固定pointed H3心に延長しない。これは抽象変形・導来同値の非存在ではなく、同時Sklyanin変形と心を動かす対応を研究するための障害である。
+\[
+\Phi(u,v,w)=(vw-u,wu-v,uv-w)
+=\nabla\left(uvw-\frac12(u^2+v^2+w^2)\right).
+\]
 
-**固定包絡のCasimir pencilに十個のPoisson零点を完全列挙**し、総中心の五節点と五滑らか臨界点を区別した。中心曲面の特異値は4つで全てA1型だが、二つの値だけが既存判定によりH3となる。平滑化の二次接触／一次横断、一次元表現の中心character、VietaとA4による符号四点のS4作用も証明した（`papers/sections/quantum_cubic_casimir_leaves.tex`）。
+この写像のramification divisorはCayley三次曲面で、閉トーラスのSL2指標多様体に一致する。四つの特殊fiberでは四枚のsheetがD4型で衝突し、三係数が加法定数を除くミニバーサル変形を与える。同じ構成にLandau–Ginzburgポテンシャル、exact Lagrangian射影、trialityの位数3作用、Jacobi留数代数、実pillowcase、相関行列のelliptopeが現れる。elliptope内部では勾配写像が単射なので、そこにある実sheetは高々一つ。
 
-**相対Poisson臨界被覆の有限平坦性とS5対称性：** 三低次係数の全域で相対臨界環は次数15、一次元表現は次数5で有限平坦。Casimir切断の判別式は \(\Delta_{15}=N_5^2M_5\) と因数分解し、一次元表現のCasimir norm \(N_5\) は既約五次でGalois群 \(S_5\)。主論文 `papers/sections/quantum_cubic_relative_poisson.tex` に証明を統合し、`computations/verify_relative_poisson_cover.py` と小証明書に再現計算を保存した。さらに \(M_5\) も幾何学的に既約・Galois群 \(S_5\)、二つの分解体は線型非交叉で、同時monodromyが \(S_5\times S_5\) となる（\`thm:paired-quintic-S5\`、\`computations/verify_companion_s5.py\`）。分岐因子と全H3判定は未解決。
+証明は主論文の [Cayley・LG・D4・実幾何の節](papers/sections/quantum_cubic_cayley_lg.tex)、再開用の具体式と一次文献は [接続ノート](research/cayley_lg_connections.md)。古典的なCayley商・D4変形・elliptope自体を新発見と主張せず、指定した表現被覆との明示的な対応と帰結を証明する。Picard D4とMilnor D4の標準同定、mirror/Fukaya同値、nearly Kähler幾何との圏的対応は未構成。
 
-主原稿で読み込む証明節は `papers/sections/quantum_cubic_*.tex`。固定位数3の一般H3認識・三角境界の関連証明も必要な範囲で保持する。**全intrinsic H3成分の大域閉包・全境界と一般相対AS4認識は未完成**。全Casimir値でのAzumaya性や導来Vieta対応も未解決。
+**重要な区別：** Casimir値の衝突と五重被覆そのものの分岐は別現象であり、LG臨界値もCasimir値と同じではない。判別式の基底変換公式と具体例を主論文に組み込んだ。
 
-## 再現と今回の検証範囲
+## 保持する既存成果
+
+七次元PBW正常形、三捩れからの横断積分、条件を明示した八次元Hochschild変形、全Artin表示族、smooth DM表示stackを保持する。結節中心は固定包絡で五SNC因子・A4商で二成分、七次元族では連結五重被覆から既約六次元因子となる。主論文の全既存証明節は残している。
+
+AW中央特殊化とCasimir規約、四穴球面Fricke係数への優越写像、量子的Vieta、Goldman型Poisson括弧、三角境界とD4⊂E6を明示した。Q=q exp(h)の交換子微分は本稿のJacobian括弧の9倍。純粋q変形での非Casimir切断の持上げと固定pointed H3心へのVieta作用には障害があるが、一般の圏変形や心の変更を否定するものではない。
+
+相対Poisson臨界環は有限平坦次数15、一次元表現環は次数5。Casimir臨界値多項式はDelta15=N5²M5と分解し、二つの五次因子の同時幾何学的Galois群はS5×S5。全H3 admissibility、intrinsic降下、全境界、一般相対AS4認識、全Casimir値でのAzumaya性は未完成。
+
+基礎知識は [研究ノート](research/research_notes.md)、DAHA/skein/Painlevé/mirror比較は [関連文献ノート](research/fricke_daha_comparison.md)、二つの五次被覆と延長障害は [Poissonノート](research/poisson_order_notes.md) を参照する。
+
+## 再現と検証範囲
+
 ```sh
 python3 -m pip install -r computations/requirements.txt
-python3 computations/verify_root_poisson.py
-python3 computations/verify_poisson_cut_obstruction.py
-python3 computations/verify_companion_s5.py
-python3 computations/verify_all.py  # 全23検証器
+python3 computations/verify_cayley_lg_connections.py
+python3 computations/verify_all.py  # 全24検証器
 latexmk -lualatex papers/nc-cubic-e6.tex
 ```
-今回新規実行した二素数Frobenius検証器の小証明書は `computations/companion_s5_certificate.json`。前回の相対Poisson・S5検証器の証明書は `computations/relative_poisson_cover_certificate.json`。前回のCasimir零点検証器の証明書は `computations/casimir_poisson_leaves_certificate.json`。他の22検証器の今回の全再実行は未実施。前回の五検証器の結果は `computations/connections_validation.json` に記録。DAHA節と新Poisson節の一時的wrapperによるLuaLaTeX組版・該当頁点検は成功したが、主論文全体の今回の再組版ではない。
 
-GitHub mainが正本。**GitHubへpush済みの内容はLibraryに重複保存しない。** PDF・ZIP・組版中間物はGitで追跡しない。他の研究は [分類](https://github.com/uedakazushi/nc-cubic-moduli)、[ambient比較](https://github.com/uedakazushi/nc-cubic-ambient-moduli)、[非AS短報](https://github.com/uedakazushi/nc-cubic-non-as) を参照。
-移行元の資料は [固定source commit](https://github.com/uedakazushi/nc-cubic-moduli/tree/c5fd8a8301f6b1c283a6f0510cde80ae6a006e80) を基準に抽出した。旧bundleは不要。
+今回実行した新検証器は有理数体上の記号演算でPASS。小証明書は `computations/cayley_lg_connections_certificate.json`。新節だけの一時的LuaLaTeX wrapperは5頁で組版成功し、本文外の二つの参照はwrapperでは未解決。主論文全体の今回の組版、旧23検証器の全再実行、独立査読、新規性の網羅調査は未実施。通常の証明と有限恒等式の検算を区別する。
+
+GitHub mainが正本。**GitHubへpush済みの内容はLibraryに保存しない。** PDF・ZIP・組版中間物はGitで追跡しない。他の研究は [分類](https://github.com/uedakazushi/nc-cubic-moduli)、[ambient比較](https://github.com/uedakazushi/nc-cubic-ambient-moduli)、[非AS短報](https://github.com/uedakazushi/nc-cubic-non-as) を参照。
+移行元の資料は [固定source commit](https://github.com/uedakazushi/nc-cubic-moduli/tree/c5fd8a8301f6b1c283a6f0510cde80ae6a006e80) を基準に抽出した。旧bundleの取得は再開の前提ではない。
