@@ -1,0 +1,277 @@
+\section{周期の核を捉える境界付値とPell力学}
+\label{sec:boundary-pell-dynamics}
+前節の自己同型は、開曲面の整数ホモロジーと全periodには見えない。
+本節では同じ写像を境界の単項式付値で観測し、
+正確な次数列、二つの無理な固有方向、必要な境界blow-upの数を求める。
+基礎体は$\mathbb C$、曲面は滑らかな
+\[
+ U=\{uvw-\tfrac12(u^2+v^2+w^2)-Au-Bv-Cw=h\}
+\]
+とし、$S$を通常の三次射影閉包、$D=D_u+D_v+D_w$を無限遠の三角形とする。
+$\mathsf H=[D]=c_1(\mathcal O_S(1))$、$\mathsf H^2=3$である。
+以下の$\deg_U$は座標環の最小全次数で、射影交点次数とは区別する。
+
+\subsection{単項式付値の境界と、三つの区分線型反射}
+$D$の各節点で二つの局所境界座標に正の実重みを与え、
+対応する単項式付値を取る。閉錐の軸は隣接境界成分の
+divisorial valuationの正倍として貼り合わせる。
+この空間を$\mathcal V_D$と書く。定数体上では付値は自明とする。
+これは指定した対$(S,D)$の境界付値の部分空間であり、
+全Berkovich空間や任意の退化のessential skeletonを同定する主張ではない。
+
+\begin{proposition}[境界付値の三角錐表示]
+\label{prop:boundary-valuation-cone}
+$\nu\in\mathcal V_D$の座標関数の極次数
+\[
+ (a,b,c)=(-\nu(u),-\nu(v),-\nu(w))
+\]
+は
+\[
+ \mathcal C=\{(a,b,c)\in\mathbb R_{\ge0}^3\setminus\{0\}:
+                  2\max(a,b,c)=a+b+c\}
+\]
+を動き、この写像は同相である。
+さらに
+\begin{equation}\label{eq:boundary-theta}
+ \Theta:(\mathbb R^2\setminus\{0\})/\{\pm1\}\xrightarrow{\sim}\mathcal C,
+ \qquad (r,t)\longmapsto(|r|,|t|,|r+t|)
+\end{equation}
+は区分整数線型な同相である。
+有理方向は、境界節点を有限回blow-upして得られる境界素因子の付値の方向に一致する。
+\end{proposition}
+\begin{proof}
+頂点$[u:v:w:t]=[1:0:0:0]$の局所座標を$V,Z,T$とすると、
+曲面方程式は
+\[
+ VZ-\tfrac12T(1+V^2+Z^2)-T^2(A+BV+CZ)-hT^3=0.
+\]
+陰関数定理から$T=2VZ\varepsilon$、$\varepsilon(0,0)=1$なる単元を得る。
+$\nu(V)=\alpha,\nu(Z)=\beta$なら
+$u=1/T,v=V/T,w=Z/T$の極次数は
+$(\alpha+\beta,\beta,\alpha)$である。
+巡回する三頂点の錐を境界成分の軸で貼ると$\mathcal C$となる。
+最大の座標が残り二つの和であることから式\eqref{eq:boundary-theta}の逆も一意に定まる。
+局所重みが互いに素な正整数ならEuclidの互除法に従うcorner blow-upでその素因子を得る。
+逆にcorner blow-upでは隣接二つの原始重みの和を取るので、全て有理方向である。
+\end{proof}
+
+\begin{theorem}[Vieta作用の境界線型化]
+\label{thm:boundary-vieta-linearization}
+Vieta involution
+\[
+ \iota_u=(2vw-u-2A,v,w),\quad
+ \iota_v=(u,2uw-v-2B,w),\quad
+ \iota_w=(u,v,2uv-w-2C)
+\]
+は$\mathcal V_D$を保存する。$\iota_*\nu(f)=\nu(f\circ\iota)$とすると、
+極次数では
+\begin{equation}\label{eq:boundary-tropical-vieta}
+ T_u(a,b,c)=(2\max(b,c)-a,b,c)
+\end{equation}
+と巡回二式で作用する。$\Theta$の下では行列
+\[
+ R_u=\begin{pmatrix}-1&-2\\0&1\end{pmatrix},\quad
+ R_v=\begin{pmatrix}1&0\\-2&-1\end{pmatrix},\quad
+ R_w=\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+\]
+による作用となり、係数$A,B,C,h$によらない。
+\end{theorem}
+\begin{proof}
+曲面の関係を使うと、積表示
+\begin{equation}\label{eq:boundary-vieta-product}
+ u\,\iota_u(u)=v^2+w^2+2Bv+2Cw+2h
+\end{equation}
+を得る。$\max(b,c)>0$なので右辺の極次数は$2\max(b,c)$。
+$b=c$の場合も、単項式付値の先頭環では二つの二乗項は異なるLaurent単項式であり、
+和は消えない。従って式\eqref{eq:boundary-tropical-vieta}を得る。
+多項式表示$2vw-u-2A$に単純なmax演算を施すと、
+$a=b+c$の錐で先頭項の消去を見落とすため、積表示を使うことが重要である。
+
+付値そのものの不変性も局所座標で確かめられる。
+上の頂点で$\alpha>\beta$なら像は$w$頂点に中心を持ち、
+その座標$u'/w,v/w$の先頭項はそれぞれ$Z,V/Z$の非零定数倍となる。
+$\alpha<\beta$なら$v$頂点で$V,Z/V$となる。
+いずれもunimodularな単項式座標変換である。
+他の二頂点の内点では$2vw$の先頭項が消えず、同様に単項式変換となる。
+等重みの壁と軸は付値空間における連続性で含まれ、軸では素因子のgeneric pointを取る。
+よって三錐からなる$\mathcal V_D$が保存される。
+
+最後に恒等式$|x+y|+|x-y|=2\max(|x|,|y|)$を使えば
+$T_i\Theta=\Theta R_i$が従う。
+例えば$T_u$の新しい第一座標は$|r+2t|$であり、
+$R_u(r,t)=(-r-2t,t)$の第二・第三絶対値は$|t|,|r+t|$である。
+\end{proof}
+
+この区分線型模型の一般理論は既知である。
+Jang\footnote{S. u. Jang, \emph{Tropical Dynamics of Markov Surfaces},
+\href{https://arxiv.org/abs/2306.11357v2}{arXiv:2306.11357v2},
+Lemma 4.8 and Theorem 4.10（取得できたPDFは2025年12月版）。
+別版の題名\emph{Vieta Involutions on Tropical Markov Cubics}や節番号と混同しない。}
+は非Archimedean体上のMarkov曲面のtropical作用を同じ
+$\mathbb R^2/\{\pm1\}$模型で記述する。
+本節はその一般理論を新規とせず、定数体に自明な付値と境界の局所座標で
+本稿の周期の核にある一つの写像を直接調べる。
+
+\subsection{最低次数の完全なPell漸化式}
+\begin{theorem}[係数に依存しない厳密な次数列]
+\label{thm:pell-exact-degree}
+$g=\iota_v\iota_w\iota_u\iota_w$と置く（右から合成）。
+正則関数$f\in\mathcal O(U)$について、$\deg_U f$を
+$f$を表す$u,v,w$の多項式の全次数の最小値と定める。
+\[
+ d_n=\max\{\deg_U(u\circ g^n),\deg_U(v\circ g^n),\deg_U(w\circ g^n)\}
+\]
+とすると、全ての$n\ge0$で
+\begin{equation}\label{eq:pell-degree-sequence}
+ d_0=1,\quad d_1=7,\quad d_{n+2}=6d_{n+1}-d_n,
+ \qquad(d_n)=(1,7,41,239,1393,8119,\ldots).
+\end{equation}
+$\Lambda=3+2\sqrt2$と置けば
+\[
+ d_n=\frac{(1+\sqrt2)\Lambda^n+(1-\sqrt2)\Lambda^{-n}}2.
+\]
+さらに$M=\left(\begin{smallmatrix}1&-2\\-2&5\end{smallmatrix}\right)$、
+$M^n=\left(\begin{smallmatrix}a_n&-b_n\\-b_n&c_n\end{smallmatrix}\right)$と書くと
+\[
+ d_n=b_n+c_n,\qquad d_n^2-2c_n^2=-1,
+ \qquad d_n+c_n\sqrt2=(1+\sqrt2)^{2n+1}.
+\]
+射影交点次数は別の量であり、$n\ge1$について
+\begin{equation}\label{eq:projective-pell-degree}
+ (g^n)^*\mathsf H
+ =c_nD_u+b_nD_v+(b_n+c_n)D_w,
+ \qquad \mathsf H\cdot(g^n)^*\mathsf H=2d_n
+\end{equation}
+となる。従って$\lambda_1(g)=\Lambda$がこの計算からも直接従う。
+\end{theorem}
+\begin{proof}
+一回の合成を展開した最高全次数項は、順に
+\[
+ g_u=4uv^2+\text{lower terms},\quad
+ g_v=64u^2v^5+\text{lower terms},\quad
+ g_w=8uv^3+\text{lower terms}.
+\]
+$N=\left(\begin{smallmatrix}1&2\\2&5\end{smallmatrix}\right)$、
+$(p_n,q_n)^{\mathsf t}=N^n(1,1)^{\mathsf t}$と置く。
+$n\ge1$で$g^n$の三座標の最高項は$u,v$だけの単項式で、
+次数は$(p_n,q_n,q_n-p_n)$であることを帰納的に示す。
+実際、$p_n,q_n>0$で、次の$u$座標の項$4u_nv_n^2$は
+競合する$v_nw_n$より高次であり、次の$w$座標の$8u_nv_n^3$も同様である。
+最後の$v$座標は$2u_{n+1}w_{n+1}-v_n-2B$だから、
+次数は$(p_n+2q_n,2p_n+5q_n,p_n+3q_n)$になる。
+最高係数はそれぞれ$2^{\text{次数}-1}$で消えない。
+この帰納法は$A,B,C,h$の特殊値に依存しない。
+
+座標環の全次数フィルトレーションの随伴次数環は
+$\mathbb C[u,v,w]/(uvw)$である。最高項は$u,v$のみの非零単項式なので、
+曲面関係を使っても次数を下げられない。
+従ってこれらは単なる多項式表示の次数でなく、最小次数$\deg_U$である。
+$N^2-6N+I=0$から式\eqref{eq:pell-degree-sequence}と閉形式を得る。
+$N=\operatorname{diag}(1,-1)M\operatorname{diag}(1,-1)$で、
+$b_n+c_n=q_n$。$(d_{n+1},c_{n+1})=(3d_n+4c_n,2d_n+3c_n)$と
+初期値$(1,1)$は、単数$3+2\sqrt2$の乗算そのものである。
+これがPellの式を与える。
+
+境界付値では$R_vR_wR_uR_w=-M$なので、$g_*$は$M$で表される。
+三つの境界素因子$D_u,D_v,D_w$は、それぞれ
+$(r,t)=(0,1),(1,0),(1,-1)$に対応する。
+$n\ge1$では$0<a_n<b_n<c_n$であり、
+$g^n$の三座標の極次数の最大値は各素因子に沿って
+$c_n,b_n,b_n+c_n$となる。
+一般のaffine hyperplaneの引戻しではこれらの先頭係数は消えないため、
+その零因子の閉包は表示した極因子と線型同値である。
+これは双有理写像による$\mathsf H$の引戻しであり、
+$\mathsf H D_i=1$から式\eqref{eq:projective-pell-degree}を得る。
+$n=0$では$\mathsf H^2=3$なので、後式を$n=0$へ適用してはならない。
+\end{proof}
+
+\subsection{無理付値の二方向と、必要なblow-upの数}
+\begin{theorem}[二次無理数の固有付値と非正則化]
+\label{thm:irrational-boundary-nonregularization}
+$g_*$の射影化した境界$\mathcal V_D/\mathbb R_{>0}$上の固定点は二つだけで、
+極次数を規格化すると
+\[
+ v_+=(1,1+\sqrt2,\sqrt2),\qquad
+ v_-=(1,\sqrt2-1,\sqrt2)
+\]
+となる。$g_*v_+=\Lambda v_+$、$g_*v_-=\Lambda^{-1}v_-$。
+射影作用はnorth--south型で、$v_-$以外の全ての方向は正反復で$v_+$へ収束する。
+有理方向には周期点がない。
+従って、$S$から境界上の点を有限回blow-upして得られるどの滑らかな曲面にも、
+$g$は$U$上の作用と両立する正則自己同型として延長しない。
+\end{theorem}
+\begin{proof}
+$M$の二固有線は
+$\mathbb R(1,-1-\sqrt2)$と$\mathbb R(1,-1+\sqrt2)$である。
+$\Theta$を適用して二つの表示を得る。
+異なる固有値$\Lambda>1>\Lambda^{-1}>0$による実射影直線上の作用はnorth--south型。
+$M^m$の固有線も同じ二つなので、有理線の周期性は不可能である。
+
+有限blow-up後にも元の三辺のstrict transformは境界素因子として残る。
+もし$g$がその曲面の自己同型へ延長すれば、$U$の補集合である有限個の境界成分を
+置換するため、各strict transformの付値は周期的となる。
+しかしその付値は元の$D_i$と同じ有理方向であり、前半に矛盾する。
+この議論は各blow-up中心が節点でなく境界の滑らかな点でも有効である。
+\end{proof}
+
+この結論は「有限blow-upによりalgebraic stabilityを得る」こととは異なる。
+Algebraic stabilityは正則自己同型への延長を意味しない。
+また、ここで扱ったのは指定した$S$を支配する有限境界blow-upであり、
+無関係な全コンパクト化や非代数的コンパクト化の分類は主張しない。
+
+\begin{proposition}[一つの反復付値を抽出するのに必要な正確な回数]
+\label{prop:pell-corner-depth}
+$\nu_n=g_*^n\operatorname{ord}_{D_w}$とする。
+$n\ge1$では$\nu_n$の中心は$v$頂点で、二つの局所境界座標での原始重みは
+$(p_n,q_n-p_n)$（順序を除く）である。
+その比の有限連分数は
+\[
+ \frac{q_n-p_n}{p_n}
+ =[1;\underbrace{2,\ldots,2}_{2n-2\text{個}},3].
+\]
+従って、この付値を境界素因子として抽出するためのcorner blow-upの最小回数は
+正確に$4n$である。例えば極次数の最初の三つは
+\[
+ (3,7,4),\quad(17,41,24),\quad(99,239,140)
+\]
+であり、極次数は指数増大する一方、一つの指定付値の抽出深さは線型に増える。
+\end{proposition}
+\begin{proof}
+$\Theta(M^n(1,-1))=(p_n,q_n,q_n-p_n)$で、最大は第二成分である。
+頂点での局所座標の重みはその差から求まり、unimodularityにより互いに素である。
+$R_n=(q_n-p_n)/p_n$は
+$R_1=4/3$、$R_{n+1}=(4+3R_n)/(3+2R_n)$を満たす。
+$R_n=1+1/T_n$と書けば$T_{n+1}=2+1/(2+1/T_n)$であるため、
+各反復で連分数へ二つの$2$が追加される。
+
+corner blow-upで重み$(a,b)$の付値を追うと、$a>b$なら次の重みは$(a-b,b)$、
+$b>a$なら$(a,b-a)$となる。終端の$(1,1)$ではさらに一回のblow-upで素因子が現れる。
+これは付値の中心を毎回blow-upする必要があるため最小の過程でもある。
+従って回数は連分数の部分商の和で、$1+2(2n-2)+3=4n$となる。
+\end{proof}
+
+\subsection{何が周期から失われ、どこで回復されるか}
+$g$の$H_2(U,\mathbb Z)$作用が恒等で、留数形式と全periodを保つことは前節の結果であり、
+その入力はGoldman--Neumannのホモロジー作用の定理である。
+本節では同じ$g$について、境界の原始付値の無限軌道、Pell次数、無理な安定方向を得た。
+従って、Hodge拡大が分裂する場合でもしない場合でも、
+これらの境界力学は同じである。係数に依存する周期と、
+この写像の係数非依存なtropical境界を分ける必要がある。
+
+Cantat--Loray\footnote{S. Cantat, F. Loray,
+\emph{Dynamics on Character Varieties and Malgrange irreducibility of Painlev\'e VI equation},
+Ann. Inst. Fourier 59 (2009), 2927--2978,
+\href{https://doi.org/10.5802/aif.2512}{doi:10.5802/aif.2512}, \S3.1;
+著者長稿\emph{Holomorphic dynamics, Painlev\'e VI equation and character varieties},
+\href{https://perso.univ-rennes1.fr/serge.cantat/Articles/painleve_long.pdf}{\S4.2, Remark 4.5}では
+境界節点の反復blow-upと円周作用を記述する。版による節番号の違いに注意する。}
+の境界力学・entropy定理、Jangのtropical線型化自体は先行結果である。
+ここでは本稿の周期の核にある明示的な語に適用し、最小次数、射影交点次数、
+個別付値の抽出回数を区別した正確な計算としてまとめた。
+Pell単数$1+\sqrt2$とその連分数は、同じ二次元整数行列を介して現れるのであり、
+新たな算術同値や量子化を主張するものではない。
+
+今後は、この境界付値の作用をwrapped Fukaya圏・境界の双有理変更・非可換局所化の
+作用と比較することが自然である。しかし本節は圏的entropy、量子代数の自己同型の
+成長率、非Archimedean good reductionを構成・計算していない。
+本稿の具体的な次数・blow-up回数の文献上の既出性も網羅確認は未了である。
