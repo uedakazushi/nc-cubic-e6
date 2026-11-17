@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-17",
+  "version": "e6-connections-v22",
+  "status": "PASS",
+  "field": "Q and exact symbolic square roots",
+  "conic_discriminant": "(u^2+2Au+2h)(u^2-1)+B^2+C^2+2uBC",
+  "fiber_equation": "a*b=-N(u)/(u^2-1)",
+  "uniformization": "u=(z+z^-1)/2; sqrt(u^2-1)=(z-z^-1)/2",
+  "residue_form": "omega=dlog(z) wedge dlog(a)",
+  "matching_period": "2*pi*i * integral_gamma du/sqrt(u^2-1)",
+  "real_sphere_period": "Pi_0(h)=4*pi*asin(sqrt(-2h)), -1/2<h<0",
+  "boundary_period": "Pi_infinity=(2*pi*i)^2",
+  "Picard_Fuchs": "2h(1+2h)*y_ddot+(1+4h)*y_dot=0",
+  "exponentiated_period": "Q+Q^-1=2+8h; Q=exp(Pi_0/(2*pi*i))",
+  "nonsplit_Hodge_example": {
+    "h": "-1/10",
+    "Q": "(3-4i)/5",
+    "Q_plus_inverse": "6/5"
+  },
+  "monodromy_at_0": [[1,0],[0,-1]],
+  "monodromy_at_minus_half": [[1,0],[-1,-1]],
+  "unipotent_product": [[1,0],[-1,1]],
+  "not_computer_certified": [
+    "matching sphere construction and orientation",
+    "analytic integration and continuation",
+    "Friedman period comparison theorem",
+    "whole rank-five Gauss-Manin system or mixed-Hodge splitting",
+    "root-pair spheres form an integral D4 basis",
+    "mirror equivalence or non-archimedean model",
+    "novelty"
+  ]
+}
