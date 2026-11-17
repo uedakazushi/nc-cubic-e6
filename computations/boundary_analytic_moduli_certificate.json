@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-18",
+  "version": "e6-connections-v29",
+  "status": "PASS",
+  "arithmetic": "Q and Q(sqrt(2)); no sampling or floating-point arithmetic",
+  "model": "y^(2b)-2*kappa*x^c*y^b+x^(2c), coprime 2<=b<c, kappa^2!=1",
+  "model_examples": [
+    {
+      "kappa": "0",
+      "K": "0",
+      "Milnor_and_Tjurina": 27,
+      "Groebner_basis": ["x**9", "y**3"]
+    },
+    {
+      "kappa": "2",
+      "K": "4",
+      "Milnor_and_Tjurina": 27,
+      "Groebner_basis": ["x**9 - 2*x**4*y**2", "x**4*y**3", "x**5*y - y**3/2", "y**5"]
+    },
+    {
+      "kappa": "3*sqrt(2)/4",
+      "K": "9/8",
+      "Milnor_and_Tjurina": 27,
+      "Groebner_basis": ["x**9 - 3*sqrt(2)*x**4*y**2/4", "x**4*y**3", "x**5*y - 2*sqrt(2)*y**3/3", "y**5"]
+    }
+  ],
+  "analytic_invariant": "K=kappa^2=(rho1+rho2)^2/(4*rho1*rho2)",
+  "elliptic_curve": "eta^2=z*(z^2-2*kappa*z+1), T=(0,0)",
+  "elliptic_j": "64*(4*K-3)^3/(K-1)",
+  "modular_coordinate": "Tmod=64*(K-1), j=(Tmod+16)^3/Tmod",
+  "two_isogeny": "X=z-2*kappa+1/z, Y=eta*(1-1/z^2)",
+  "two_isogeny_parameter": "K -> K/(K-1); Tmod -> 4096/Tmod",
+  "same_j_distinct_level_examples": ["K=0", "K=9/8", "j=1728"],
+  "actual_boundary_example": {
+    "ambient": "A=B=C=0, h=1; initial conic v=2; n=1",
+    "local_curve_recipe": "Res_t(P,H)/(64*x^2*y^5), with P=2xy-t(x^2+y^2+1)-2t^3",
+    "weighted_jet_up_to_31": "4*x**14 - 16*x**13 + 24*x**12 - 16*x**11 + 574*x**10*y**2 + 4*x**10 - 256*x**9*y**2 + 272*x**8*y**2 - 256*x**7*y**2 + 112*x**6*y**2 - 2408*x**5*y**4 - 16*x**5*y**2 + 908*x**4*y**4 - 336*x**3*y**4 + 104*x**2*y**4 - 16*x*y**4 + 118*y**6 + 4*y**4",
+    "truncation_monomial_count": 45,
+    "Jacobi_matrix_rank": 18,
+    "Tjurina_matrix_rank": 21,
+    "Milnor_number": 27,
+    "Tjurina_number": 24,
+    "normal_forms_F_xF_x2F_x3F_yF": ["12*x**13 - 96*x**12/5 - 12*x**11/5", "-96*x**13/5 - 12*x**12/5", "-12*x**13/5", "0", "0"],
+    "conclusion": "The actual boundary germ is not contact-equivalent to its quasihomogeneous initial form."
+  },
+  "ordinary_proof_inputs": [
+    "analytic coordinate comparison preserving the single tangent and Puiseux pair",
+    "Mather--Yau theorem for isolated complex hypersurface germs",
+    "Dyckerhoff Corollary 6.5 and Hochschild algebra Morita invariance",
+    "Dyckerhoff Theorem 5.9 for the minimal A-infinity model",
+    "strict filtered Koszul lemma for a weighted regular initial sequence",
+    "elliptic two-torsion pair isomorphism classification"
+  ],
+  "not_claimed": [
+    "dg Morita classification of actual higher-weight boundary germs",
+    "principal model is analytically or categorically equivalent to actual germ",
+    "elliptic attachment is a Milnor-fiber quotient or a categorical summand",
+    "elliptic isogeny induces an MF equivalence", "global HMS", "novelty"
+  ]
+}
