@@ -1,0 +1,107 @@
+{
+  "date": "2026-11-17",
+  "version": "triangle-component-v16",
+  "status": "PASS",
+  "base_field": "Q(q), q^2+q+1=0",
+  "identity": "e^3=-f^3/27",
+  "critical_equations": "YZ=2eX, ZX=2eY, XY=2eZ",
+  "zero_poisson_points": 10,
+  "singular_total_center_points": 5,
+  "smooth_total_center_poisson_zeros": 5,
+  "roots_at_sign_points": "(Omega-f/3)(Omega+2f/3)^2",
+  "critical_points": [
+    {
+      "label": "node_origin",
+      "Omega": "0",
+      "center_singular": true,
+      "A1_hessian_det": "16*q/243 + 8/243"
+    },
+    {
+      "label": "tangent_origin",
+      "Omega": "q/3 - 1/3",
+      "center_singular": false,
+      "A1_hessian_det": "16*q/243 + 8/243"
+    },
+    {
+      "label": "node_(1, 1, 1)",
+      "Omega": "2*q/9 - 2/9",
+      "center_singular": true,
+      "A1_hessian_det": "-64*q/243 - 32/243"
+    },
+    {
+      "label": "tangent_(1, 1, 1)",
+      "Omega": "1/9 - q/9",
+      "center_singular": false,
+      "A1_hessian_det": "-64*q/243 - 32/243"
+    },
+    {
+      "label": "node_(1, -1, -1)",
+      "Omega": "2*q/9 - 2/9",
+      "center_singular": true,
+      "A1_hessian_det": "-64*q/243 - 32/243"
+    },
+    {
+      "label": "tangent_(1, -1, -1)",
+      "Omega": "1/9 - q/9",
+      "center_singular": false,
+      "A1_hessian_det": "-64*q/243 - 32/243"
+    },
+    {
+      "label": "node_(-1, 1, -1)",
+      "Omega": "2*q/9 - 2/9",
+      "center_singular": true,
+      "A1_hessian_det": "-64*q/243 - 32/243"
+    },
+    {
+      "label": "tangent_(-1, 1, -1)",
+      "Omega": "1/9 - q/9",
+      "center_singular": false,
+      "A1_hessian_det": "-64*q/243 - 32/243"
+    },
+    {
+      "label": "node_(-1, -1, 1)",
+      "Omega": "2*q/9 - 2/9",
+      "center_singular": true,
+      "A1_hessian_det": "-64*q/243 - 32/243"
+    },
+    {
+      "label": "tangent_(-1, -1, 1)",
+      "Omega": "1/9 - q/9",
+      "center_singular": false,
+      "A1_hessian_det": "-64*q/243 - 32/243"
+    }
+  ],
+  "casimir_fibers": [
+    {
+      "D": "0",
+      "nodes": 1,
+      "total_center_singular": true,
+      "H3_via_existing_criterion": true
+    },
+    {
+      "D": "2f/3",
+      "nodes": 4,
+      "total_center_singular": true,
+      "H3_via_existing_criterion": true
+    },
+    {
+      "D": "f",
+      "nodes": 1,
+      "total_center_singular": false,
+      "H3_via_existing_criterion": false
+    },
+    {
+      "D": "-f/3",
+      "nodes": 4,
+      "total_center_singular": false,
+      "H3_via_existing_criterion": false
+    }
+  ],
+  "one_dimensional_characters": "five, exactly the five singular points of the total center",
+  "limits": [
+    "H3 status uses the fixed-envelope classification theorem",
+    "numerical symmetry is not a proof of newness",
+    "Poisson-zero set classification is geometric support, not scheme multiplicity",
+    "no categorical equivalence or Azumaya conclusion"
+  ]
+}
