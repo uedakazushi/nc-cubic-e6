@@ -27,7 +27,7 @@
 \newcommand{\PP}{\mathbb P}
 \title{楕円 $E_6$ 量子化成分の幾何学に向けて\\\large 七次元正常形・八次元形式変形・Fricke--DAHA幾何}
 \author{研究原稿：H3開性・全大域境界の分類は未完成}
-\date{2026年11月17日\quad triangle-component-v17}
+\date{2026年11月17日\quad triangle-component-v18}
 \begin{document}\maketitle
 \begin{abstract}
 原始三乗根の量子 $\mathfrak{so}_3$ 包絡の中心三次切断から得られる四次元族は、
@@ -58,7 +58,8 @@ Braid作用を量子的Vieta変換として明示し、Goldman型Poisson括弧�
 さらに三低次係数を動かす相対Poisson臨界スキームが全係数で有限平坦次数15、
 一次元表現スキームが有限平坦次数5であることを示す。
 Casimir切断の臨界値多項式は既約五次式の二乗と別の五次式に因数分解し、
-一次元表現被覆および二乗因子の幾何学的monodromyは$S_5$となる。
+二つの五次因子$N_5,M_5$はどちらも幾何学的に既約で、
+そのGalois閉包は独立であり、同時monodromyが$S_5\times S_5$となることを証明する。
 この部分族は楕円境界を持つ一般の八次元族と区別する。
 全fiberのH3開性、全intrinsic族の降下、成分の大域閉包と全境界はなお未完成である。
 \end{abstract}
@@ -76,7 +77,8 @@ Artin--Zhang豊富性、三次曲面の反標準Hilbert値を満たし、
 本稿の目標は、後述の七次元族を含む既約成分を、その一般点・全境界・同型群oid・族まで決定すること、
 およびこの成分とDAHA・character variety・Poisson幾何の関係を明示することである。
 現時点で得た局所結果と、全モジュライの存在に依存する帰結を次のように区別する。
-\begin{center}\begin{longtable}{p{.28\textwidth}p{.63\textwidth}}\toprule
+\begin{longtable}{p{.28\textwidth}p{.63\textwidth}}
+\toprule
 対象&状態\\\midrule
 固定位数三の中央PBW部分&指定した開集合の正常形を全係数で証明。第\ref{sec:normal}節。\\
 横断変形&全次数平坦なAS4包絡と中心三次商を形式的に構成。一般中心値でH3。第\ref{sec:integrate}節。\\
@@ -85,11 +87,12 @@ Artin--Zhang豊富性、三次曲面の反標準Hilbert値を満たし、
 代数的表示stack&smooth DM八次元の近傍を構成。第\ref{sec:presentation-stack}節。H3の開性・全大域境界は未完成。\\
 結節中心因子&固定包絡では五つの正規交叉因子・商で二成分。七次元族では連結な五重被覆を用いて既約な六次元因子。第\ref{sec:nodal-centers}節。\\
 DAHAとcharacter variety&Askey--Wilson Casimirを規約まで同定し、Fricke係数dominance・量子的Vietaを証明。第\ref{sec:daha-character}節。\\
-量子化由来のPoisson構造&$Q=q\exp(\hbar)$ に対してGoldman型Jacobian括弧の9倍。Brown--Gordonによる中心fiberの比較。第\ref{sec:root-poisson-orders}節。\\
-二つの延長障害&非Casimir切断は指定した純粋 $q$ 変形の平坦商に持ち上がらず、Vietaは固定pointed H3心へ延長しない。抽象変形・導来対応の非存在ではない。\\
-Casimir特異中心の二類型&Poisson零点は総中心の五節点と五滑らか臨界点。四つの特異値は全て$A_1$だが、既存のH3判定では二値ずつ可否が分かれる。第\ref{sec:casimir-poisson-leaves}節。\\
-相対Poisson被覆と$S_5Casimir特異中心の二類型&Poisson零点は総中心の五節点と五滑らか臨界点。四つの特異値は全て$A_1$だが、既存のH3判定では二値ずつ可否が分かれる。第\ref{sec:casimir-poisson-leaves}節。\\\bottomrule臨界スキーム有限平坦次数15、1次元表現次数5、$\Delta_{15}=N_5^2M_5$と$N_5$の$S_5$モノドロミー。第\ref{sec:relative-poisson-cover}節。\\\bottomrule
-\end{longtable}\end{center}
+量子化由来のPoisson構造&$Q=q\exp(\hbar)$でGoldman型Jacobian括弧の9倍。Brown--Gordonによる中心fiberの比較。第\ref{sec:root-poisson-orders}節。\\
+二つの延長障害&非Casimir切断は指定した純粋$q$変形の平坦商に持ち上がらず、Vietaは固定pointed H3心へ延長しない。\\
+Casimir特異中心の二類型&Poisson零点は総中心の五節点と五滑らか臨界点。四特異値は全て$A_1$だが既存H3判定で二値ずつ可否が分かれる。第\ref{sec:casimir-poisson-leaves}節。\\
+相対Poisson被覆と二五次式&臨界スキーム有限平坦次数15、一次元表現次数5。$\Delta_{15}=N_5^2M_5$、二つの五次因子の同時幾何monodromyは$S_5\times S_5$。第\ref{sec:relative-poisson-cover}節。\\
+\bottomrule
+\end{longtable}
 
 ポテンシャルPBW変形と中心元の存在はEtingof--Ginzburg \cite{EG} の既知結果を使う。
 Chekhov--Mazzocco--Rubtsov \cite{CMR} は一般化Sklyanin--Painlev\'{e}代数のPBW/Koszul性と
@@ -537,7 +540,7 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
-\begin{center}\begin{longtable}{p{.55\textwidth}p{.36\textwidth}}\toprule
+\begin{longtable}{p{.55\textwidth}p{.36\textwidth}}\toprule
 検証器&保存済み検証結果\\\midrule
 \path{verify_envelope_family.py}&全係数PBW、十二交換子、全中心式：既存PASS\\
 \path{verify_normal_form.py}&全係数正常形、局所指標：既存PASS\\
@@ -560,14 +563,18 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_root_poisson.py}&全係数交換子微分・正確な係数9：既存PASS\\
 \path{verify_poisson_cut_obstruction.py}&切断の三障害・Vieta次数：既存PASS\\
 \path{verify_casimir_poisson_leaves.py}&十Poisson零点・四特異値・Hessian・一次元表現：既存PASS\\
-\path{verify_relative_poisson_cover.py}&次数15のGr\"obner環・二五次因子・単純fold：今回PASS\\\bottomrule
-\end{longtable}\end{center}
+\path{verify_relative_poisson_cover.py}&次数15のGr\"obner環・二五次因子・単純fold：既存PASS\\
+\path{verify_companion_s5.py}&二素数での$N_5,M_5$ Frobenius分解型：今回PASS\\\bottomrule
+\end{longtable}
 有限体の標本による外挿はしていない。
-今回新規に実行したのは\path{verify_relative_poisson_cover.py}に相当する厳密SymPy検算で、
-原点での長さ15、$-\Omega$の特性多項式、無限遠Jacobian、単純foldとCasimir評価を確認した。
-小証明書は\path{relative_poisson_cover_certificate.json}に保存した。
-関連分野の以前の検証器21本を今回再実行したとは主張しない。
-今回の相対Poisson・$S_5$節は独立wrapperでLuaLaTeX組版（4頁）に成功し、頁を画像点検した。
+今回新規に実行したのは\path{verify_companion_s5.py}に対応する厳密な有限体検算で、
+二つの素数において臨界環rank15・一次元表現環rank5、$\Delta_{15}=N_5^2M_5$、
+$N_5,M_5$の因数分解型を確認した。小証明書は\path{companion_s5_certificate.json}。
+幾何学的$S_5\times S_5$は計算ではなく、有限\'{e}tale被覆の有理分裂点と
+基本群完全列・Goursat補題を使った本文の通常の証明による。
+他の22検証器を今回再実行したとは主張しない。
+新しい$S_5\times S_5$定理は独立wrapperでLuaLaTeX組版（2頁）し、両頁を画像点検した。
+前回の相対Poisson・$S_5$節は独立wrapperで組版（4頁）した。
 前回のCasimir零点節は独立wrapperで組版（3頁）した。
 Poisson節とDAHA節の前回の独立wrapperによる組版も保存済みの確認結果である。
 このwrapperは別の公表論文ではなく、主論文の今回の全体再組版を代用するものでもない。
@@ -581,6 +588,10 @@ H3開性・相対圏の再構成・局所order認識・平坦イデアルの障�
 \emph{Abelian and derived deformations in the presence of $\mathbb Z$-generating geometric helices},
 J. Noncommut. Geom. 5 (2011), 477--505,
 \href{https://doi.org/10.4171/JNCG/83}{doi:10.4171/JNCG/83}, Theorem 4.5, Proposition 4.6, pp. 495--496.
+\bibitem{StacksPi1} The Stacks Project Authors,
+\emph{The Stacks Project},
+\href{https://stacks.math.columbia.edu/tag/0BTX}{Tag 0BTX}, Lemma 58.14.3
+(arithmetic--geometric fundamental group exact sequence).
 \bibitem{StacksPerfect} The Stacks Project Authors,
 \emph{The Stacks Project},
 \href{https://stacks.math.columbia.edu/tag/0BDK}{Tag 0BDK}, Lemma 36.31.3.
