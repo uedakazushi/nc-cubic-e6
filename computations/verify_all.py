@@ -25,13 +25,14 @@ checks = [
     'verify_lg_picard_g2.py', 'verify_g2_braids_periods.py',
     'verify_logarithmic_periods.py', 'verify_conic_period_coordinates.py',
     'verify_triality_period_isogeny.py', 'verify_boundary_pell_dynamics.py',
+    'verify_localization_entropy.py',
 ]
 completed = []
 for name in checks:
     subprocess.run([sys.executable, str(root / name)], check=True, cwd=root)
     completed.append({'script': name, 'status': 'PASS'})
 result = {
-    'date': '2026-11-17', 'version': 'e6-connections-v25', 'status': 'PASS',
+    'date': '2026-11-17', 'version': 'e6-connections-v26', 'status': 'PASS',
     'python': platform.python_version(), 'sympy': sympy.__version__,
     'networkx': networkx.__version__, 'completed': completed,
     'separate_mathematical_inputs': [
@@ -68,6 +69,10 @@ result = {
         'pole-divisor comparison with projective pullback',
         'irrational eigenrays and finite-boundary-blowup nonregularization',
         'minimal corner extraction by the Euclidean algorithm',
+        'DHKK fixed-generator proof and saturated complexity comparison',
+        'pole filtration from categorical localization',
+        'normalization genus, adjunction and proper cohomology estimates',
+        'mixed-complex HKR and periodic cyclic/de Rham comparison',
     ],
     'not_certified_by_this_run': [
         'global H3 algebraic-stack construction',
@@ -79,6 +84,7 @@ result = {
         'full branch divisor classification',
         'choice-independent global Milnor-Picard splitting',
         'mirror or Fukaya-Seidel equivalence',
+        'equivariant uniform filtration comparison for the specific automorphism',
         'G2 quantum algebra or group-level isogeny comparison',
         'full rank-five algebraic Gauss-Manin connection matrices',
         'unmarked global companion variation of Hodge structures',
@@ -86,7 +92,9 @@ result = {
         'non-archimedean SYZ model or good-reduction verification',
         'nonregularization on all unrelated compactifications',
         'categorical relation to nearly Kahler geometry',
-        'categorical entropy',
+        'noncommutative H3 functor realizing the affine automorphism',
+        'a proper exact functor realizing the sequence of curve closures',
+        'Puiseux classification of the boundary curve singularities',
         'independent peer review', 'novelty', 'GitHub or Library saving',
     ],
 }
