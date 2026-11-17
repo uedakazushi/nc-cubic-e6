@@ -26,6 +26,9 @@ P_O=s.diff(P,O)
 H=s.hessian(P,(X,Y,Z))
 H4=s.hessian(P,(X,Y,Z,O))
 assert red((O**3+f*O**2+4*E**3) - (O-f/3)*(O+2*f/3)**2)==0
+D=s.symbols('D')
+assert red(((-D)**3+f*(-D)**2) - D**2*(f-D))==0
+assert red(((-D)**3+f*(-D)**2+4*E**3) + (D+f/3)*(D-2*f/3)**2)==0
 cases=[('node_origin',0,(0,0,0),True),
        ('tangent_origin',-f,(0,0,0),False)]
 signs=[(1,1,1),(1,-1,-1),(-1,1,-1),(-1,-1,1)]
@@ -67,6 +70,8 @@ cert={'date':'2026-11-17','version':'triangle-component-v16','status':'PASS',
       'zero_poisson_points':len(records), 'singular_total_center_points':5,
       'smooth_total_center_poisson_zeros':5,
       'roots_at_sign_points':'(Omega-f/3)(Omega+2f/3)^2',
+      'formal_smoothing_origin':'D^2*(f-D)',
+      'formal_smoothing_sign':'-(D+f/3)*(D-2*f/3)^2',
       'critical_points':records,'casimir_fibers':byD,
       'one_dimensional_characters':'five, exactly the five singular points of the total center',
       'limits':['H3 status uses the fixed-envelope classification theorem',
