@@ -1,0 +1,300 @@
+\section{境界の二つのcusp、トーラス絡み目、正規化欠損}
+\label{sec:boundary-torus-links}
+前節で得た算術種数の増大を、個々の枝とその交叉へ分解する。
+同じ反復曲線は、開曲面では全て一つの滑らかなconicと同型であるが、
+閉包では一つの境界点に二つのcuspを集める。
+この局所模型からトーラス絡み目、有限位数のMilnor monodromy、
+正規化の欠損層、Chebyshev型の実morsificationへ接続する。
+以下の一般的な平面曲線・Milnor・Weinsteinの理論は既知として使い、
+本稿のPell反復に対する具体的な同定と区別する。
+
+\subsection{二つの無限遠枝の完全な先頭式}
+$U,S,D,g$および$a_n,b_n,c_n,d_n$は前二節のものとする。
+$C_0=\{v=\kappa\}\subset U$について
+\begin{equation}\label{eq:boundary-conic-condition}
+ \kappa^2\ne1,\qquad
+ N_v(\kappa):=(\kappa^2+2B\kappa+2h)(\kappa^2-1)
+             +A^2+C^2+2\kappa AC\ne0
+\end{equation}
+を仮定する。これは残余射影conicが滑らかで、二つの異なる無限遠点を持つ条件である。
+$C_n=g^{-n}(C_0)$、その被約閉包を$\overline C_n$と書く。
+以下は全て$n\ge1$についての主張である。
+
+\begin{theorem}[Pell数をPuiseux対に持つ二枝]
+\label{thm:two-boundary-Puiseux}
+$\overline C_n$の特異点は境界頂点
+$p_w=[0:0:1:0]$ただ一つで、そこに二つの解析的枝がある。
+各枝は唯一のPuiseux対$(b_n,c_n)$を持ち、
+枝同士の交叉重複度は$b_nc_n$である。
+
+より正確に、$\rho_\pm=\kappa\pm\sqrt{\kappa^2-1}$とし、
+出発conicの二つの無限遠点で$s=1/u$を局所座標とする。
+$p_w$の滑らかな曲面局所座標$x=U/W=u/w$, $y=V/W=v/w$では、
+$\rho=\rho_\pm$に対応する枝のパラメータは
+\begin{equation}\label{eq:exact-boundary-branch-leading}
+ x=2^{-b_n}\rho^{-a_n}s^{b_n}(1+O(s)),\qquad
+ y=2^{-c_n}\rho^{-b_n}s^{c_n}(1+O(s)).
+\end{equation}
+従って重み$\operatorname{wt}(x)=b_n$, $\operatorname{wt}(y)=c_n$での
+局所定義式の最低重み部分は、非零定数倍を除いて
+\begin{equation}\label{eq:boundary-Newton-face}
+ y^{2b_n}-2\kappa x^{c_n}y^{b_n}+x^{2c_n}
+ =(y^{b_n}-\rho_+x^{c_n})(y^{b_n}-\rho_-x^{c_n}).
+\end{equation}
+一般には局所定義式全体がこの重み付き斉次式に解析的同値だとは主張しない。
+\end{theorem}
+\begin{proof}
+出発conicは
+\[
+ u^2+w^2-2\kappa uw+2Au+2Cw+\kappa^2+2B\kappa+2h=0
+\]
+である。条件\eqref{eq:boundary-conic-condition}の下でその正規化は$\PP^1$、
+無限遠の二点では$u=s^{-1}$、$w=\rho s^{-1}+O(1)$、$v=\kappa$となる。
+$g^{-1}=\iota_w\iota_u\iota_w\iota_v$をこの順に右から作用させると
+一反復の先頭項は
+\[
+ (u_1,v_1,w_1)=
+ (16\rho^2s^{-5},\ 2\rho s^{-2},\ 64\rho^3s^{-7})(1+O(s))
+\]
+となる。積が元の座標と定数項より真に高い極を持つため、
+ここでは先頭項の消去は起こらない。
+
+一般に$n\ge1$で
+\begin{equation}\label{eq:inverse-Pell-branch-leading}
+ u_n=2^{c_n-1}\rho^{b_n}s^{-c_n}(1+O(s)),\quad
+ v_n=2^{b_n-1}\rho^{a_n}s^{-b_n}(1+O(s)),\quad
+ w_n=2^{d_n-1}\rho^{a_n+b_n}s^{-d_n}(1+O(s)).
+\end{equation}
+これを次の四Vietaに代入すると極次数は
+$(c,b,c+b)\mapsto(5c+2b,2c+b,7c+3b)$、
+$\rho$の指数は
+$(b,a,a+b)\mapsto(2a+5b,a+2b,3a+7b)$となる。
+$c_n=a_n+2b_n$とPell行列の漸化式から
+式\eqref{eq:inverse-Pell-branch-leading}が帰納的に従う。
+各先頭係数は$2^{\text{極次数}-1}$なので、全係数$A,B,C,h$で消えない。
+
+$d_n>c_n>b_n>0$より二つの無限遠点はともに$p_w$に移る。
+この点で射影三次式の$T/W$微分は$-1/2$なので$x,y$は正則局所座標であり、
+式\eqref{eq:inverse-Pell-branch-leading}を割れば
+式\eqref{eq:exact-boundary-branch-leading}を得る。
+正規化$\PP^1$からproperな$S$への写像は二点でも延長する。
+開曲面上では同型$g^{-n}$を合成しているから、そこで特異点はない。
+境界の逆像はこの二点だけなので特異点は$p_w$に限られる。
+
+$\gcd(b_n,c_n)=1$、$b_n\ge2$だから各枝の唯一のPuiseux対は$(b_n,c_n)$である。
+また$ a_nc_n-b_n^2=1$から
+\[
+ \lim_{s\to0}\frac{y^{b_n}}{x^{c_n}}=\rho.
+\]
+二つの値$\rho_+,\rho_-$は非零で異なるため、二枝の最低重み式は
+式\eqref{eq:boundary-Newton-face}となる。
+一方の枝のパラメータを他方の定義式へ代入すると最低次数が$b_nc_n$で非零となるため、
+交叉重複度も求まる。
+\end{proof}
+
+\begin{corollary}[toric解消後に残る元の係数]
+\label{cor:boundary-trace-recovered}
+重み$(b_n,c_n)$のprimitive rayを含むtoric変更を行うと、
+二つの枝はその例外曲線の滑らかなtorus部分で、
+$z=y^{b_n}/x^{c_n}=\rho_\pm$において横断的に交わる。
+従って枝のPuiseux次数が増大しても、この標識付き例外曲線上では
+$z+z^{-1}=2\kappa$により出発conicの係数を回復できる。
+\end{corollary}
+\begin{proof}
+primitive性により例外曲線のtorus部分は滑らかである。
+最低重み式を例外因子で割った制限は$z^2-2\kappa z+1$となり、二根は単純である。
+高重み項はそこで消えるので、横断性と表示を得る。
+\end{proof}
+
+\subsection{絡み目、conductor、有限位数monodromy}
+以下では$b=b_n,c=c_n$、
+$\delta_n=1+2bc-b-c$と略記する。
+
+\begin{theorem}[二成分トーラス絡み目と局所不変量]
+\label{thm:boundary-torus-link}
+$p_w$における正の代数的絡み目は$T(2b,2c)$である。
+各成分は$T(b,c)$、成分間のlinking numberは$bc$であり、
+\[
+ \delta(\text{各枝})=\frac{(b-1)(c-1)}2,\quad
+ \delta(\overline C_n,p_w)=\delta_n,\quad
+ \mu_n=(2b-1)(2c-1)=2\delta_n-1.
+\]
+正規化の完備局所環を
+$\widetilde{\mathcal O}=\mathbb C[[s_+]]\oplus\mathbb C[[s_-]]$とすると、
+conductor idealは
+\begin{equation}\label{eq:boundary-conductor}
+ \mathfrak c_n=s_+^{\delta_n}\mathbb C[[s_+]]
+               \oplus s_-^{\delta_n}\mathbb C[[s_-]].
+\end{equation}
+Milnor fiberは二境界成分と種数$\delta_n-1$を持つ。
+その$H_1$上のmonodromyの特性多項式は
+\begin{equation}\label{eq:Pell-link-monodromy}
+ \det(TI-h_{n,*})
+ =\frac{(T^{2bc}-1)^2(T-1)}{(T^{2b}-1)(T^{2c}-1)}.
+\end{equation}
+このhomology上のmonodromyの位数は正確に$2bc$で、スペクトル半径は1である。
+\end{theorem}
+\begin{proof}
+式\eqref{eq:boundary-Newton-face}は二つの単純な非零rootを持つNewton非退化面である。
+各枝の一つのPuiseux対と相互交叉数が局所embedded topologyを決定する。
+同じ面の係数を二根が衝突しないように動かして
+$x^{2c}+y^{2b}$へ移せるので、絡み目は$T(2b,2c)$となる。
+これは平面曲線のPuiseux--link対応の標準適用であり、
+解析的な右同値の主張ではない。\footnote{
+R. Casals, \emph{Lagrangian skeleta and plane curve singularities},
+J. Fixed Point Theory Appl. 24 (2022), 34,
+\href{https://doi.org/10.1007/s11784-022-00939-8}{doi:10.1007/s11784-022-00939-8},
+\S2.1, Remark 2.1のPuiseuxと代数的絡み目の対応も参照。}
+一枝の半群$\langle b,c\rangle$のgap数と、二枝の交叉重複度を足して$\delta_n$を得る。
+平面曲線の$\mu=2\delta-r+1$で$\mu_n$が従う。
+
+各枝のconductor指数は、その枝のMilnor数と他枝との交叉数の和であるから
+$(b-1)(c-1)+bc=\delta_n$となる。\footnote{
+D. Kerner, V. Vinnikov,
+\emph{On the determinantal representations of singular plane curves},
+\href{https://arxiv.org/abs/0906.3012v1}{arXiv:0906.3012v1},
+\S2.2.3, Definition--Proposition 2.2, (7)を参照する。
+取得した2009年6月版の番号を用いる。}
+同じ公式は$dx/f_y$の各枝上の位数からも得られる：
+$\operatorname{ord}f_y=2bc-c$、$\operatorname{ord}dx=b-1$だから差は$-\delta_n$である。
+Milnor fiberの$H_1$のrankは$\mu_n$、境界は二成分なので種数は$\delta_n-1$。
+
+絡み目のMilnor fibrationは重み付き斉次模型と同じである。
+模型$x^{2c}+y^{2b}$では固有値は
+$\exp(2\pi i(i/(2c)+j/(2b)))$
+($1\le i<2c,1\le j<2b$)。これはMilnor--Orlikの重み公式の二変数の場合で、
+そのdivisor積を展開すると式\eqref{eq:Pell-link-monodromy}を得る。\footnote{
+Milnor--Orlikの公式の確認箇所として
+C. Hertling, M. Mase,
+\emph{The combinatorics of weight systems and characteristic polynomials of isolated quasihomogeneous singularities},
+J. Algebr. Comb. 56 (2022), 929--954,
+\href{https://doi.org/10.1007/s10801-022-01138-x}{doi:10.1007/s10801-022-01138-x},
+Theorem 6.4(a)を用いる。原公式はJ. Milnor, P. Orlik, Topology 9 (1970), 385--393。}
+重み作用からmonodromyは$2bc$乗して恒等となる。
+一方$b$は偶数、$c$は奇数で互いに素だから$\gcd(b+c,2bc)=1$であり、
+$i=j=1$の固有値はprimitiveな$2bc$乗根である。従って正確な位数も$2bc$となる。
+\end{proof}
+
+\begin{center}
+\begin{tabular}{c|c|r|r|r}
+$n$&絡み目&$\delta_n$&$\mu_n$&$h_{n,*}$の位数\\\hline
+1&$T(4,10)$&14&27&20\\
+2&$T(24,58)$&656&1311&696\\
+3&$T(140,338)$&23422&46843&23660
+\end{tabular}
+\end{center}
+各$n$の局所monodromyは有限位数でも、その位数の指数増大率は
+$2\log\Lambda$である。これは曲面自己同型$g$の反復とは異なる作用であり、
+局所Milnor monodromyに正のスペクトル半径を見いだしたという主張ではない。
+
+\subsection{正規化が分離する二つの対象成長率}
+$\nu_n:\PP^1\to\overline C_n\subset S$を正規化とし、$S$上のsheaf
+\[
+ Q_n=\mathcal O_{\overline C_n},\qquad
+ B_n=\nu_{n,*}\mathcal O_{\PP^1},\qquad
+ Z_n=B_n/Q_n
+\]
+を考える。$S$はsmoothなので、これらは全て$\Perf(S)$の対象である。
+
+\begin{theorem}[一つの境界点が持つ正規化欠損の成長]
+\label{thm:normalization-defect-growth}
+$Z_n$は$p_w$だけに支持された長さ$\delta_n$のsheafであり、
+$H^1(\overline C_n,\mathcal O_{\overline C_n})\cong H^0(S,Z_n)$である。
+$E$を$\Perf(S)$の任意のsplit generatorとすると
+\begin{equation}\label{eq:normalization-complexity-rates}
+ \lim_{n\to\infty}\frac1n\log\delta_0(E,B_n)=\log\Lambda,
+ \qquad
+ \lim_{n\to\infty}\frac1n\log\delta_0(E,Z_n)=2\log\Lambda.
+\end{equation}
+前節の$Q_n$の率は$2\log\Lambda$である。
+$j:U\hookrightarrow S$で制限すると
+$j^*B_n=j^*Q_n=\mathcal O_{C_n}$は二項の自由解消を持ち、$j^*Z_n=0$となる。
+これらは対象列の増大率であって、新しい自己関手のentropyではない。
+\end{theorem}
+\begin{proof}
+正規化完全列$0\to Q_n\to B_n\to Z_n\to0$と前定理から
+$\operatorname{length}Z_n=\delta_n$、支持は$p_w$と分かる。
+$\overline C_n$は既約proper、正規化は$\PP^1$なので、
+両者の$H^0(\mathcal O)$は$\mathbb C$で写像は同型、$H^1(\PP^1,\mathcal O)=0$。
+cohomology完全列から$H^1(Q_n)=H^0(Z_n)$を得る。
+
+$Z_n$のcomposition seriesは$\delta_n$個の$k(p_w)$を因子に持つ。
+三角塔の劣加法性から$\delta_0(E,Z_n)=O(\delta_n)$。
+逆向きは$\sum_i\dim\Hom(\mathcal O_S,Z_n[i])=\delta_n$と
+同じ量の三角塔に関する劣加法性から従い、
+$\delta_0(E,Z_n)$は$\delta_n$の正定数倍で上下から挟まれる。
+
+$B_n$については$\nu_n^*\mathcal O_S(1)=\mathcal O_{\PP^1}(2d_n)$だから、
+\[
+ \sum_i\dim\Hom_S(\mathcal O_S(1),B_n[i])=2d_n-1.
+\]
+これが$\delta_0(E,B_n)$の定数倍の$d_n$による下界を与える。
+上界には前節で用いたsmooth proper圏のDHKK比較を使う。
+$E^\vee$を固定vector bundleの有限有界複体で表す。
+その一つ$V$について、$V(mH)$と$V^\vee(mH)$がともに大域生成となる$m$を選ぶ。
+$\nu_n^*V$の$\PP^1$上の全分裂次数は$[-2md_n,2md_n]$に入るため、
+全cohomology次元は$O(d_n)$である。
+有限個のbundleに同じ評価を適用して
+$\sum_i\dim\Hom(E,B_n[i])=O(d_n)$、従って$\delta_0(E,B_n)=O(d_n)$となる。
+$d_n\asymp\Lambda^n$、$\delta_n\asymp\Lambda^{2n}$から表示した極限を得る。
+開曲面では正規化が同型なので、最後の主張は前節の二項解消による。
+\end{proof}
+
+\subsection{Chebyshev morsificationと局所Weinstein模型}
+\begin{proposition}[実divideを伴う局所symplectic模型（既知構成の適用）]
+\label{prop:Pell-Chebyshev-Weinstein}
+各$n$の絡み目の重み付き斉次代表を$x^{2c}-y^{2b}$とする。
+非零の係数の尺度変更を許せば、その実morsificationは
+\begin{equation}\label{eq:Pell-Chebyshev-morsification}
+ F_\epsilon(x,y)=\epsilon^{2bc}
+ \left[T_{2c}(x/\epsilon^b)-T_{2b}(y/\epsilon^c)\right],\quad \epsilon>0
+\end{equation}
+で与えられる。臨界点は全て実Morseで、総数は$\mu_n$。
+零level上の実nodeが$\delta_n$個、残りの極値点が$\delta_n-1$個である。
+
+この絡み目のmaximal-tb Legendrian近似$\mathcal L_n$に対する
+Casalsの構成により、Weinstein pair$(\mathbb C^2,\mathcal L_n)$は
+種数$\delta_n-1$、境界二成分のexact Lagrangian曲面と
+$\mu_n$個のLagrangian thimbleからなるclosed arboreal skeletonを持つ。
+二つの境界をhandleで閉じるWeinstein四多様体はEuler数$3$を持つ。
+\end{proposition}
+\begin{proof}
+$T_m(\cos\theta)=\cos(m\theta)$より、臨界点は
+\[
+ x=\epsilon^b\cos\frac{i\pi}{2c},\quad
+ y=\epsilon^c\cos\frac{j\pi}{2b},\qquad
+ 1\le i<2c,\quad1\le j<2b
+\]
+で、いずれも非退化である。臨界値は
+$\epsilon^{2bc}((-1)^i-(-1)^j)$。
+$i,j$が同じparityなら値は零で、Hessianの符号は異なるため実node。
+その数は$bc+(b-1)(c-1)=\delta_n$である。
+異なるparityの個数は$c(b-1)+b(c-1)=\delta_n-1$。
+$\epsilon\to0$で式\eqref{eq:Pell-Chebyshev-morsification}は
+$2^{2c-1}x^{2c}-2^{2b-1}y^{2b}$に収束する。
+全臨界点がMilnor球内でこのように分裂するので、実morsificationを得る。
+Chebyshevによるこの構成自体は既知である。\footnote{
+Casals、前掲論文、Example 1.3後のChebyshevの説明、
+Theorem 1.1およびCorollary 1.2。
+ここでは計算した局所絡み目にその定理を適用する。}
+同定理のLagrangian曲面はMilnor fiberにsmoothly isotopicなので、
+種数と境界数は前定理で決まる。Morse点一つに一つのthimbleを対応させる。
+最後のWeinstein四多様体は四球へ二つの2-handleを付けるのでEuler数は$1+2=3$となる。
+\end{proof}
+
+これは境界特異点に付随する\emph{局所模型}の構成である。
+元のLG曲面のEuler数は$6$なので、最後の四多様体をその全体と同一視できない。
+また、異なる$n$の模型間のexact functor、$g$のwrapped自己同値、
+極filtrationとの一様な同変比較を構成したわけではない。
+しかし、前節まで抽象的だった「境界局所化のmirror対象」に対し、
+絡み目・実divide・thimbleの個数を指定した具体的な比較先を与える。
+
+\begin{remark}[何を証明し、何を検算したか]
+二枝の先頭項と全$n$の帰納法から、Puiseux型と相互交叉を決めた。
+局所link、conductor、Milnor公式、DHKK比較、Casalsの構成は既知理論の適用である。
+\texttt{verify\_boundary\_torus\_links.py}は一反復の全係数先頭式、
+帰納漸化式、24反復の整数式、$n=1$模型のJacobi次元27とconductor14、
+monodromy多項式、Chebyshevの臨界値resultantを厳密に再現する。
+有限回の計算を全$n$の証明とせず、解析的右同値やglobal mirror同値も主張しない。
+個別のPell反復への適用の文献上の新規性は網羅確認未了である。
+\end{remark}
