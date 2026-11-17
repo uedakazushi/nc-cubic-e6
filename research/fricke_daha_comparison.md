@@ -1,8 +1,8 @@
 # Fricke・Askey–Wilson・DAHAとの比較
 
-2026-11-17 / triangle-component-v3 / 現在有効な文献比較。研究方針はリポジトリrootの `00_research_plan.md`、成分原稿は `papers/nc-cubic-e6.tex`。
+2026-11-17 / e6-connections-v14 / 現在有効な文献比較。研究方針はリポジトリrootの `00_research_plan.md`、成分原稿は `papers/nc-cubic-e6.tex`。
 
-## Askey–Wilson代数との厳密な表示同型
+## Askey–Wilson代数との厳密な表示同型・Casimir
 
 $q^2+q+1=0$ とし、Terwilligerの規約の普遍Askey–Wilson代数を $\Delta_q$ とする。中心元 $\alpha,\beta,\gamma$ は
 \[
@@ -33,7 +33,11 @@ V_{a,b,c}\simeq
 (\alpha-(1-q)a,\ \beta-(1-q)b,\ \gamma-(1-q)c).
 }
 \]
-**これは証明済みの表示同型**。Askey–Wilson Casimirと、三乗根で拡大する中心は現行原稿の $\Omega,X,Y,Z$ に対応する。ただしCasimirの規約を含む完全な元の対応表はまだ作成していない。
+**表示同型とCasimir規約まで証明済み。** Terwilliger [Definition 2.6](https://doi.org/10.3842/SIGMA.2013.047) の中心Casimirを $\Omega_{\mathrm{AW}}$ とすれば、元のPBW関係の厳密計算により
+\[
+\boxed{\Omega_{\mathrm{AW}}=q(1-q)^3\Omega_{a,b,c}=3(q+2)\Omega_{a,b,c}.}
+\]
+従ってCasimir切断 $V_{a,b,c}/(\Omega+D)$ は普遍Askey–Wilson代数の4中心パラメータ同時特殊化そのものである。主論文 `thm:aw-casimir-exact`、厳密計算は `computations/verify_daha_character.py`。$X,Y,Z$ は三乗根特有の追加中心である（全元をDAHA側で同定することは別課題）。
 
 ## Fricke型4次元部分族と係数空間へのdominance
 
@@ -47,19 +51,55 @@ XYZ-e(X^2+Y^2+Z^2)
 -(Da+\ell_a)X-(Db+\ell_b)Y-(Dc+\ell_c)Z
 +D^3-fD^2+DK-L=0.
 \]
-非零の座標スケール変換で
+**具体的に** $u=-X/e,v=-Y/e,w=-Z/e$ ($e=-(2q+1)/9\ne0$) と変換すると、
 \[
 u^2+v^2+w^2+uvw+A u+B v+C w+D_0=0
 \]
 という標準Fricke形に直せる。4係数へのパラメータ写像のJacobianは、原点 $a=b=c=0$ で、固定非零スケールを除き
 \[
-\boxed{-3D(D-2f/3)^4}
+\boxed{\det d\Psi=3D(D-2f/3)^4/e^9}
 \]
 となる。従って $D\neq0,2f/3$ では非零で、4パラメータ $(a,b,c,D)$ からFricke係数空間への写像はdominantである。これは具体的な微分計算に基づく結果である。
 
 特に**Fricke–Askey–Wilson locus** はこの4次元部分族にふさわしい名前である。元の固定包絡のFricke pencilは $a=b=c=0$ の1次元切断に限る。
 
 注意：固定包絡の全中心三次直線は $\mathbb P^4$ だが、一般の切断は $\Omega=-D$ と同値ではない。$X,Y,Z$ の係数も非零で、一般境界は滑らかな楕円曲線になる。従って固定包絡4次元stack全体さえFricke型ではない。
+
+## 四穴球面SL2 character varietyとの明示的な係数対応
+
+Goldman, *Trace coordinates on Fricke spaces of some simple hyperbolic surfaces*, [DOI 10.4171/055-1/16](https://doi.org/10.4171/055-1/16), §5.2.1 (5.2.1.2) を一次資料で確認。四穴球面の境界モノドロミーのトレース $r_1,r_2,r_3,r_4$ は
+
+\[
+A=-(r_1r_2+r_3r_4),\quad B=-(r_2r_3+r_1r_4),\quad C=-(r_1r_3+r_2r_4),\quad T=\sum r_i^2+r_1r_2r_3r_4-4.
+\]
+
+この四変数写像のJacobianは $(1,2,3,4)$ で厳密に $-200$。従ってGoldman側と本研究側の二つのFricke係数写像は共にdominantでgenerically finite、共通の係数空間の適切な開部分で有限étale底変更後に中心がcharacter varietyに同型になる（`thm:fricke-trace-dominant`）。**中心の幾何学的同型と、量子代数自体のskein/DAHA同型は別物**。
+
+## Braid / mapping class・量子的Vieta・Poisson
+
+Terwilligerの $`\mathrm{PSL}_2(\mathbb Z)`$ 作用の生成元は $a\leftrightarrow b$, $x\leftrightarrow y$, $z\mapsto(q^2-q)xy-q^2z+qc$。三元の中心変換は $X\leftrightarrow Y$, $Z\mapsto (XY+c\Omega-\ell_c)/e-Z$ であり、Fricke座標では
+
+\[
+\boxed{(u,v,w;A,B,C,T)\mapsto(v,u,-uv-C-w;B,A,C,T)}.
+\]
+
+原関係、Casimir不変、中心元のVieta式を `verify_daha_braid.py` で独立にPBW厳密再現した。$F=u^2+v^2+w^2+uvw+Au+Bv+Cw+T$ におけるJacob-ian括弧 $\{u,v\}=\partial_wF$（巡回）はGoldmanのトレースPoisson形式と符号・スカラーを除いて一致する。この量子的Vieta生成元はPoisson同型である。主論文 `thm:aw-braid-vieta`, `prop:fricke-poisson-logcy`。braid群、mapping class group、Dehn twistとの作用の正確なfaithfulness・relationは先行研究と今後詳細照合する。
+
+## Skein・量子群・cluster・mirror・E6への関係図
+
+| 話題 | 確立した接点／一次文献 | 本研究で残る同定 |
+|---|---|---|
+| 四穴球面 skein algebra | Crampéほか、[AW avatars](https://doi.org/10.1088/1751-8121/abd783) は普遍AWをKauffman bracket skein代数に同定し、半Dehn twistをbraid作用で説明 | 本稿の $q^3=1$ 特殊化が各同型の分母・中心/周辺トレースと適合するか定理単位で調べる |
+| rank-one DAHA $(C_1^\\vee,C_1)$ | Terwilliger [SIGMA 2013](https://doi.org/10.3842/SIGMA.2013.047) の普遍AWから普遍DAHAへの単射；Oblomkov [IMRN 2004](https://arxiv.org/abs/math/0306393) のFricke/DAHA | 同時中央特殊化後の単射、spherical idempotent のfullness、Morita範囲、中心を計算する |
+| $U_q(\mathfrak{sl}_2)$ とRacah | [AW avatars](https://doi.org/10.1088/1751-8121/abd783) が3重テンソル積の中間Casimir・R行列を記述 | 三乗根でのrestricted/unrestricted量子群と中心・braid actionの適用範囲 |
+| Goldman/character stack | Goldman [trace](https://doi.org/10.4171/055-1/16) により本稿の中心は一般Fricke cubic；Hikami [SIGMA 2019](https://doi.org/10.3842/SIGMA.2019.003) でclusterへの橋 | derived/stacky character varietyと本研究の内在的H3圏の間にcanonical functorがあるか |
+| log Calabi--Yau, mirror | Casimir中心の射影閉包は滑らかな場合三角形反標準cycleを持つLooijenga pair。Bousseau [CMP 2023](https://doi.org/10.1007/s00220-022-04512-9) は四穴球面skeinを三次曲面のmirrorで実現 | theta/bracelet basisと本稿のPBW・中心三次切断の関係、量子化のcluster atlas |
+| Painlevé confluence | Chekhov--Mazzocco--Rubtsov [IMRN](https://doi.org/10.1093/imrn/rnw219), [Adv. Math. 2021](https://doi.org/10.1016/j.aim.2020.107442) | degenerationで本研究の楕円E6族に到達できるか、PBW/AS4を保つ極限の導出 |
+| 楕円E6・GDAHA | Etingof--Ginzburg [JEMS 2010](https://doi.org/10.4171/JEMS/235) と Etingof--Oblomkov--Rains [Adv. Math. 2007](https://doi.org/10.1016/j.aim.2006.11.008) | D4型三角境界のCasimir切断とE6型滑らかな楕円境界を同一視せず、横断変形・反標準環で橋渡しする |
+
+**重要な分離:** Casimir切断は原稿での中心三次線の $(\beta,\gamma,\delta)=(0,0,0)$ の特別な枝で、境界は三角形（一般の滑らかな楕円境界とは異なる）。四穴球面は通常 $\widetilde D_4$ 型、Etingof--Ginzburgの一般三次del Pezzoは楕円 $\widetilde E_6$ 型である。全八次元intrinsic H3を「DAHA成分」と呼ぶ根拠にはならない。
+
+**新規性:** Casimir規約、Vieta変換、Fricke係数のこの組合せは本稿で独立に算術確認したが、個々の式の文献上の既出性は未判定。一次文献の正確な適用仮定を今後継続確認する。
 
 ## DAHA・E6の既知の対応と限界
 
