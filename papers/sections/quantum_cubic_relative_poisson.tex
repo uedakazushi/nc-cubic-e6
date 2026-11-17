@@ -1,0 +1,205 @@
+\section{相対Poisson臨界スキーム、二重五次判別式、$S_5$モノドロミー}
+\label{sec:relative-poisson-cover}
+前節の十Poisson零点を、低次係数$(a,b,c)$を動かした相対スキームとして調べる。
+以下では被約supportとスキームの長さを区別する。基礎体$k$は標数0の代数閉体、
+$q^2+q+1=0$、$f=(1-q)/3$、$e=-(2q+1)/9$とする。
+
+\subsection{全係数で有限平坦な二つの被覆}
+$A=k[a,b,c]$、$S=\Spec A$とし、式\eqref{eq:center}の左辺を
+$P_{\mathbf a}(X,Y,Z,\Omega)$と書く。Casimir切断の特異点を添字付ける
+相対Poisson臨界スキームは
+\[
+ \mathcal K=\Spec\frac{A[X,Y,Z,\Omega]}
+ {(P_{\mathbf a},P_X,P_Y,P_Z)}\xrightarrow{\kappa}S
+\]
+である。ここで偏微分は$X,Y,Z$に関するもので、$\Omega$は固定しない。
+
+\begin{theorem}[次数十五と五の全係数有限平坦性]
+\label{thm:relative-critical-flat}
+$\kappa$は有限平坦次数$15$である。また一次元表現の相対スキーム
+\[
+ \mathcal E=\Spec\frac{A[x,y,z]}
+ {((1-q)yz-x-a,\ (1-q)zx-y-b,\ (1-q)xy-z-c)}
+ \xrightarrow{\pi}S
+\]
+は有限平坦次数$5$であり、総空間は$\AA^3_{x,y,z}$と同型なので既約である。
+$\pi$は原点を含む非空Zariski開集合上で有限\'{e}taleとなる。
+\end{theorem}
+\begin{proof}
+$P_{\mathbf a}$を通常の全次数で斉次化し、
+$[X:Y:Z:\Omega:T]\in\PP^4_S$で三次式$P^h$と
+三二次式$P_X^h,P_Y^h,P_Z^h$の共通零点を$\overline{\mathcal K}$とする。
+$T=0$では
+\[
+ (P^h,P_X^h,P_Y^h,P_Z^h)
+ =(\Omega^3-XYZ,-YZ,-ZX,-XY),
+\]
+従ってsupportは三座標頂点のみである。
+$X=1$の頂点近傍では
+\begin{align*}
+P_X^h&=-YZ+T(2e-a\Omega)+T^2\ell_a,\\
+P_Y^h&=-Z+T(2eY-b\Omega)+T^2\ell_b,\\
+P_Z^h&=-Y+T(2eZ-c\Omega)+T^2\ell_c .
+\end{align*}
+これらの$(T,Z,Y)$に関するJacobianは頂点で可逆（行列式$\pm2e$）。
+$T=Y=Z=0$が$\Omega$の任意値に対する厳密解なので形式陰関数定理から、
+三式で割った完備局所環では$T=Y=Z=0$、残る関係は$\Omega^3=0$となる。
+よって各無限遠頂点は相対長さ3の自明な厚みである。
+
+任意の正次元射影部分多様体は無限遠と交わるが、上の三頂点は孤立している。
+従って全幾何学的fiberは零次元で、$\overline{\mathcal K}$は
+次数$(3,2,2,2)$の相対完全交叉である。
+B\'{e}zoutから各fiberの長さは$3\cdot2^3=24$。
+射影かつ準有限だから有限であり、完全交叉のCohen--Macaulay性と
+regularな底$S$へのmiracle flatnessにより平坦である。
+無限遠の三つの厚みは開閉な有限平坦部分（次数9）なので、
+その補集合である$\mathcal K$は有限平坦次数$24-9=15$となる。
+
+一次元表現について三二次関係を$[x:y:z:T]\in\PP^3_S$に斉次化する。
+$T=0$では三座標頂点のみで、例えば$x=1$で
+\[
+ (1-q)yz-T-aT^2,\quad (1-q)z-yT-bT^2,\quad
+ (1-q)y-zT-cT^2
+\]
+の$(T,z,y)$に関するJacobianは単元$\pm(1-q)^2$である。
+三つの無限遠点は長さ1の自明な開閉section。
+射影三二次完全交叉は有限平坦次数$8$なので、これらを除く
+$\mathcal E$は次数$8-3=5$となる。
+$a,b,c$は$x,y,z$の多項式だから総空間は$\AA^3$。
+原点fiberの五点のJacobianは$-1,4,4,4,4$で非零
+（定理\ref{thm:seven-nodal-irreducible}）なので\'{e}tale開集合は非空である。
+\end{proof}
+
+\subsection{二重五次因子とコンパニオン五次因子}
+各一次元表現に$X,Y,Z,\Omega$を評価すると、
+全係数で$P=P_X=P_Y=P_Z=P_\Omega=0$が成立する。
+これは元関係の代入恒等式であり、
+\texttt{computations/verify\_character\_node\_cover.py}でも検証済みである。
+
+\begin{theorem}[二重節点とCasimir臨界値の五次因数分解]
+\label{thm:critical-discriminant-quintics}
+原点を含む非空Zariski開近傍$S^\circ$上で、$\mathcal K$は
+相対節点に沿う次数10の二重厚みと、総中心の滑らかなPoisson臨界点を
+添字付ける有限\'{e}tale五重被覆$\mathcal E'\to S^\circ$に開閉分解する。
+前者は$\mathcal E|_{S^\circ}$の相対一次無限小厚みで、
+\'{e}tale局所的には
+\[
+ \mathcal K|_{S^\circ}\simeq
+ \Spec_{\mathcal E}(\OO_{\mathcal E}[\epsilon]/\epsilon^2)
+ \sqcup\mathcal E'.
+\]
+$\mathcal E'$の既約性・monodromyは未決定である。
+
+二つのmonicな特性多項式
+\[
+ N_5(D)=\det(D+\Omega\mid\pi_*\OO_{\mathcal E}),\qquad
+ \Delta_{15}(D)=\det(D+\Omega\mid\kappa_*\OO_{\mathcal K})
+\]
+は$A[D]$上の次数5と15の多項式であり、
+\begin{equation}\label{eq:relative-discriminant-quintics}
+ \boxed{\Delta_{15}(D)=N_5(D)^2M_5(D)},\qquad
+ M_5\in A[D]\text{ monic of degree }5
+\end{equation}
+が\emph{全係数}で成立する。
+$\Delta_{15}=0$はCasimir中心切断が特異となる値の条件、
+$N_5=0$は一次元表現に由来する節点の中心値である。
+原点での特殊化は
+\[
+ N_5(D)=D(D-2f/3)^4,\qquad
+ M_5(D)=(D-f)(D+f/3)^4.
+\]
+\end{theorem}
+\begin{proof}
+原点fiberの臨界点supportは定理\ref{thm:ten-poisson-points}の十点。
+全点で$(X,Y,Z)$-Hessianが非退化なので、$P_X=P_Y=P_Z=0$から
+$X,Y,Z$を$(\Omega,a,b,c)$の形式関数に解ける。
+これを$P$に代入した一変数方程式を$h(\Omega)$とする。
+総中心の五節点では$P_\Omega=0$、$P_{\Omega\Omega}=2f,-2f$は単元。
+一次元表現による節点sectionは全係数で
+$P=P_X=P_Y=P_Z=P_\Omega=0$を満たして存続する。
+従って各節点上で$h=(\Omega-\Omega_{\rm node})^2\cdot\mathrm{unit}$となる。
+他の五点では$P_\Omega=f^2$が単元なので、四式のJacobianが可逆で、
+相対長さ1の有限\'{e}tale点へ延長する。
+有限平坦性と原点の十点の相異性から、底を開に縮めればこれらは
+互いに素な開閉部分へ分離する。次数は$5\cdot2+5=15$である。
+
+この分解における$D+\Omega$の特性多項式は
+相対節点側で$N_5(D)^2$、残部でmonic五次式になる。
+従って$S^\circ$上で式\eqref{eq:relative-discriminant-quintics}が成立する。
+$A=k[a,b,c]$は整域で$N_5$はmonicなので、
+$A[D]$で$\Delta_{15}$を$N_5^2$で割った剰余が
+稠密開上で零なら全域で零となる。ゆえに$M_5\in A[D]$が一意に存在する。
+原点での式は、五つの$(X,Y,Z)$-臨界三つ組に対する$\Omega$多項式が
+一つは$\Omega^2(\Omega+f)$、残る四つは
+$(\Omega-f/3)(\Omega+2f/3)^2$であることから従う。
+\texttt{verify\_relative\_poisson\_cover.py}は
+$\mathbb Q(\sqrt{-3})$上のGr\"obner商の長さ15、
+$-\Omega$の$15\times15$乗法行列の特性多項式、
+無限遠のJacobianを独立に厳密検算する。
+\end{proof}
+
+\subsection{既約五次因子の$S_5$モノドロミー}
+\begin{theorem}[一次元表現被覆の完全対称群]
+\label{thm:character-cover-S5}
+$\mathcal E\to S$の最大\'{e}tale開部分の幾何学的monodromy群は
+五文字の完全対称群$S_5$である。
+さらに$N_5(D)$は$k(a,b,c)[D]$上既約・分離的で、
+その分解体のGalois群も$S_5$である。
+\end{theorem}
+\begin{proof}
+$r=1-q$、$u=rx,v=ry,w=rz$、$A=ra,B=rb,C=rc$と置くと、
+一次元表現の係数写像は
+\begin{equation}\label{eq:five-character-gradient}
+ (u,v,w)\mapsto(A,B,C)=(vw-u,wu-v,uv-w)
+\end{equation}
+となる。これは$uvw-(u^2+v^2+w^2)/2$のgradient mapである。
+被覆の総空間は既約な$\AA^3_{u,v,w}$なのでmonodromyは五点に推移的であり、
+次数が素数5なのでprimitiveである。
+Jacobian行列と行列式は
+\[
+ J=\begin{pmatrix}-1&w&v\\w&-1&u\\v&u&-1\end{pmatrix},
+ \quad\det J=u^2+v^2+w^2+2uvw-1.
+\]
+$A=B=C=-1/4$のfiberには$(1/2,1/2,1/2)$が重複度2で現れ、
+他は$(5/4,-1,-1)$の三順列（Jacobian行列式$81/16$）である。
+前者で$J$の核・余核は対角方向で、対角写像
+$t\mapsto t^2-t$は$t=1/2$で単純foldとなる。
+従って幾何学的慣性群には一つの互換がある。
+primitive置換群において一つの互換の全共役を辺とするグラフは
+連結でなければ非自明なblock系を作る。
+連結グラフの辺に沿う互換は$S_5$を生成するから、
+monodromy群は$S_5$である。
+
+一次元表現条件を式\eqref{eq:Omega}へ代入し
+$q^2+q+1=0$で還元すると、
+\begin{equation}\label{eq:five-character-casimir}
+ \Omega_{\mathcal E}(u,v,w)=\frac f3(uvw-u^2-v^2-w^2)
+\end{equation}
+を得る。原点fiberの五点は$(0,0,0)$および
+$\eta=(\eta_1,\eta_2,\eta_3)$、$\eta_i=\pm1$、積1である。
+前者の$\Omega$値は$0$、後四点は$-2f/3$だが、
+その底$(A,B,C)$上の一次微分は
+\[
+ d\Omega_\eta=-\frac f3(\eta_1dA+\eta_2dB+\eta_3dC).
+\]
+これは$\nabla_{u,v,w}\Omega_\eta=-f\eta/3$かつ$J(\eta)\eta=\eta$から従う。
+四つの一次形式は相異なるので、五つの$\Omega$値は
+一般の底上で相異なる。従って$\Omega_{\mathcal E}$は
+次数5の拡大$k(\mathcal E)/k(a,b,c)$の原始元で、
+$N_5$は既約・分離的、そのGalois群は先ほどの$S_5$である。
+\texttt{verify\_relative\_poisson\_cover.py}はsimple fold、
+Casimirの式と一次微分を全係数で厳密検算する。
+\end{proof}
+
+\begin{remark}[Painlev\'{e} VIの判別式との区別]
+Inaba--Iwasaki--Saito \cite[\S9.1, Definition 9.1]{IISDiscriminant}は
+Fricke cubicの判別式を境界トレースの係数空間に引き戻すと
+二乗因子が現れることを示す。
+本稿の$N_5^2M_5$は\emph{別のパラメータ写像}の
+次数十五の臨界値多項式であり、両者の因子が等しいとは主張しない。
+特に残りの五次式$M_5$の既約性とmonodromy、
+一般$(a,b,c)$でのH3条件、局所order、楕円境界の八次元成分への
+相対中心の延長は未解決である。
+本稿の計算は既知のPainlev\'{e}判別式の再発見とは区別し、
+個別の新規性は一次文献との詳細照合を待つ。
+\end{remark}
