@@ -25,47 +25,38 @@
 \newcommand{\OO}{\mathcal O}
 \renewcommand{\AA}{\mathbb A}
 \newcommand{\PP}{\mathbb P}
-\title{楕円 $E_6$ 量子化成分の幾何学に向けて\\\large 七次元正常形・八次元形式変形・Fricke--DAHA幾何}
-\author{研究原稿：H3開性・全大域境界の分類は未完成}
-\date{2026年11月17日\quad triangle-component-v18}
+\title{非可換三次曲面を結ぶ幾何学\\\large 楕円 $E_6$ 量子化・指標多様体・Cayley曲面と $D_4$ 特異点}
+\author{}
+\date{2026年11月17日\quad e6-connections-v19}
 \begin{document}\maketitle
 \begin{abstract}
-原始三乗根の量子 $\mathfrak{so}_3$ 包絡の中心三次切断から得られる四次元族は、
-包絡の低次三係数を動かす七次元族に含まれる。
-本稿では、この七次元族を含む既約成分の完全決定を目標とし、現在の到達点を証明付きで整理する。
-固定位数三・中央楕円境界の開部分では、全対称PBW表示を七次元正常形へ還元できる。
-また、中心三次元の低次補正の一意性を用い、境界の平行移動を三捩れから動かす
-全次数の中央三次商変形を構成する。中心値を独立な超越パラメータとした一般点はH3である。
-滑らかな三次曲面を中心とし、滑らかな反標準楕円曲線で指数三分岐する一般点では、
-局所orderのKoszul計算から $\HH^1=0,\dim\HH^2=8,\HH^{\ge3}=0$ を得る。
-したがって圏の通常の形式変形空間は八次元で無障害である。
-これは全H3モジュライの構成・全境界の分類を無条件に完成したという主張ではない。
-任意のArtin底上で反標準環の次数別平坦性と六二次・一三次表示を証明し、
-適合したenhanced Abel変形から圏変形への同型類上の単射性を得る。
-さらに選んだ点の全Artin形式近傍を八変数で分類し、明示族の相対THCR境界と幾何学的一般点のH3性を認識する。
-指定表示の近傍にはsmooth DMな八次元代数的表示stackを構成する。
-固定包絡では結節中心が五つの正規交叉因子をなし、その商が二成分であることを示す。さらに包絡の三つの係数を動かす七次元族では、五節点の連結\'{e}tale被覆によりこの軌跡が既約な六次元因子となることを証明する。
-さらにCasimir切断のAskey--Wilson代数との完全な表示同型とCasimir規約を与え、
-その中心が四穴球面のFricke character varietyを優越する四次元族を持つことを示す。
-Braid作用を量子的Vieta変換として明示し、Goldman型Poisson括弧と対数Calabi--Yau三角境界を同定する。
-量子化パラメータ $Q=q\exp(\hbar)$ の交換子微分は、このGoldman型括弧の正確に9倍を誘導する。
-そのPoisson order構造から滑らかなFricke中心上の有限次元中心fiber代数は同型になる。
-一方、$\Omega$ 係数が非零の中心三次切断のうち、この指定変形の平坦商に一次で持ち上がるのはCasimir切断だけである。
-量子的Vieta作用も、固定した反標準コンパクト化の構造対象付きH3心には延長しない。
-これらの障害は抽象的な圏変形や導来対応を否定せず、同時Sklyanin変形と心の変更を必要な比較対象として分離する。
-固定量子包絡のCasimir pencilではPoisson零点が総中心の五節点と五つの滑らかな臨界点に分かれ、
-特異な四中心値の$A_1$曲面のうち、前者から生じる二値のみが強いH3となる。
-さらに三低次係数を動かす相対Poisson臨界スキームが全係数で有限平坦次数15、
-一次元表現スキームが有限平坦次数5であることを示す。
-Casimir切断の臨界値多項式は既約五次式の二乗と別の五次式に因数分解し、
-二つの五次因子$N_5,M_5$はどちらも幾何学的に既約で、
-そのGalois閉包は独立であり、同時monodromyが$S_5\times S_5$となることを証明する。
-この部分族は楕円境界を持つ一般の八次元族と区別する。
-全fiberのH3開性、全intrinsic族の降下、成分の大域閉包と全境界はなお未完成である。
+原始三乗根の量子 $\mathfrak{so}_3$ 包絡とその中心三次切断を、
+非可換三次曲面、DAHA、指標多様体、特異点論を結ぶ具体的な族として研究する。
+固定位数三の中央楕円境界部分には七次元のPBW正常形があり、
+三捩れを離れる平坦な中央三次商変形と八変数の全Artin表示族を構成する。
+滑らかな三次中心・反標準楕円境界および記載した局所order模型の下で、
+Hochschild接空間は八次元、障害空間は零となる。
+全intrinsic H3モジュライの代数化・降下・大域境界は未完成である。
+
+Casimir切断は普遍Askey--Wilson代数の中央特殊化に一致し、
+その中心は四穴球面のFricke三次曲面を与える。
+量子化パラメータの交換子微分は指定したGoldman型括弧の9倍を誘導する。
+一方、非Casimir切断の純粋$q$変形と、固定pointed H3心へのVieta作用には障害がある。
+相対Poisson臨界スキームは有限平坦次数15、一次元表現は次数5であり、
+Casimir臨界値多項式は$\Delta_{15}=N_5^2M_5$と分解する。
+二つの五次因子の同時幾何学的monodromyは$S_5\times S_5$である。
+
+さらに一次元表現被覆を一つのLandau--Ginzburgポテンシャルの臨界点族と読むと、
+そのramification divisorはトーラスの$\mathrm{SL}_2$指標多様体であるCayley三次曲面となる。
+四つの特殊fiberでは四枚のsheetが$D_4$型で衝突し、
+三係数は加法定数を除くミニバーサル変形を与える。
+同じ構成にtriality、Jacobi留数対、実pillowcase、相関行列のelliptopeが現れる。
+被覆の分岐とCasimir値の衝突を区別し、elliptope内部で実勾配写像が単射であることを示す。
+これらの明示的な接続と、既知理論の適用・未構成の圏的対応を分けて記述する。
 \end{abstract}
 \tableofcontents
 
-\section{問題と主張の状態}
+\section{問題、幾何学的接続、主張の状態}
 基礎体 $k$ は標数0の代数閉体とする。
 H3とは、構造対象 $\OO$ を持つExt有限noetherian Abel圏 $\mathcal A$ で、
 反Serre作用 $\tau=S^{-1}[2]$ のheart保存、Gabriel--Krull rank-one torsion-free exceptional条件、
@@ -74,9 +65,29 @@ Artin--Zhang豊富性、三次曲面の反標準Hilbert値を満たし、
 その二次包絡 $Q(R)$ がquadratic Koszul AS4型14641となる、現行研究の強いクラスである。
 同型は構造対象を保つexact同値であり、任意の導来同値による商ではない。
 
-本稿の目標は、後述の七次元族を含む既約成分を、その一般点・全境界・同型群oid・族まで決定すること、
-およびこの成分とDAHA・character variety・Poisson幾何の関係を明示することである。
-現時点で得た局所結果と、全モジュライの存在に依存する帰結を次のように区別する。
+本稿を貫く問いは、非可換三次曲面の具体的な代数から、どのような幾何学が回復されるか、
+そして異なる分野で現れる構造がどの範囲で同じものになるか、というものである。
+中心のFricke方程式は指標多様体へ、root-of-unity変形はPoisson orderへ、
+一次元表現の五重被覆はLandau--Ginzburgの臨界点とCayley曲面へ導く。
+最後の構成では、トーラスの指標多様体、局所$D_4$変形、留数代数、
+実pillowcaseと凸幾何が一つの勾配写像の異なる側面として現れる。
+七次元族を含む八次元成分の決定は、この相互関係を組織化する重要な課題として保持するが、
+未解決の大域分類を他分野との比較の前提とはしない。
+
+特に、第\ref{sec:cayley-lg-connections}節の
+$\Phi=(vw-u,wu-v,uv-w)$では、ramification divisorが
+$u^2+v^2+w^2+2uvw-1=0$となる。
+このCayley曲面のトーラス商とmodular作用はCantat--Loray
+\cite[\S1.5]{CantatLorayCayley}の既知の幾何であり、
+$D_4$の変形とtrialityはMikosz--Weber \cite[Proposition 3, \S5]{MikoszWeberTriality}、
+elliptopeのnearly K\"ahler multi-moment像としての出現は
+Dixon \cite[Lemma 3.5]{DixonElliptope}と比較する。
+本稿はこれらの一般理論を新たに発見したと主張せず、指定した表現被覆との正確な同定、
+四sheet衝突のversal性、実sheetの一意性を証明する。
+Picardの$D_4$格子と局所Milnor格子の標準的同定、mirror/Fukaya同値、
+nearly K\"ahler幾何との圏的対応は未構成である。
+
+現時点で得た結果と仮定付きの帰結を次のように区別する。
 \begin{longtable}{p{.28\textwidth}p{.63\textwidth}}
 \toprule
 対象&状態\\\midrule
@@ -91,6 +102,7 @@ DAHAとcharacter variety&Askey--Wilson Casimirを規約まで同定し、Fricke�
 二つの延長障害&非Casimir切断は指定した純粋$q$変形の平坦商に持ち上がらず、Vietaは固定pointed H3心へ延長しない。\\
 Casimir特異中心の二類型&Poisson零点は総中心の五節点と五滑らか臨界点。四特異値は全て$A_1$だが既存H3判定で二値ずつ可否が分かれる。第\ref{sec:casimir-poisson-leaves}節。\\
 相対Poisson被覆と二五次式&臨界スキーム有限平坦次数15、一次元表現次数5。$\Delta_{15}=N_5^2M_5$、二つの五次因子の同時幾何monodromyは$S_5\times S_5$。第\ref{sec:relative-poisson-cover}節。\\
+Cayley・$D_4$・実凸幾何&五重被覆のramification divisorをトーラス指標多様体と同定。四sheet衝突の$D_4$ミニバーサル性、留数対、elliptope内部の単射性。第\ref{sec:cayley-lg-connections}節。\\
 \bottomrule
 \end{longtable}
 
@@ -523,8 +535,8 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 固定した楕円境界のfiltered deformationの六次元と、境界曲線・平行移動の二次元を区別する。
 期待される重み付き射影表示やWeyl商を、そのまま全H3の同値と断定しない。
 指定potential chartでの全Artin包絡認識と八変数の同時中心切断は後節で解決する。
-次に最優先で行うことは、全intrinsic形式変形との比較とH3族の相対実現であり、
-その後、閉包の境界を有限な認識条件へ落とすことである。
+全intrinsic形式変形との比較、H3族の相対実現、閉包の境界の認識は保持すべき課題である。
+他方、指標多様体・特異点・実幾何との具体的接続は、それらの完成を待たずに調べられる。
 
 \input{papers/sections/quantum_cubic_artin_reconstruction.tex}
 \input{papers/sections/quantum_cubic_quadratic_obstruction.tex}
@@ -537,6 +549,7 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \input{papers/sections/quantum_cubic_poisson_orders.tex}
 \input{papers/sections/quantum_cubic_casimir_leaves.tex}
 \input{papers/sections/quantum_cubic_relative_poisson.tex}
+\input{papers/sections/quantum_cubic_cayley_lg.tex}
 
 \section{再現と検証範囲}
 全コードはPython 3、SymPy、NetworkXを使用し、各コードと同じ場所へ小さいJSON証明書を再生成する。
@@ -564,24 +577,18 @@ Rainsの $E_6$ 型幾何学と比較する際には、
 \path{verify_poisson_cut_obstruction.py}&切断の三障害・Vieta次数：既存PASS\\
 \path{verify_casimir_poisson_leaves.py}&十Poisson零点・四特異値・Hessian・一次元表現：既存PASS\\
 \path{verify_relative_poisson_cover.py}&次数15のGr\"obner環・二五次因子・単純fold：既存PASS\\
-\path{verify_companion_s5.py}&二素数での$N_5,M_5$ Frobenius分解型：今回PASS\\\bottomrule
+\path{verify_companion_s5.py}&二素数での$N_5,M_5$ Frobenius分解型：既存PASS\\
+\path{verify_cayley_lg_connections.py}&Cayley・対数Poisson・$D_4$局所環・versal方向・留数対：今回PASS\\\bottomrule
 \end{longtable}
-有限体の標本による外挿はしていない。
-今回新規に実行したのは\path{verify_companion_s5.py}に対応する厳密な有限体検算で、
-二つの素数において臨界環rank15・一次元表現環rank5、$\Delta_{15}=N_5^2M_5$、
-$N_5,M_5$の因数分解型を確認した。小証明書は\path{companion_s5_certificate.json}。
-幾何学的$S_5\times S_5$は計算ではなく、有限\'{e}tale被覆の有理分裂点と
-基本群完全列・Goursat補題を使った本文の通常の証明による。
-他の22検証器を今回再実行したとは主張しない。
-新しい$S_5\times S_5$定理は独立wrapperでLuaLaTeX組版（2頁）し、両頁を画像点検した。
-前回の相対Poisson・$S_5$節は独立wrapperで組版（4頁）した。
-前回のCasimir零点節は独立wrapperで組版（3頁）した。
-Poisson節とDAHA節の前回の独立wrapperによる組版も保存済みの確認結果である。
-このwrapperは別の公表論文ではなく、主論文の今回の全体再組版を代用するものでもない。
-H3開性・相対圏の再構成・局所order認識・平坦イデアルの障害・H3心の再構成は、
-計算証明書と通常の数学的証明を区別して記載した。
-主原稿全体の今回の再組版、全原稿の独立査読、Lean形式化、
-量子代数のskein--DAHA対応の完全な圏的同定、新規性の網羅調査は未実施である。
+今回実行したのは最後の検証器であり、全計算は有理数体上の記号計算である。
+新しい小証明書は\path{computations/cayley_lg_connections_certificate.json}。
+不変環の生成、解析的$D_4$右同値、versal性判定、実凸領域での単射性は本文の通常の証明であり、
+計算証明書と区別する。旧23検証器のPASSは既存の保存結果で、今回の再実行ではない。
+新Cayley--Landau--Ginzburg節を一時的な独立wrapperでLuaLaTeX組版した（5頁）。
+この点検用wrapperでは本文外の二つの参照は未解決であり、主論文全体を今回組版したとはしない。
+主論文への入力先と文献キーは保存時に確認する。
+全旧証明の独立再監査、Lean形式化、mirror/Fukaya同値の構成、
+新規性の網羅調査は未実施である。
 
 \begin{thebibliography}{99}
 \bibitem{DeDekenLowen} O. De Deken, W. Lowen,
@@ -595,7 +602,6 @@ J. Noncommut. Geom. 5 (2011), 477--505,
 \bibitem{StacksPerfect} The Stacks Project Authors,
 \emph{The Stacks Project},
 \href{https://stacks.math.columbia.edu/tag/0BDK}{Tag 0BDK}, Lemma 36.31.3.
-
 \bibitem{EG} P. Etingof, V. Ginzburg,
 \emph{Noncommutative del Pezzo surfaces and Calabi--Yau algebras},
 J. Eur. Math. Soc. 12 (2010), 1371--1416.
@@ -651,7 +657,18 @@ Fricke判別式をトレースパラメータへ引き戻した場合の二乗�
 J. Math. Phys. 52 (2011), 043521,
 \href{https://doi.org/10.1063/1.3579992}{doi:10.1063/1.3579992}.
 三乗根を含むroot-of-unity中心の構造について参照し、規約の完全な同一視は追加検証事項。
-
+\bibitem{CantatLorayCayley} S. Cantat, F. Loray,
+\emph{Dynamics on Character Varieties and Malgrange irreducibility of Painlev\'e VI equation},
+Ann. Inst. Fourier 59 (2009), 2927--2978,
+\href{https://doi.org/10.5802/aif.2512}{doi:10.5802/aif.2512}, \S1.5.
+\bibitem{MikoszWeberTriality} M. Mikosz, A. Weber,
+\emph{Triality, characteristic classes, $D_4$ and $G_2$ singularities},
+J. Homotopy Relat. Struct. 10 (2015), 995--1011,
+\href{https://doi.org/10.1007/s40062-014-0094-3}{doi:10.1007/s40062-014-0094-3}, Proposition 3, \S5.
+\bibitem{DixonElliptope} K. Dixon,
+\emph{The multi-moment maps of the nearly K\"ahler $S^3\times S^3$},
+Geom. Dedicata 200 (2019), 351--362,
+\href{https://doi.org/10.1007/s10711-018-0375-9}{doi:10.1007/s10711-018-0375-9}, Lemma 3.5.
 \bibitem{HikamiCluster} K. Hikami,
 \emph{Note on character varieties and cluster algebras},
 SIGMA 15 (2019), 003,
