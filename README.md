@@ -46,4 +46,4 @@ latexmk -lualatex papers/nc-cubic-e6.tex
 今回は新しい対数周期検証器を厳密実行しPASS。小証明書は `computations/logarithmic_periods_certificate.json`。球面の構成・積分・解析接続・Friedman比較・有理MHS非分裂は本文の通常証明と一次資料への依存であり、有限計算だけの結論ではない。
 新節単体のLuaLaTeX組版4頁を全頁画像点検し、内部参照とoverfullなしを確認。主論文全体の今回の組版、旧26検証器の全再実行、独立査読、新規性の網羅調査は未実施。
 
-GitHub mainが正本。**push済み内容はLibraryへ保存しない。** PDF・ZIP・ログ・中間生成物はGitで追跡しない。他の研究は [分類](https://github.com/uedakazushi/nc-cubic-moduli)、[ambient比較](https://github.com/uedakazushi/nc-cubic-ambient-moduli)、[非AS短報](https://github.com/uedakazushi/nc-cubic-non-as) を参照する。移行元は [固定source commit](https://github.com/uedakazushi/nc-cubic-moduli/tree/c5fd8a8301f6b1c283a6f0510cde80ae6a006e80) を基準に抽出済みで、旧bundleを再開の前提にしない。
+GitHub mainが正本。**push済み内容はLibraryへ保存しない。** PDF・ZIP・ログ・中間生成物はGitで追跡しない。他の研究は [分類](https://github.com/uedakazushi/nc-cubic-moduli)、[ambient比較](https://github.com/uedakazushi/nc-cubic-ambient)、[標識忘却](https://github.com/uedakazushi/nc-cubic-unmark)、[非AS短報](https://github.com/uedakazushi/nc-cubic-non-as) を参照する。移行元は [固定source commit](https://github.com/uedakazushi/nc-cubic-moduli/tree/c5fd8a8301f6b1c283a6f0510cde80ae6a006e80) を基準に抽出済みで、旧bundleを再開の前提にしない。
