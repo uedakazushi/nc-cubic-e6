@@ -72,4 +72,4 @@ latexmk -lualatex cubic-boundary-prym.tex
 
 computations/validation.json は直近の全36検証器の結果・実行時刻・使用ソースのhashを記録します。今回の比較検算は computations/r13_comparison_certificate.json に別記し、既存36個の再実行とは区別します。入力断片に付随する computations/auxiliary/ の検証器もこの36個に含まれません。scripts/build_bundle.py は旧版、PDF以外の組版生成物、ログ、キャッシュ、.git を含めず、必要な現在の一式を作ります。
 
-GitHubには原稿・ノート・計算資産を保存し、PDF・ZIPを追跡しません。全H3分類の関連研究は [nc-cubic-moduli](https://github.com/uedakazushi/nc-cubic-moduli)、ambient研究は [nc-cubic-ambient](https://github.com/uedakazushi/nc-cubic-ambient) を参照してください。
+GitHubには原稿・ノート・計算資産を保存し、PDF・ZIPを追跡しません。全H3分類の関連研究は [nc-cubic-classification](https://github.com/uedakazushi/nc-cubic-classification)、ambient研究は [nc-cubic-ambient](https://github.com/uedakazushi/nc-cubic-ambient) を参照してください。
